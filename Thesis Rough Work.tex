@@ -14,7 +14,7 @@
 \usepackage{enumitem}
 \title{Thesis Rough Work}
 \author{Justin Furlotte (Student \#: 64238736)}
-\date{January 8, 2022}
+\date{May 17, 2022}
 \begin{document}
 \begin{titlepage}
 \maketitle
@@ -106,19 +106,107 @@ An example of an edge Hamiltonian satisfying the assumption on $E_a$ is $H_a = J
 
 Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The bound in assumption ? is satisfied by the short range assumption ?.
 
-We define the bulk conductivity at Fermi energy $\lambda$ to be
+We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential difference $V$ in the $x_2$ direction. We write this as $-V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators $\Lambda_i |\psi\rangle = \Lambda(x_i)|\psi\rangle$ which are \textit{switch functions}, satisfying
 
-\[\sigma_B(\lambda) = -i\Tr(P_\lambda \left[[P_\lambda,\xi_1],[P_\lambda,\xi_2]\right]),\]
+\[\Lambda(x_i) = \begin{cases} 1 & \text{if } x_i<0 \\ 0 & \text{if } x_i > 1\end{cases}\]
 
-where $P_\lambda$ is the projection onto states with energy less than $\lambda$, and $\xi_i$ are characteristic functions
+and are smooth and monotonically decreasing on $[0,1]$. This gives $\vec{E}=-\nabla V = V_0\frac{\partial \Lambda_2}{\partial x_2}$, so that $\vec{E}$ is has compact support $\text{supp}(\Lambda_2')$. We introduce a function which grows slowly in time as $t$ grows from $-\infty$ to 0, so as to invoke the adiabatic principle. Here, we choose $e^{\eps t}$, and we will let $\eps\to 0$ at the end. The Hamiltonian therefore experiences a perturbation, 
 
-\[\xi_i(x) = \begin{cases} 1 & \text{if } x_i<0 \\ 0 & \text{if } x_i \geq 0\end{cases}.\]
+\[\widetilde{H}_B(t) = H_B - V_0\Lambda_2 e^{\eps t}.\]
 
-This is reminiscent of the well-known adiabatic curvature formula,
+We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. 
+
+\begin{proposition}
+
+The Hall conductivity $\sigma_H$ in the bulk system is equal to 
+
+\[\sigma_B = -i\emph{Tr}\left(P_\mu \left[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]\right]\right),\]
+
+where $P_\mu := P((-\infty,\mu))$ is the projection-valued measure associated with $H_B$ onto states with energy less than the Fermi energy $\mu$.
+\end{proposition}
+\begin{proof}
+We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition $\lim_{t\to-\infty} \|\rho(t) - e^{-itH_B}P_\mu e^{itH_B}\| = 0$, which also implies $\lim_{t\to-\infty} \|e^{itH_B}\rho(t)e^{-itH_B} - P_\mu\| = 0$.
+
+We work in the interaction picture, and define $\rho_I(t) = e^{itH_B}\rho(t)e^{-itH_B}$, and $\Delta H_B(t) = -e^{itH_B}V_0\Lambda_2 e^{\eps t}e^{-itH_B}$. Thus
+
+\[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)]\]
+
+The solution to this differential equation is readily verified to be
+
+\[\rho(t) = i\int_{-\infty}^t [\Delta H_B(t), P_\mu]ds + P_\mu \]
+
+where $\Delta H_B(t)$ depends on $s$. Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$. The initial condition is also satisfied. 
+
+Using $J_H = i[H_B,\Lambda_1] = \sigma_H V$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho(0)i[H_B,\Lambda_1])$. Since the expectation of the ground state current is zero, $\Tr(P_\mu J_H) =0$, we have
+
+\[\begin{aligned}
+\sigma_H &= \frac{i}{V_0} \lim_{\eps\to 0}\Tr \left( i\int_{\infty}^0 [\Delta H_B(t), P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
+&= -\lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 (e^{-isH_B}[H_B,\Lambda_1]e^{isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\end{aligned}\]
+
+Where we used the fact that $P_\mu$ and $H_B$ commute. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}[H_B,\Lambda_1] e^{-isH_B}) = -(ie^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1)$, we obtain
+
+\[\begin{aligned}
+\sigma_H &= i \lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 (e^{-isH_B}\Lambda_1e^{isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+&= i \lim_{\eps\to 0}\eps \Tr \left( \int_{\infty}^0 \Lambda_1^s[\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\end{aligned}\]
+
+where $\Lambda_1^s := e^{-isH_B}\Lambda_1e^{isH_B} - \Lambda_1$. Using the notation $\overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp A P_\mu$, it is readily verified that the commutator $[\Lambda_2, P_\mu]$ is an \textit{off-diagonal} operator, in the sense that  $[\Lambda_2, P_\mu] = \overline{[\Lambda_2,P_\mu]}$. Furthermore, a simple computation reveals that for any two operators $A$ and $B$, $\Tr(\overline{A}B) = \Tr(A\overline{B})$. It therefore follows that
+
+\[\begin{aligned}
+\sigma_H &= i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s})ds\right)
+\end{aligned}\]
+
+The integrand can be broken into two terms, 
+
+\[\overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s} = e^{-isH_B}\overline{\Lambda_1}e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} - \overline{\Lambda_1}[\Lambda_2, P_\mu]e^{\eps s}\]
+
+by commutativity of $P_\mu$ and $H_B$. We show that the integral of the first term vanishes. We begin by breaking the first term down further into
+
+\[e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} + e^{-isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s}.\]
+
+We treat the first of these two terms; the other is handled in an identical manner. We use the spectral theorem to write $e^{-isH_B}P_\mu = \int_{-\infty}^\mu e^{-is\lambda}dP_\lambda$, and similarly $P_\mu^\perp e^{isH_B} = (\text{Id} - P_\mu) e^{isH_B} = \int_\mu^\infty e^{is\nu} dP_\nu$. 
+
+We remark that, since the Fermi energy $\mu$ is assumed to lie in a spectral gap, there must exist a neighbourhood $(\mu-\delta, \mu+\delta)$ in which there are no states. We exploit this fact to rewrite the limits of integration, $\int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda$ and $\int_{\mu+\delta}^\infty e^{is\nu} dP_\nu$. We therefore obtain
+
+\[\begin{aligned} 
+\lim_{\eps\to 0} \eps \int_{-\infty}^0 e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} ds &= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda \Lambda_1 \int_{\mu+\delta}^\infty e^{is\nu} dP_\nu [\Lambda_2, P_\mu] e^{\eps s} ds\right)\\
+&= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} \int_{\mu+\delta}^\infty e^{s(\eps-i\lambda+i\nu)}dP_\lambda \Lambda_1 dP_\nu [\Lambda_2, P_\mu]ds\right)\\
+\end{aligned}\]
+
+Performing the integral over $s$ yields
+
+\[\lim_{\eps\to 0}\eps \int_{-\infty}^0 e^{s(\eps-i\lambda+i\nu)}ds = -\lim_{\eps\to 0} \frac{\eps}{i\eps + \lambda-\nu}\]
+
+This limit is zero, since $\lambda \neq \nu$. Indeed, due to the spectral gap, the integration variables live in $\lambda \in (-\infty, \mu-\delta)$ and $\nu \in (\mu+\delta,\infty)$. The case for the $e^{-isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s}$ term (where the $P_\mu$ and $P_\mu^\perp$ swap places) is treated analogously. Hence the first term in the integrand for $\sigma_H$ vanishes, as claimed. 
+
+Finally, we return to our expression for the Hall conductivity, which now reads
+
+\[\sigma_H = i\lim_{\eps\to 0}\eps \Tr\left(\int_{-\infty}^0 \overline{\Lambda_1}[\Lambda_2, P_\mu]e^{\eps s}ds\right).\]
+
+It is a basic algebraic calculation to show that $\overline{\Lambda_1} = [[\Lambda_1, P_\mu],P_\mu]$. Evaluating the integral over $s$ is now trivial; $\int_{-\infty}^0 e^{\eps s}ds = \eps^{-1}$. Thus
+
+\[\sigma_H = -i\Tr([[\Lambda_1,P_\mu],P_\mu][\Lambda_2,P_\mu]).\]
+
+Shifting the commutator completes the proof:
+
+\[\begin{aligned}
+\sigma_H &= -i\Tr(P_\mu[[\Lambda_2,P_\mu],[\Lambda_1,P_\mu]]) \\
+&= i\Tr(P_\mu[[\Lambda_1,P_\mu],[\Lambda_2,P_\mu]])\\
+&= i\Tr(P_\mu[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]]).
+\end{aligned}\]
+
+\end{proof}
+
+\textit{Remark:} This is reminiscent of the well-known adiabatic curvature formula,
 
 \[\kappa = \Tr(P[\partial_1P,\partial_2 P]) = \Tr(P\left[ [P,K_1], [P,K_2] \right]) = \Tr(P[K_1,K_2]),\]
 
-where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. For the edge conductivity, we need the current operator across the line $x_1=0$, which is given by $-i[H_a,\xi_1]$. We define 
+where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. 
+
+For the \textit{edge conductivity}, we need the current operator across the line $x_1=0$, which is given by $-i[H_a,\xi_1]$. We define 
 
 \[\sigma_E = -i\lim_{a\to\infty}\Tr(\rho'(H_a)[H_a,\xi_1]),\]
 

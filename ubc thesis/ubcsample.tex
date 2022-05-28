@@ -1,24 +1,405 @@
-\documentclass[12pt, letterpaper]{article}
-\usepackage[margin=1.5in]{geometry} % standard is 1.5inch
+%%
+%% This is file `ubcsample.tex',
+%% generated with the docstrip utility.
+%
+% The original source files were:
+%
+% ubcthesis.dtx  (with options: `ubcsampletex')
+%% 
+%% This file was generated from the ubcthesis package.
+%% --------------------------------------------------------------
+%% 
+%% Copyright (C) 2001
+%% Michael McNeil Forbes
+%% mforbes@alum.mit.edu
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.2
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% This program is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% LaTeX Project Public License for more details.
+%% 
+%% This program consists of the files ubcthesis.dtx, ubcthesis.ins, and
+%% the sample figures fig.eps and fig.fig.
+%% 
+%% This file may be modified and used as a base for your thesis without
+%% including the licence agreement as long as the content (i.e. textual
+%% body) of the file is completely rewritten. You must, however, change
+%% the name of the file.
+%% 
+%% This file may only be distributed together with a copy of this
+%% program. You may, however, distribute this program without generated
+%% files such as this one.
+%% 
+
+% This Sample thesis requires \LaTeX2e
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesFile{ubcsample.tex}[2015/05/31 v1.72 ^^J
+ University of British Columbia Sample Thesis]
+% This is the \documentclass[]{} command.  The manditory argument
+% specifies the "flavour" of thesis (ubcthesis for UBC).  The
+% optional arguments (in []) specify options that affect how the
+% thesis is displayed.  Please see the ubcthesis documentation for
+% details about the options.
+\documentclass[msc,oneside]{ubcthesis}
+%
+% To compile this sample thesis, issue the following commands:
+% latex ubcsample
+% bibtex ubcsample
+% latex ubcsample
+% latex ubcsample
+% latex ubcsample
+%
+% To view use xdvi (on unix systems):
+% xdvi ubcsample.dvi
+%
+% To make a postscript file, use dvips:
+% dvips -o ubcsample.ps ubcsample.dvi
+%
+% To view the postscript file, use ghostview or gv (on unix systems):
+% gv ubcsample.ps
+%
+%************************************************
+% Optional packages.
+%
+% The use of these packages is optional, but they provide various
+% tools for more flexible formating.  The sample thesis uses these,
+% but if you remove the example code, you should be able to exclude
+% these packages.  Only standard packages have been described here;
+% they should be installed with any complete LaTeX instalation, but
+% if not, you can find them at the Comprehensive TeX Archive Network
+% (CTAN): http://www.ctan.org/
+%
+
+%******** afterpage ***************************
+% This package allows you to issue commands at the end of the current
+% page.  A good use for this is to use the command
+% \afterpage{\clearpage} right after a figure.  This will cause the
+% figure to be inserted on the page following the current one (or on
+% the current page if it will fit) but will not break the page in the
+% middle.
+\usepackage{afterpage}
+
+%******** float *********************************
+% This package allows you to customize the style of
+% "floats"---floating objects such as figures and tables.  In
+% addition, it allows you to define additional floating objects which
+% may be included in a list similar to that produces by \listoftables
+% and \listoffigures.  Common uses include introducing floats for
+% programs and other code bits in Compute Science and Chemical Schema.
+\usepackage{float}
+
+%******** tocloft *******************************
+% This package allows you to customize and define custom lists such
+% as a list of programs or Chemical Scheme.  Note: if you use the
+% subfigure package, you must specify that you do as an option here.
+% The title option uses the default formatting.  We do not use this
+% here as the default formatting is acceptable.  Use the float
+% package instead unless you need the extra formatting control
+% provided by tocloft.
+%\usepackage[subfigure, titles]{tocloft}
+
+%******** alltt *********************************
+% The alltt package allows you to include files and have them
+% formatted in a verbatim fashion.  This is useful for including
+% source code from an additional file.
+%\usepackage{alltt}
+
+%******** listings ******************************
+% The listings package may be used to include chunks of source code
+% and has facilities for pretty-printing many languages.
+%\usepackage{listings}
+
+%******** longtable *****************************
+% The longtable package allows you to define tables that span
+% multiple pages.
+\usepackage{longtable}
+
+%******** graphics and graphicx *****************
+% This allows you to include encapsulated postscript files.  If you
+% don't have this, comment the \includegraphics{} line following the
+% comment "%includegraphics" later in this file.
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{bbm}
-\usepackage{tikz}
-\usepackage[title]{appendix}
-\usepackage{hyperref}
-\usetikzlibrary{patterns}
-%\usepackage{stix}
-\usepackage{amssymb}
-\usepackage{enumitem}
-\title{Thesis Rough Work}
-\author{Justin Furlotte (Student \#: 64238736)}
-\date{May 17, 2022}
+
+%******** subfigure *****************************
+% The subfigure package allows you to include multiple figures and
+% captions within a single figure environment.
+%\usepackage{subfigure}
+
+%******** here **********************************
+% The here package gives you more control over the placement of
+% figures and tables.  In particular, you can specify the placement
+% "H" which means "Put the figure here" rather than [h] which means
+% "I would suggest that you put the figure here if you think it looks
+% good."
+%\usepackage{here}
+
+%******** pdflscape ********************************
+% This allows you to include landscape layout pages by using the
+% |landscape| environment.  The use of |pdflscape| is preferred over
+% the standard |lscape| package because it automatically rotates the
+% page in the pdf file for easier reading.  (Thanks to Joseph Shea
+% for pointing this out.)
+\usepackage{pdflscape}
+
+%******** natbib ********************************
+% This is a very nice package for bibliographies.  It includes options
+% for sorting and compressing bibliographic entries.
+\usepackage[numbers,sort&compress]{natbib}
+
+%******** psfrag ******************************
+% This allows you to replace text in postscript pictures with formated
+% latex text.  This allows you to use math in graph labels
+% etc. Uncomment the psfrag lines following the "%psfrag" comment
+% later in this file if you don't have this package.  The replacements
+% will only be visible in the final postscript file: they will be
+% listed in the .dvi file but not performed.
+\usepackage{psfrag}
+
+%******** hyperref *****************************
+% Please read the manual:
+% http://www.tug.org/applications/hyperref/manual.html
+%
+% This adds hyperlinks to your document: with the right viewers (later
+% versions of xdvi, acrobat with pdftex, latex2html etc.) this will
+% make your equation, figure, citation references etc. hyperlinks so
+% that you can click on them.  Also, your table of contents will be
+% able to take you to the appropriate sections.  In the viewers that
+% support this, the links often appear with an underscore.  This
+% underscore will not appear in printed versions.
+%
+% Note: if you do not use the hypertex option, then the dvips driver
+% may be loaded by default.  This will cause the entries in the list
+% of figures and list of tables to be on a single line because dvips
+% does not deal with hyperlinks on broken lines properly.
+%
+% NOTE: HYPERREF is sensitive to the ORDER in which it is LOADED.
+% For example, it must be loaded AFTER natbib but BEFORE newly
+% defined float environments.  See the README file with the hyperref
+% for some help with this.  If you have some very obscure errors, try
+% first disabling hyperref.  If that fixes the problem, try various
+% orderings.
+%
+% Note also that there is a bug with versions before 2003/11/30
+% v6.74m that cause the float package to not function correctly.
+% Please ensure you have a current version of this package.  A
+% warning will be issued if you leave the date below but do not have
+% a current version installed.
+%
+% Some notes on options: depending on how you build your files, you
+% may need to choose the appropriate option (such as [pdftex]) for the
+% backend driver (see the hyperref manual for a complete list).  Also,
+% the default here is to make links from the page numbers in the table
+% of contents and lists of figures etc.  There are other options:
+% excluding the [linktocpage] option will make the entire text a
+% hyperref, but for some backends will prevent the text from wrapping
+% which can look terrible.  There is a [breaklinks=true] option that
+% will be set if the backend supports (dvipdfm for example supports
+% it but does not work with psfrag.)
+%
+% Finally, there are many options for choosing the colours of the
+% links.  These will be included by default in future versions but
+% you should probably consider changing some now for the electronic
+% version of your thesis.
+\usepackage[unicode=true,
+  linktocpage,
+  linkbordercolor={0.5 0.5 1},
+  citebordercolor={0.5 1 0.5},
+  linkcolor=blue]{hyperref}
+
+% If you would like to compile this sample thesis without the
+% hyperref package, then you will need to comment out the previous
+% \usepackage command and uncomment the following command which will
+% put the URL's in a typewriter font but not link them.
+%\newcommand\url[1]{\texttt{#1}}
+
+%******** setspace *******************************
+% The setspace package allows you to manually set the spacing of the
+% file.  UBC may require 1.5 spacing for microfilming of theses.  In
+% this case you may obtain this by including this package and issuing
+% one of the following commands:
+%\usepackage{setspace}
+%\singlespacing
+%\onehalfspacing
+%\doublespacing
+
+% These commands are optional.  The defaults are shown.  You only
+% need to include them if you need a different value
+\institution{The University Of British Columbia}
+
+% If you are at the Okanagan campus, then you should specify these
+% instead.
+%\faculty{The College of Graduate Studies}
+%\institutionaddress{Okanagan}
+\faculty{The Faculty of Graduate Studies}
+\institutionaddress{Vancouver}
+
+% You can issue as many of these as you have...
+\previousdegree{B.Sc., The University of British Columbia, 1999}
+\previousdegree{M.Sc., The University of British Columbia, 2001}
+\previousdegree{Ph.D., Massachusetts Institute of Technology, 2005}
+
+% You can override the option setting here.
+% \degreetitle{Jack of All Trades}
+
+% These commands are required.
+\title{A Sample UBC Thesis}
+\subtitle{With a Subtitle}
+\author{Michael M$^{\rm c}$Neil Forbes}
+\copyrightyear{2000}
+\submitdate{\monthname\ \number\year} % The "\ " is required after
+                                      % \monthname to prevent the
+                                      % command from eating the space.
+\program{Physics}
+
+% These commands are presently not required for UBC theses as the
+% advisor's name and title are not presently required anywhere.
+%\advisor{Ariel R.~Zhitnitsky}
+%\advisortitle{Professor of Physics}
+
+% One might want to override the format of the section and chapter
+% numbers.  This shows you how to do it.  Note that the current
+% format is acceptable for submission to the FoGS: If you wish to modify
+% these, you should check with the FoGS explicity. prior to making
+% the modifications.
+\renewcommand\thepart         {\Roman{part}}
+\renewcommand\thechapter      {\arabic{chapter}}
+\renewcommand\thesection      {\thechapter.\arabic{section}}
+\renewcommand\thesubsection   {\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+\renewcommand\theparagraph    {\thesubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+
+
+\graphicspath{ {c:/user/justin/grad school/Thesis} }
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% Here is an example of a "Program" environment defined with the
+% "float" package.  The list of programs will be stored in the file
+% ubcsample.lop and the numbering will start with the chapter
+% number.  The style will be "ruled".
+\floatstyle{ruled}
+\newfloat{Program}{htbp}{lop}[chapter]
+
+% Here is the start of the document.
 \begin{document}
-\begin{titlepage}
-\maketitle
-\end{titlepage}
+
+%% This starts numbering in Roman numerals as required for the thesis
+%% style and is mandatory.
+\frontmatter
+
+%%% The order of the following components should be preserved.  The order
+%%% listed here is the order currently required by FoGS:        \\
+%%% Title (Mandatory)                                           \\
+%%% Preface (Manditory if any collaborator contributions)       \\
+%%% Abstract (Mandatory)                                        \\
+%%% List of Contents, Tables, Figures, etc. (As appropriate)    \\
+%%% Acknowledgements (Optional)                                 \\
+%%% Dedication (Optional)                                       \\
+
+\maketitle                      %% Mandatory
+\begin{abstract}                %% Mandatory -  maximum 350 words
+  The \texttt{genthesis.cls} \LaTeX{} class file and accompanying
+  documents, such as this sample thesis, are distributed in the hope
+  that it will be useful but without any warranty (without even the
+  implied warranty of fitness for a particular purpose).  For a
+  description of this file's purpose, and instructions on its use, see
+  below.
+
+  These files are distributed under the GPL which should be included
+  here in the future.  Please let the author know of any changes or
+  improvements that should be made.
+
+  Michael Forbes.
+  mforbes@physics.ubc.ca
+\end{abstract}
+
+\chapter{Preface} % Manditory if any of the conditions are met
+
+You must include a preface if any part of your research was partly or
+wholly published in articles, was part of a collaboration, or required
+the approval of UBC Research Ethics Boards.
+
+The Preface must include the following:
+
+\begin{itemize}
+\item A statement indicating the relative contributions of all
+  collaborators and co-authors of publications (if any), emphasizing
+  details of your contribution, and stating the proportion of research
+  and writing conducted by you.
+\item A list of any publications arising from work presented in the
+  dissertation, and the chapter(s) in which the work is located.
+\item The name of the particular UBC Research Ethics Board, and the
+  Certificate Number(s) of the Ethics Certificate(s) obtained, if
+  ethics approval was required for the research.
+\end{itemize}
+
+%%% Sections and subsections etc. in the Preface should in general
+%%% not be listed in the table of contents, so use the starred form
+%%% of \section etc.
+\section*{Examples}
+Chapter~\ref{cha:apple_ref} is based on work conducted in UBC's Maple
+Syrup Laboratory by Dr. A.  Apple, Professor B. Boat, and Michael
+McNeil Forbes. I was responsible for tapping the trees in forests X
+and Z, conducted and supervised all boiling operations, and performed
+frequent quality control tests on the product.
+
+A version of chapter~\ref{cha:apple_ref} has been
+published~\cite{Apple:2010}. I conducted all the testing and wrote
+most of the manuscript. The section on ``Testing Implements'' was
+originally drafted by Boat, B.  Check the first pages of this
+chapter to see footnotes with similar information.
+
+Note that this preface must come before the table of contents.  Note
+also that this section ``Examples'' should not be listed in the table
+of contents, so we have used the starred form: \verb|\section*{Example}|.
+
+\tableofcontents                %% Mandatory
+\listoftables                   %% Mandatory if thesis has tables
+\listoffigures                  %% Mandatory if thesis has figures
+\listof{Program}{List of Programs} %% Optional
+%% Any other lists should come here, i.e.
+%% Abbreviation schemes, definitions, lists of formulae, list of
+%% schemes, glossary, list of symbols etc.
+
+\chapter{Acknowledgements}      %% Optional
+This is the place to thank professional colleagues and people who have
+given you the most help during the course of your graduate work.
+
+\chapter{Dedication} %% Optional
+The dedication is usually quite short, and is a personal rather than
+an academic recognition.  The \emph{Dedication} does not have to be
+titled, but it must appear in the table of contents.  If you want to
+skip the chapter title but still enter it into the Table of Contents,
+use this command \verb|\chapter[Dedication]{}|.
+
+Note that this section is the last of the preliminary pages (with
+lowercase Roman numeral page numbers).  It must be placed
+\emph{before} the \verb|\mainmatter| command.  After that, Arabic
+numbered pages will begin.
+
+% Any other unusual prefactory material should come here before the
+% main body.
+
+% Now regular page numbering begins.
+\mainmatter
+
+% Parts are the largest structural units, but are optional.
+%\part{Thesis}
+
+% Chapters are the next main unit.
+\chapter{This is a Chapter}
+
+% Sections are a sub-unit
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
@@ -40,7 +421,6 @@
 \newcommand{\U}{\mathcal{U}}
 
 
-\graphicspath{ {c:/user/justin/grad school/Thesis} }
 
 \section{Introduction}
 
@@ -106,27 +486,15 @@ An example of an edge Hamiltonian satisfying the assumption on $E_a$ is $H_a = J
 
 Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The bound in assumption ? is satisfied by the short range assumption ?.
 
-We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential difference $V$ in the $x_2$ direction. We write this as $-V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators $\Lambda_i |\psi(x_1,x_2)\rangle = \Lambda(x_i)|\psi(x_1,x_2)\rangle$ which are \textit{switch functions},
+We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential difference $V$ in the $x_2$ direction. We write this as $-V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators $\Lambda_i |\psi\rangle = \Lambda(x_i)|\psi\rangle$ which are \textit{switch functions}, satisfying
 
-\[\Lambda : \R\to\R \quad\quad\quad\quad \Lambda(x_i) = \begin{cases} 1 & \text{if } x_i \leq 0 \\ 0 & \text{if } x_i \geq1\end{cases}\]
+\[\Lambda(x_i) = \begin{cases} 1 & \text{if } x_i<0 \\ 0 & \text{if } x_i > 1\end{cases}\]
 
-and are smooth and monotonically decreasing on $(0,1)$. Note that the ensuing physics (in particular, our definition of the Hall conductivity) is independent of the particular choice of switch function $\Lambda_i$, since any two switch functions are exactly equal on the lattice. 
-
-This gives $\vec{E}=-\nabla V = V_0\frac{\partial \Lambda_2}{\partial x_2}$, so that $\vec{E}$ is has compact support $\text{supp}(\Lambda_2')$. We introduce a function which grows slowly in time as $t$ grows from $-\infty$ to 0, so as to invoke the adiabatic principle. Here, we choose $e^{\eps t}$, and we will let $\eps\to 0$ at the end. The Hamiltonian therefore experiences a perturbation, 
+and are smooth and monotonically decreasing on $[0,1]$. This gives $\vec{E}=-\nabla V = V_0\frac{\partial \Lambda_2}{\partial x_2}$, so that $\vec{E}$ is has compact support $\text{supp}(\Lambda_2')$. We introduce a function which grows slowly in time as $t$ grows from $-\infty$ to 0, so as to invoke the adiabatic principle. Here, we choose $e^{\eps t}$, and we will let $\eps\to 0$ at the end. The Hamiltonian therefore experiences a perturbation, 
 
 \[\widetilde{H}_B(t) = H_B - V_0\Lambda_2 e^{\eps t}.\]
 
 We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. 
-
-\begin{lemma}
-The ground state expectation $\Tr(P_\mu J_H)$ of the Hall current is zero.
-\end{lemma}
-\begin{proof}
-Notice that since $J_H$ is trace-class and $P_\mu$ is bounded, and since $[H_B,P_\mu]=0$, we have 
-
-\[\Tr(P_\mu J_H) =i \Tr(P_\mu [H_B, \Lambda_1]) = i\Tr(P_\mu [H_B, P_\mu \Lambda_1P_\mu])\]
-
-\end{proof}
 
 \begin{proposition}
 
@@ -145,24 +513,24 @@ We work in the interaction picture, and define $\rho_I(t) = e^{itH_B}\rho(t)e^{-
 
 The solution to this differential equation is readily verified to be
 
-\[\rho(t) = i\int_{-\infty}^t [\Delta H_B(s), P_\mu]ds + P_\mu \]
+\[\rho(t) = i\int_{-\infty}^t [\Delta H_B(t), P_\mu]ds + P_\mu \]
 
-Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$. The initial condition is also satisfied. 
+where $\Delta H_B(t)$ depends on $s$. Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$. The initial condition is also satisfied. 
 
-Using $J_H = i[H_B,\Lambda_1] = \sigma_H V = -\sigma_H V_0\Lambda_2$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho(0)i[H_B,\Lambda_1])$. Since the expectation of the ground state current is zero, $\Tr(P_\mu J_H) =0$, we have
+Using $J_H = i[H_B,\Lambda_1] = \sigma_H V$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho(0)i[H_B,\Lambda_1])$. Since the expectation of the ground state current is zero, $\Tr(P_\mu J_H) =0$, we have
 
 \[\begin{aligned}
-\sigma_H &= \frac{i}{V_0} \lim_{\eps\to 0}\Tr \left( i\int_{-\infty}^0 [\Delta H_B(t), P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
-&= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{-isH_B}[H_B,\Lambda_1]e^{isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\sigma_H &= \frac{i}{V_0} \lim_{\eps\to 0}\Tr \left( i\int_{\infty}^0 [\Delta H_B(t), P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
+&= -\lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 (e^{-isH_B}[H_B,\Lambda_1]e^{isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
 
 Where we used the fact that $P_\mu$ and $H_B$ commute. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}[H_B,\Lambda_1] e^{-isH_B}) = -(ie^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1)$, we obtain
 
 \[\begin{aligned}
-\sigma_H &= i \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{-isH_B}\Lambda_1e^{isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
-&= i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \Lambda_1^s[\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\sigma_H &= i \lim_{\eps\to 0}\Tr \left( \int_{\infty}^0 (e^{-isH_B}\Lambda_1e^{isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+&= i \lim_{\eps\to 0}\eps \Tr \left( \int_{\infty}^0 \Lambda_1^s[\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
 
 where $\Lambda_1^s := e^{-isH_B}\Lambda_1e^{isH_B} - \Lambda_1$. Using the notation $\overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp A P_\mu$, it is readily verified that the commutator $[\Lambda_2, P_\mu]$ is an \textit{off-diagonal} operator, in the sense that  $[\Lambda_2, P_\mu] = \overline{[\Lambda_2,P_\mu]}$. Furthermore, a simple computation reveals that for any two operators $A$ and $B$, $\Tr(\overline{A}B) = \Tr(A\overline{B})$. It therefore follows that
@@ -184,9 +552,8 @@ We treat the first of these two terms; the other is handled in an identical mann
 We remark that, since the Fermi energy $\mu$ is assumed to lie in a spectral gap, there must exist a neighbourhood $(\mu-\delta, \mu+\delta)$ in which there are no states. We exploit this fact to rewrite the limits of integration, $\int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda$ and $\int_{\mu+\delta}^\infty e^{is\nu} dP_\nu$. We therefore obtain
 
 \[\begin{aligned} 
-\lim_{\eps\to 0} &\eps \int_{-\infty}^0 e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} ds \\
-&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda \Lambda_1 \int_{\mu+\delta}^\infty e^{is\nu} dP_\nu [\Lambda_2, P_\mu] e^{\eps s} ds\right)\\
-&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} \int_{\mu+\delta}^\infty e^{s(\eps-i\lambda+i\nu)}dP_\lambda \Lambda_1 dP_\nu [\Lambda_2, P_\mu]ds\right)\\
+\lim_{\eps\to 0} \eps \int_{-\infty}^0 e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} ds &= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda \Lambda_1 \int_{\mu+\delta}^\infty e^{is\nu} dP_\nu [\Lambda_2, P_\mu] e^{\eps s} ds\right)\\
+&= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} \int_{\mu+\delta}^\infty e^{s(\eps-i\lambda+i\nu)}dP_\lambda \Lambda_1 dP_\nu [\Lambda_2, P_\mu]ds\right)\\
 \end{aligned}\]
 
 Performing the integral over $s$ yields
@@ -219,9 +586,9 @@ Shifting the commutator completes the proof:
 
 where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. 
 
-For the \textit{edge conductivity}, we need the current operator across the line $x_1=0$, which is given by $-i[H_a,\Lambda_1]$. We define 
+For the \textit{edge conductivity}, we need the current operator across the line $x_1=0$, which is given by $-i[H_a,\xi_1]$. We define 
 
-\[\sigma_E = -i\lim_{a\to\infty}\Tr(\rho'(H_a)[H_a,\Lambda_1]),\]
+\[\sigma_E = -i\lim_{a\to\infty}\Tr(\rho'(H_a)[H_a,\xi_1]),\]
 
 where $\rho \in C^\infty(\R)$ satisfies
 
@@ -230,13 +597,13 @@ where $\rho \in C^\infty(\R)$ satisfies
 and decreases smoothly and monotonically in $\Delta$. The definition of $\sigma_E$ is reminiscent of another formula we will see later in the interacting setting, $\Tr(\dot{P}J)$, where $J$ is the current operator. The interpretation of $\sigma_E$ is that if we apply a small potential difference $V$ across $x_2=-a$ to $x_2=\infty$, there will be a net current
 
 \[\begin{aligned}
-I &= -i\Tr(\rho(H_a+V)[H_a+V,\Lambda_1] - \rho(H_a)[H_a,\Lambda_1])\\
-&= -i\Tr((\rho(H_a+V)-\rho(H_a))[H_a,\Lambda_1])
+I &= -i\Tr(\rho(H_a+V)[H_a+V,\xi_1] - \rho(H_a)[H_a,\xi_1])\\
+&= -i\Tr((\rho(H_a+V)-\rho(H_a))[H_a,\xi_1])
 \end{aligned}\]
 
 Thus we obtain the conductivity
 
-\[\sigma_E = \frac{I}{V} = -i\Tr\left(\frac{(\rho(H_a+V)-\rho(H_a)}{V}[H_a,\Lambda_1]\right) \to -i\Tr(\rho'(H_a)[H_a,\Lambda_1])\]
+\[\sigma_E = \frac{I}{V} = -i\Tr\left(\frac{(\rho(H_a+V)-\rho(H_a)}{V}[H_a,\xi_1]\right)) \to -i\Tr(\rho'(H_a)[H_a,\xi_1])\]
 
 in the limit as $V\to0$. As we shall see, it turns out that $\sigma_E$ is independent of the choice of $\rho$, and $\sigma_B$ is independent of $\lambda$. 
 
@@ -293,274 +660,6 @@ as $a\to\infty$, where $\Sigma_B'$ and $\Sigma_B''$ are the same as with the sub
 \[\sigma_E(a,t) = \Tr(J_a\Sigma_a'J_a^*+J_a\Sigma_a''J_a^*) = \Tr(\Sigma_a'+\Sigma_a'') \to \Tr(\Sigma_B'+\Sigma_B'')\]
 
 From there, a calculation shows that $\lim_{T\to\infty}\frac{1}{T}\int_0^T\Tr(\Sigma_B'+\Sigma_B'')dt = \sigma_B$, concluding the proof.
-
-\subsection{Gap Simplifications}
-
-We now assume that $H_B$ has a spectral gap. In this case, the edge condition guarantees that $\sigma_E(a) := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class (need to add). 
-
-Need to add section on why $\sigma_E(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1])$ is equal to
-
-\[-\frac{i}{2}\Tr(\rho'(H_a)\{[H_a,\Lambda_1],\Lambda_2\}).\]
-
-\begin{theorem}
-$\sigma_E = \sigma_B$
-\end{theorem}
-
-\subsubsection*{Outline of the Proof}
-
-Before giving the proof in its entirety, we outline the basic steps. 
-
-\begin{proof}
-
-We prove that 
-
-\[ \sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]) = \sigma_B\]
-
-for all $a \in \Z$, and thus in particular, $\sigma_E=\lim_{a\to\infty}\sigma_E(a)=\sigma_B$. Since $\sigma_B$ is translation invariant (need to add), we only need to prove to case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. Since the multiplication operator $\Lambda_2(n) |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, we can write
-
-\[\sigma_E(a) = -i\Tr(\rho'(H)[H,\Lambda_1]) = -i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_2(n)).\]
-
-Instead of completing the shift $(0,-n)$ with the operator $\Lambda_2(n)$, we can consider a shifted Hamiltonian. Indeed, rather than restrict $H_B$ at $x_2=-n$ to obtain $H_{a=n}$, consider the shifted bulk Hamiltonian $H_B \mapsto H_B(n)$ obtained by the shift $(0,-n)$, and then restricting this at $x_2=0$ to obtain $H(n)$. In other words, $H(n)$ is the edge Hamiltonian associated with the shifted bulk Hamiltonian. Comparing this with the expression above, this is exactly equivalent to 
-
-\[-i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_2(n)) = -i\lim_{n\to\infty}\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2).\]
-
-In other words, the difference between whether we cut off everything above $x_2=n$ and then apply $H_{a=0}$, or instead cut off everything above $x_2=0$ and then apply the Hamiltonian $H(n)$ shifted down by $(0,-n)$ is immaterial. 
-
-Thus, our goal is to show that $-i\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2) \to \sigma_B$ as $n\to\infty$. Define $\widetilde{\sigma_E}(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2)$. 
-
-%Notice that the complex conjugate is 
-
-%\[\overline{\widetilde{\sigma_E}(a)} = -i\Tr(\Lambda_2[H_a,\Lambda_1]\rho'(H_a)) = -i\Tr(\rho'(H_a)\Lambda_2[H_a,\Lambda_1])\]
-
-%so that $\sigma_E(a) = \text{Re}(\widetilde{\sigma_E}(a))$. Now, let
-
-\[ Z(a) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2 \]
-
-This operator has zero trace, so $\widetilde{\sigma_E}(a) = \Tr(\Sigma(a))$, where
-
-\[\begin{aligned}
-\Sigma(a) &=  -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + iZ(a)\\
-&= -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + i[\rho(H_a),\Lambda_1]\Lambda_2 - \frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2
-\end{aligned}\]
-
-Using the Hellfer-Sjostrand representations for the first two terms on the right hand side, we obtain
-
-\[\begin{aligned}
-\Sigma(a) &= \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)^2[H_a,\Lambda_1]\Lambda_2 dz^2 + \frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)[H_a,\Lambda_1]R_a(z)\Lambda_2dz^2 \\
-&\quad\quad\quad\quad - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} (R_a(z)^2[H_z,\Lambda_1]\Lambda_2 - R_a(z)[H_a,\Lambda_1]\Lambda_2 R_a(z)) dz^2\\
-&= -\frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)[H_a,\Lambda_1][R_a(z),\Lambda_2]dz^2\\
-&= \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z) dz^2,
-\end{aligned}\]
-
-where we used 
-
-\[[R_a(z),\Lambda_i] = -R_a(z)[H_a,\Lambda_i]R_a(z)\]
-
-in the final equality. Next, we must prove that the operator above converges to the corresponding bulk operator in trace-norm,
-
-\[ \norm{\Sigma(a) - \Sigma_B}_1 \to 0,\]
-
-as $a\to\infty$. Here, $\Sigma_B$ is the same operator but using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = -i\Tr(\Sigma_B)$ to conclude the proof. 
-
-To show that the limit is zero as claimed, we bound the integrand of $\Sigma(a)$ in trace-norm by breaking it into three parts,
-
-\[R[H_a,\Lambda_1]R[H_a,\Lambda_2]R = J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\cdot e^{-\delta|x_1|}e^{-\delta|x_2|}\cdot J_ae^{\delta|x_2|}[H_a, \Lambda_2]RJ_a^*,\]
-
-and bounding the norm of each, making use of the fact that $\norm{AB}_1 \leq \norm{A}\norm{B}_1$.
-
-\begin{enumerate}
-\item For the first term, $J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*$, we bound its operator norm by breaking it down further into
-
-\[\begin{aligned}
-\|J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\| &= \|[R,\Lambda_1]e^{\delta|x_1|}\| \\
-&=\norm{-R[H_a,\Lambda_1]Re^{\delta|x_1|}}\\
-&= \norm{-R\cdot [H_a,\Lambda_1]e^{\delta|x_1|}\cdot e^{-\delta|x_1|} R e^{\delta|x_1|}}\\
-&\leq \norm{R}\cdot \norm{[H_a,\Lambda_1]e^{\delta|x_1|}}\cdot \norm{e^{-\delta|x_1|}Re^{\delta|x_1|}}
-\end{aligned}\]
-
-The norm of $R$ is bounded by 
-
-\[\norm{R_a(z)} \leq \frac{1}{\text{dist}(z,\sigma(H_a))}.\]
-
-The norm of the second operator can be bounded by inspecting its matrix elements.
-
-\[\begin{aligned}
-\langle x, [H_a,\Lambda_1]e^{\delta|x_1|} y\rangle &= \langle x, H_a\Lambda_1 y\rangle e^{\delta |y_1|} - \langle x, \Lambda_1 H_a y\rangle e^{\delta|y_1|}  \\
-&= H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1)).
-\end{aligned}\]
-
-This is zero if $|x_1-y_1|\leq |y_1|$, since this would imply that $x_1$ and $y_1$ have the same sign, and thus $\Lambda(x_1)=\Lambda(y_1)$. So either the matrix element is zero, or $|y_1|\leq|x_1-y_1|$, which implies
-
-\[\begin{aligned}
-|H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1))| &\leq 2|H_a(x,y)|e^{\delta|x_1-y_1|}\\
-&\leq 2|H_a(x,y)|e^{\delta|x-y|}\\
-&\leq C|H_a(x,y)|(e^{\delta|x-y|}-1)
-\end{aligned}\]
-
-where the final inequality comes from the fact that the diagonal matrix elements are zero. Hence, by the assumption 
-
-\[\sup_{x\in\Z^2}\sum_{y\in\Z^2}|H(x,y)|(e^{\mu|x-y|}-1)<\infty,\]
-
-combined with Holmgren's bound,
-
-\[\norm{A} \leq \max \{ \sup_{x\in\Z^2} \sum_{y\in\Z^2} |A(x,y)|, \sup_{y\in\Z^2}\sum_{x\in\Z^2}|A(x,y)| \},\]
-
-the second term is bounded. Finally, for the third term $e^{-\delta|x_1|}Re^{\delta|x_1|}$, we apply the Combes-Thomas bound,
-
-\[\norm{e^{-\eps f(x)}R_a(z)e^{\eps f(x)}} \leq \frac{C}{|\text{Im}(z)|}\]
-
-where $f:\Z^2\to\R$ is any Lipschitz function, and $\eps$ can be chosen as $\eps = \frac{1}{C(1+|\text{Im}(z)|)}$.
-
-Altogether, the bound of the first term takes the form 
-
-\[\frac{C}{|\text{Im}(z)|}.\]
-
-\item For $e^{-\delta|x_1|}e^{-\delta|x_2|}$, we bound the trace norm by noticing that this is a summable function on $\Z^2$. Indeed, in the position basis, we see that the trace is nothing but the geometric series,
-
-\[\begin{aligned}
-\Tr(e^{-\delta|x_1|}e^{-\delta|x_2|}) &= \sum_{(m,m)\in\Z^2} \langle (m,m), e^{-\delta|x_1|}e^{-\delta|x_2|} (m,m) \rangle \\
-&= \sum_{m\in\Z} e^{-\delta|m|}e^{-\delta|m|} \\
-&= \sum_{m\in\Z} e^{-2\delta|m|} \\
-&= \frac{e^2+1}{e^2-1}.
-\end{aligned}\]
-
-\item For $J_a e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)J_a^*$, note that analogously to 1. above where we bounded $[H_a,\Lambda_1]e^{\delta|x_1|}$, we also have that $e^{\delta|x_2|}[H_a,\Lambda_2]$ is bounded. Again, the resolvent $R_a(z)$ is also bounded.
-
-The bound of the third term takes the same form as the bound of the first term,
-
-\[\frac{C}{|\text{Im}(z)|}.\]
-
-\end{enumerate}
-
-Altogether, we see that the integrand is bounded by the product of the three bounds from 1., 2., and 3., and is of the form $\frac{C}{\text{Im}(z)^2}$. 
-
-For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sjostrand representation can be chosen so that 
-
-\[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^n+2 \norm{\rho^{(k)}}_{k-p-1},\]
-
-where the norms on the right hand side are defined by 
-
-\[\norm{f}_{k-p-1} = \int_{-\infty}^\infty \frac{|f(x)|}{(x^2+1)^{k/2}}dx.\]
-
-Since $\rho'$ is compactly supported, this is clearly finite. This fact, combined with the bound 
-
-\[\norm{R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z)}_1 \leq \frac{C}{\text{Im}(z)}\]
-
-for the trace norm of the integrand of $\Sigma(a)$ provides the necessary bound for Lebesgue dominated convergence. Thus, it suffices to show pointwise convergence in $z$ of the integrand to the associated bulk operator. 
-
-In other words, we wish to show 
-
-\[ J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1]e^{\delta|x_1|}\]
-
-and
-
-\[J_ae^{\delta|x_2|}[H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} e^{\delta|x_2|}[H_B, \Lambda_2].\]
-
-But inspecting the bounds we found for the left hand sides, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace; in particular, we may choose the dense subspace of compactly supported states, which allows us to eliminate the $e^{\delta|x_i|}$ terms. 
-
-Thus, we need to prove 
-
-\[ J_a[R_a(z),\Lambda_1]J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1]\]
-
-and
-
-\[J_a [H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} [H_B, \Lambda_2].\]
-
-We appeal to the general fact of functional analysis that strong convergence of the resolvent implies that $J_a f(H_a) J_a^* \xrightarrow{\enskip s \enskip} f(H_B)$ for any bounded and continuous function $f$. In particular, the functions $[(\cdot - z)^{-1}, \Lambda_1]$ and $[\cdot, \Lambda_2]$ above are bounded and continuous, so we will have proven the desired limits if we can prove convergence of the resolvent, $J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)$.
-
-To prove this, we use the edge assumption. Recall the edge operator, $E_a = J_aH_a - H_BJ_a$. Adding and subtracting $zJ_a$ gives
-
-\[E_a = J_a(H_a-z) - (H_B-z)J_a.\]
-
-Applying $R_B$ from the left and $R_a$ from the right on both sides, we obtain 
-
-\[J_aR_a(z) - R_B(z)J_a = -R_B(z)E_aR_a(z).\]
-
-Taking the adjoint, and then multiplying from the left by $J_a$, we see that 
-
-\[\begin{aligned}
-J_aR_a(z)J_a^* - R_B(z) &= -J_aR_a(z)E_a^*R_B(z)\\
-&= -(J_aR_a(z)E_a^* + 1 - J_aJ_a^*)R_B(z)\\
-& \xrightarrow{\enskip s \enskip} 0,
-\end{aligned}\]
-
-since $E^*_a \xrightarrow{\enskip s \enskip} 0$ by the edge assumption, and $1 - J_aJ_a^* \xrightarrow{\enskip s \enskip}  0$. This proves that the limits above converge to the desired associated bulk operators, and thus $\Sigma(a) \xrightarrow{\enskip s \enskip}  \Sigma_B$.
-
-Finally, it remains to show that  
-
-\[\Tr(\Sigma_B) = \sigma_B.\]
-
-First, we manipulate
-
-\[\begin{aligned}
-\Sigma_B &= \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_B(z)[H_B,\Lambda_1]R_B(z)[H_B,\Lambda_2]R_B(z) dz^2\\
-&= -\frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_B(z)[H_B,\Lambda_1][R_B(z),\Lambda_2]dz^2\\
-&= i[\rho(H_B),\Lambda_1]\Lambda_2 - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_B(z)[H_B,\Lambda_1]\Lambda_2 R_B(z)dz^2.
-\end{aligned}\]
-
-Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$. Since $H_B$ is assumed to have a gap, we have $\Tr(\Sigma_B) = \Tr(P_+\Sigma_B P_+) + \Tr(P_-\Sigma_B P_-)$. Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, respectively, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts. Thus
-
-\[\Sigma_B = iP_+[\rho(H_B),\Lambda_1]\Lambda_2P_+ + iP_-[\rho(H_B),\Lambda_1]\Lambda_2P_-.\]
-
-By the spectral theorem for projection-valued measures, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
-
-\[ \rho(H_B) = \int_{-\infty}^\infty \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
-
-We may therefore replace $\rho(H_B)$ by $P_\lambda$, by which we obtain
-
-\[\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-).\]
-
-Now, the bulk conductivity is given by
-
-\[\begin{aligned}
-\sigma_B &= i\Tr(P_\lambda [[P_\lambda, \Lambda_1],[P_\lambda,\Lambda_2]])\\
-&= i\Tr(P_\lambda ((P_\lambda \Lambda_1-\Lambda_1P_\lambda)(P_\lambda\Lambda_2 - \Lambda_2P_\lambda) - (P_\lambda\Lambda_2 - \Lambda_2P_\lambda)(P_\lambda\Lambda_1-\Lambda_1P_\lambda)))\\
-&= i\Tr(P_\lambda(P_\lambda\Lambda_1P_\lambda\Lambda_2 - P_\lambda\Lambda_1\Lambda_2 P_\lambda - \Lambda_1P_\lambda\Lambda_2 + \Lambda_1P_\lambda\Lambda_2P_\lambda \\
-&\quad\quad\quad\quad - P_\lambda\Lambda_2P_\lambda\Lambda_1 + P_\lambda\Lambda_2\Lambda_1P_\lambda + \Lambda_2P_\lambda\Lambda_1 - \Lambda_2P_\lambda\Lambda_1P_\lambda))\\
-&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + \Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - \Lambda_2P_\lambda\Lambda_1P_\lambda)\\
-&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + P_\lambda\Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - P_\lambda\Lambda_2P_\lambda\Lambda_1P_\lambda)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda - P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1 P_\lambda)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp).
-\end{aligned}\]
-
-We define $T_\lambda := P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp$, so that
-
-\[\sigma_B = i\Tr(T_\lambda),\]
-
-and show that $P_\pm T_\lambda P_\pm = P_\pm [P_\lambda, \Lambda_1]\Lambda_2 P_\pm$. 
-
-First, notice that because of the gap, we have $P_\lambda^\perp P_- = 0$, and thus also $P_\lambda P_- = P_-$. Thus
-
-\[\begin{aligned}
-P_- T_\lambda P_- &=  P_-P_\lambda \Lambda_1 P_\lambda^\perp \Lambda_2 P_\lambda P_-\\
-&= P_-(P_\lambda\Lambda_1\Lambda_2 - \Lambda_1P_\lambda\Lambda_2)P_-\\
-&= P_-[P_\lambda,\Lambda_1]\Lambda_2 P_-,
-\end{aligned}\]
-
-and similarly, for $P_+$, we have $P_\lambda^\perp P_+ = P_+$, and $P_\lambda P_- = 0$, which implies
-
-\[\begin{aligned}
-P_+ T_\lambda P_+ &=  -P_+P_\lambda^\perp \Lambda_1 P_\lambda \Lambda_2 P_\lambda^\perp P_+\\
-&= -P_+P_\lambda^\perp\Lambda_1P_\lambda\Lambda_2P_+\\
-&= -P_+P_\lambda^\perp\Lambda_1\Lambda_2P_+ + P_+P_\lambda^\perp\Lambda_1P_\lambda^\perp\Lambda_2P_+\\
-&= -P_+P_\lambda^\perp\Lambda_1\Lambda_2P_+ + P_+\Lambda_1P_\lambda^\perp\Lambda_2P_+\\
-&= -P_+[P_\lambda^\perp, \Lambda_1]\Lambda_2 P_+\\
-&= -P_+[(1-P_\lambda), \Lambda_1]\Lambda_2 P_+\\
-&= P_+[P_\lambda, \Lambda_1]\Lambda_2 P_+.
-\end{aligned}\]
-
-Finally, we obtain
-
-\[\begin{aligned}
-\sigma_B &= i\Tr(T_\lambda) \\
-&=  i\Tr(P_-T_\lambda P_-) + i\Tr(P_+T_\lambda P_+)\\
-&= i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2 P_-) + i\Tr(P_+[P_\lambda, \Lambda_1]\Lambda_2 P_+)\\
-&= \Tr(\Sigma_B),
-\end{aligned}\]
-
-concluding the proof.
-\end{proof}
 
 \section{Interacting Setting}
 
@@ -1054,4 +1153,447 @@ Let $r(t) = \rho(t)-\sigma(t)$. Notice that
 
 \[\frac{d}{dt} e^{itK_B}\sigma_0e^{-itK_B} = e^{itK_B}i[K_B,\sigma_0]e^{-itK_B} + e^{-itK_B}\dot{\sigma_0}e^{itK_B}.\]
 
+
+
+
+
+
+
+
+
+
+\section{A Section}
+Here is a section with some text.  Equations look like this
+$y=x$.\footnote{Here is a footnote.}
+
+This is an example of a second paragraph in a section so you can
+see how much it is indented by.
+
+% Subsections follow
+\subsection{This is a Subsection}
+Here is an example of a citation: \cite{Forbes:2006ba}.  The actual
+form of the citation is governed by the bibliographystyle.  These
+citations are maintained in a BIBTeX file \texttt{sample.bib}.  You
+could type these directly into the file.  For an example of the format
+to use look at the file \texttt{ubcsample.bbl} after you compile this
+file.\footnote{Here is another footnote.}
+
+This is an example of a second paragraph in a subsection so you can
+see how much it is indented by.
+
+\subsubsection{This is a Subsubsection}
+Here are some more citations \cite{LL3:1977,Peccei:1989,Turner:1999}.
+If you use the \texttt{natbib} package with the \verb+sort&compress+
+option, then the following citation will look the same as the first
+citation in this section: \cite{Turner:1999,Peccei:1989,LL3:1977}.
+
+This is an example of a second paragraph in a subsubsection so you can
+see how much it is indented by.
+
+\paragraph{This is a Paragraph}
+Paragraphs and subparagraphs are the smallest units of text.  There is
+no subsubsubsection etc.
+
+\subparagraph{This is a Subparagraph}
+This is the last level of organisation.  If you need more than this,
+you should consider reorganizing your work\dots
+
+\begin{equation}
+  \mathrm{f}(x)=\int_{-\infty}^{\int_{-\infty}^x
+    e^{-\frac{y^2}{2}}\mathrm{d}{y}}e^{-z^2}\mathrm{d}z
+\end{equation}
+
+In order to show you what a separate page would look like (i.e. without
+a chapter heading) I must type some more text.  Thus I will babble a
+bit and keep babbling for at least one more page\ldots  What you
+should notice is that the chapter titles appear substantially lower
+than the continuing text. Babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble.
+
+Babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble babble babble babble babble babble babble
+babble babble babble babble.
+
+\begin{table}[t]                 % optional [t, b or h];
+  \begin{tabular}{|r||r@{.}l|}
+    \hline
+    Phoenix & \$960&35\\
+    \hline
+    Calgary & \$250&00\\
+    \hline
+  \end{tabular}
+  \caption[Here is the caption for this wonderful table\ldots]{
+    \label{tab:Table1}
+    Here is the caption for this wonderful table. It has not been
+    centered and the positioning has been specified to be at the top
+    of the page.  Thus it appears above the babble rather than below
+    where it is defined in the source file.}
+\end{table}
+
+% Force a new page: without this, the quote would appear on the
+% previous page.
+\newpage
+
+\section{Quote}
+Here is a quote:
+\begin{quote}
+  % It is centered
+  \begin{center}
+    This is a small poem,\\
+    a little poem, a Haiku,\\
+    to show you how to.\\
+    ---Michael M$^{\rm c}$Neil Forbes.
+  \end{center}
+\end{quote}
+
+This small poem shows several features:
+\begin{itemize}
+\item The use of the \verb|quote| and \verb|center| environments.
+\item The \verb|\newpage| command has been used to force a page
+  break.  (Sections do not usually start on a new page.)
+\item The pagestyle has been set to suppress the headers using the
+  command \verb|\thispagestyle{plain}|.  Note that using
+  \verb|\pagestyle{plain}| would have affected all of the subsequent
+  pages.
+\end{itemize}
+\section{Programs}
+Here we give an example of a new float as defined using the
+\texttt{float} package.  In the preamble we have used the commands
+\begin{verbatim}
+\floatstyle{ruled}
+\newfloat{Program}{htbp}{lop}[chapter]
+\end{verbatim}
+This creates a ``Program'' environment that may be used for program
+fragments.  A sample \texttt{python} program is shown in
+Program~\ref{prog:fib}.  (Note that Python places a fairly restrictive
+limit on recursion so trying to call this with a large $n$ before
+building up the cache is likely to fail unless you increase the
+recursion depth.)
+\begin{Program}
+  \caption{\label{prog:fib} Python program that computes the $n^{\rm
+      th}$ Fibonacci number using memoization.}
+\begin{verbatim}
+def fib(n,_cache={}):
+    if n < 2:
+        return 1
+    if n in _cache:
+        return _cache[n]
+    else:
+        result = fib(n-1)+fib(n-2)
+        _cache[n] = result
+        return result
+\end{verbatim}
+\end{Program}
+Instead of using a \texttt{verbatim} environment for your program
+chunks, you might like to \texttt{include} them within an
+\texttt{alltt} envrironment by including the \verb|\usepackage{alltt}|
+package (see page 187 of the \LaTeX{} book).  Another useful package
+is the \verb|\usepackage{listings}| which can pretty-print many
+different types of source code.
+
+% Force a new page
+\newpage
+
+%% Here we provide a short optional argument to \chapter[]{}.  This
+%% optional argument will appear in the table of contents.  For long
+%% titles, one should use this to give a single-line entry to the
+%% table of contents.
+\chapter[Another Chapter\ldots]{Another Chapter with a Very Long
+  Chapter-name that will Probably Cause Problems}
+\label{cha:apple_ref}
+
+This chapter name is very long and does not display properly in the
+running headers or in the table of contents.  To deal with this, we
+provide a shorter version of the title as the optional argument to the
+\verb|\chapter[]{}| command.
+
+For example, this chapter's title and associated table of contents heading and
+running header was created with\\
+\verb|\chapter[Another Chapter\ldots]{Another Chapter with a Very Long|\\
+\verb|Chapter-name that will Probably Cause Problems}|.
+
+Note that, according to the thesis regulations, the heading included
+in the table of contents must be a truncation of the actual heading.
+
+This Chapter was used as a demonstration in the Preface for how to
+attribute contribution from collaborators.  If there are any such
+contributions, details must be included in the Preface.  If you wish,
+you may additionally use a footnote such as this.\footnote{This
+  chapter is based on work conducted in UBC's Maple Syrup Laboratory
+  by Dr. A. Apple, Professor B. Boat, and C. Cat.}
+
+\section{Another Section}
+Another bunch of text to demonstrate what this file does.
+You might want a list for example:\footnote{Here is a footnote in a
+  different chapter.  Footnotes should come after punctuation.}
+\begin{itemize}
+\item An item in a list.
+\item Another item in a list.
+\end{itemize}
+
+\section*{An Unnumbered Section That is Not Included in the Table of
+  Contents}
+\begin{figure}[ht]
+  \begin{center}
+%% psfrag: comment the following line if not using the psfrag package
+    \psfrag{pie makes me happy!}{$\pi$ makes me happy!}
+%% includegraphics: comment the following if not using the graphicx package
+    \includegraphics[width=0.4\textwidth]{fig-eps-converted-to.pdf}
+    \caption[Happy Face: figure example.]{\label{fig:happy} This is a figure of
+      a happy face with a \texttt{psfrag} replacement.  The original figure
+      (drawn in xfig and exported to a .eps file) has the text ``pie makes me
+      happy!''.  The \texttt{psfrag} package replaces this with ``$\pi$ makes me
+      happy!''.  Note: the Makefile compiles the sample using pdf\LaTeX\ which
+      cannot use \texttt{psfrag} directly.  For some options that work with
+      pdf\LaTeX, please see this discussion:
+      \url{http://tex.stackexchange.com/questions/11839}.  For the caption, we
+      have used the optional argument for the caption command so that only a
+      short version of this caption occurs in the list of figures.}
+  \end{center}
+\end{figure}
+\afterpage{\clearpage}
+Here is an example of a figure environment.
+Perhaps I should say that the example of a figure can be seen in
+Figure~\ref{fig:happy}.  Figure placement can be tricky with \LaTeX\
+because figures and tables are treated as ``floats'': text can flow
+around them, but if there is not enough space, they will appear later.
+To prevent figures from going too far, the
+\verb|\afterpage{\clearpage}| command can be used.  This makes sure
+that the figure are typeset at the end of the page (possibly appear on
+their own on the following pages) and before any subsequent text.
+
+The \verb|\clearpage| forces a page break so that the figure can be
+placed, but without the the \verb|\afterpage{}| command, the page
+would be broken too early (at the \verb|\clearpage| statement).  The
+\verb|\afterpage{}| command tells \LaTeX{} to issue the command after
+the present page has been rendered.
+
+\section{Tables}
+We have already included one table:~\ref{tab:Table1}.  Another table
+is plopped right here.
+\begin{table}[ht]
+  \begin{center}
+    \begin{tabular}{|l||l|l||l|l|}
+      \hline
+      &\multicolumn{2}{l|}{Singular}&\multicolumn{2}{l|}{Plural}\\
+      \cline{2-5}
+       &English&\textbf{Gaeilge}&English&\textbf{Gaeilge}\\
+      \hline\hline
+      1st Person&at me&\textbf{agam}&at us&\textbf{againn}\\
+      2nd Person&at you&\textbf{agat}&at you&\textbf{agaibh}\\
+      3rd Person&at him&\textbf{aige}&at them&\textbf{acu}\\
+       &at her&\textbf{aici}& & \\
+      \hline
+    \end{tabular}
+    \caption{
+      \label{tab:Table2}
+      Another table.}
+  \end{center}
+\end{table}
+Well, actually, as with Figures, tables do not
+necessarily appear right ``here'' because tables are also ``floats''.
+\LaTeX{} puts them where it can.  Because of this, one should refer to
+floats by their labels rather than by their location.  This example is
+demonstrated by Table~\ref{tab:Table2}.  This one is pretty close,
+however.  (Note: you should generally not put tables or figures in the
+middle of a paragraph.  This example is for demonstration purposes
+only.)
+
+Another useful package is \verb|\usepackage{longtable}| which provides
+the \texttt{longtable} environment.  This is nice because it allows
+tables to span multiple pages.  Table~\ref{tab:longtable} has been
+formatted this way.
+\begin{center}
+  \begin{longtable}{|l|l|l|}
+    \caption{\label{tab:longtable}Feasible triples for
+      highly variable Grid}\\
+
+    \hline \multicolumn{1}{|c|}{\textbf{Time (s)}} &
+    \multicolumn{1}{c|}{\textbf{Triple chosen}} &
+    \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
+    \endfirsthead
+
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+    \hline \multicolumn{1}{|c|}{\textbf{Time (s)}} &
+    \multicolumn{1}{c|}{\textbf{Triple chosen}} &
+    \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
+    \endhead
+
+    \hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+    \endfoot
+
+    \hline \hline
+    \endlastfoot
+
+    0 & (1, 11, 13725) & (1, 12, 10980), (1, 13, 8235), (2, 2, 0), (3, 1, 0) \\
+    274 & (1, 12, 10980) & (1, 13, 8235), (2, 2, 0), (2, 3, 0), (3, 1, 0) \\
+    5490 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    8235 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    10980 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    13725 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    16470 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    19215 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    21960 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    24705 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    27450 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    30195 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    32940 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    35685 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    38430 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    41175 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    43920 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    46665 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    49410 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    52155 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    54900 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    57645 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    60390 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    63135 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    65880 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    68625 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    71370 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    74115 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    76860 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    79605 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    82350 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    85095 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    87840 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    90585 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    93330 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    96075 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    98820 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    101565 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    104310 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    107055 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    109800 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    112545 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    115290 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    118035 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    120780 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    123525 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    126270 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    129015 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    131760 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    134505 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    137250 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    139995 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    142740 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    145485 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    148230 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+    150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+    164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+\end{longtable}
+\end{center}
+
+\subsection*{An Unnumbered Subsection}
+Note that if you use subsections or further divisions under an
+unnumbered section, then you should make them unnumbered as well
+otherwise you will end up with zeros in the section numbering.
+
+\chapter{Landscape Mode}
+The landscape mode allows you to rotate a page through 90 degrees.  It
+is generally not a good idea to make the chapter heading landscape,
+but it can be useful for long tables etc.
+
+\begin{landscape}
+  This text should appear rotated, allowing for formatting of very
+  wide tables etc.  Note that this might only work after you convert
+  the \texttt{dvi} file to a postscript (\texttt{ps}) or \texttt{pdf}
+  file using \texttt{dvips} or \texttt{dvipdf} etc.  This feature is
+  provided by the \verb|lscape| and the \verb|pdflscape| packages.
+  The latter is preferred if it works as it also rotates the pages in
+  the pdf file for easier viewing.
+\end{landscape}
+
+%% This file is setup to use a bibtex file sample.bib and uses the
+%% plain style.  Other styles may be used depending on the conventions
+%% of your field of study.
+%%
+%%% Note: the bibliography must come before the appendices.
+\bibliographystyle{plain}
+\bibliography{sample}
+
+%% Use this to reset the appendix counter.  Note that the FoGS
+%% requires that the word ``Appendices'' appear in the table of
+%% contents either before each appendix lable or as a division
+%% denoting the start of the appendices.  We take the latter option
+%% here.  This is ensured by making the \texttt{appendicestoc} option
+%% a default option to the UBC thesis class.
+
+%%% If you only have one appendix, please uncomment the following line.
+% \renewcommand{\appendicesname}{Appendix}
+\appendix
+\chapter{First Appendix}
+Here you can have your appendices.  Note that if you only have a
+single appendix, you should issue
+\verb|\renewcommand{\appendicesname}{Appendix}| before calling
+\verb|\appendix| to display the singular ``Appendix'' rather than the
+default plural ``Appendices''.
+
+\chapter{Second Appendix}
+Here is the second appendix.
+
+%% This changes the headings and chapter titles (no numbers for
+%% example).
+\backmatter
+
+%% Indices come here if you have them.
+
+\chapter*{Additional Information}
+This chapter shows you how to include additional information in your
+thesis, the removal of which will not affect the submission.  Such
+material should be removed before the thesis is actually submitted.
+
+First, the chapter is unnumbered and not included in the Table of
+Contents.  Second, it is the last section of the thesis, so its
+removal will not alter any of the page numbering etc. for the previous
+sections.  Do not include any floats, however, as these will appear in
+the initial lists.
+
+The \texttt{ubcthesis} \LaTeX{} class has been designed to aid you in
+producing a thesis that conforms to the requirements of The
+University of British Columbia Faculty of Graduate Studies (FoGS).
+
+Proper use of this class and sample is highly recommended---and should
+produce a well formatted document that meets the FoGS requirement.
+Notwithstanding, complex theses may require additional formatting that
+may conflict with some of the requirements.  We therefore \emph{highly
+  recommend} that you consult one of the FoGS staff for assistance and
+an assessment of potential problems \emph{before} starting final
+draft.
+
+While we have attemped to address most of the thesis formatting
+requirements in these files, they do not constitute an official set of
+thesis requirements.  The official requirements are available at the
+following section of the FoGS web site:
+\begin{center}
+  \begin{tabular}{|l|}
+    \hline
+    \url{http://www.grad.ubc.ca/current-students/dissertation-thesis-preparation}\\
+    \hline
+  \end{tabular}
+\end{center}
+We recommend that you review these instructions carefully.
+
 \end{document}
+\endinput
+%%
+%% End of file `ubcsample.tex'.

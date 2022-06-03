@@ -308,15 +308,21 @@ $\sigma_E = \sigma_B$
 
 \subsubsection*{Outline of the Proof}
 
-Before giving the proof in its entirety, we outline the basic steps. 
+Before giving the proof in its entirety, we outline the basic steps. The key ingredient is the use of the funcional calculus given by the Helffer-Sjostrand representation of self-adjoint operators on a Hilbert space (need to add reference to appendix here).
+
+\subsection*{The Proof}
 
 \begin{proof}
 
-We prove that 
+We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
 
-\[ \sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]) = \sigma_B\]
+\[\sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2),\]
 
-for all $a \in \Z$, and thus in particular, $\sigma_E=\lim_{a\to\infty}\sigma_E(a)=\sigma_B$. Since $\sigma_B$ is translation invariant (need to add), we only need to prove to case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. Since the multiplication operator $\Lambda_2(n) |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, we can write
+since we have assumed that there is a spectral gap (as opposed to a mobility gap), so that there are extended states near the edge, and no bound states or resonances far from the edge. Thus, intuitively, the cutoff introduced by $\Lambda_2$ is irrelevant as we take $a\to\infty$. We provide a more concrete justification for this later.
+
+
+\textit{``Concrete justificiation":}
+Since $\sigma_B$ is translation invariant (need to add), we only need to prove to case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. Since the multiplication operator $\Lambda_2(n) |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, we can write
 
 \[\sigma_E(a) = -i\Tr(\rho'(H)[H,\Lambda_1]) = -i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_2(n)).\]
 
@@ -326,7 +332,9 @@ Instead of completing the shift $(0,-n)$ with the operator $\Lambda_2(n)$, we ca
 
 In other words, the difference between whether we cut off everything above $x_2=n$ and then apply $H_{a=0}$, or instead cut off everything above $x_2=0$ and then apply the Hamiltonian $H(n)$ shifted down by $(0,-n)$ is immaterial. 
 
-Thus, our goal is to show that $-i\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2) \to \sigma_B$ as $n\to\infty$. Define $\widetilde{\sigma_E}(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2)$. 
+Thus, our goal is to show that $-i\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2) \to \sigma_B$ as $n\to\infty$. 
+
+\textit{End of concrete justification.}
 
 %Notice that the complex conjugate is 
 
@@ -334,9 +342,11 @@ Thus, our goal is to show that $-i\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2) \to 
 
 %so that $\sigma_E(a) = \text{Re}(\widetilde{\sigma_E}(a))$. Now, let
 
+Define 
+
 \[ Z(a) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2 \]
 
-This operator has zero trace, so $\widetilde{\sigma_E}(a) = \Tr(\Sigma(a))$, where
+This operator has zero trace. Indeed, the first term has vanishing trace in the position basis, while the second term's integrand involves the trace of $[R,R]=0$. So $\sigma_E(a) = \Tr(\Sigma(a))$, where
 
 \[\begin{aligned}
 \Sigma(a) &=  -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + iZ(a)\\
@@ -360,9 +370,9 @@ in the final equality. Next, we must prove that the operator above converges to 
 
 \[ \norm{\Sigma(a) - \Sigma_B}_1 \to 0,\]
 
-as $a\to\infty$. Here, $\Sigma_B$ is the same operator but using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = -i\Tr(\Sigma_B)$ to conclude the proof. 
+as $a\to\infty$, which in turn proves that $\Tr(\Sigma(a))\to\Tr(\Sigma_B)$ because of the bound $|\Tr(A)|\leq \norm{A}_1$. Here, $\Sigma_B$ is the same operator as before, but using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = \Tr(\Sigma_B)$ to conclude the proof. 
 
-To show that the limit is zero as claimed, we bound the integrand of $\Sigma(a)$ in trace-norm by breaking it into three parts,
+To show that the limit is zero as claimed, we bound the trace norm of the integrand of $\Sigma(a)$ by breaking it into three parts,
 
 \[R[H_a,\Lambda_1]R[H_a,\Lambda_2]R = J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\cdot e^{-\delta|x_1|}e^{-\delta|x_2|}\cdot J_ae^{\delta|x_2|}[H_a, \Lambda_2]RJ_a^*,\]
 
@@ -380,16 +390,16 @@ and bounding the norm of each, making use of the fact that $\norm{AB}_1 \leq \no
 
 The norm of $R$ is bounded by 
 
-\[\norm{R_a(z)} \leq \frac{1}{\text{dist}(z,\sigma(H_a))}.\]
+\[\norm{R_a(z)} \leq \frac{1}{|\text{Im}(z)|},\]
 
-The norm of the second operator can be bounded by inspecting its matrix elements.
+since $H_a$ is self-adjoint. The norm of the second operator can be bounded by inspecting its matrix elements.
 
 \[\begin{aligned}
 \langle x, [H_a,\Lambda_1]e^{\delta|x_1|} y\rangle &= \langle x, H_a\Lambda_1 y\rangle e^{\delta |y_1|} - \langle x, \Lambda_1 H_a y\rangle e^{\delta|y_1|}  \\
 &= H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1)).
 \end{aligned}\]
 
-This is zero if $|x_1-y_1|\leq |y_1|$, since this would imply that $x_1$ and $y_1$ have the same sign, and thus $\Lambda(x_1)=\Lambda(y_1)$. So either the matrix element is zero, or $|y_1|\leq|x_1-y_1|$, which implies
+This is zero if $|x_1-y_1|\leq |y_1|$, since this would imply that $x_1$ and $y_1$ have the same sign, yielding $\Lambda(x_1)=\Lambda(y_1)$. So either the matrix element is zero, or $|y_1|\leq|x_1-y_1|$, which implies
 
 \[\begin{aligned}
 |H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1))| &\leq 2|H_a(x,y)|e^{\delta|x_1-y_1|}\\
@@ -397,15 +407,15 @@ This is zero if $|x_1-y_1|\leq |y_1|$, since this would imply that $x_1$ and $y_
 &\leq C|H_a(x,y)|(e^{\delta|x-y|}-1)
 \end{aligned}\]
 
-where the final inequality comes from the fact that the diagonal matrix elements are zero. Hence, by the assumption 
+where the final inequality comes from the fact that the diagonal matrix elements are zero. Hence the assumption 
 
 \[\sup_{x\in\Z^2}\sum_{y\in\Z^2}|H(x,y)|(e^{\mu|x-y|}-1)<\infty,\]
 
-combined with Holmgren's bound,
+combined with Holmgren's bound
 
-\[\norm{A} \leq \max \{ \sup_{x\in\Z^2} \sum_{y\in\Z^2} |A(x,y)|, \sup_{y\in\Z^2}\sum_{x\in\Z^2}|A(x,y)| \},\]
+\[\norm{A} \leq \max \left\{ \sup_{x\in\Z^2} \sum_{y\in\Z^2} |A(x,y)|, \; \sup_{y\in\Z^2}\sum_{x\in\Z^2}|A(x,y)| \right\},\]
 
-the second term is bounded. Finally, for the third term $e^{-\delta|x_1|}Re^{\delta|x_1|}$, we apply the Combes-Thomas bound,
+implies that the second term is bounded. Finally, for the third term $e^{-\delta|x_1|}Re^{\delta|x_1|}$, we apply the Combes-Thomas bound,
 
 \[\norm{e^{-\eps f(x)}R_a(z)e^{\eps f(x)}} \leq \frac{C}{|\text{Im}(z)|}\]
 
@@ -413,38 +423,41 @@ where $f:\Z^2\to\R$ is any Lipschitz function, and $\eps$ can be chosen as $\eps
 
 Altogether, the bound of the first term takes the form 
 
-\[\frac{C}{|\text{Im}(z)|}.\]
+\[\frac{C}{\text{Im}(z)^2}.\]
 
-\item For $e^{-\delta|x_1|}e^{-\delta|x_2|}$, we bound the trace norm by noticing that this is a summable function on $\Z^2$. Indeed, in the position basis, we see that the trace is nothing but the geometric series,
+\item For $e^{-\delta|x_1|}e^{-\delta|x_2|}$, we bound the trace norm by noticing that this is a positive operator satisfying 
+
+\[\langle (n,m), e^{-\delta|x_1|}e^{-\delta|x_2|} (n,m) \rangle = \langle e^{-\delta|x_1|}e^{-\delta|x_2|}(n,m), (n,m) \rangle,\]
+
+so that its trace norm is equal to its trace. In the position basis, we see that its trace is given by a geometric series
 
 \[\begin{aligned}
-\Tr(e^{-\delta|x_1|}e^{-\delta|x_2|}) &= \sum_{(m,m)\in\Z^2} \langle (m,m), e^{-\delta|x_1|}e^{-\delta|x_2|} (m,m) \rangle \\
-&= \sum_{m\in\Z} e^{-\delta|m|}e^{-\delta|m|} \\
-&= \sum_{m\in\Z} e^{-2\delta|m|} \\
-&= \frac{e^2+1}{e^2-1}.
+\Tr(e^{-\delta|x_1|}e^{-\delta|x_2|}) &= \sum_{(n,m)\in\Z^2} \langle (n,m), e^{-\delta|x_1|}e^{-\delta|x_2|} (n,m) \rangle \\
+&\leq 2 \sum_{n=0}^\infty \sum_{m=0}^\infty e^{-\delta m}e^{-\delta n} \\
+&= 2\left(\frac{1}{1-e^{-\delta}}\right)^2.
 \end{aligned}\]
 
 \item For $J_a e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)J_a^*$, note that analogously to 1. above where we bounded $[H_a,\Lambda_1]e^{\delta|x_1|}$, we also have that $e^{\delta|x_2|}[H_a,\Lambda_2]$ is bounded. Again, the resolvent $R_a(z)$ is also bounded.
 
 The bound of the third term takes the same form as the bound of the first term,
 
-\[\frac{C}{|\text{Im}(z)|}.\]
+\[\frac{C}{\text{Im}(z)^2}.\]
 
 \end{enumerate}
 
-Altogether, we see that the integrand is bounded by the product of the three bounds from 1., 2., and 3., and is of the form $\frac{C}{\text{Im}(z)^2}$. 
+Altogether, we see that the integrand is bounded by the product of the three bounds from 1., 2., and 3., and is of the form $\frac{C}{\text{Im}(z)^4}$. 
 
 For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sjostrand representation can be chosen so that 
 
-\[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^n+2 \norm{\rho^{(k)}}_{k-p-1},\]
+\[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^{n+2 }\norm{\rho^{(k)}}_{k-p-1},\]
 
 where the norms on the right hand side are defined by 
 
-\[\norm{f}_{k-p-1} = \int_{-\infty}^\infty \frac{|f(x)|}{(x^2+1)^{k/2}}dx.\]
+\[\norm{f}_{m} = \int_{-\infty}^\infty |f(x)|(x^2+1)^{m/2}dx.\]
 
-Since $\rho'$ is compactly supported, this is clearly finite. This fact, combined with the bound 
+Since $|\rho(x)|\leq 1$ and $\rho'$ is compactly supported, these norms are all clearly finite. This fact, combined with the bound 
 
-\[\norm{R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z)}_1 \leq \frac{C}{\text{Im}(z)}\]
+\[\norm{R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z)}_1 \leq \frac{C}{\text{Im}(z)^4}\]
 
 for the trace norm of the integrand of $\Sigma(a)$ provides the necessary bound for Lebesgue dominated convergence. Thus, it suffices to show pointwise convergence in $z$ of the integrand to the associated bulk operator. 
 
@@ -454,11 +467,9 @@ In other words, we wish to show
 
 and
 
-\[J_ae^{\delta|x_2|}[H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} e^{\delta|x_2|}[H_B, \Lambda_2].\]
+\[J_ae^{\delta|x_2|}[H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} e^{\delta|x_2|}[H_B, \Lambda_2]\]
 
-But inspecting the bounds we found for the left hand sides, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace; in particular, we may choose the dense subspace of compactly supported states, which allows us to eliminate the $e^{\delta|x_i|}$ terms. 
-
-Thus, we need to prove 
+for each fixed $z\in\C$. Inspecting the bounds we found for the left hand sides of these limits, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace of $\ell^2(\Z^2)$; in particular, we may choose the dense subspace of compactly supported states, which allows us to ignore the $e^{\delta|x_i|}$ terms. Thus, we need to prove 
 
 \[ J_a[R_a(z),\Lambda_1]J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1]\]
 
@@ -498,7 +509,11 @@ First, we manipulate
 &= i[\rho(H_B),\Lambda_1]\Lambda_2 - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_B(z)[H_B,\Lambda_1]\Lambda_2 R_B(z)dz^2.
 \end{aligned}\]
 
-Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$. Since $H_B$ is assumed to have a gap, we have $\Tr(\Sigma_B) = \Tr(P_+\Sigma_B P_+) + \Tr(P_-\Sigma_B P_-)$. Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, respectively, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts. Thus
+Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$, the projections onto states above and below the gap, respectively. Since $H_B$ is assumed to have a gap, we have 
+
+\[\Tr(\Sigma_B) = \Tr(P_+\Sigma_B P_+) + \Tr(P_-\Sigma_B P_-).\]
+
+Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, respectively, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts. Thus
 
 \[\Sigma_B = iP_+[\rho(H_B),\Lambda_1]\Lambda_2P_+ + iP_-[\rho(H_B),\Lambda_1]\Lambda_2P_-.\]
 
@@ -564,18 +579,33 @@ concluding the proof.
 
 \section{Interacting Setting}
 
-Let $L\in\N$, and let $\Lambda_L = \Z_L \times [0,L]$ be the discrete cylinder, equipped with a metric $d$. To each site $x \in \Lambda_L$, we associate a Hilbert space $\mathcal{H}_x$ whose dimension is bounded uniformly in $L$, i.e. there exists some $N>0$ such that for all $L \in \N$, we have $\text{dim}(\mathcal{H}_x) \leq N$ for all $x \in \Lambda_L$. For a subset $X \subseteq \Lambda_L$, we define the Hilbert space $\mathcal{H}_X = \otimes_{x \in X} \mathcal{H}_x$, and we set $\mathcal{H}_L := \mathcal{H}_{\Lambda_L} = \otimes_{x \in \Lambda_L}\mathcal{H}_x$. For simplicity, throughout we take $L = 2^n$ for some large $n$.
+Let $L\in\N$, and let $\Gamma_L = \Z_L \times [0,L]$ be the discrete cylinder, equipped with a metric $d$. To each site $x \in \Gamma_L$, we associate a Hilbert space $\mathcal{H}_x$ whose dimension is bounded uniformly in $L$. We denote $N = \sup_L{\mathcal{H}_L}$. For a subset $X \subseteq \Gamma_L$, we define the Hilbert space $\mathcal{H}_X = \otimes_{x \in X} \mathcal{H}_x$, and we set 
 
-The algebra $\U_L \subset \mathcal{B}(\mathcal{H}_L)$ of observables on $\Lambda_L$ is the set of bounded operators on $\mathcal{H}_L$ which are self-adjoint. For an operator $A_X \in \U_X$, we identify its extension to $\U_L$ by taking its tensor product with copies of the identity, $A_X \otimes_{x \in X^\mathsf{c}} \mathbb{I}_x$. Conversely, we say that an operator $A_X \in \Lambda_L$ has support $X$ if $A_X = A_X|_{X} \otimes_{x \in X^\mathsf{c}} \mathbb{I}_x$, and write $A_X \in \U_X$.
+\[\mathcal{H}_L := \mathcal{H}_{\Gamma_L} = \bigotimes_{x \in \Gamma_L}\mathcal{H}_x.\] 
 
-A \textit{local interaction} is a map $\Phi : \mathcal{P}(\Lambda_L) \to \U_L$ such that $\Phi(X) = 0$ whenever $\text{diam}(X) > R$, $\Phi(X)$ is supported in $X$, and $\norm{\Phi(X)} \leq C$ for all $X \subset \Lambda_L$, for all $L$.
+%For simplicity, throughout we take $L = 2^n$ for some large $n$.
 
-We consider a region as depicted in Figure~\ref{fig:setup}. In the left white region $[0,L/2] \times [0,L]$, $H_0$ is a trivial Hamiltonian which we take to be the void (for example $H_0=0$), and in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a nontrivial \textit{local Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Lambda} \Phi(X)$, where $\Phi$ is a local interaction. We define the Hamiltonian of the full system to be 
+The algebra $\U_X \subset \mathcal{B}(\mathcal{H}_X)$ of observables on $\mathcal{H}_X$ is the set of bounded self-adjoint operators supported in $X$. For an operator $A_X \in \U_X$, we identify its extension to an operator on $\mathcal{H}_L$ by taking its tensor product with copies of the identity, $(\otimes_{x \in X^\mathsf{c}} \mathbb{I}_x) \otimes A_X$. Conversely, we say that an operator $A \in \mathcal{U}_L$ has support $X$ if $A_X := (\otimes_{x \in X^\mathsf{c}} \mathbb{I}_x)\otimes (A|_{X})$ is equal to $A$, and write $A_X \in \U_X$. For ease of notation, we omit the subscript $L$ wherever there is no risk of confusion.
 
-\[H(\mu) = H_1 + \mu Q_h,\]
+A \textit{local interaction} is a map $\Phi : \mathcal{P}(\Gamma_L) \to \U_L$ such that 
 
-where $Q_h = \sum_{x \in \Gamma_h} a_x^*a_x$ is the number operator for the region $\Gamma_h = [L/4,3L/4] \times [0,L]$. 
+\begin{enumerate}
 
+\item $\Phi(X) = 0$ whenever $\text{diam}(X) > R$ for some $R>0$.
+
+\item $\Phi(X)$ is supported in $X$.
+
+\item $\norm{\Phi(X)} \leq C$ for all $X \subset \Gamma_L$, for all $L$.
+
+\end{enumerate}
+
+We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. In the left white region $[0,L/2] \times [0,L]$, $H_0$ is a trivial Hamiltonian which we take to be empty space (we take $H_0=0$), and in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a \textit{local Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_L} \Phi(X)$, is a sum of local interactions. We define the Hamiltonian of the full system to be 
+
+\[H_\mu = H_1 + \mu Q_h,\]
+
+where $Q_h = \sum_{x \in \Gamma_h} a_x^*a_x$ is the number operator for the region $\Gamma_h = [L/4,3L/4] \times [0,L]$ shown in red. This introduces a driving strength; the $\mu Q_h$ term can be viewed as a potential difference $V(x)$.
+
+\newpage
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
@@ -592,14 +622,14 @@ where $Q_h = \sum_{x \in \Gamma_h} a_x^*a_x$ is the number operator for the regi
 \node[color=red] at (10.25,4) {$\Gamma_h$};
 \node[color=yellow] at (10.25,9) {$\Gamma_u$};
 \end{tikzpicture}
-\caption{The setup for $\Lambda_L$. The left and right edges are identified to form a cylinder.}
+\caption{The cylinder $\Gamma_L$.}
 \label{fig:setup}
 \end{figure}
 
-We also consider the plane $\Z^2$. In this setting, there are no edge states, and so the associated ``bulk" Hamiltonian $H_B(\mu)$ is assumed to have a \textit{gapped} spectrum, in the sense that
+We also consider the plane $\Z^2$. In this setting, there are no edge states, and so the associated ``bulk" Hamiltonian $H_B$ is assumed to have a \textit{gapped} spectrum, in the sense that
 
 \begin{assumption}
-\[\sigma(H_B) = \mathcal{S}_{-} \cup \mathcal{S}_{+},\]
+\[\emph{Spec}(H_B) = \mathcal{S}_{-} \cup \mathcal{S}_{+},\]
 where $\inf\mathcal{S}_{+} - \sup \mathcal{S}_{-} \geq \gamma$ uniformly in $L$ and $\mu$ for some $\gamma > 0$. 
 \label{ass:gap}
 \end{assumption}
@@ -608,31 +638,29 @@ In the case of the cylinder, this effect does not necessarily occur due to the p
 We also assume that the Hamiltonian is \emph{charge-conserving}.
 
 \begin{assumption}
-$[H(\mu), Q] = 0$, where $Q$ is the total charge in $\Lambda_L$.
+$[H_\mu, Q] = 0$, where $Q$ is the total charge in $\Gamma_L$.
 \label{ass:charge}
 \end{assumption}
 
 Let $P_B$ be the ground state projection of $H_B$ (the system without an edge), and let $P$ be the ground state projection of $H$ (the system with an edge). We assume that states far from the edge are essentially bulk states, up to tails that vanish quickly in $L$.
 
 \begin{assumption}
-Define the bulk region $\Gamma_B = [L/2+k, L] \times [0,L]$ for some $k > 2R$. For any operator $A \in \U_{\Gamma_B}$,
+Define the bulk region $\Gamma_B = [3L/4-k, 3L/4+k] \times [0,L]$ for some $k>0$. For any operator $A \in \U_{\Gamma_B}$,
 \[\emph{Tr}(PA) = \emph{Tr}(P_BA) + \mathcal{O}(L^{-\infty}).\]
 \label{ass:bulk}
 \end{assumption}
 
-(need to add justification)
+The idea is that observables localized far away from the edge are not affected by the edge of the system.
 
-For ease of notation, we omit the subscript $L$ wherever there is no risk of confusion.
+\subsection{Equality of Bulk and Edge Currents}
 
-\section{Equality of Bulk and Edge Currents}
+\subsubsection{Cylinder Geometry}
 
-\subsection{Cylinder Geometry}
+Let $P_\mu$ be the (possibly degenerate) ground state projection of $H_\mu$. Let $Q_u = \sum_{x \in \Gamma_u} a_x^* a_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$ (the yellow region in Figure \ref{fig:setup}), and define current operator 
 
-Let $P(\mu)$ be the (possibly degenerate) ground state projection of $H(\mu)$. Let $Q_u = \sum_{x \in \Gamma_u} a_x^* a_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$, and define current operator 
+\[J = i[H_\mu,Q_u],\]
 
-\[J_u = i[H(\mu),Q_u].\]
-
-For simplicity, we drop the subscript $u$ and simply write $J=J_u$. Charge conservation~\ref{ass:charge} implies that this current operator is supported on the strip $[L/2, L] \times [L/2-R, L/2+R]$, i.e. along a strip of width $2R$ centred at the line $y=L/2$. Indeed, if we inspect a local interaction $\Phi(X)$ of range $R$ with support $S \subset (\Gamma_u)_R$, where $(\Gamma)_\alpha$ is the $\alpha$-shrinking of $\Gamma$, then clearly $[\Phi(X), Q_u] = [\Phi(X), Q] = 0$, by assumption~\ref{ass:charge}. Similarly, if $\Phi(X)$ has support $S \subset ((\Gamma_u)^\mathsf{c})_R$, then $[\Phi(X), Q_u] = [\Phi(X), Q] = 0$. It follows that for an interaction $\Phi(X)$ with range $R$ and arbitrary support, $[\Phi(X), Q_u]$ must be supported on a set which is contained in (or equal to) the strip $[L/2, L] \times [L/2-R, L/2+R]$, and so $[H,Q_u]$ must be as well, since $H$ is a sum of such local interactions.
+which measures the current across the fiducial line $y=L/2$. Charge conservation~\ref{ass:charge} implies that this current operator is supported along a strip of width $2R$ centred on the fiducial line $y=L/2$. Indeed, if we inspect a local interaction $\Phi(X)$ of range $R$ with support $(\Gamma_u)_R$, where $(X)_\alpha$ is the $\alpha$-shrinking of the set $X$, then clearly $\Phi(X)$ commutes with the charge outside $\Gamma_u$, so that $[\Phi(X), Q_u] = [\Phi(X), Q]$, which vanishes by the charge conservation assumption~\ref{ass:charge}. Similarly, if $\Phi(X)$ is supported in $((\Gamma_u)^\mathsf{c})_R$, then $[\Phi(X), Q_u] = [\Phi(X), Q] = 0$. It follows that for an interaction $\Phi(X)$ with range $R$ and arbitrary support, $[\Phi(X), Q_u]$ must be supported on a set which is contained in (or equal to) the strip $[L/2, L] \times [L/2-R, L/2+R]$. There $[H_\mu,Q_u]$ must be supported there as well, since $H_\mu$ is a sum of such local interactions.
 
 % In the case of a unique ground state $\Omega$, the total change in charge in $\Gamma_h$ after threading one quantum of flux is given by the fundamental theorem of calculus,
 
@@ -642,111 +670,143 @@ For simplicity, we drop the subscript $u$ and simply write $J=J_u$. Charge conse
 The ground state expectation of the current $J$ is zero.
 \label{lemma:J=0}
 \end{lemma}
+
 \begin{proof}
-By cyclicity of the trace and commutativity of $P(\mu)$ with $H(\mu)$, 
+Assuming linearity and cyclicity of the trace hold, the proof is trivial, 
+
 \[\begin{aligned}
-\Tr(P(\mu) J) &= \Tr(P(\mu)i[H(\mu),Q_u]) \\
-&= \Tr(iP(\mu)H(\mu)Q_u) - \Tr(iP(\mu)Q_u H(\mu))\\
-&= \Tr(iH(\mu)P(\mu)Q_u) - \Tr(iH(\mu)P(\mu)Q_u)\\
-&=0.
+\Tr(P_\mu J) = i\Tr(P_\mu [H_\mu,Q_u]) = i\Tr([P_\mu,H_\mu]Q_u) = 0.
 \end{aligned}\]
+
+In order for this calculation to hold, we need to prove that
+
+\begin{enumerate}
+\item $P_\mu H_\mu Q_u$ and $P_\mu Q_u H_\mu$ are separately trace-class to apply linearity of the trace, and 
+\item $\norm{H_\mu}<\infty$ and $P_\mu Q_u \in \mathcal{J}_1$ to apply cyclicity of the trace. 
+\end{enumerate}
+
+The latter implies the former by the bound $\norm{AB}_1 \leq \norm{A}_1\norm{B}$.  To prove (2), fix a finite $L$. The Hamiltonian is bounded since it is a finite sum of at most $\mathcal{P}(\Gamma_L)$ local interactions $\Phi(X)$, each of which is uniformly bounded by assumption, along with the $\mu Q_h$ term. But the number operator for the entire space is bounded by $\norm{Q} \leq NL^2$, where $N$ is the uniform bound on the dimension of each Hilbert space. This shows that both $Q_u$ and $Q_h$ are bounded in operator norm. Finally, $\norm{P_\mu}_1\leq CL^2$ because the projection is finite-rank, since the dimension of each site is bounded. Therefore $P_\mu Q_u \in \mathcal{J}_1$.
+
+%\[\begin{aligned}
+%\norm{P_\mu H_\mu}_1 &= \norm{P_\mu\sum_{X\in \Gamma_L}\Phi(X) + P_\mu \mu Q_h}_1\\
+%&\leq \sum_{X\in\Gamma_L} \norm{P_\mu \Phi(X)}_1 + \mu\norm{P_\mu Q_h}_1\\
+%&\leq \norm{P_\mu}_1 \sum_{X\in\Gamma_L} \norm{\Phi(X)}+ \mu \norm{P_\mu}_1\norm{Q_h}\\
+%\end{aligned}\]
 \end{proof}
 
-Define the operators
+Next, we define a family of operators indexed by $\mu$ called \emph{Hastings operators},
 
-\[K(\mu) = \mathcal{I}_{\mu}(\dot{H}(\mu)),\]
+\[K_\mu = \mathcal{I}_{\mu}(\dot{H}_\mu),\]
 
 where 
 
-\[\mathcal{I}_{\mu} (A) = \int_\R W(t) e^{itH(\mu)} A e^{-itH(\mu)}dt.\]
+\[\mathcal{I}_{\mu} (A) = \int_\R W(t) e^{itH_\mu} A e^{-itH_\mu}dt.\]
 
-More explicitly, in this setting we see that $K(\mu) = \mathcal{I}_\mu(Q_h)$. As a shorthand, we use the notation $\dot{A}(\mu_0)= \frac{d}{d\mu}A|_{\mu_0}$. 
+Here, $W:\R\to\R$ is a function satisfying (need to add). More explicitly, in our setting we see that 
 
-We present two important properties of the map $\mathcal{I}_\mu$ in the following lemmas, and leave their proofs to the appendix (need to add). We will also need a definition: an \emph{off-diagonal} operator is an operator $A$ such that $A = \overline{A} := PAP^\perp + P^\perp AP$, where $P^\perp = \mathbb{I} - P$ is the projection onto the excited states above the gap.
+\[K_\mu = \mathcal{I}_\mu(Q_h).\]
+
+ %As a shorthand, we use the notation $\dot{A}_{\mu_0}= (\frac{d}{d\mu}A_\mu)|_{\mu=\mu_0}$. 
+
+We present two important properties of the map $\mathcal{I}_\mu:\mathcal{U}_L\to\mathcal{U}_L$ in the following lemmas, and leave their proofs to the appendix (need to add). 
+
+We also recall a definition from the non-interacting setting: an \emph{off-diagonal} operator is an operator $A$ such that $A = \overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp AP_\mu$, where $P_\mu^\perp = \mathbb{I} - P_\mu$ is the projection onto the excited states above the gap.
 
 \begin{lemma}
-For any off-diagonal operator $A$, $\mathcal{I}_\mu(\cdot)$ and $[H(\mu), \cdot]$ act as inverses of each other, up to a factor of $i$:
+For any off-diagonal operator $A=\overline{A}$, $\mathcal{I}_\mu(\cdot)$ and $[H_\mu, \cdot]$ act as inverses of each other, up to a factor of $i$:
 
-\[\mathcal{I}_\mu\left([H(\mu), A]\right) = [H(\mu), \mathcal{I}_\mu(A)] = iA\]
+\[\mathcal{I}_\mu\left([H_\mu, A]\right) = [H_\mu, \mathcal{I}_\mu(A)] = iA.\]
+
+Furthermore, for any (not necessarily off-diagonal) operator $A$, 
+
+\[[\mathcal{I}_\mu([H_\mu, A]),P_\mu] = i[A,P_\mu].\]
+
 \label{lemma:inverseofH}
 \end{lemma}
 
-It is easy to verify that any operator $A$ behaves as an off-diagonal operator when taking a commutator with $P$, in the sense that
+%It is easy to verify that any operator $A$ behaves as an off-diagonal operator when taking a commutator with $P$, in the sense that
 
-\[[\overline{A}, P] = [PA(1-P) + (1-P)AP, P] = [A,P].\]
+%\[[\overline{A}, P] = [A,P].\]
 
-It follows that for any (not necessarily off-diagonal) operator $A$, 
+%Combining this fact with Lemma \ref{lemma:inverseofH}, it follows that for any (not necessarily off-diagonal) operator $A$, 
 
-\[[\mathcal{I}([H, A]),P] = i[A,P]\]
+%\[[\mathcal{I}_\mu([H_\mu, A]),P_\mu] = i[A,P_\mu].\]
+
+Another important property of the map $\mathcal{I}_\mu$ is that it preserves locality.
 
 \begin{lemma}
 $\mathcal{I}_\mu$ is local in the sense that for any $A \in \mathcal{U}_X$, 
 
-\[\norm{\mathcal{I}(A)_{(X^r)^\mathsf{c}}} \leq \norm{A} |X| \mathcal{O}(r^{-\infty}).\]
+\[\norm{\mathcal{I}(A)_{(X^r)^\mathsf{c}}} \leq \norm{A} |X| \mathcal{O}(r^{-\infty})\]
+
+where $X^r$ is the $r$-fattening of $X$.
 \label{lemma:local}
 \end{lemma}
 
+From this point, we drop the subscript $\mu$ wherever it is not needed for context.
+
 \begin{proposition}
-The operator $K(\mu)$ is the \emph{generator of parallel transport}, satisfying
-\[\dot{P}(\mu) = i[K(\mu),P(\mu)].\]
+The operator $K_\mu$ is the \emph{generator of parallel transport}, satisfying
+\[\dot{P}_\mu = i[K_\mu,P_\mu]\]
+for all $\mu$.
 \label{prop:generatorparalleltransport}
 \end{proposition}
 \begin{proof}
-By the product rule and the fact that $H(\mu)$ and $P(\mu)$ commute, 
-
-\[ [\dot{H}(\mu), P] = -[H, \dot{P}(\mu)]. \]
-
-Now we show that $\dot{P}(\mu)$ is off-diagonal. Taking the derivative on both sides of $P^2=P$, we see that $\dot{P}P + P\dot{P} = \dot{P}$. Acting on the left and right with $P$ on both sides of this equation gives 
+First, we show that $\dot{P}$ is off-diagonal. Taking the derivative on both sides of $P^2=P$, we see that $\dot{P} P + P \dot{P} = \dot{P}$. Acting on the left and right with $P$ on both sides of this equation gives 
 
 \[P\dot{P}P + P\dot{P}P = P\dot{P}P,\]
 
-which implies that $P\dot{P}P = 0$. Now, 
+which implies that $P\dot{P}P = 0$. Thus 
 
 \[\begin{aligned}
-\overline{\partial_\mu P} &= P(\partial_\mu P)(1-P) + (1-P)(\partial_\mu P)P\\
-&= P(\partial_\mu P) - P(\partial_\mu P)P + (\partial_\mu P)P - P(\partial_\mu P)P\\
-&= P(\partial_\mu P) + (\partial_\mu P)P\\
+\overline{\partial_\mu P} &= P\dot{P}(1-P) + (1-P)\dot{P}P\\
+&= P\dot{P} - P\dot{P}P + \dot{P}P - P\dot{P}P\\
+&= P\dot{P} + \dot{P}P\\
 &= \partial_\mu (P^2)\\
 &= \partial_\mu P,
 \end{aligned}\]
 
-as claimed. It therefore follows from Lemma~\ref{lemma:inverseofH} that
+as claimed. By the product rule and the fact that $H$ and $P$ commute, 
+
+\[ [\dot{H}, P] = -[H, \dot{P}]. \]
+
+It therefore follows from Lemma~\ref{lemma:inverseofH} that 
 
 \[\begin{aligned}
-\dot{P}(\mu) &= -i \mathcal{I}_\mu([H(\mu), \dot{P}(\mu)])\\
-&= i\mathcal{I}_\mu([\dot{H}(\mu), P(\mu)])\\
-&= i[\mathcal{I}_\mu(\dot{H}(\mu)), P(\mu)]\\
-&= i[K(\mu), P(\mu)].
+\dot{P} &= -i \mathcal{I}_\mu([H, \dot{P}]) = i\mathcal{I}([\dot{H}, P]) = i[\mathcal{I}(\dot{H}), P] = i[K, P].
 \end{aligned}\]
 \end{proof}
 
-Increasing the ``electric potential" by a small amount $d\mu Q_h$ and expanding to linear order, the change in ground state current is given by
+Increasing the electric potential by a small amount $d\mu Q_h$ and expanding to linear order, the change in ground state current is given by
 
-\[\Tr(P(\mu+d\mu)J) - \Tr(P(\mu)J) = \kappa d\mu + \mathcal{O}(d\mu^2).\]
+\[\Tr(P_{\mu+d\mu}J) - \Tr(P_\mu J) = \kappa d\mu + \mathcal{O}(d\mu^2).\]
 
 Dividing by $d\mu$ and taking a limit, we see that the linear response coefficient is given by
 
-\[\kappa = \Tr\left(\dot{P}(\mu) J\right).\]
+\[\sigma(\mu) = \Tr\left(\dot{P}_\mu J\right).\]
 
-The \emph{Hall conductivity} of the system on a subset $V \subseteq \Lambda$ is defined to be $\kappa_V := \Tr\left(\dot{P}(\mu) J_V\right)$, where $J_V$ is the restriction of the operator $J$ to $V$. 
+The \emph{Hall conductivity} of the system on a subset $V \subseteq \Gamma_L$ is defined to be $\sigma_V := \Tr\left(\dot{P} J_V\right)$, where $J_V$ is the restriction of $J$ to $V$. 
 
 \begin{proposition}
 The Hall conductivity is independent of the driving strength $\mu$.
+\label{prop:independent}
 \end{proposition}
 \begin{proof}
-We see by cyclicity of the trace and the formula $\dot{H}(\mu)=Q_h$ that for any $\mu_1$ and $\mu_2$,
+Since $\dot{H}_\mu=Q_h$, we see that for any $\mu_1$ and $\mu_2$
 
 \[\begin{aligned}
-\kappa(\mu_1) - \kappa(\mu_2) &= \Tr\left( \dot{P}(\mu_1) i[H(\mu_1), Q_u] - \dot{P}(\mu_2)i[H(\mu_1),Q_u]\right)\\
-&= i\Tr\left(\left([\dot{P}(\mu_1), H(\mu_1)] - [\dot{P}(\mu_2), H(\mu_2)]\right)Q_u\right)\\
-&= i\Tr\left( \left([\dot{H}(\mu_1), P(\mu_1)] - [\dot{H}(\mu_2), P(\mu_2)]\right)Q_u \right)\\
-&= i\Tr\left( [Q_h, P(\mu_1) - P(\mu_2)]Q_u \right)\\
-&= i\Tr \left( Q_h(P(\mu_1) - P(\mu_2))Q_u - (P(\mu_1)-P(\mu_2))Q_uQ_h \right)\\
+\sigma(\mu_1) - \sigma(\mu_2) &= \Tr\left( \dot{P}_{\mu_1} i[H_{\mu_1}, Q_u] - \dot{P}_{\mu_2}i[H_{\mu_2},Q_u]\right)\\
+&= i\Tr\left(\left([\dot{P}_{\mu_1}, H_{\mu_1}] - [\dot{P}_{\mu_2}, H_{\mu_2}]\right)Q_u\right)\\
+&= - i\Tr\left(\left([\dot{H}_{\mu_1}, P_{\mu_1}] - [\dot{H}_{\mu_2}, P_{\mu_2}]\right)Q_u\right)\\
+&= i\Tr\left( [Q_h, P_{\mu_1} - P_{\mu_2}]Q_u \right)\\
+&= i\Tr\left( [Q_u,Q_h]( P_{\mu_1} - P_{\mu_2})\right)\\
 &= 0,
 \end{aligned}\]
 
-since $Q_h$ and $Q_u$ commute, indicating that the Hall conductivity is independent of $\mu$ as one would expect physically.
+since $Q_h$ and $Q_u$ commute. The proof of Lemma \ref{lemma:J=0} provides the necessary bounds to invoke linearity and cyclicity of the trace to shift the commutator in the second line and the second-last line. (need to add a bound for $\norm{\dot{P}}_1$).
 \end{proof}
+
+This indicates that the Hall conductivity is independent of $\mu$ as one would expect physically. We simply write $\sigma=\sigma(\mu)$ from this point, in accordance with proposition \ref{prop:independent}. 
 
 The following is the main result:
 
@@ -790,7 +850,7 @@ The previous fact applies to the bulk setting with $H_B$ and $P_B$. To extend th
 
 The intuitive picture from the previous result is that, in the bulk region, the Hall conductivity is essentially only nonzero along  the bulk line $[3L/4-R, 3L/4+R] \times [L/2, L]$. Since the ground state expectation of the current is zero (by lemma~\ref{lemma:J=0}), it must be that there is an equal current flowing along the edge, but in the opposite direction, see figure (need to add).
 
-\subsection{Torus Geometry}
+\subsubsection{Torus Geometry}
 
 Our goal is to show the same result on the discrete torus $\mathbb{T}_L := \Z_L \times \Z_L$. We define the same regions $\Gamma_u$ and $\Gamma_h$, and the same current operator $J_u = i[H(\mu), Q_u]$. This time, however, Lemma~\ref{lemma:J=0} does not apply. Intuitively, it does not apply because electrons can now flow through both the bottom and the top of the region $\Gamma_u$, rather than just the bottom. Mathematically, the lemma fails because our definition of the current is slightly changed.
 

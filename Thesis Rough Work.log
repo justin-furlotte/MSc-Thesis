@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  2 JUN 2022 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  6 JUN 2022 19:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -757,20 +757,20 @@ been already used, duplicate ignored
                    \relax 
 l.79 
       [1]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 105
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 107
 .
  (/usr/local/texlive/2021/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 [2]
-Overfull \hbox (11.39929pt too wide) in paragraph at lines 125--126
+Overfull \hbox (11.39929pt too wide) in paragraph at lines 127--128
 []\OT1/cmr/m/n/12 Notice that since $\OML/cmm/m/it/12 J[]$ \OT1/cmr/m/n/12 is t
 race-class and $\OML/cmm/m/it/12 P[]$ \OT1/cmr/m/n/12 is bounded, and since $[\
 OML/cmm/m/it/12 H[]; P[]\OT1/cmr/m/n/12 ] =
  []
 
 
-Overfull \hbox (21.01978pt too wide) in paragraph at lines 140--141
+Overfull \hbox (21.01978pt too wide) in paragraph at lines 142--143
 \OT1/cmr/m/n/12 trix, $[](\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/1
 2 ^^@\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 [[](\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\
 OML/cmm/m/it/12 ; ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )]$, wi
@@ -780,7 +780,7 @@ n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12
  []
 
 [3]
-Overfull \hbox (60.74168pt too wide) in paragraph at lines 152--153
+Overfull \hbox (60.74168pt too wide) in paragraph at lines 154--155
 []\OT1/cmr/m/n/12 Using $\OML/cmm/m/it/12 J[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/1
 2 i\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 H[]; \OT1/cmr/m/n/12 ^^C[]] = \OML/cmm/m/i
 t/12 ^^[[]V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 ^^[[]V[]\OT1
@@ -790,7 +790,7 @@ t/12 ^^[[]V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 ^^[[]V[]\OT1
  []
 
 [4] [5] [6]
-Overfull \hbox (13.61334pt too wide) in paragraph at lines 269--270
+Overfull \hbox (13.61334pt too wide) in paragraph at lines 271--272
 []\OT1/cmr/m/n/12 where $\OML/cmm/m/it/12 R\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z\
 OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 H[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 
 z\OT1/cmr/m/n/12 )[]$ is the re-sol-vent. Us-ing $[\OML/cmm/m/it/12 R\OT1/cmr/m
@@ -801,7 +801,7 @@ OML/cmm/m/it/12 z\OT1/cmr/m/n/12 )$,
  []
 
 [7]
-Overfull \hbox (27.90187pt too wide) detected at line 277
+Overfull \hbox (27.90187pt too wide) detected at line 279
 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a; t\OT1/cmr/m/n/12 ) = [\O
 ML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 )\OML/cm
 m/m/it/12 ; \OT1/cmr/m/n/12 ^^C[]]^^C[] \OMS/cmsy/m/n/12 ^^@ [] [][] []\OML/cmm
@@ -814,73 +814,87 @@ z\OT1/cmr/m/n/12 ))
  []
 
 
-Overfull \hbox (62.358pt too wide) detected at line 285
+Overfull \hbox (62.358pt too wide) detected at line 287
 [][]
  []
 
 [8]
-Overfull \hbox (20.91022pt too wide) in paragraph at lines 317--318
+Overfull \hbox (20.91022pt too wide) in paragraph at lines 319--320
 []\OT1/cmr/m/n/12 We posit that the edge con-duc-tiv-ity can be rewrit-ten as $
 \OML/cmm/m/it/12 ^^[[] \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 ^^[[]\OT1/cmr/m/
 n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )$,
  []
 
 [9]
-Overfull \hbox (28.06598pt too wide) detected at line 354
+Overfull \hbox (31.32983pt too wide) detected at line 360
 [][]
  []
 
-[10] [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (30.10614pt too wide) in paragraph at lines 624--625
+[10] [11] [12] [13] [14] [15] [16] [17] [18]
+Overfull \hbox (30.10614pt too wide) in paragraph at lines 667--668
  [][] 
  []
 
-[18] [19] [20] [21] [22]
-Overfull \hbox (11.221pt too wide) detected at line 846
-\OML/cmm/m/it/12 ^^T[] \OT1/cmr/m/n/12 = [] [] = [] [] = \OML/cmm/m/it/12 ^^T[]
+[19] [20]
+Overfull \hbox (44.7327pt too wide) in paragraph at lines 769--770
+ [][] 
+ []
+
+[21] [22] [23] [24]
+Overfull \hbox (30.78334pt too wide) in paragraph at lines 973--974
+[]\OT1/cmr/m/n/12 since $\OML/cmm/m/it/12 W\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\
+OT1/cmr/m/n/12 )$ is odd. By part (2) of Lemma []4[], we have $\OML/cmm/m/it/12
+ i\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 Q[]; P[]\OT1/cmr/m/n/12 ] = [\OMS/cmsy/m/n/
+12 I\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 H[]; Q[]\OT1/cmr/m/n/12 ])\OML/cmm/m/it/
+12 ; P[]\OT1/cmr/m/n/12 ]$.
+ []
+
+[25]
+Overfull \hbox (11.44736pt too wide) detected at line 986
+\OML/cmm/m/it/12 ^^[[] \OT1/cmr/m/n/12 = [] [] = [] [] = \OML/cmm/m/it/12 ^^[[]
  \OT1/cmr/m/n/12 + \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/
 cmr/m/n/12 ) = \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r[]\OT1/cmr/
 m/n/12 ) + \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/
 12 )\OML/cmm/m/it/12 :
  []
 
-[23] [24] [25] [26]
+[26] [27] [28]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 979.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 979.
+(hyperref)                removing `math shift' on input line 1119.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 979.
+(hyperref)                removing `subscript' on input line 1119.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 979.
+(hyperref)                removing `\mu' on input line 1119.
 
-[27]
-Overfull \hbox (2.01978pt too wide) in paragraph at lines 1012--1013
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1119.
+
+[29]
+Overfull \hbox (2.01978pt too wide) in paragraph at lines 1152--1153
 []\OT1/cmr/m/n/12 By the same ar-gu-ment, $\OMS/cmsy/m/n/12 I\OT1/cmr/m/n/12 ([
 \OML/cmm/m/it/12 H; P[]AP\OT1/cmr/m/n/12 ]) = \OML/cmm/m/it/12 iP[]AP$ \OT1/cmr
 /m/n/12 as well, and so $\OMS/cmsy/m/n/12 I\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 H
 ; []\OT1/cmr/m/n/12 ]) =
  []
 
-[28] [29] [30] [31] [32] (./Thesis Rough Work.aux)
+[30] [31] [32] [33] [34] (./Thesis Rough Work.aux)
 Package rerunfilecheck Info: File `"Thesis Rough Work".out' has not changed.
-(rerunfilecheck)             Checksum: C301BCA4D0A144578CC6493E44F295C6;2018.
+(rerunfilecheck)             Checksum: B5DD4DD40DE59C66139A563EB7DC6F79;2252.
  ) 
 Here is how much of TeX's memory you used:
- 21660 strings out of 478994
- 394264 string characters out of 5858185
- 681090 words of memory out of 5000000
- 38698 multiletter control sequences out of 15000+600000
+ 21680 strings out of 478994
+ 394499 string characters out of 5858185
+ 682206 words of memory out of 5000000
+ 38711 multiletter control sequences out of 15000+600000
  416664 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,17n,89p,1013b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,12n,89p,1013b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/justinfurlotte/Library/texlive/2021/texmf-var/fonts/pk/ljfour/public
 /bbm/bbm12.600pk></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts
@@ -898,10 +912,10 @@ fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></u
 sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Thesis Rough Work.pdf" (33 pages, 287834 bytes).
+Output written on "Thesis Rough Work.pdf" (35 pages, 295599 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 289 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

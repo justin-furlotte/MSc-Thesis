@@ -65,7 +65,7 @@ are characteristic functions. We construct an edge Hamiltonian on the lattice $\
 
 satisfies the edge assumption
 
-\[\sup_{x\in\Z^2}\sum_{y\in\Z^2_a} E_a(x,y)|e^{\mu(|x_2+a|-|x_1-y_1|)} < \infty\]
+\[\sup_{x\in\Z^2}\sum_{y\in\Z^2_a} E_a(x,y)|e^{\mu(|x_2+a|-|x_1-y_1|)} \leq C < \infty\]
 
 for some $\mu>0$, where $|x| := |x_1|+|x_2|$. The interpretation
 
@@ -83,8 +83,8 @@ where $J_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We assu
 
 \begin{assumption}
 The edge operator satisfies
-\[\sup_{z\in\Z^2}\sum_{y\in\Z^2_a} |E_a(x,y)| e^{\alpha(|x_2 + a| + |x_1-y_1|)} < \infty\]
-for some $\alpha>0$.
+\[\sup_{z\in\Z^2}\sum_{y\in\Z^2_a} |E_a(x,y)| e^{\alpha(|x_2 + a| + |x_1-y_1|)} \leq C < \infty\]
+for some $\alpha>0$, where $|x| = |x_1|+|x_2|$ is the taxicab metric.
 \label{ass:edge}
 \end{assumption}
 
@@ -600,23 +600,17 @@ Let $\psi \in \ell^2(\Z^2)$. Since $E_a$ has real entries,
 &=\sum_{z} \left(\sum_y E_a(y,z)\overline{\psi(y)}\right) \left(\sum_x E_a(x,z)\psi(x)\right)\\
 \end{aligned}\]
 
-Consider the $M_\alpha(z) := \sum_x E_a(x,z)\psi(x)$ term. To take advantage of the edge assumption, we insert the exponentials
+Consider the $\sum_x E_a(x,z)\psi(x)$ term. To take advantage of the edge assumption, we insert the exponentials
 
-\[M_\alpha(z) = \sum_x E_a(x,z)e^{\alpha (|z_2-a|-|z_1-x_1|)} e^{-\alpha (|z_2-a|-|z_1-x_1|)}\psi(x).\]
+\[\sum_x E_a(x,z)e^{\alpha (|z_2-a|-|z_1-x_1|)} e^{-\alpha (|z_2-a|-|z_1-x_1|)}\psi(x).\]
 
-By assumption \ref{ass:edge}, $E_a(x,z)e^{\alpha (|z_2-a|-|z_1-x_1|)}$ is bounded uniformly in $x$. Writing $g(z)$ for this bound,
+By assumption \ref{ass:edge}, $g(z) := \sup_x E_a(x,z)e^{\alpha (|z_2-a|-|z_1-x_1|)}$ is finite and summable. Precisely the same argument can be used on the sum over $y$. Altogether,
 
-\[M_\alpha(z) \leq g(z) \sum_x e^{-\alpha (|z_2-a|-|z_1-x_1|)}\psi(x).\]
+%\[\norm{E_a^* \psi}^2 \leq \sum_z g(z)^2 \sum_x e^{-\alpha (|z_2-a|-|z_1-x_1|)}\psi(x)\sum_y e^{-\alpha (|z_2-a|-|z_1-y_1|)}\overline{\psi(y)}.\]
 
-Precisely the same argument can be used on the other term, $N_\alpha(z) \leq g(z) \sum_y e^{-\alpha (|z_2-a|-|z_1-y_1|)}\overline{\psi(y)}$. Altogether,
+\[\norm{E_a^* \psi}^2 \leq e^{-\alpha|a|}\sum_z g(z)^2 e^{-2\alpha (|z_1|+|z_2|)} \sum_x e^{-\alpha |x_1|}\psi(x)\sum_y e^{-\alpha |y_1|}\overline{\psi(y)},\]
 
-\[\norm{E_a^* \psi}^2 \leq \sum_z g(z)^2 \sum_x e^{-\alpha (|z_2-a|-|z_1-x_1|)}\psi(x)\sum_y e^{-\alpha (|z_2-a|-|z_1-y_1|)}\overline{\psi(y)}.\]
-
-We bound the exponential by $e^{-\alpha (|z_1|+|z_2|)}e^{-\alpha |x_1|}e^{-\alpha|a|}$ so that
-
-\[\norm{E_a^* \psi}^2 \leq e^{-\alpha|a|}\sum_z g(z)^2 e^{-\alpha (|z_1|+|z_2|)} \sum_x e^{-\alpha |x_1|}\psi(x)\sum_y e^{-\alpha |y_1|}\overline{\psi(y)}.\]
-
-Since $g$ is summable by assumption \ref{ass:edge}, $g^2$ is also summable, and so too is the summand over $z$. The sums over $x$ and $y$ are clearly finite, as they are bounded by the summable state $|\psi|$. Thus $E_a^*$ converges strongly to zero. An exactly analogous argument applies for $E_a$.
+where we bounded the exponential by $e^{-\alpha (|z_1|+|z_2|)}e^{-\alpha |x_1|}e^{-\alpha|a|}$. Since $g$ is summable, $g^2$ is also summable, and so too is the summand over $z$. The sums over $x$ and $y$ are clearly finite, as they are bounded by the summable state $|\psi|$. Thus $E_a^*$ converges strongly to zero. An exactly analogous argument applies for $E_a$.
 
 \end{proof}
 
@@ -1256,9 +1250,76 @@ Let $r(t) = \rho(t)-\sigma(t)$. Notice that
 
 \section{The Helffer-Sj\"{o}strand Representation}
 
-The Helffer-Sj\"{o}strand representation is a function calculus $f \mapsto f(H)$ for arbitrary (possibly unbounded) operators $H$ which has the following properties:
+The Helffer-Sj\"{o}strand representation is a functional calculus $f \mapsto f(H)$ for arbitrary (possibly unbounded) operators $H$ on the set of functions 
+
+\[\mathcal{A} = \bigcup_{\beta<0} \{f:\R\to\C \; : \; f \in C^\infty(\R), \; |f^{(n)}(x)| \leq c_n (1+x^2)^{\frac{\beta-n}{2}}\}.\]
+
+It has the following properties.
 
 \begin{theorem}
+For any $f\in \mathcal{A}$,
+\begin{enumerate}
+\item $f\mapsto f(H)$ is an algebraic homomorphism (linear and multiplicative).
+\item $\overline{f}(H) = f(H^*)$.
+\item $\norm{f(H)} \leq \norm{f}_\infty$.
+\item For all $w \notin \R$, if $r_w(s) = \frac{1}{s-w}$ then $r_w(H) = (H-z)^{-1}$.
+\item For all $f \in C^\infty_c(\R)$ with $\text{supp}(f) \cap \text{Spec}(H) = \varnothing$, we have $f(H)=0$.
+\end{enumerate}
 \end{theorem}
+
+There is an explicit formula for $f(H)$, which is given by
+
+\[ f(H) = \frac{1}{2\pi}\int_\C \frac{\partial \tilde{f}}{\partial \bar{z}} (H-z)^{-1}dz\wedge d\bar{z},\]
+
+where $\tilde{f}:\C\to\C$ is a \emph{quasi-analytic extension} of $f:\R\to\R$. It is defined as follows. For any smooth $f$, we set
+
+\[\tilde{f}(z) = \sum_{r=0}^n \tau\left(\frac{y}{(1+x^2)^{1/2}}\right)  \frac{(iy)^r}{r!} f^{(r)}(x)\]
+
+where $\tau:\R\to\R$ is any smooth function satisfying 
+
+\[\tau(s) = \begin{cases}1 & |s|<1 \\ 0 & |s|>2\end{cases}.\]
+
+The extension turns out to be independent of the choice of $n$ and $\tau$. Furthermore, as $|\text{Im}(z)| \to 0$, the Wirtinger derivative of the extension obeys the bound 
+
+\[\bigg|\frac{\partial \tilde{f}}{\partial \bar{z}} \bigg| = \mathcal{O}(|y|^n).\]
+
+Thus $\frac{\partial \tilde{f}}{\partial \bar{z}} = 0$ for all real $z$, which is why $\tilde{f}$ is called a ``quasi"-analytic extension (the Wirtinger derivative would be zero everywhere were $\tilde{f}$ analytic).
+
+A crucial property of the Helffer-Sj\"{o}strand functional calculus is the following bound. For any $n\in \N$, the quasi-analytic extension $\tilde{f}$ can be chosen so that 
+
+\[\int_\C\frac{\partial \tilde{f}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz\wedge d\bar{z} \leq C_0 \sum_{k=0}^{n+2 }\norm{f^{(k)}}_{k-p-1},\]
+
+where the norms on the right hand side are defined by 
+
+\[\norm{f}_{m} = \int_{-\infty}^\infty |f(x)|(1+x^2)^{m/2}dx.\]
+
+This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \leq |\text{Im}(z)|^{-1}$.
+
+\section{Spectral Measures and Projection-Values Measures}
+
+\emph{Projection-valued measures} are maps $P:\mathcal{M}\to\mathcal{B}(\mathcal{H})$ from measurable subsets of $\R$ to the space of bounded linear operators on $\mathcal{H}$ satisfying the usual properties of both projections and measures.
+
+\begin{enumerate}
+\item $P(M)=P(M)^*=P(M)^2$ is an orthogonal projection for all $M\in\mathcal{M}$. Note that this implies that $P(M)$ is a positive operator.
+\item $P(\varnothing)=0$ and $P(\R)=\One_\mathcal{H}$.
+\item If $\{M_i\}_{i\in\N}$ are pairwise disjoint, then $\sum_{i=1}^n P(M_i) \xrightarrow{\enskip s \enskip}P(\cup_{i\in\N} M_i)$ as $n\to\infty$ ($\sigma$-additivity).
+\item $P(M_1\cap M_2) = P(M_1)P(M_2)$ for any $M_1,M_2\in\mathcal{M}$.
+\end{enumerate}
+
+The heuristic motivation is that $P(M)$ projects onto the subspace spanned by states whose energies lie in $M$. Using these operator-valued measures, one can construct an operator-valued integral with respect to $P$ in the usual fashion (beginning on nonnegative simple functions, extending to nonnegative measurable functions, and finally to real-valued measurable functions).
+
+\begin{theorem}[Spectral Theorem for Projection-Valued Measures]
+There exists a one-to-one correspondence between self adjoint operators $H$ and projection-valued measures $P$ given by the formula
+\[H = \int_\R \lambda dP_\lambda,\]
+where $P_\lambda := P((-\infty,\lambda])$. Moreover, if $g:\R\to\R$ is any bounded Borel function, then $g(H)$ defined via the Borel function calculus coincides with the formula
+\[g(H) = \int_\R g(\lambda) dP_\lambda,\]
+and $g(H) = g(H)^*$.
+\end{theorem}
+
+We remark that it follows from the second part of this theorem that if $\One_{M}$ denotes the characteristic function of a Borel set $M\subseteq \R$, then 
+
+\[\One_M(H) = \int_M dP_\lambda = P(M).\]
+
+We also note that $\text{Spec}(H) = \text{supp}(P)$.
 
 \end{document}

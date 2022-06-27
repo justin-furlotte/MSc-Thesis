@@ -12,9 +12,9 @@
 %\usepackage{stix}
 \usepackage{amssymb}
 \usepackage{enumitem}
-\title{Thesis Rough Work}
+\title{Bulk-Edge Correspondence in Quantum Hall Lattice Systems}
 \author{Justin Furlotte (Student \#: 64238736)}
-\date{May 17, 2022}
+\date{June 9, 2022}
 \begin{document}
 \begin{titlepage}
 \maketitle
@@ -27,7 +27,9 @@
 \newtheorem{assumption}{Assumption}
  
 \newcommand{\C}{\mathbb{C}}
+%\newcommand{\H}{\mathcal{H}}
 \newcommand{\Tr}{\text{Tr}}
+\newcommand{\tr}{\text{tr}}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -44,42 +46,100 @@
 
 \section{Introduction}
 
+\subsection{History}
+
+Since its unexpected discovery in 1980, the Quantum Hall Effect (QHE) has captured significant interest in the mathematical physics community.
+
+\subsection{Heuristic Arguments}
+
+\subsubsection{The Classical Hall Effect}
+
+Using classical electromagnetism is not enough to predict the plateaux seen experimentally. Suppose we have a 2-dimensional electron gas, and let $\vec{B} = B\hat{x_3}$ be a magnetic field piercing the plane of the electrons. They are subjected to a Lorentz force
+
+\[m\dot{\vec{v}} = -q\vec{v}\times\vec{B} .\]
+
+The solution to this differential equation is given by the \emph{cyclotron orbits},
+
+\[\begin{pmatrix} x_1(t)\\x_2(t)\\x_3(t) \end{pmatrix} = \begin{pmatrix} a + r\sin(\omega_Bt+\phi) \\ b + r\cos(\omega_Bt+\phi) \\ 0 \end{pmatrix}\]
+
+where $\omega_B = qB/m$ is the \emph{cylontron frequency}. An electric field $\vec{E}=E\hat{x_1}$ is introduced, and the electrons move in the $x_1$-direction. We now employ the \emph{Drude model},
+
+\[m\dot{\vec{v}} = -q(\vec{E}+\vec{v}\times\vec{B}) + \frac{m}{\tau}\vec{v},\]
+
+where the final term is a linear friction term, and $\tau$ is the scattering time. At equilibrium, the equation reads
+
+\[\vec{J} + \frac{q\tau}{m}\vec{J}\times\vec{B} = -\frac{q^2n\tau}{m}\vec{E},\]
+
+where $\vec{J} = -nq\vec{v}$ is the current density, related to the velocity by the density of electrons per unit area $n$. In matrix notation, this reads
+
+\[\begin{pmatrix} 1 & \omega_B\tau \\ -\omega_B\tau & q \end{pmatrix}\vec{J} = -\frac{q^2n\tau}{m}\vec{E}.\]
+
+Since the matrix on the left is invertible, we may write $\vec{J} = \sigma \vec{E}$, which is Ohm's Law. The \emph{conductivity tensor} is given by
+
+\[\sigma = \begin{pmatrix} \sigma_{xx} & \sigma_{xy} \\ -\sigma_{xy} & \sigma_{yy} \end{pmatrix} = -\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\begin{pmatrix} 1 & -\omega_B\tau \\  \omega_B\tau& 1 \end{pmatrix}.\]
+
+The off-diagonal components, $\pm\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\omega_B\tau$, are responsible for the Hall effect; the magnetic field induces a component of the current in the $x_2$-direction, in addition to the one in the $x_1$-direction from the electric field. 
+
+When making a measurement, physicists actually measure the resistivity $\rho = \sigma^{-1}$. In particular, the \emph{Hall resistivity} is given by 
+
+\[\rho_{xy} = \frac{B}{nq}.\]
+
+The key prediction of the classical theory is that the Hall resistivity is increases linearly in response to the strength of the magnetic field.
+
+\newpage
+\subsubsection{The Quantum Hall Effect}
+
+Von Klitzing's experimental observation in 1980 made it clear that classical electromagnetism is not sufficient to describe the Hall effect. At a temperature of about 8mK, the Hall resistivity looked like this as a function of the magnetic field strength.
+
+\begin{figure}[h!]
+\centering
+\includegraphics{vonklitzing}
+\caption{The Hall resistivity as a function of the magnetic field strength. Distinct plateaux are clearly visible.}
+\label{fig:vonklitzing}
+\end{figure}
+
+Even more surprising, the plateaux occur at the values
+
+\[\rho_{xy} = \frac{2\pi \hbar}{nq},\]
+
+where $n$ is an integer. In fact, this integer can be measured to such extraordinary precision (to about $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity.
+
+The first explanation employing quantum mechanics is due to Laughlin in (need to add). 
+
+An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Proving this fact, both in the interacting and noninteracting setting, is the main focus of this thesis.
+
 \section{Nonnteracting Setting}
 
+Consider the lattice $\Z^2$, and the associated Hilbert space of square-summable sequences of vectors in $\C^n$,
 
-Consider the lattice $\Z^2$, on which we define a bulk Hamiltonian $H_B$, whose matrix elements follow a short-range assumption:
+\[\ell^2(\mathbb{Z}^2, \mathbb{C}^n) = \left\{ (x_i)_{i\in\Z^2} \subset \mathbb{C}^n \; : \; \sum_{i \in \Z^2} \norm{x_i}^2 < \infty \right\},\]
 
-\[\sup_{y\in\Z^2}\sum_{x\in\Z^2}|H_B(x,y)|(e^{\mu|x-y|}-1) < \infty\]
-
-for some $\mu>0$. We define the bulk conductivity
-
-\[\sigma_B(\lambda) = -i\Tr(P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]])\]
-
-where $P_\lambda$ is the projection onto the eigenstates of $H_B$ with energy lies in $(-\infty,\lambda)$, and where 
-
-\[\Lambda_i(x) = \begin{cases} 1 & x_i < 0\\ 0 & x_i \geq 0\end{cases}\]
-
-are characteristic functions. We construct an edge Hamiltonian on the lattice $\Z^2_a = \{x \in \Z^2 : x_2 > -a\}$. We denote the edge Hamiltonian by $H_a:\ell^2(\Z^2_a) \to \ell^2(\Z^2_a)$, requiring only that that the edge operator $E_a:\ell^2(\Z^2_a)\to\ell^2(\Z^2_a)$ define by 
-
-\[E_a = J_aH_a-H_BJ_a\]
-
-satisfies the edge assumption
-
-\[\sup_{x\in\Z^2}\sum_{y\in\Z^2_a} E_a(x,y)|e^{\mu(|x_2+a|-|x_1-y_1|)} \leq C < \infty\]
-
-for some $\mu>0$, where $|x| := |x_1|+|x_2|$. The interpretation
+with inner product $\langle x, y\rangle = \sum_{i\in\Z^2} x_i\overline{y_i}$. We denote this as $\ell^2(\Z^2)$ for short. On this Hilbert space we define a \emph{bulk Hamiltonian} $H_B:\ell^2(\Z^2)\to\ell^2(\Z^2)$, whose matrix elements follow a short-range assumption:
 
 
 
+\begin{assumption}
+There exists some $\alpha>0$ such that
+\[\sup_{y\in\Z^2}\sum_{x\in\Z^2}|H_B(x,y)|(e^{\alpha|x-y|}-1) \leq C < \infty,\]
+where $|x| = |x_1|+|x_2|$ is the taxicab metric.
+\label{ass:shortrange}
+\end{assumption}
 
+%\[\sigma_B(\lambda) = -i\Tr(P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]])\]
 
-Each site $x \in \mathbb{Z}^2$ get an associated Hilbert space $\mathcal{H}_x$. The dimension of these Hilbert spaces is bounded uniformly in $x$. We consider the Hilbert space $\ell^2(\mathbb{Z}^2, \mathbb{C}^n) = \{ (x_1,x_2,\ldots) \subset \mathbb{C}^n : \sum_{i \in \Z^2} \norm{x_i}^2 < \infty\}$. For example, one might consider a system of spins at the lattice sites, in which case the Hilbert space $\mathcal{H}_x$ at each site would be $\C^2$, and the total Hilbert space $\mathcal{H} = \otimes_x \mathcal{H}_x$ would then be the space of summable wavefunctions $\psi = \otimes_x\psi_x \in \ell^2(\Z^2,\C^2)$.
+%where $P_\lambda$ is the projection onto the eigenstates of $H_B$ with energy lies in $(-\infty,\lambda)$, and where 
 
-The Hilbert space $\ell^2(\Z^2)$ is the ``bulk" setting, i.e. the setting in which we consider an infinite two-dimensional medium with no edges, and we consider a ``bulk Hamiltonian" $H_B$ on this Hilbert space. We also define the ``edge" Hilbert space $\ell^2(\Z_a^2)$ and an associated ``edge Hamiltonian" $H_a$, where $\Z^2_a := \{(n,m) \in \Z^2 : n \geq -a\}$. The bulk and edge Hamiltonians are related by the edge operator $E_a : \ell^2(\Z^2_a) \to \ell(\Z^2)$ defined by
+%\[\Lambda_i(x) = \begin{cases} 1 & x_i < 0\\ 0 & x_i \geq 0\end{cases}\]
+
+%are characteristic functions. 
+
+We also construct an \emph{edge Hamiltonian} on the lattice $\Z^2_a := \{x \in \Z^2 : x_2 > -a\}$, denoted by $H_a:\ell^2(\Z^2_a) \to \ell^2(\Z^2_a)$. The bulk and edge Hamiltonians are related by the \emph{edge operator}
+
+\[E_a : \ell^2(\Z^2_a) \to \ell(\Z^2),\]
 
 \[E_a := J_aH_a - H_BJ_a,\]
 
-where $J_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We assume that
+where $J_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We require only that that the edge operator satisfies the edge assumption
 
 \begin{assumption}
 The edge operator satisfies
@@ -90,23 +150,42 @@ for some $\alpha>0$, where $|x| = |x_1|+|x_2|$ is the taxicab metric.
 
 
 
-The interpretation is that $E_a = J_aH_a - H_BJ_a$ is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$, and then making everything below $-a$ into zeroes, versus first making all $x \in \Z^2$ such that $x_2 < -a$ zeroes, and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent).
 
-We also make the following assumption about both the bulk and edge Hamiltonians:
+%Each site $x \in \mathbb{Z}^2$ gets an associated Hilbert space $\mathcal{H}_x$; in our setting, we only consider the finite Hilbert spaces $\mathcal{H}_x = \C^{n_x}$. The dimension of these Hilbert spaces is bounded uniformly in $x$. We consider the total Hilbert space $\mathcal{H} = \ell^2(\mathbb{Z}^2)$. For example, one might consider a system of a spin (or multiple spins, in the interacting setting) at the lattice sites, in which case the Hilbert space $\mathcal{H}_x$ at each site would be $\C^2$, and the total Hilbert space $\mathcal{H}$ would be isomorphic to $\otimes_x \mathcal{H}_x$. States would then be the square summable wavefunctions $\mathcal{H} \ni \psi$, $\otimes_x\psi_x \in \otimes_x \mathcal{H}_x$.
+
+%The Hilbert space $\ell^2(\Z^2)$ is the ``bulk" setting, i.e. the setting in which we consider an infinite two-dimensional medium with no edges, and we consider a ``bulk Hamiltonian" $H_B$ on this Hilbert space. We also define the ``edge" Hilbert space $\ell^2(\Z_a^2)$ and an associated ``edge Hamiltonian" $H_a$, where $\Z^2_a := \{(n,m) \in \Z^2 : n \geq -a\}$. The bulk and edge Hamiltonians are related by the edge operator $E_a : \ell^2(\Z^2_a) \to \ell(\Z^2)$ defined by
+
+%\[E_a := J_aH_a - H_BJ_a,\]
+
+%where $J_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We assume that
+
+%\begin{assumption}
+%The edge operator satisfies
+%\[\sup_{z\in\Z^2}\sum_{y\in\Z^2_a} |E_a(x,y)| e^{\alpha(|x_2 + a| + |x_1-y_1|)} \leq C < \infty\]
+%for some $\alpha>0$, where $|x| = |x_1|+|x_2|$ is the taxicab metric.
+%\label{ass:edge}
+%\end{assumption}
+
+
+
+The interpretation is that $E_a = J_aH_a - H_BJ_a$ is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$, and then making everything below $-a$ into zeroes, versus first making all $x \in \Z^2$ such that $x_2 < -a$ zeroes, and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent). 
+
+A simple example of an edge Hamiltonian satisfying the edge condition is $H_a = J_a^*H_BJ_a$, which gives $E_a = (\mathcal{J}_a\mathcal{J}_a^*-1)H_B$. The idea is that for a state $\psi \in \ell^2(\Z^2_a)$, we have $\langle \psi, H_a \psi \rangle = \langle (J_a \psi), H_B (J_a\psi) \rangle$, which we interpret as the edge Hamiltonian having the same expectation as the bulk Hamiltonian if we just transformed all the states with support below the line $x_2=-a$ into zeroes below $x_2=-a$.  The edge operator is 
+
+\[E_a = (J_aJ_a^*-\One)H_BJ_a = \begin{cases} -H_B(x,y) & \text{if } x_2 < -a \\ 0 & \text{if } x_2\geq -a\end{cases}\]
+
+Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The edge assumption \ref{ass:edge} then follows from the bound $|E_a(x,y)|\leq |H_B(x,y)|$ and the short range assumption \ref{ass:shortrange}.
+
+We also make the following assumption about the bulk Hamiltonian.
 
 \begin{assumption}
-The Hamiltonians have a spectral gap. There exists an interval $\Delta$ such that $\Delta \cap \sigma(H) = \varnothing$.
+The bulk Hamiltonian has a spectral gap. That is, there exists an interval $\Delta \subset \R$ such that for all $L$, 
+\[\Delta \cap \emph{Spec}(H_B) = \varnothing.\]
 \end{assumption}
 
 \textit{Remark}: The spectral gap assumption can be relaxed to a ``mobility gap" assumption,
-\[\sup_{f \in B_c(\Delta)}|f(H_B)(x,y)|(1+|x|)^{-\nu}e^{\mu|x-y|} < \infty\]
-for some $\nu>0$, where $B_c(\Delta)$ is the set of Borel functions $f$ which are constant on $(-\infty,\inf \Delta)$ and on $(\sup \Delta, \infty)$ such that $|f(x)| \leq 1$ for all $x$. See ? for details.
-
-An example of an edge Hamiltonian satisfying the assumption on $E_a$ is $H_a = J_a^*H_BJ_a$, where $J_a:\ell^2(\Z^2_a)\to\ell^2(\Z^2)$ denotes extension by zeros. The idea is that for a state $\psi \in \ell^2(\Z^2_a)$, we have $\langle \psi, H_a \psi \rangle = \langle (J_a \psi), H_B (J_a\psi) \rangle$, which we interpret as the edge Hamiltonian having the same expectation as the bulk Hamiltonian if we just turned all the states $\psi_x$ with $x_2<-a$ into zeroes.  The edge operator is 
-
-\[E_a = J_aJ_a^*H_BJ_a - H_bJ_a = (J_aJ_a^*-\One)H_BJ_a = \begin{cases} -H_B(x,y) & \text{if } x_2 < -a \\ 0 & \text{if } x_2\geq -a\end{cases}\]
-
-Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The bound in assumption ? is satisfied by the short range assumption ?.
+\[\sup_{f \in B_c(\Delta)}|f(H_B)(x,y)|(1+|x|)^{-\alpha_1}e^{\alpha_2|x-y|} < \infty\]
+for some $\alpha_1>0$, where $B_c(\Delta)$ is the set of Borel functions $f$ which are constant on $(-\infty,\inf \Delta)$ and on $(\sup \Delta, \infty)$ such that $|f(x)| \leq 1$ for all $x$. See (need to add) for details.
 
 We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential difference $V$ in the $x_2$ direction. We write this as $-V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators $\Lambda_i |\psi(x_1,x_2)\rangle = \Lambda(x_i)|\psi(x_1,x_2)\rangle$ which are \textit{switch functions},
 
@@ -118,15 +197,16 @@ This gives $\vec{E}=-\nabla V = V_0\frac{\partial \Lambda_2}{\partial x_2}$, so 
 
 \[\widetilde{H}_B(t) = H_B - V_0\Lambda_2 e^{\eps t}.\]
 
-We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. 
+We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. We also denote by $P_\mu := P((-\infty,\mu])$ the projection-valued measure associated with $H_B$ onto states with energy below the Fermi energy $\mu$ (see Appendix \ref{sec:pvm}).
 
 \begin{lemma}
-The ground state expectation $\Tr(P_\mu J_H)$ of the Hall current is zero.
+The ground state expectation $\emph{Tr}(P_\mu J_H)$ of the Hall current is zero.
+\label{lemma:groundstatecurrent}
 \end{lemma}
 \begin{proof}
-Notice that since $J_H$ is trace-class and $P_\mu$ is bounded, and since $[H_B,P_\mu]=0$, we have 
+Notice that $J_H$ is trace-class, since its trace norm can be broken into $\norm{J}_1 \leq \norm{[H_B,\Lambda_1]e^{\delta|x_1|}}\norm{e^{-\delta|x_1|}}_1$. The first term is bounded by lemma (need to add), while the second is a summable function on $\Z^2$. This fact, together with $P_\mu$ being bounded, allows us to exploit linearity and cyclicity of the trace. Since the Hamiltonian commutes with its ground state projection, we have 
 
-\[\Tr(P_\mu J_H) =i \Tr(P_\mu [H_B, \Lambda_1]) = i\Tr(P_\mu [H_B, P_\mu \Lambda_1P_\mu])\]
+\[\Tr(P_\mu [H_B, \Lambda_1]) = \Tr([P_\mu, H_B] \Lambda_1) = 0.\]
 
 \end{proof}
 
@@ -134,28 +214,26 @@ Notice that since $J_H$ is trace-class and $P_\mu$ is bounded, and since $[H_B,P
 
 The Hall conductivity $\sigma_H$ in the bulk system is equal to 
 
-\[\sigma_B = -i\emph{Tr}\left(P_\mu \left[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]\right]\right),\]
-
-where $P_\mu := P((-\infty,\mu))$ is the projection-valued measure associated with $H_B$ onto states with energy less than the Fermi energy $\mu$.
+\[\sigma_B = i\emph{Tr}\left(P_\mu \left[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]\right]\right).\]
 \end{proposition}
 \begin{proof}
 We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition $\lim_{t\to-\infty} \|\rho(t) - e^{-itH_B}P_\mu e^{itH_B}\| = 0$, which also implies $\lim_{t\to-\infty} \|e^{itH_B}\rho(t)e^{-itH_B} - P_\mu\| = 0$.
 
-We work in the interaction picture, and define $\rho_I(t) = e^{itH_B}\rho(t)e^{-itH_B}$, and $\Delta H_B(t) = -e^{itH_B}V_0\Lambda_2 e^{\eps t}e^{-itH_B}$. Thus
+We work in the interaction picture by defining $\rho_I(t) = e^{itH_B}\rho(t)e^{-itH_B}$ and $\Delta H_B(t) = -e^{itH_B}V_0\Lambda_2 e^{\eps t}e^{-itH_B}$. Thus
 
-\[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)]\]
+\[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)].\]
 
 The solution to this differential equation is readily verified to be
 
 \[\rho(t) = i\int_{-\infty}^t [\Delta H_B(s), P_\mu]ds + P_\mu \]
 
-Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$. The initial condition is also satisfied. 
+Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$ (need to add). The initial condition is also satisfied. 
 
-Using $J_H = i[H_B,\Lambda_1] = \sigma_H V = -\sigma_H V_0\Lambda_2$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho(0)i[H_B,\Lambda_1])$. Since the expectation of the ground state current is zero, $\Tr(P_\mu J_H) =0$, we have
+Using $J_H = i[H_B,\Lambda_1] = \sigma_H V = -\sigma_H V_0\Lambda_2$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho_I(0)i[H_B,\Lambda_1])$ (need to add). By Lemma \ref{lemma:groundstatecurrent}, the expectation of the ground state current is zero. Thus
 
 \[\begin{aligned}
 \sigma_H &= \frac{i}{V_0} \lim_{\eps\to 0}\Tr \left( i\int_{-\infty}^0 [\Delta H_B(t), P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
 &= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
 &= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{-isH_B}[H_B,\Lambda_1]e^{isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
@@ -181,7 +259,7 @@ by commutativity of $P_\mu$ and $H_B$. We show that the integral of the first te
 
 \[e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} + e^{-isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s}.\]
 
-We treat the first of these two terms; the other is handled in an identical manner. We use the spectral theorem to write $e^{-isH_B}P_\mu = \int_{-\infty}^\mu e^{-is\lambda}dP_\lambda$, and similarly $P_\mu^\perp e^{isH_B} = (\text{Id} - P_\mu) e^{isH_B} = \int_\mu^\infty e^{is\nu} dP_\nu$. 
+We treat the first of these two terms; the other is handled in an identical manner. We invoke the spectral theorem (Appendix \ref{sec:pvm}) to write $e^{-isH_B}P_\mu = \int_{-\infty}^\mu e^{-is\lambda}dP_\lambda$, and similarly $P_\mu^\perp e^{isH_B} = (\One- P_\mu) e^{isH_B} = \int_\mu^\infty e^{is\nu} dP_\nu$. 
 
 We remark that, since the Fermi energy $\mu$ is assumed to lie in a spectral gap, there must exist a neighbourhood $(\mu-\delta, \mu+\delta)$ in which there are no states. We exploit this fact to rewrite the limits of integration, $\int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda$ and $\int_{\mu+\delta}^\infty e^{is\nu} dP_\nu$. We therefore obtain
 
@@ -213,6 +291,7 @@ Shifting the commutator completes the proof:
 &= i\Tr(P_\mu[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]]).
 \end{aligned}\]
 
+(need to add justification for shifting commutator).
 \end{proof}
 
 \textit{Remark:} This is reminiscent of the well-known adiabatic curvature formula,
@@ -221,13 +300,13 @@ Shifting the commutator completes the proof:
 
 where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. 
 
-For the \textit{edge conductivity}, we need the current operator across the line $x_1=0$, which is given by $-i[H_a,\Lambda_1]$. We define 
+For the \textit{edge conductivity}, we again need the current operator across the line $x_1=0$, which is this time given by $-i[H_a,\Lambda_1]$. We define 
 
 \[\sigma_E = -i\lim_{a\to\infty}\Tr(\rho'(H_a)[H_a,\Lambda_1]),\]
 
 where $\rho \in C^\infty(\R)$ satisfies
 
-\[\rho(r) = \begin{cases} 1 & \text{if } r<\inf\Delta\\ 0 & \text{if } r>\sup\Delta\end{cases}\]
+\[\rho(r) = \begin{cases} 1 & \text{if } r\leq\inf\Delta\\ 0 & \text{if } r\geq\sup\Delta\end{cases}\]
 
 and decreases smoothly and monotonically in $\Delta$. The definition of $\sigma_E$ is reminiscent of another formula we will see later in the interacting setting, $\Tr(\dot{P}J)$, where $J$ is the current operator. The interpretation of $\sigma_E$ is that if we apply a small potential difference $V$ across $x_2=-a$ to $x_2=\infty$, there will be a net current
 
@@ -242,101 +321,119 @@ Thus we obtain the conductivity
 
 in the limit as $V\to0$. As we shall see, it turns out that $\sigma_E$ is independent of the choice of $\rho$, and $\sigma_B$ is independent of $\lambda$. 
 
+
+%First, let 
+
+%\[\tilde{\sigma}_E(a,t) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t))\]
+
+%where $\Lambda_{2,a}(t) = e^{itH_a}\Lambda_2 e^{-itH_a}$ is the time evolution of $\Lambda_2$. One can show that, while 
+
+%\[\sigma_E = \lim_{T\to\infty}\lim_{a\to\infty} \frac{1}{T}\int_0^T \text{Re}(\tilde{\sigma}_E(a,t))dt,\]
+
+%it is unfortunately the case that $\lim_{a\to\infty}\norm{\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t)}_1 = \infty$. However, even though the trace norm diverges, it turns out that the trace itself does not, so we will instead subtract a clever choice of zero-trace operator $Z(a,t)$ to define
+
+%\[\sigma_E(a,t) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t)-Z(a,t))\]
+
+%so that the equation $\sigma_E = \lim_{T\to\infty}\lim_{a\to\infty} \frac{1}{T}\int_0^T \text{Re}(\sigma_E(a,t))dt$ still holds, but we also have $\lim_{a\to\infty}\norm{\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t) - Z(a,t)}_1 < \infty$. The correct choice of $Z$ will become apparent after writing $\rho(H_a)$ and $\rho'(H_a)$ in terms of their Hellfer-Sj\"{o}strand representations,
+
+%\[\rho(H_a) = \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)\]
+
+%\[\rho'(H_a) = -\frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)^2\]
+
+%where $R(z) = (H_a - z)^{-1}$ is the resolvent. Using $[R(z),\Lambda_i] = R(z)[H_a,\Lambda_i]R(z)$, we obtain the representations of the following useful operators:
+
+%\[[\rho(H_a),\Lambda_1] = \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)[H_a,\Lambda_1]R(z)\]
+
+%\[\rho'(H_a)[H_a,\Lambda_1] = -\frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)^2[H_a,\Lambda_1]\]
+
+%From here, we define the zero-trace operator
+
+%\[Z(a,t) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)(R(z)[H_a,\Lambda_1]\Lambda_{2,a}(t) - [H_a,\Lambda_1]\Lambda_{2,a}(t)R(z))\]
+
+%from which we obtain
+
+%\[\begin{aligned}
+%\sigma_E(a,t) &= \tilde{\sigma}_E(a,t) - Z(a,t)\\
+%&= \Tr\left(-[\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}}R(z)[H_a,\Lambda_1]\Lambda_{2,a}(t)R(z)\right)\\
+%&= \Tr\left([\rho(H_a),\Lambda_1](\Lambda_{2,a}(t)-\Lambda_2) - \frac{1}{2\pi}\int_\C\frac{\partial \tilde{\rho}(z)}{\partial \bar{z}}R(z)[H_a,\Lambda_1]R(z)[H_a,\Lambda_{2,a}(t)]R(z)\right)
+%\end{aligned}\]
+
+%All of the statements so far can be verified by calculations. The difficult part of the theorem (aside from proving that the relevant operators are trace-class) is proving that
+
+%\[\norm{J_a\Sigma_a'J_a^* - \Sigma_B'}_1, \norm{J_a\Sigma_a''J_a^* - \Sigma_B''}_1 \to 0\]
+
+%as $a\to\infty$, where $\Sigma_B'$ and $\Sigma_B''$ are the same as with the subscript $a$, except using the bulk Hamiltonian $H_B$ in their definition rather than $H_a$. It follows that 
+
+%\[\sigma_E(a,t) = \Tr(J_a\Sigma_a'J_a^*+J_a\Sigma_a''J_a^*) = \Tr(\Sigma_a'+\Sigma_a'') \to \Tr(\Sigma_B'+\Sigma_B'')\]
+
+%From there, a calculation shows that $\lim_{T\to\infty}\frac{1}{T}\int_0^T\Tr(\Sigma_B'+\Sigma_B'')dt = \sigma_B$, concluding the proof.
+
+\subsection{Equality of Bulk and Edge Conduvitivities}
+
+
+%Need to add section on why $\sigma_E(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1])$ is equal to
+
+%\[-\frac{i}{2}\Tr(\rho'(H_a)\{[H_a,\Lambda_1],\Lambda_2\}).\]
+
 The main result of this section is
 
 \begin{theorem}
 $\sigma_E=\sigma_B$.
-\end{theorem}
-
-\subsection{Outline of the Proof}
-
-First, let 
-
-\[\tilde{\sigma}_E(a,t) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t))\]
-
-where $\Lambda_{2,a}(t) = e^{itH_a}\Lambda_2 e^{-itH_a}$ is the time evolution of $\Lambda_2$. One can show that, while 
-
-\[\sigma_E = \lim_{T\to\infty}\lim_{a\to\infty} \frac{1}{T}\int_0^T \text{Re}(\tilde{\sigma}_E(a,t))dt,\]
-
-it is unfortunately the case that $\lim_{a\to\infty}\norm{\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t)}_1 = \infty$. However, even though the trace norm diverges, it turns out that the trace itself does not, so we will instead subtract a clever choice of zero-trace operator $Z(a,t)$ to define
-
-\[\sigma_E(a,t) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t)-Z(a,t))\]
-
-so that the equation $\sigma_E = \lim_{T\to\infty}\lim_{a\to\infty} \frac{1}{T}\int_0^T \text{Re}(\sigma_E(a,t))dt$ still holds, but we also have $\lim_{a\to\infty}\norm{\rho'(H_a)[H_a,\Lambda_1]\Lambda_{2,a}(t) - Z(a,t)}_1 < \infty$. The correct choice of $Z$ will become apparent after writing $\rho(H_a)$ and $\rho'(H_a)$ in terms of their Hellfer-Sj\"{o}strand representations,
-
-\[\rho(H_a) = \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)\]
-
-\[\rho'(H_a) = -\frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)^2\]
-
-where $R(z) = (H_a - z)^{-1}$ is the resolvent. Using $[R(z),\Lambda_i] = R(z)[H_a,\Lambda_i]R(z)$, we obtain the representations of the following useful operators:
-
-\[[\rho(H_a),\Lambda_1] = \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)[H_a,\Lambda_1]R(z)\]
-
-\[\rho'(H_a)[H_a,\Lambda_1] = -\frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)^2[H_a,\Lambda_1]\]
-
-From here, we define the zero-trace operator
-
-\[Z(a,t) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi} \int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}} R(z)(R(z)[H_a,\Lambda_1]\Lambda_{2,a}(t) - [H_a,\Lambda_1]\Lambda_{2,a}(t)R(z))\]
-
-from which we obtain
-
-\[\begin{aligned}
-\sigma_E(a,t) &= \tilde{\sigma}_E(a,t) - Z(a,t)\\
-&= \Tr\left(-[\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}(z)}{\partial \bar{z}}R(z)[H_a,\Lambda_1]\Lambda_{2,a}(t)R(z)\right)\\
-&= \Tr\left([\rho(H_a),\Lambda_1](\Lambda_{2,a}(t)-\Lambda_2) - \frac{1}{2\pi}\int_\C\frac{\partial \tilde{\rho}(z)}{\partial \bar{z}}R(z)[H_a,\Lambda_1]R(z)[H_a,\Lambda_{2,a}(t)]R(z)\right)
-\end{aligned}\]
-
-All of the statements so far can be verified by calculations. The difficult part of the theorem (aside from proving that the relevant operators are trace-class) is proving that
-
-\[\norm{J_a\Sigma_a'J_a^* - \Sigma_B'}_1, \norm{J_a\Sigma_a''J_a^* - \Sigma_B''}_1 \to 0\]
-
-as $a\to\infty$, where $\Sigma_B'$ and $\Sigma_B''$ are the same as with the subscript $a$, except using the bulk Hamiltonian $H_B$ in their definition rather than $H_a$. It follows that 
-
-\[\sigma_E(a,t) = \Tr(J_a\Sigma_a'J_a^*+J_a\Sigma_a''J_a^*) = \Tr(\Sigma_a'+\Sigma_a'') \to \Tr(\Sigma_B'+\Sigma_B'')\]
-
-From there, a calculation shows that $\lim_{T\to\infty}\frac{1}{T}\int_0^T\Tr(\Sigma_B'+\Sigma_B'')dt = \sigma_B$, concluding the proof.
-
-\subsection{Gap Simplifications}
-
-We now assume that $H_B$ has a spectral gap. In this case, the edge condition guarantees that $\sigma_E(a) := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class (need to add). 
-
-Need to add section on why $\sigma_E(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1])$ is equal to
-
-\[-\frac{i}{2}\Tr(\rho'(H_a)\{[H_a,\Lambda_1],\Lambda_2\}).\]
-
-\begin{theorem}
-$\sigma_E = \sigma_B$
+\label{thm:bulkedge}
 \end{theorem}
 
 \subsubsection*{Outline of the Proof}
 
-Before giving the proof in its entirety, we outline the basic steps. The key ingredient is the use of the funcional calculus given by the Helffer-Sj\"{o}strand representation of self-adjoint operators on a Hilbert space (need to add reference to appendix here).
-
-\subsection*{The Proof}
-
-\begin{proof}
-
-We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
+Before giving the proof in its entirety, we outline the basic steps. The edge condition guarantees that $\sigma_E(a) := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class (need to add). We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
 
 \[\sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2),\]
 
-since we have assumed that there is a spectral gap (as opposed to a mobility gap), so that there are extended states near the edge, and no bound states or resonances far from the edge. Thus, intuitively, the cutoff introduced by $\Lambda_2$ is irrelevant as we take $a\to\infty$. We provide a more concrete justification for this later.
+since we have assumed that there is a spectral gap (as opposed to a mobility gap), so that there are extended states near the edge, and no bound states or resonances far from the edge. Thus, intuitively, the cutoff introduced by $\Lambda_2$ is irrelevant as we take $a\to\infty$. We provide a more concrete justification for this later in Lemma \ref{lemma:edgeconductivitylimit}.
 
+The key ingredient of the proof is the use of the functional calculus given by the Helffer-Sj\"{o}strand representation of self-adjoint operators on a Hilbert space (Appendix \ref{sec:helffersjostrand}). The two crucial operators written in their Helffer-Sj\"{o}strand representations are
 
-\textit{``Concrete justificiation":}
-Since $\sigma_B$ is translation invariant (need to add), we only need to prove to case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. Since the multiplication operator $\Lambda_2(n) |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, we can write
+\[\rho(H) = -\frac{1}{2\pi} \int_\C \frac{\partial\tilde{\rho}}{\partial\bar{z}} R(z)dz\wedge d\bar{z}\]
+\[\rho'(H) = \frac{1}{2\pi} \int_\C \frac{\partial\tilde{\rho}}{\partial\bar{z}} R(z)^2dz\wedge d\bar{z}\]
 
-\[\sigma_E(a) = -i\Tr(\rho'(H)[H,\Lambda_1]) = -i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_2(n)).\]
+where $R(z) = (H-z)^{-1}$ is the resolvent of $H$. For ease of notation, we drop the $dz\wedge d\bar{z}$ from this point. 
 
-Instead of completing the shift $(0,-n)$ with the operator $\Lambda_2(n)$, we can consider a shifted Hamiltonian. Indeed, rather than restrict $H_B$ at $x_2=-n$ to obtain $H_{a=n}$, consider the shifted bulk Hamiltonian $H_B \mapsto H_B(n)$ obtained by the shift $(0,-n)$, and then restricting this at $x_2=0$ to obtain $H(n)$. In other words, $H(n)$ is the edge Hamiltonian associated with the shifted bulk Hamiltonian. Comparing this with the expression above, this is exactly equivalent to 
+Another key observation is that it turns out that the bulk conductivity can actually be written
 
-\[-i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_2(n)) = -i\lim_{n\to\infty}\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2).\]
+\[\sigma_B = i\Tr([\rho(H_B),\Lambda_1]\Lambda_2).\]
 
-In other words, the difference between whether we cut off everything above $x_2=n$ and then apply $H_{a=0}$, or instead cut off everything above $x_2=0$ and then apply the Hamiltonian $H(n)$ shifted down by $(0,-n)$ is immaterial. 
+By employing the Helffer-Sjostrand representations above, one can add an operator of zero trace to the edge conductivity, and show that this operator converges in trace to $[\rho(H_B),\Lambda_1]\Lambda_2$ in the limit $a\to\infty$.
 
-Thus, our goal is to show that $-i\Tr(\rho'(H(n))[H(n),\Lambda_1]\Lambda_2) \to \sigma_B$ as $n\to\infty$. 
+\subsubsection*{The Proof}
 
-\textit{End of concrete justification.}
+\begin{lemma}
+The edge conductivity is equal to $\lim_{a\to\infty}\sigma_E(a)$, where
+\[\sigma_E(a) = -i\emph{Tr}(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2).\]
+\label{lemma:edgeconductivitylimit}
+\end{lemma}
+\begin{proof}
+Since $\sigma_B$ is translation invariant (need to add), we only need to prove the case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. 
+
+A general fact of functional analysis is that if $A_n \xrightarrow{\enskip s \enskip} 0$ and $X$ is trace-class, then $\norm{A_nX}_1 \to 0$. Since the multiplication operator $\Lambda_{2,n} |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, it follows that
+
+\[\norm{\rho'(H)[H,\Lambda_1](\One-\Lambda_{2,n})}_1 \to 0,\]
+
+and thus from the inequality $|\Tr(A)|\leq \norm{A}_1$ we deduce
+
+\[\sigma_E(a) = -i\Tr(\rho'(H)[H,\Lambda_1]) = -i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_{2,n}).\]
+
+%Instead of completing the shift $(0,-n)$ with the operator $\Lambda_2(n)$, we can consider a shifted Hamiltonian. Indeed, rather than restrict $H_B$ at $x_2=-n$ to obtain $H_{a=n}$, consider the shifted bulk Hamiltonian $H_B \mapsto H_B(n)$ obtained by the shift $(0,-n)$, and then restricting this at $x_2=0$ to obtain $H(n)$. In other words, 
+
+Consider the edge Hamiltonian with cutoff at $a=0$ associated with the bulk Hamiltonian shifted down by $n$. We denote this modified edge Hamiltonian by $H^n$.
+
+Whether we first cut off everything above $x_2=n$ using $\Lambda_{2,n}$ and then apply $H_{a=0}$, or instead cut off everything above $x_2=0$ using $\Lambda_2$ and then apply the Hamiltonian $H^n$ is immaterial. 
+In other words,
+
+\[-i\lim_{n\to\infty}\Tr(\rho'(H)[H,\Lambda_1]\Lambda_{2,n}) = -i\lim_{n\to\infty}\Tr(\rho'(H^n)[H^n,\Lambda_1]\Lambda_2).\]
+
+Thus, our goal is to show that 
+
+\[\lim_{n\to\infty}\Tr(\rho'(H^n)[H^n,\Lambda_1]\Lambda_2) = \lim_{a\to\infty}\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2).\]
+\end{proof}
 
 %Notice that the complex conjugate is 
 
@@ -350,9 +447,11 @@ Define
 
 This operator has zero trace. Indeed, the first term has vanishing trace in the position basis, while the second term's integrand involves the trace of $[R,R]=0$. The bounds necessary for shifting the commutator like this are on 
 
-\[\norm{R[H_a,\Lambda_1]e^{\delta |x_1|}}, \quad \norm{e^{-\delta |x_1|}e^{-\delta|x_2}}_1, \quad \norm{\Lambda_2 R e^{\delta |x_2|}},\]
+\[\norm{[H_a,\Lambda_1]e^{\delta |x_1|}}, \quad \norm{e^{-\delta |x_1|}\Lambda_2}_1, \quad \norm{R},\]
 
-the first two of which are given below, and the third is obvious since $\norm{R}$ is bounded and $\Lambda_2$ provides a cutoff which ensures $e^{\delta|x_2|}$ is finite. So $\sigma_E(a) = \Tr(\Sigma(a))$, where
+%the first two of which are given below in Lemmas \ref{lemma:keybound}, \ref{lemma:exptraceclass}, and the third is obvious since $\norm{R}$ is bounded and $\Lambda_2$ provides a cutoff which ensures $e^{\delta|x_2|}$ is finite (fix this; need to add). 
+
+the first two of which are given below in Lemmas \ref{lemma:keybound}, \ref{lemma:exptraceclass}, and the third is the fact that the resolvent is bounded. So $\sigma_E(a) = \Tr(\Sigma(a))$, where
 
 \[\begin{aligned}
 \Sigma(a) &=  -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + iZ(a)\\
@@ -378,60 +477,52 @@ in the final equality. Next, we must prove that the operator above converges to 
 
 as $a\to\infty$, which in turn proves that $\Tr(\Sigma(a))\to\Tr(\Sigma_B)$ because of the bound $|\Tr(A)|\leq \norm{A}_1$. Here, $\Sigma_B$ is the same operator as before, but using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = \Tr(\Sigma_B)$ to conclude the proof. 
 
-To show that the limit is zero as claimed, we bound the trace norm of the integrand of $\Sigma(a)$ by breaking it into three parts,
+To show that the limit is zero as claimed, we bound the trace norm of the integrand of $\Sigma(a)$ with the ultimate goal of applying dominated convergence. We accomplish this bound by breaking it into three parts,
 
 \[R[H_a,\Lambda_1]R[H_a,\Lambda_2]R = J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\cdot e^{-\delta|x_1|}e^{-\delta|x_2|}\cdot J_ae^{\delta|x_2|}[H_a, \Lambda_2]RJ_a^*,\]
 
-and bounding the norm of each, making use of the fact that $\norm{AB}_1 \leq \norm{A}\norm{B}_1$.
+and bounding the norm of each with the following two lemmas. We remark that the extension $J_a$ and its adjoint have norm $1$.
 
-\begin{enumerate}
-\item For the first term, $J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*$, we bound its operator norm by breaking it down further into
+\begin{lemma}
+\[\norm{[H_a, \Lambda_i]e^{\delta|x_i|}} \leq C.\]
+\label{lemma:keybound}
+\end{lemma}
+\begin{proof} 
+The operator can be bounded by inspecting its matrix elements
 
 \[\begin{aligned}
-\|J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\| &= \|[R,\Lambda_1]e^{\delta|x_1|}\| \\
-&=\norm{-R[H_a,\Lambda_1]Re^{\delta|x_1|}}\\
-&= \norm{-R\cdot [H_a,\Lambda_1]e^{\delta|x_1|}\cdot e^{-\delta|x_1|} R e^{\delta|x_1|}}\\
-&\leq \norm{R}\cdot \norm{[H_a,\Lambda_1]e^{\delta|x_1|}}\cdot \norm{e^{-\delta|x_1|}Re^{\delta|x_1|}}
+\langle x, [H_a,\Lambda_i]e^{\delta|x_i|} y\rangle &= \langle x, H_a\Lambda_i y\rangle e^{\delta |y_i|} - \langle x, \Lambda_i H_a y\rangle e^{\delta|y_i|}  \\
+&= H_a(x,y)e^{\delta|y_i|}(\Lambda(y_i)-\Lambda(x_i)).
 \end{aligned}\]
 
-The norm of $R$ is bounded by 
-
-\[\norm{R_a(z)} \leq \frac{1}{|\text{Im}(z)|}\]
-
-for any $z\notin \R$ since $H_a$ is self-adjoint. The norm of the second operator can be bounded by inspecting its matrix elements.
+This is zero if $|x_i-y_i|\leq |y_i|$, since this would imply that $x_i$ and $y_i$ have the same sign, yielding $\Lambda(x_i)=\Lambda(y_i)$. So either the matrix element is zero, or $|y_i|\leq|x_i-y_i|$, which implies
 
 \[\begin{aligned}
-\langle x, [H_a,\Lambda_1]e^{\delta|x_1|} y\rangle &= \langle x, H_a\Lambda_1 y\rangle e^{\delta |y_1|} - \langle x, \Lambda_1 H_a y\rangle e^{\delta|y_1|}  \\
-&= H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1)).
-\end{aligned}\]
-
-This is zero if $|x_1-y_1|\leq |y_1|$, since this would imply that $x_1$ and $y_1$ have the same sign, yielding $\Lambda(x_1)=\Lambda(y_1)$. So either the matrix element is zero, or $|y_1|\leq|x_1-y_1|$, which implies
-
-\[\begin{aligned}
-|H_a(x,y)e^{\delta|y_1|}(\Lambda(y_1)-\Lambda(x_1))| &\leq 2|H_a(x,y)|e^{\delta|x_1-y_1|}\\
+|H_a(x,y)e^{\delta|y_i|}(\Lambda(y_i)-\Lambda(x_i))| &\leq 2|H_a(x,y)|e^{\delta|x_i-y_i|}\\
 &\leq 2|H_a(x,y)|e^{\delta|x-y|}\\
-&\leq C|H_a(x,y)|(e^{\delta|x-y|}-1)
+&\leq C|H_a(x,y)|(e^{\delta|x-y|}-1),
 \end{aligned}\]
 
-where the final inequality comes from the fact that the diagonal matrix elements are zero. Hence the assumption 
+where the final inequality comes from the fact that the diagonal matrix elements are zero. Hence the short range assumption
 
-\[\sup_{x\in\Z^2}\sum_{y\in\Z^2}|H(x,y)|(e^{\mu|x-y|}-1)<\infty,\]
+\[\sup_{x\in\Z^2}\sum_{y\in\Z^2}|H(x,y)|(e^{\mu|x-y|}-1)<\infty\]
 
 combined with Holmgren's bound
 
-\[\norm{A} \leq \max \left\{ \sup_{x\in\Z^2} \sum_{y\in\Z^2} |A(x,y)|, \; \sup_{y\in\Z^2}\sum_{x\in\Z^2}|A(x,y)| \right\},\]
+\[\norm{A} \leq \max \left\{ \sup_{x\in\Z^2} \sum_{y\in\Z^2} |A(x,y)|, \; \sup_{y\in\Z^2}\sum_{x\in\Z^2}|A(x,y)| \right\}\]
 
-implies that the second term is bounded. Finally, for the third term $e^{-\delta|x_1|}Re^{\delta|x_1|}$, we apply the Combes-Thomas bound,
+completes the proof.
+\end{proof}
 
-\[\norm{e^{-\eps f(x)}R_a(z)e^{\eps f(x)}} \leq \frac{C}{|\text{Im}(z)|}\]
 
-where $f:\Z^2\to\R$ is any Lipschitz function, and $\eps$ can be chosen as $\eps = \frac{1}{C(1+|\text{Im}(z)|)}$.
 
-Altogether, the bound of the first term takes the form 
 
-\[\frac{C}{\text{Im}(z)^2}.\]
-
-\item For $e^{-\delta|x_1|}e^{-\delta|x_2|}$, we bound the trace norm by noticing that this is a positive operator satisfying 
+\begin{lemma}
+$e^{-\delta|x_1|}e^{-\delta|x_2|}$ is trace-class.
+\label{lemma:exptraceclass}
+\end{lemma}
+\begin{proof}
+We bound the trace norm by noticing that this is a positive operator satisfying 
 
 \[\langle (n,m), e^{-\delta|x_1|}e^{-\delta|x_2|} (n,m) \rangle = \langle e^{-\delta|x_1|}e^{-\delta|x_2|}(n,m), (n,m) \rangle,\]
 
@@ -443,17 +534,36 @@ so that its trace norm is equal to its trace. In the position basis, we see that
 &= 2\left(\frac{1}{1-e^{-\delta}}\right)^2.
 \end{aligned}\]
 
-\item For $J_a e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)J_a^*$, note that analogously to 1. above where we bounded $[H_a,\Lambda_1]e^{\delta|x_1|}$, we also have that $e^{\delta|x_2|}[H_a,\Lambda_2]$ is bounded. Again, the resolvent $R_a(z)$ is also bounded.
+\end{proof}
 
-The bound of the third term takes the same form as the bound of the first term,
+
+
+
+Now we return to the integrand which was broken into three parts. For the first term, $J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^*$, we bound its operator norm by breaking it down further into
+
+\[\begin{aligned}
+\|J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^*\| &= \|[R_a(z),\Lambda_1]e^{\delta|x_1|}\| \\
+&=\norm{-R_a(z)[H_a,\Lambda_1]R_a(z)e^{\delta|x_1|}}\\
+&\leq \norm{R_a(z)}\cdot \norm{[H_a,\Lambda_1]e^{\delta|x_1|}}\cdot \norm{e^{-\delta|x_1|}R_a(z)e^{\delta|x_1|}}.
+\end{aligned}\]
+
+The norm of $R_a(z)$ is bounded by 
+
+\[\norm{R_a(z)} \leq \frac{1}{|\text{Im}(z)|}\]
+
+for any $z\notin \R$ since $H_a$ is self-adjoint. The second term is bounded by Lemma \ref{lemma:keybound}. Finally, for the third term $e^{-\delta|x_1|}R_a(z)e^{\delta|x_1|}$, we apply the Combes-Thomas bound,
+
+\[\norm{e^{-\eps f(x)}R_a(z)e^{\eps f(x)}} \leq \frac{C}{|\text{Im}(z)|}\]
+
+where $f:\Z^2\to\R$ is any Lipschitz function, and $\eps$ can be chosen as $\eps = \frac{1}{C(1+|\text{Im}(z)|)}$. Altogether, the bound of the first term of the integrand takes the form 
 
 \[\frac{C}{\text{Im}(z)^2}.\]
 
-\end{enumerate}
+The second term of the integrand is bounded by Lemma \ref{lemma:exptraceclass}. Finally, the bound for the third term of the integrand, $e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)$, follows from the bound on $R$ and Lemma \ref{lemma:keybound}, and is again of the form $\frac{C}{\text{Im}(z)^2}$.
 
-Altogether, we see that the integrand is bounded by the product of the three bounds from 1., 2., and 3., and is of the form $\frac{C}{\text{Im}(z)^4}$. 
+Altogether, it follows from $\norm{AB}_1 \leq \norm{A}\norm{B}_1$ that the trace norm of the integrand is bounded by $\frac{C}{\text{Im}(z)^4}$. 
 
-For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sj\"{o}strand representation can be chosen so that 
+We now appeal to a general fact of the Helffer-Sj\"{o}strand functional calculus to provide domination. For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sj\"{o}strand representation can be chosen so that 
 
 \[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^{n+2 }\norm{\rho^{(k)}}_{k-p-1},\]
 
@@ -477,7 +587,7 @@ and
 
 \[J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)\]
 
-for each fixed $z\in\C$. Inspecting the bounds we found for the left hand sides of these limits, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace of $\ell^2(\Z^2)$; in particular, we may choose the dense subspace of compactly supported states, which allows us to ignore the $e^{\delta|x_i|}$ terms. Thus, we need to prove 
+for each fixed $z\in\C$. Inspecting the bounds we found for the left hand sides of these limits, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace of $\ell^2(\Z^2)$ (see Lemma \ref{lemma:densesubspace}); in particular, we may choose the dense subspace of compactly supported states, which allows us to ignore the $e^{\delta|x_i|}$ terms. Thus, we need to prove 
 
 \[ J_a[R_a(z),\Lambda_1]J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1],\]
 
@@ -487,7 +597,7 @@ and
 
 \[J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z).\]
 
-In fact, the final statement implies the first two; we appeal to the general fact of functional analysis that strong convergence of the resolvent of a self-adjoint operator implies that $J_a f(H_a) J_a^* \xrightarrow{\enskip s \enskip} f(H_B)$ for any bounded and continuous function $f$. In particular, the functions $[(\cdot - z)^{-1}, \Lambda_1]$ and $[\cdot, \Lambda_2]$ above are bounded and continuous, so we will have proven the desired limits if we can prove the strong convergence of the resolvent, $J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)$.
+In fact, the final statement implies the first two; we appeal to the general fact of functional analysis that strong convergence of the resolvent of a self-adjoint operator implies that $J_a f(H_a) J_a^* \xrightarrow{\enskip s \enskip} f(H_B)$ for any bounded and continuous function $f$. In particular, it follows from Lemma \ref{lemma:keybound} that the functions $[(\cdot - z)^{-1}, \Lambda_1]$ and $[\cdot, \Lambda_2]$ above are bounded and continuous, so we will have proven the desired limits if we can prove the strong convergence of the resolvent, $J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)$.
 
 To prove this, we use the edge assumption. Recall the edge operator, $E_a = J_aH_a - H_BJ_a$. Adding and subtracting $zJ_a$ gives
 
@@ -519,15 +629,15 @@ First, we manipulate
 &= i[\rho(H_B),\Lambda_1]\Lambda_2 - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_B(z)[H_B,\Lambda_1]\Lambda_2 R_B(z)dz^2.
 \end{aligned}\]
 
-Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$, the projections onto states above and below the gap, respectively. Since $H_B$ is assumed to have a gap, we have 
+Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$, the projections onto states above and below the gap, respectively. Since $H_B$ is assumed to have a gap, it follows that $P_-+P_+=\One$, and thus 
 
-\[\Tr(\Sigma_B) = \Tr(P_+\Sigma_B P_+) + \Tr(P_-\Sigma_B P_-).\]
+\[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)).\]
 
-Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts. Thus
+Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts (need to add). Thus
 
 \[\Sigma_B = iP_+[\rho(H_B),\Lambda_1]\Lambda_2P_+ + iP_-[\rho(H_B),\Lambda_1]\Lambda_2P_-.\]
 
-By the spectral theorem for projection-valued measures, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
+(Need to add reasoning for why the operators are trace-class, because really we have $(P_-+P_+)A(P_-+P_+)=A$, and we need to cylce $P_\pm$ to rid the terms $P_-P_+$). By the spectral theorem for projection-valued measures, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
 
 \[ \rho(H_B) = \int_{-\infty}^\infty \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
 
@@ -585,7 +695,6 @@ Finally, we obtain
 \end{aligned}\]
 
 concluding the proof.
-\end{proof}
 
 \begin{lemma}
 $E_a$ and $E_a^*$ converge strongly to zero in the limit $a\to\infty$.
@@ -672,10 +781,10 @@ where $\inf\mathcal{S}_{+} - \sup \mathcal{S}_{-} \geq \gamma$ uniformly in $L$ 
 \end{assumption}
 
 In the case of the cylinder, this effect does not necessarily occur due to the presence of the edge. 
-We also assume that the Hamiltonian is \emph{charge-conserving}.
+We also assume that the Hamiltonian is \emph{locally charge-conserving}.
 
 \begin{assumption}
-$[H_\mu, Q] = 0$, where $Q$ is the total charge in $\Gamma_L$.
+$[\Phi(X),Q] = 0$, where $Q$ is the total charge in $\Gamma_L$.
 \label{ass:charge}
 \end{assumption}
 
@@ -1110,6 +1219,23 @@ By Lemma~\ref{lemma:[Q,P]=0}, the first term is zero. By Lemma~\ref{J=0Bulk}, th
 \newpage
 \appendix
 
+\section{General Functional Analysis}
+
+\begin{lemma}
+Let $A$ be a bounded linear operator on a Hilbert space $\mathcal{H}$. Suppose $A_n \xrightarrow{\enskip s \enskip} A$ on a dense subspace $\mathcal{D}\subset \mathcal{H}$. If $A_n$ are bounded uniformly in $n$, then $A_n \xrightarrow{\enskip s \enskip} A$ on all of $\mathcal{H}$.
+\label{lemma:densesubspace}
+\end{lemma}
+\begin{proof}
+Let $\psi_n \in\mathcal{D}$ be a sequence converging in norm to $\psi\in\mathcal{H}$. The result follows from a standard $\frac{\eps}{3}$ argument. Let $C$ be a bound for both $\sup_n \norm{A_n}$ and $\norm{A}$. Then 
+
+\[\begin{aligned}
+\norm{A_n\psi-A\psi} &\leq \norm{A_n(\psi-\psi_m)} + \norm{(A_n-A)\psi_m} + \norm{A(\psi-\psi_m)}\\
+&\leq C\norm{(\psi-\psi_m)} + \norm{(A_n-A)\psi_m} + C\norm{\psi-\psi_m}.
+\end{aligned}\]
+
+There exists an $M$ such that the first and third terms are less than $\frac{\epsilon}{3}$ for all $m>M$. For the middle term, observe that for each $m$, there exists by hypothesis an $N_m$ such that $\norm{(A_n-A)\psi_m} < \frac{\epsilon}{3}$ for all $n>N_m$. Thus, by picking some $m>M$ and fixing a suitably large $n$, the inequality above is less than $\eps$.
+\end{proof}
+
 \section{Properties of $\mathcal{I}_\mu$}
 
 \begin{proof}
@@ -1148,7 +1274,17 @@ By the same argument, $\mathcal{I}([H,P^\perp AP]) = iP^\perp AP$ as well, and s
 
 \begin{proof}
 
-(Of Lemma~\ref{lemma:local}). We break the integral into two parts,
+(Of Lemma~\ref{lemma:local}). Note that any operator can be written as the telescoping sum
+
+\[\mathcal{I}(A) = \tr_X(\mathcal{I}(A)) + \sum_{j=1}^\infty \left(\tr_{X^{(j)}}(\mathcal{I}(A)) - \tr_{X^{(j-1)}}(\mathcal{I}(A))\right),\] 
+
+where $\tr_Y$ denoted the partial trace over $Y$, and $Y^\alpha$ denotes the $\alpha$-fattening of $Y$. 
+
+Our goal is to prove that $\norm{\tr_{X^{(j)}}(\mathcal{I}(A)) - \mathcal{I}(A)} \leq \norm{A} |X| \mathcal{O}(j^{-\infty})$. To that end, we break the integral $\mathcal{I}(A)$ into two terms,
+
+\[\mathcal{I}(A) = \int_{-T}^T W(t) e^{itH}Ae^{-itH}dt + \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt.\]
+
+We break the integral into two parts,
 
 \[\norm{\mathcal{I}(A)} \leq \bigg\lVert\int_{-T}^T W(t) e^{itH}Ae^{-itH}dt \bigg\rVert + \bigg\lVert \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt\bigg\rVert.\]
 
@@ -1225,8 +1361,8 @@ We now show that, similar to how $\rho$ is an approximation of $P_B$, $\sigma$ i
 &= \Tr(i[A,K_E]\sigma)\\
 &= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_E}Q_he^{itH_E}, A] \sigma)dt\\
 &= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_E}Ae^{-itH_E}]e^{itH_E} \sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_E} + \mathcal{O}(L^{-\infty})\sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_B} + \mathcal{O}(L^{-\infty})\sigma)dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_E}\sigma + \mathcal{O}(L^{-\infty}))dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_B}\sigma + \mathcal{O}(L^{-\infty}))dt\\
 &= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_B}Q_he^{itH_B}, A] \sigma)dt + \mathcal{O}(L^{-\infty})\\
 &= \Tr(i[A,K_B]\sigma] + \mathcal{O}(L^{-\infty})\\
 &= \Tr(i[K_B,\sigma]A) + \mathcal{O}(L^{-\infty}),
@@ -1248,7 +1384,7 @@ Let $r(t) = \rho(t)-\sigma(t)$. Notice that
 
 \[\frac{d}{dt} e^{itK_B}\sigma_0e^{-itK_B} = e^{itK_B}i[K_B,\sigma_0]e^{-itK_B} + e^{-itK_B}\dot{\sigma_0}e^{itK_B}.\]
 
-\section{The Helffer-Sj\"{o}strand Representation}
+\section{The Helffer-Sj\"{o}strand Representation}\label{sec:helffersjostrand}
 
 The Helffer-Sj\"{o}strand representation is a functional calculus $f \mapsto f(H)$ for arbitrary (possibly unbounded) operators $H$ on the set of functions 
 
@@ -1295,7 +1431,7 @@ where the norms on the right hand side are defined by
 
 This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \leq |\text{Im}(z)|^{-1}$.
 
-\section{Spectral Measures and Projection-Values Measures}
+\section{Spectral Measures and Projection-Values Measures}\label{sec:pvm}
 
 \emph{Projection-valued measures} are maps $P:\mathcal{M}\to\mathcal{B}(\mathcal{H})$ from measurable subsets of $\R$ to the space of bounded linear operators on $\mathcal{H}$ satisfying the usual properties of both projections and measures.
 
@@ -1306,7 +1442,7 @@ This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \l
 \item $P(M_1\cap M_2) = P(M_1)P(M_2)$ for any $M_1,M_2\in\mathcal{M}$.
 \end{enumerate}
 
-The heuristic motivation is that $P(M)$ projects onto the subspace spanned by states whose energies lie in $M$. Using these operator-valued measures, one can construct an operator-valued integral with respect to $P$ in the usual fashion (beginning on nonnegative simple functions, extending to nonnegative measurable functions, and finally to real-valued measurable functions).
+The heuristic motivation is that $P(M)$ projects onto the subspace of $\mathcal{H}$ spanned by states whose energies lie in $M$. Using these operator-valued measures, one can construct an operator-valued integral with respect to $P$ in the usual fashion (beginning on nonnegative simple functions, extending to nonnegative measurable functions, and finally to real-valued measurable functions). 
 
 \begin{theorem}[Spectral Theorem for Projection-Valued Measures]
 There exists a one-to-one correspondence between self adjoint operators $H$ and projection-valued measures $P$ given by the formula
@@ -1321,5 +1457,6 @@ We remark that it follows from the second part of this theorem that if $\One_{M}
 \[\One_M(H) = \int_M dP_\lambda = P(M).\]
 
 We also note that $\text{Spec}(H) = \text{supp}(P)$.
+
 
 \end{document}

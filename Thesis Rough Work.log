@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  26 JUN 2022 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  28 JUN 2022 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,7 +763,7 @@ rent in the $\OML/cmm/m/it/12 x[]$\OT1/cmr/m/n/12 -direction,
  []
 
 [2]
-<vonklitzing.png, id=103, 264.99pt x 309.155pt>
+<vonklitzing.png, id=107, 264.99pt x 309.155pt>
 File: vonklitzing.png Graphic file (type png)
 <use vonklitzing.png>
 Package pdftex.def Info: vonklitzing.png  used on input line 96.
@@ -799,35 +799,35 @@ Overfull \hbox (31.32983pt too wide) detected at line 459
 [][]
  []
 
-[12] [13] [14] [15] [16] [17]
-Overfull \hbox (11.42392pt too wide) in paragraph at lines 716--717
+[12] [13] [14] [15] [16] [17] [18]
+Overfull \hbox (11.42392pt too wide) in paragraph at lines 763--764
 []\OT1/cmr/m/n/12 By as-sump-tion []2[], $\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\O
 ML/cmm/m/it/12 z\OT1/cmr/m/n/12 ) := [][] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 (
 \OML/cmm/m/it/12 x; z\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 e[]$ \OT1/cmr/m/n/12 is 
 fi-nite and summable.
  []
 
-[18] [19] [20]
-Overfull \hbox (30.10614pt too wide) in paragraph at lines 770--771
+[19] [20]
+Overfull \hbox (30.10614pt too wide) in paragraph at lines 817--818
  [][] 
  []
 
 [21] [22]
-Overfull \hbox (44.7327pt too wide) in paragraph at lines 872--873
+Overfull \hbox (44.7327pt too wide) in paragraph at lines 919--920
  [][] 
  []
 
 [23] [24] [25] [26]
-Overfull \hbox (30.78334pt too wide) in paragraph at lines 1076--1077
+Overfull \hbox (30.78334pt too wide) in paragraph at lines 1123--1124
 []\OT1/cmr/m/n/12 since $\OML/cmm/m/it/12 W\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\
-OT1/cmr/m/n/12 )$ is odd. By part (2) of Lemma []7[], we have $\OML/cmm/m/it/12
+OT1/cmr/m/n/12 )$ is odd. By part (2) of Lemma []8[], we have $\OML/cmm/m/it/12
  i\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 Q[]; P[]\OT1/cmr/m/n/12 ] = [\OMS/cmsy/m/n/
 12 I\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 H[]; Q[]\OT1/cmr/m/n/12 ])\OML/cmm/m/it/
 12 ; P[]\OT1/cmr/m/n/12 ]$.
  []
 
 [27]
-Overfull \hbox (11.44736pt too wide) detected at line 1089
+Overfull \hbox (11.44736pt too wide) detected at line 1136
 \OML/cmm/m/it/12 ^^[[] \OT1/cmr/m/n/12 = [] [] = [] [] = \OML/cmm/m/it/12 ^^[[]
  \OT1/cmr/m/n/12 + \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/
 cmr/m/n/12 ) = \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r[]\OT1/cmr/
@@ -838,37 +838,42 @@ m/n/12 ) + \OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/
 [28] [29] [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1239.
+(hyperref)                removing `math shift' on input line 1286.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1239.
+(hyperref)                removing `subscript' on input line 1286.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 1239.
+(hyperref)                removing `\mu' on input line 1286.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1239.
+(hyperref)                removing `math shift' on input line 1286.
 
 [31]
-Overfull \hbox (2.01978pt too wide) in paragraph at lines 1272--1273
+Overfull \hbox (2.01978pt too wide) in paragraph at lines 1319--1320
 []\OT1/cmr/m/n/12 By the same ar-gu-ment, $\OMS/cmsy/m/n/12 I\OT1/cmr/m/n/12 ([
 \OML/cmm/m/it/12 H; P[]AP\OT1/cmr/m/n/12 ]) = \OML/cmm/m/it/12 iP[]AP$ \OT1/cmr
 /m/n/12 as well, and so $\OMS/cmsy/m/n/12 I\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 H
 ; []\OT1/cmr/m/n/12 ]) =
  []
 
-[32] [33] [34] [35] [36] [37] [38] (./Thesis Rough Work.aux)
+[32] [33] [34] [35] [36] [37]
+Overfull \hbox (0.66681pt too wide) in paragraph at lines 1509--1509
+[]\OT1/cmr/bx/n/17.28 Greens' Func-tions and the Combes-Thomas
+ []
+
+[38] [39] [40] (./Thesis Rough Work.aux)
 Package rerunfilecheck Info: File `"Thesis Rough Work".out' has not changed.
-(rerunfilecheck)             Checksum: 109B42F55654B39F75C62C336DC8BAAC;3333.
+(rerunfilecheck)             Checksum: E1348D95B5DA6C3B6BDD070A2E27313D;3618.
  ) 
 Here is how much of TeX's memory you used:
- 21728 strings out of 478994
- 395160 string characters out of 5858185
- 680682 words of memory out of 5000000
- 38735 multiletter control sequences out of 15000+600000
+ 21741 strings out of 478994
+ 395364 string characters out of 5858185
+ 680868 words of memory out of 5000000
+ 38741 multiletter control sequences out of 15000+600000
  416664 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,89p,1013b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -890,10 +895,10 @@ usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/l
 ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Thesis Rough Work.pdf" (39 pages, 381510 bytes).
+Output written on "Thesis Rough Work.pdf" (41 pages, 390779 bytes).
 PDF statistics:
- 443 PDF objects out of 1000 (max. 8388607)
- 376 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 471 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

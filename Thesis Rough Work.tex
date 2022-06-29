@@ -635,9 +635,11 @@ Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$,
 
 Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts (need to add). Thus
 
-\[\Sigma_B = iP_+[\rho(H_B),\Lambda_1]\Lambda_2P_+ + iP_-[\rho(H_B),\Lambda_1]\Lambda_2P_-.\]
+\[\Tr(\Sigma_B) = i\Tr(P_+[\rho(H_B),\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[\rho(H_B),\Lambda_1]\Lambda_2P_-),\]
 
-(Need to add reasoning for why the operators are trace-class, because really we have $(P_-+P_+)A(P_-+P_+)=A$, and we need to cylce $P_\pm$ to rid the terms $P_-P_+$). By the spectral theorem for projection-valued measures, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
+%(Need to add reasoning for why the operators are trace-class, because really we have $(P_-+P_+)A(P_-+P_+)=A$, and we need to cylce $P_\pm$ to rid the terms $P_-P_+$). 
+
+since $[\rho(H_B),\Lambda_1]\Lambda_2$ is trace-class (need to add) which allows us to cycle and cancel the terms with both $P_-$ and $P_+$. By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
 
 \[ \rho(H_B) = \int_{-\infty}^\infty \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
 
@@ -645,25 +647,38 @@ We may therefore replace $\rho(H_B)$ by $P_\lambda$, by which we obtain
 
 \[\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-).\]
 
-Now, the bulk conductivity is given by
+Now we must relate this expression to the bulk conductivity. It is an algebraic check that 
+
+\[P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]] = P_\lambda\Lambda_2P_\lambda^\perp\Lambda_1P_\lambda - P_\lambda\Lambda_1P_\lambda^\perp\Lambda_2P_\lambda\]
+
+are equal as operators. The two terms on the right hand side are separately trace-class by Lemma \ref{lemma:seperatelytraceclass}, so that the bulk conductivity is given by
 
 \[\begin{aligned}
-\sigma_B &= i\Tr(P_\lambda [[P_\lambda, \Lambda_1],[P_\lambda,\Lambda_2]])\\
-&= i\Tr(P_\lambda ((P_\lambda \Lambda_1-\Lambda_1P_\lambda)(P_\lambda\Lambda_2 - \Lambda_2P_\lambda) - (P_\lambda\Lambda_2 - \Lambda_2P_\lambda)(P_\lambda\Lambda_1-\Lambda_1P_\lambda)))\\
-&= i\Tr(P_\lambda(P_\lambda\Lambda_1P_\lambda\Lambda_2 - P_\lambda\Lambda_1\Lambda_2 P_\lambda - \Lambda_1P_\lambda\Lambda_2 + \Lambda_1P_\lambda\Lambda_2P_\lambda \\
-&\quad\quad\quad\quad - P_\lambda\Lambda_2P_\lambda\Lambda_1 + P_\lambda\Lambda_2\Lambda_1P_\lambda + \Lambda_2P_\lambda\Lambda_1 - \Lambda_2P_\lambda\Lambda_1P_\lambda))\\
-&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + \Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - \Lambda_2P_\lambda\Lambda_1P_\lambda)\\
-&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + P_\lambda\Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - P_\lambda\Lambda_2P_\lambda\Lambda_1P_\lambda)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda - P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1 P_\lambda)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2)\\
-&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp).
-\end{aligned}\]
+\sigma_B &= i\Tr(P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1P_\lambda - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2 P_\lambda)\\
+%&= i\Tr(P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1P_\lambda -  P_\lambda^\perp \Lambda_2 P_\lambda\Lambda_1)\\
+&= i\Tr(P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda ). \\
+&= \Tr(T_\lambda),
+\end{aligned} \]
 
-We define $T_\lambda := P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp$, so that
+%\[\begin{aligned}
+%\sigma_B &= i\Tr(P_\lambda [[P_\lambda, \Lambda_1],[P_\lambda,\Lambda_2]])\\
+%&= i\Tr(P_\lambda ((P_\lambda \Lambda_1-\Lambda_1P_\lambda)(P_\lambda\Lambda_2 - \Lambda_2P_\lambda) - (P_\lambda\Lambda_2 - \Lambda_2P_\lambda)(P_\lambda\Lambda_1-\Lambda_1P_\lambda)))\\
+%&= i\Tr(P_\lambda(P_\lambda\Lambda_1P_\lambda\Lambda_2 - P_\lambda\Lambda_1\Lambda_2 P_\lambda - \Lambda_1P_\lambda\Lambda_2 + \Lambda_1P_\lambda\Lambda_2P_\lambda \\
+%&\quad\quad\quad\quad - P_\lambda\Lambda_2P_\lambda\Lambda_1 + P_\lambda\Lambda_2\Lambda_1P_\lambda + \Lambda_2P_\lambda\Lambda_1 - \Lambda_2P_\lambda\Lambda_1P_\lambda))\\
+%&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + \Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - \Lambda_2P_\lambda\Lambda_1P_\lambda)\\
+%&= i\Tr(- P_\lambda\Lambda_1\Lambda_2 P_\lambda + P_\lambda\Lambda_1P_\lambda\Lambda_2P_\lambda + P_\lambda\Lambda_2\Lambda_1P_\lambda - P_\lambda\Lambda_2P_\lambda\Lambda_1P_\lambda)\\
+%&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda - P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1 P_\lambda)\\
+%&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2)\\
+%&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp).
+%\end{aligned}\]
 
-\[\sigma_B = i\Tr(T_\lambda),\]
+Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda$. Since both terms of $T_\lambda$ are separately trace-class, we obtain
 
-and show that $P_\pm T_\lambda P_\pm = P_\pm [P_\lambda, \Lambda_1]\Lambda_2 P_\pm$. 
+\[\sigma_B = \Tr((P_++P_-)T_\lambda(P_++P_-)) = \Tr(P_+T_\lambda P_+) + \Tr(P_- T_\lambda P_-)\]
+
+by cyclicity of the trace. We now must show that
+
+\[P_\pm T_\lambda P_\pm = P_\pm [P_\lambda, \Lambda_1]\Lambda_2 P_\pm.\]
 
 First, notice that because of the gap, we have $P_\lambda^\perp P_- = 0$, and thus also $P_\lambda P_- = P_-$. Thus
 
@@ -688,13 +703,45 @@ P_+ T_\lambda P_+ &=  -P_+P_\lambda^\perp \Lambda_1 P_\lambda \Lambda_2 P_\lambd
 Finally, we obtain
 
 \[\begin{aligned}
-\sigma_B &= i\Tr(T_\lambda) \\
-&=  i\Tr(P_-T_\lambda P_-) + i\Tr(P_+T_\lambda P_+)\\
+\sigma_B &= i\Tr(P_-T_\lambda P_-) + i\Tr(P_+T_\lambda P_+)\\
 &= i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2 P_-) + i\Tr(P_+[P_\lambda, \Lambda_1]\Lambda_2 P_+)\\
 &= \Tr(\Sigma_B),
 \end{aligned}\]
 
 concluding the proof.
+
+\begin{lemma}
+Let $W,V = \varnothing$. Then
+\[P_W \Lambda_1 P_V \Lambda_2 P_W \in \mathcal{J}_1.\]
+In particular, the two terms appearing in $T_\lambda$ are separately trace-class.
+\label{lemma:seperatelytraceclass}
+\end{lemma}
+\begin{proof}
+We break down
+
+\[P_W \Lambda_1 P_V \Lambda_2 P_W = P_W \Lambda_1 P_V e^{3\delta|x_1|}e^{-\delta|x|} \cdot e^{-\delta|x|} \cdot e^{-\delta|x|}e^{3\delta|x_2|}P_V \Lambda_2 P_W.\]
+
+Since the middle term is trace-class by Lemma \ref{lemma:exptraceclass}, it suffices to prove boundedness of the first and last terms. 
+
+%\[\norm{P_W \Lambda_1 P_V e^{3\delta|x_1|}e^{-\delta|x|}} \leq \norm{P_W \Lambda_1}\norm{e^{\delta|x|}P_V e^{3\delta|x_1|}e^{-\delta|x|}}.\]
+
+%Clearly $\norm{P_W \Lambda_1}$ is finite. The other part is the adjoint of the operator in Lemma \ref{lemma:projectionoperatordecay}, and choosing $\delta = \nu$ and $\eps=3\delta$ guarantees its boundedness. 
+
+%The last term is simply the adjoint of the first, with $V$ and $W$ swapped, which is immaterial to the proof.
+
+To that end, notice that $P_W \Lambda_i P_V = P_W[\Lambda_i,P_V]$. Since $P_W$ is obviously bounded, we only need to bound the product of the commutator with the appropriate exponentials. This can be done by decomposing
+
+\[[\Lambda_i,P_V]e^{3\delta x_i}e^{-\delta|x|} = \Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} +  (1-\Lambda_i) P_V \Lambda_i e^{3\delta x_i}e^{-\delta|x|}.\]
+
+Note the lack of absolute values on the $e^{3\delta x_i}$ terms; we will later also bound the same operator but with $e^{-3\delta x_i}$ to account for this, since $e^{3\delta |x_i|} = e^{\pm3\delta x_i}$. We begin by bounding the second term. Since multiplication operators commute, the norm of the second term can be broken into
+
+\[\norm{(1-\Lambda_i) P_V e^{-\delta|x|}}\norm{\Lambda_i e^{3\delta x_i}}.\]
+
+Now, the first term is clearly bounded, and $\Lambda_i e^{3\delta x_i}$ is also bounded; only the negative $x_i$ values remain due to the switch function. 
+
+For the first term, notice that (need to add).
+
+\end{proof}
 
 \begin{lemma}
 $E_a$ and $E_a^*$ converge strongly to zero in the limit $a\to\infty$.
@@ -1450,6 +1497,7 @@ There exists a one-to-one correspondence between self adjoint operators $H$ and 
 where $P_\lambda := P((-\infty,\lambda])$. Moreover, if $g:\R\to\R$ is any bounded Borel function, then $g(H)$ defined via the Borel function calculus coincides with the formula
 \[g(H) = \int_\R g(\lambda) dP_\lambda,\]
 and $g(H) = g(H)^*$.
+\label{thm:spectraltheorem}
 \end{theorem}
 
 We remark that it follows from the second part of this theorem that if $\One_{M}$ denotes the characteristic function of a Borel set $M\subseteq \R$, then 
@@ -1458,5 +1506,70 @@ We remark that it follows from the second part of this theorem that if $\One_{M}
 
 We also note that $\text{Spec}(H) = \text{supp}(P)$.
 
+\section{Greens' Functions and the Combes-Thomas Bound}
+
+The short-range assumption \ref{ass:shortrange} is vital for the following non-trivial estimate, the proof of which is omitted.
+
+\begin{theorem}[Combes-Thomas Bound]
+Let $H$ be a self-adjoint operator on $\ell^2(\Z^2)$ satisfying
+
+\[S_\alpha := \sup_x \sum_y |H(x,y)|(e^{\alpha|x-y|}-1) < \infty\]
+
+for some $\alpha>0$. Suppose $z$ lies outside the spectrum of $H$, and let $d_z := \emph{dist}(z,\emph{Spec}(H))$.  Then the Greens function of $H$ is exponentially bounded, 
+
+\[|G(x,y;z)| \leq \frac{2}{d_z}e^{-\xi_\alpha|x-y|},\]
+
+where $\xi := \frac{\alpha d_z}{2 S_\alpha}$.
+\label{thm:combesthomas}
+\end{theorem}
+
+This theorem gives the crucial decay properties of the spectral projectors.
+
+\begin{lemma}
+Let $H$ be a self-adjoint operator satisying \ref{ass:shortrange} and with bounded spectrum. Let $S \subseteq \emph{Spec}(H)$, and let $P_S$ be the associated spectral projection. Then there exists some $\eps,\nu>0$ such that the matrix elements of $P_S$ satisfy
+
+\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty.\]
+\label{lemma:projectionmatrixelementsdecay}
+\end{lemma}
+\begin{proof}
+We use the fact that the spectral projection is given by the Riesz integral formula
+
+\[P_S = \frac{1}{2\pi i} \oint_\gamma R(z)dz,\]
+
+where $R(z)$ is the resolvent of $H$ and $\gamma$ is any smooth closed curve containing $S$. Since the resolvent is the Greens function of $H$, it satisfies the Combes-Thomas bound \ref{thm:combesthomas}. Since the spectrum of $H$ is bounded, it may be enclosed in a curve of finite length, from which we determine that
+
+\[|P_S(x,y)| \leq Ce^{-\xi_\alpha|x-y|},\]
+
+since $\inf_{z \in \gamma} d_z = \inf_{z\in\gamma} \text{dist}(z,\text{Spec}(H)) > 0$. Hence
+
+\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty\]
+
+holds for $\nu = \xi_\alpha$ and for any $\eps>0$, since $e^{-\eps|x|} = e^{-\eps|x_1|}e^{-\eps|x_2|}$ is summable on $\Z^2$ by Lemma \ref{lemma:exptraceclass}.
+
+\end{proof}
+
+This statement about decay of the matrix elements can be turned into a statement about the norm of the operator. Let $\text{Lip}^1$ be the set of all Lipschtiz functions whose Lipschitz constant is not greater than 1, that is the set of functions $\ell$ satisfying 
+
+\[|\ell(x)-\ell(y)| \leq |x-y|\]
+
+for all $x,y \in \Z^2$.
+
+\begin{lemma}
+Let $P_S$ be the spectral projection onto $S \subseteq \emph{Spec}(H)$. For all $\eps>0$,
+\[\sup_{\ell \in \emph{Lip}^1} \norm{e^{\nu \ell(x)} e^{-\eps|x|} P_S e^{-\nu\ell(x)}} < \infty,\]
+where $\nu$ is the same as in \ref{lemma:projectionmatrixelementsdecay}.
+\label{lemma:projectionoperatordecay}
+\end{lemma}
+\begin{proof}
+The matrix elements of the operator are $P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}$. By Holmgren's bound, the operator's norm is therefore bounded by 
+
+\[\max\{\sup_x \sum_y |P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}, \; \sup_y \sum_x|P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}\}.\]
+
+Replacing the supremum with a sum yields the bound
+
+\[\norm{P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}} \leq \sum_{x,y} |P_S(x,y)| e^{\nu |\ell(x)-\ell(y)|}e^{-\eps|x|},\]
+
+and taking a supremum over $\ell \in \text{Lip}^1$ completes the proof by Lemma \ref{lemma:projectionmatrixelementsdecay}.
+\end{proof}
 
 \end{document}

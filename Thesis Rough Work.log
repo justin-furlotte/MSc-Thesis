@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  28 JUN 2022 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  1 JUL 2022 12:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -785,13 +785,13 @@ n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12
  []
 
 [6]
-Overfull \hbox (62.2876pt too wide) in paragraph at lines 232--233
+Overfull \hbox (52.95424pt too wide) in paragraph at lines 232--233
 []\OT1/cmr/m/n/12 Using $\OML/cmm/m/it/12 J[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/1
 2 i\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 H[]; \OT1/cmr/m/n/12 ^^C[]] = \OML/cmm/m/i
-t/12 ^^[[]V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 ^^[[]V[]\OT1
-/cmr/m/n/12 ^^C[]$, we ob-tain $\OML/cmm/m/it/12 ^^[[] \OT1/cmr/m/n/12 = [] [][
-] [](\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 i\OT1/cmr/m/n/12
- [\OML/cmm/m/it/12 H[]; \OT1/cmr/m/n/12 ^^C[]])$
+t/12 ^^[[]V \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^[[]V[]\OT1/cmr/m/n/12 ^^C[]$, 
+we ob-tain $\OML/cmm/m/it/12 ^^[[] \OT1/cmr/m/n/12 = [] [][] [](\OML/cmm/m/it/1
+2 ^^Z[]\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 H
+[]; \OT1/cmr/m/n/12 ^^C[]])$
  []
 
 [7] [8] [9] [10] [11]
@@ -895,10 +895,10 @@ usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/l
 ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Thesis Rough Work.pdf" (41 pages, 390779 bytes).
+Output written on "Thesis Rough Work.pdf" (41 pages, 390883 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
+ 472 PDF objects out of 1000 (max. 8388607)
+ 402 compressed objects within 5 object streams
  114 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -625,19 +625,29 @@ We work in the interaction picture by defining $\rho_I(t) = e^{itH_B}\rho(t)e^{-
 
 \[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)].\]
 
-The solution to this differential equation is readily verified to be
+The exact solution to this differential equation is readily verified to be
 
-\[\rho(t) = i\int_{-\infty}^t [\Delta H_B(s), P_\mu]ds + P_\mu \]
+\[\rho_I(t) = i\int_{-\infty}^t [\Delta H_B(s), \rho_I(t)]ds + P_\mu. \]
 
-Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)] + \mathcal{O}(V_0^2)$, but $P_\mu$ and $\rho_I(t)$ are equal up to zeroth order in $V_0$ (need to add). The initial condition is also satisfied. 
+Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)]$, and the initial condition is also satisfied. This also shows that
 
-Using $J_H = i[H_B,\Lambda_1] = \sigma_H V = \sigma_H V_0\Lambda_2$, we obtain $\sigma_H = \frac{1}{V_0} \lim_{\eps\to 0} \Tr(\rho_I(0)i[H_B,\Lambda_1])$ (need to add). By Lemma \ref{lemma:groundstatecurrent}, the expectation of the ground state current is zero. Thus
+\[\norm{\rho_I(t)-P_\mu} \leq 2\int_{-\infty}^t \norm{V_0\Lambda_2 e^{\eps s} P_\mu}ds = \mathcal{O}(V_0),\]
+
+which implies $[\Delta H_B(s), \rho_I(t)] = [\Delta H_B(s), P_\mu] + \mathcal{O}(V_0^2)$. Therefore
+
+\[\rho_I(t) = i\int_{-\infty}^t [\Delta H_B(s), P_\mu]ds + P_\mu + \mathcal{O}(V_0^2).\]
+
+The Hall conductivity is (by definition) the linear response coefficient, which is 
+
+\[\sigma_H = \lim_{V_0\to 0}\lim_{\eps\to 0} \frac{\Tr(\rho_I(0)J_H) - \Tr(P_\mu J_H)}{V_0} = \lim_{V_0\to 0} \lim_{\eps\to 0}\frac{1}{V_0} \Tr(\rho_I(0)i[H_B,\Lambda_1]),\]
+
+where we used the fact that the expectation of the ground state current is zero by Lemma \ref{lemma:groundstatecurrent}, and also the fact that the error $\mathcal{O}(V_0^2)$ introduced by replacing $\rho_I$ with $P_\mu$ vanishes in the limit $V_0\to 0$. Substituting our solution for $\rho_I$ yields
 
 \[\begin{aligned}
-\sigma_H &= \frac{i}{V_0} \lim_{\eps\to 0}\Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\frac{1}{V_0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
-&= \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\sigma_H &=\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
+&= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
 
 Where we used the fact that $P_\mu$ and $H_B$ commute. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
@@ -650,7 +660,7 @@ Where we used the fact that $P_\mu$ and $H_B$ commute. Using integration by part
 where $\Lambda_1^s := e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1$. Using the notation $\overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp A P_\mu$, it is readily verified that the commutator $[\Lambda_2, P_\mu]$ is an \textit{off-diagonal} operator, in the sense that  $[\Lambda_2, P_\mu] = \overline{[\Lambda_2,P_\mu]}$. Furthermore, a simple computation reveals that for any two operators $A$ and $B$, $\Tr(\overline{A}B) = \Tr(A\overline{B})$. It therefore follows that
 
 \[\begin{aligned}
-\sigma_H &= -i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s})ds\right)
+\sigma_H &= -i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s})ds\right).
 \end{aligned}\]
 
 The integrand can be broken into two terms, 
@@ -1032,13 +1042,19 @@ Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$,
 
 \[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)).\]
 
-Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$, the integral in $P_\pm \Sigma_B P_\pm$ vanishes by integration by parts (need to add). Thus
+Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since the spectrum of the bulk Hamiltonian is bounded and $R_B(z)$ is bounded in norm by $\text{dist}(z,\text{Spec}(H_B))^{-1}$, we may write the integral as a limit of disks,
+
+\[\lim_{r\to\infty}\int_{B_r(0)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2,\]
+
+where domination is provided by (need to add reference to appendix). Stokes' theorem then says that the above integral is equal to the integral over the boundary $\partial B_r(0)$ but without the $\frac{\partial}{\partial \bar{z}}$. The decay of $R_B(z)$ and boundedness of $|\tilde{\rho}(z)|\leq1$ (need to add reference to appendix to decay property of $\tilde{\rho}$, along with mentioning fact that $\rho\in[0,1]$ on $\R$) ensure that the limit of this integral as $r\to\infty$ is zero. Thus the integral term in $\Sigma_B$ vanishes, and
+
+%vanishes by integration by parts (need to add). Thus
 
 \[\Tr(\Sigma_B) = i\Tr(P_+[\rho(H_B),\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[\rho(H_B),\Lambda_1]\Lambda_2P_-),\]
 
 %(Need to add reasoning for why the operators are trace-class, because really we have $(P_-+P_+)A(P_-+P_+)=A$, and we need to cylce $P_\pm$ to rid the terms $P_-P_+$). 
 
-since $[\rho(H_B),\Lambda_1]\Lambda_2$ is trace-class (need to add) which allows us to cycle and cancel the terms with both $P_-$ and $P_+$. By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
+since $[\rho(H_B),\Lambda_1]\Lambda_2$ is trace-class (need to add) which allows us to employ cyclicity of the trace to cancel the terms with both $P_-$ and $P_+$. By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
 
 \[ \rho(H_B) = \int_{-\infty}^\infty \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
 
@@ -1071,11 +1087,13 @@ are equal as operators. The two terms on the right hand side are separately trac
 %&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp).
 %\end{aligned}\]
 
-Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda$. Since both terms of $T_\lambda$ are separately trace-class, we obtain
+Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda$. We must now show that
 
-\[\sigma_B = \Tr((P_++P_-)T_\lambda(P_++P_-)) = \Tr(P_+T_\lambda P_+) + \Tr(P_- T_\lambda P_-)\]
+%Since both terms of $T_\lambda$ are separately trace-class, we obtain
 
-by cyclicity of the trace. We now must show that
+%\[\sigma_B = \Tr((P_++P_-)T_\lambda(P_++P_-)) = \Tr(P_+T_\lambda P_+) + \Tr(P_- T_\lambda P_-)\]
+
+%by cyclicity of the trace. We now must show thatv
 
 \[P_\pm T_\lambda P_\pm = P_\pm [P_\lambda, \Lambda_1]\Lambda_2 P_\pm.\]
 
@@ -1099,7 +1117,7 @@ P_+ T_\lambda P_+ &=  -P_+P_\lambda^\perp \Lambda_1 P_\lambda \Lambda_2 P_\lambd
 &= P_+[P_\lambda, \Lambda_1]\Lambda_2 P_+.
 \end{aligned}\]
 
-Finally, we obtain
+Altogether, we obtain
 
 \[\begin{aligned}
 \sigma_B &= i\Tr(P_-T_\lambda P_-) + i\Tr(P_+T_\lambda P_+)\\
@@ -1134,11 +1152,15 @@ To that end, notice that $P_W \Lambda_i P_V = P_W[\Lambda_i,P_V]$. Since $P_W$ i
 
 Note the lack of absolute values on the $e^{3\delta x_i}$ terms; we will later also bound the same operator but with $e^{-3\delta x_i}$ to account for this, since $e^{3\delta |x_i|} = e^{\pm3\delta x_i}$. We begin by bounding the second term. Since multiplication operators commute, the norm of the second term can be broken into
 
-\[\norm{(1-\Lambda_i) P_V e^{-\delta|x|}}\norm{\Lambda_i e^{3\delta x_i}}.\]
+\[\norm{(1-\Lambda_i) P_V e^{-\delta|x|}}\norm{\Lambda_i e^{3\delta x_i}}\]
 
-Now, the first term is clearly bounded, and $\Lambda_i e^{3\delta x_i}$ is also bounded; only the negative $x_i$ values remain due to the switch function. 
+both of which are bounded, since for $\Lambda_i e^{3\delta x_i}$ only the negative $x_i$ values remain due to the switch function. For the first term, we insert more exponentials
 
-For the first term, notice that (need to add).
+\[\Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} = \Lambda_i P_V e^{3\delta x_i} \cdot e^{-3\delta x_i}(1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|}.\]
+
+Again the $ \Lambda_i P_V e^{3\delta x_i}$ is bounded because of the switch function, and the other part is seen to be bounded by taking the adjoint of the operator in (need to add reference to appendix). 
+
+An exactly analogous argument works for bounding $[\Lambda_i,P_V]e^{-3\delta x_i}e^{-\delta|x|}$, i.e. the same operator but with the $e^{-3\delta x_i}$ terms.
 
 \end{proof}
 
@@ -2089,6 +2111,126 @@ There exists an $M$ such that the first and third terms are less than $\frac{\ep
 
 
 
+\section{Spectral Measures and Projection-Values Measures}\label{sec:pvm}
+
+\emph{Projection-valued measures} are maps $P:\mathcal{M}\to\mathcal{B}(\mathcal{H})$ from measurable subsets of $\R$ to the space of bounded linear operators on $\mathcal{H}$ satisfying the usual properties of both projections and measures.
+
+\begin{enumerate}
+\item $P(M)=P(M)^*=P(M)^2$ is an orthogonal projection for all $M\in\mathcal{M}$. Note that this implies that $P(M)$ is a positive operator.
+\item $P(\varnothing)=0$ and $P(\R)=\One_\mathcal{H}$.
+\item If $\{M_i\}_{i\in\N}$ are pairwise disjoint, then $\sum_{i=1}^n P(M_i) \xrightarrow{\enskip s \enskip}P(\cup_{i\in\N} M_i)$ as $n\to\infty$ ($\sigma$-additivity).
+\item $P(M_1\cap M_2) = P(M_1)P(M_2)$ for any $M_1,M_2\in\mathcal{M}$.
+\end{enumerate}
+
+The heuristic motivation is that $P(M)$ projects onto the subspace of $\mathcal{H}$ spanned by states whose energies lie in $M$. Using these operator-valued measures, one can construct an operator-valued integral with respect to $P$ in the usual fashion (beginning on nonnegative simple functions, extending to nonnegative measurable functions, and finally to real-valued measurable functions). 
+
+\begin{theorem}[Spectral Theorem for Projection-Valued Measures]
+There exists a one-to-one correspondence between self adjoint operators $H$ and projection-valued measures $P$ given by the formula
+\[H = \int_\R \lambda dP_\lambda,\]
+where $P_\lambda := P((-\infty,\lambda])$. Moreover, if $g:\R\to\R$ is any bounded Borel function, then $g(H)$ defined via the Borel function calculus coincides with the formula
+\[g(H) = \int_\R g(\lambda) dP_\lambda,\]
+and $g(H) = g(H)^*$.
+\label{thm:spectraltheorem}
+\end{theorem}
+
+We remark that it follows from the second part of this theorem that if $\One_{M}$ denotes the characteristic function of a Borel set $M\subseteq \R$, then 
+
+\[\One_M(H) = \int_M dP_\lambda = P(M).\]
+
+We also note that $\text{Spec}(H) = \text{supp}(P)$.
+
+\begin{lemma}
+Let $A$ be a trace-class operator. If $\tr_X(A)$ denotes the partial trace of $A$ over the set $X$, then
+\[\int_\mathcal{G} UAU^*d\mu(U) = \frac{1}{\emph{dim}(X)}\tr_X(A)\otimes \One,\]
+where $\mu$ is the Haar measure on the group $\mathcal{G}$ of unitary operators supported in $X$.
+\end{lemma}
+\begin{proof}
+Since the Haar measure is unique up to scalar multiple, we take without loss of generality $\mu(\mathcal{G})=1$. By left and right invariance of the Haar measure, 
+\[\int_\mathcal{G} UAU^* d\mu(U) = \int_\mathcal{G} Ad\mu(U) = A.\]
+The only operator invariant under all basis transformations is the identity, so
+\[\alpha \One=\int_\mathcal{G} UAU^*d\mu(U)\]
+for some scalar $\alpha$. Taking the partial trace over $X$, 
+\[\alpha \text{dim}(X)\One_{X^\mathsf{c}} = \int_\mathcal{G} \tr_X(UAU^*)d\mu(U) = \int_\mathcal{G} \tr_X(A)d\mu = \tr_X(A).\]
+Tensoring with $\One_X$ gives 
+\[\alpha \One = \frac{1}{\text{dim}(X)} \tr_X(A) \otimes \One.\]
+Need to add.
+\end{proof}
+
+
+
+
+
+\section{Greens' Functions and the Combes-Thomas Bound}
+
+The short-range assumption \ref{ass:shortrange} is vital for the following non-trivial estimate, the proof of which is omitted.
+
+\begin{theorem}[Combes-Thomas Bound]
+Let $H$ be a self-adjoint operator on $\ell^2(\Z^2)$ satisfying
+
+\[S_\alpha := \sup_x \sum_y |H(x,y)|(e^{\alpha|x-y|}-1) < \infty\]
+
+for some $\alpha>0$. Suppose $z$ lies outside the spectrum of $H$, and let $d_z := \emph{dist}(z,\emph{Spec}(H))$.  Then the Greens function of $H$ is exponentially bounded, 
+
+\[|G(x,y;z)| \leq \frac{2}{d_z}e^{-\xi_\alpha|x-y|},\]
+
+where $\xi := \frac{\alpha d_z}{2 S_\alpha}$.
+\label{thm:combesthomas}
+\end{theorem}
+
+This theorem gives the crucial decay properties of the spectral projectors.
+
+\begin{lemma}
+Let $H$ be a self-adjoint operator satisying \ref{ass:shortrange} and with bounded spectrum. Let $S \subseteq \emph{Spec}(H)$, and let $P_S$ be the associated spectral projection. Then there exists some $\eps,\nu>0$ such that the matrix elements of $P_S$ satisfy
+
+\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty.\]
+\label{lemma:projectionmatrixelementsdecay}
+\end{lemma}
+\begin{proof}
+We use the fact that the spectral projection is given by the Riesz integral formula
+
+\[P_S = \frac{1}{2\pi i} \oint_\gamma R(z)dz,\]
+
+where $R(z)$ is the resolvent of $H$ and $\gamma$ is any smooth closed curve containing $S$. Since the resolvent is the Greens function of $H$, it satisfies the Combes-Thomas bound \ref{thm:combesthomas}. Since the spectrum of $H$ is bounded, it may be enclosed in a curve of finite length, from which we determine that
+
+\[|P_S(x,y)| \leq Ce^{-\xi_\alpha|x-y|},\]
+
+since $\inf_{z \in \gamma} d_z = \inf_{z\in\gamma} \text{dist}(z,\text{Spec}(H)) > 0$. Hence
+
+\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty\]
+
+holds for $\nu = \xi_\alpha$ and for any $\eps>0$, since $e^{-\eps|x|} = e^{-\eps|x_1|}e^{-\eps|x_2|}$ is summable on $\Z^2$ by Lemma \ref{lemma:exptraceclass}.
+
+\end{proof}
+
+This statement about decay of the matrix elements can be turned into a statement about the norm of the operator. Let $\text{Lip}^1$ be the set of all Lipschtiz functions whose Lipschitz constant is not greater than 1, that is the set of functions $\ell$ satisfying 
+
+\[|\ell(x)-\ell(y)| \leq |x-y|\]
+
+for all $x,y \in \Z^2$.
+
+\begin{lemma}
+Let $P_S$ be the spectral projection onto $S \subseteq \emph{Spec}(H)$. For all $\eps>0$,
+\[\sup_{\ell \in \emph{Lip}^1} \norm{e^{\nu \ell(x)} e^{-\eps|x|} P_S e^{-\nu\ell(x)}} < \infty,\]
+where $\nu$ is the same as in \ref{lemma:projectionmatrixelementsdecay}.
+\label{lemma:projectionoperatordecay}
+\end{lemma}
+\begin{proof}
+The matrix elements of the operator are $P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}$. By Holmgren's bound, the operator's norm is therefore bounded by 
+
+\[\max\{\sup_x \sum_y |P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}, \; \sup_y \sum_x|P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}\}.\]
+
+Replacing the supremum with a sum yields the bound
+
+\[\norm{P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}} \leq \sum_{x,y} |P_S(x,y)| e^{\nu |\ell(x)-\ell(y)|}e^{-\eps|x|},\]
+
+and taking a supremum over $\ell \in \text{Lip}^1$ completes the proof by Lemma \ref{lemma:projectionmatrixelementsdecay}.
+\end{proof}
+
+
+
+
+
+
 \chapter{Properties of $\mathcal{I}_\mu$}
 
 \begin{proof}
@@ -2180,7 +2322,9 @@ which is the desired inequality.
 \end{proof}
 
 \begin{theorem}
-(ODE Uniqueness). Let $F:\mathcal{U}\to\mathcal{U}$ be Lipschitz and consider the differential equaton $u'(t)=F(u(t))$ with initial condition $u(a) = u_a$ for some function $u:I\to\mathcal{U}$, where $I = [a,b]$, or $[a,b)$, or $[a,\infty)$. Solutions to this equation are unique.
+(ODE Uniqueness). Let $F:\mathcal{U}\to\mathcal{U}$ be Lipschitz and consider the differential equation 
+\[u'(t)=F(u(t))\]
+with initial condition $u(a) = u_a$ for some function $u:I\to\mathcal{U}$, where $I = [a,b]$, or $[a,b)$, or $[a,\infty)$. Solutions to this equation are unique.
 \end{theorem}
 \label{thm:gronwalluniqueness}
 \begin{proof}
@@ -2250,11 +2394,11 @@ Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\sigma(\mu)}_G \leq \no
 
 
 
-\chapter{From Dec 13 Meeting}
+%\chapter{From Dec 13 Meeting}
 
-Let $r(t) = \rho(t)-\sigma(t)$. Notice that 
+%Let $r(t) = \rho(t)-\sigma(t)$. Notice that 
 
-\[\frac{d}{dt} e^{itK_B}\sigma_0e^{-itK_B} = e^{itK_B}i[K_B,\sigma_0]e^{-itK_B} + e^{-itK_B}\dot{\sigma_0}e^{itK_B}.\]
+%\[\frac{d}{dt} e^{itK_B}\sigma_0e^{-itK_B} = e^{itK_B}i[K_B,\sigma_0]e^{-itK_B} + e^{-itK_B}\dot{\sigma_0}e^{itK_B}.\]
 
 
 
@@ -2279,7 +2423,7 @@ For any $f\in \mathcal{A}$,
 \end{enumerate}
 \end{theorem}
 
-There is an explicit formula for $f(H)$, which is given by
+For $f\in\mathcal{A}$ which are also Borel, $f(H)$ agrees with the operator given by the Borel functional calculus. There is an explicit formula for $f(H)$, which is given by
 
 \[ f(H) = \frac{1}{2\pi}\int_\C \frac{\partial \tilde{f}}{\partial \bar{z}} (H-z)^{-1}dz\wedge d\bar{z},\]
 
@@ -2310,107 +2454,6 @@ This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \l
 
 
 
-
-
-\chapter{Spectral Measures and Projection-Values Measures}\label{sec:pvm}
-
-\emph{Projection-valued measures} are maps $P:\mathcal{M}\to\mathcal{B}(\mathcal{H})$ from measurable subsets of $\R$ to the space of bounded linear operators on $\mathcal{H}$ satisfying the usual properties of both projections and measures.
-
-\begin{enumerate}
-\item $P(M)=P(M)^*=P(M)^2$ is an orthogonal projection for all $M\in\mathcal{M}$. Note that this implies that $P(M)$ is a positive operator.
-\item $P(\varnothing)=0$ and $P(\R)=\One_\mathcal{H}$.
-\item If $\{M_i\}_{i\in\N}$ are pairwise disjoint, then $\sum_{i=1}^n P(M_i) \xrightarrow{\enskip s \enskip}P(\cup_{i\in\N} M_i)$ as $n\to\infty$ ($\sigma$-additivity).
-\item $P(M_1\cap M_2) = P(M_1)P(M_2)$ for any $M_1,M_2\in\mathcal{M}$.
-\end{enumerate}
-
-The heuristic motivation is that $P(M)$ projects onto the subspace of $\mathcal{H}$ spanned by states whose energies lie in $M$. Using these operator-valued measures, one can construct an operator-valued integral with respect to $P$ in the usual fashion (beginning on nonnegative simple functions, extending to nonnegative measurable functions, and finally to real-valued measurable functions). 
-
-\begin{theorem}[Spectral Theorem for Projection-Valued Measures]
-There exists a one-to-one correspondence between self adjoint operators $H$ and projection-valued measures $P$ given by the formula
-\[H = \int_\R \lambda dP_\lambda,\]
-where $P_\lambda := P((-\infty,\lambda])$. Moreover, if $g:\R\to\R$ is any bounded Borel function, then $g(H)$ defined via the Borel function calculus coincides with the formula
-\[g(H) = \int_\R g(\lambda) dP_\lambda,\]
-and $g(H) = g(H)^*$.
-\label{thm:spectraltheorem}
-\end{theorem}
-
-We remark that it follows from the second part of this theorem that if $\One_{M}$ denotes the characteristic function of a Borel set $M\subseteq \R$, then 
-
-\[\One_M(H) = \int_M dP_\lambda = P(M).\]
-
-We also note that $\text{Spec}(H) = \text{supp}(P)$.
-
-
-
-
-
-
-
-\chapter{Greens' Functions and the Combes-Thomas Bound}
-
-The short-range assumption \ref{ass:shortrange} is vital for the following non-trivial estimate, the proof of which is omitted.
-
-\begin{theorem}[Combes-Thomas Bound]
-Let $H$ be a self-adjoint operator on $\ell^2(\Z^2)$ satisfying
-
-\[S_\alpha := \sup_x \sum_y |H(x,y)|(e^{\alpha|x-y|}-1) < \infty\]
-
-for some $\alpha>0$. Suppose $z$ lies outside the spectrum of $H$, and let $d_z := \emph{dist}(z,\emph{Spec}(H))$.  Then the Greens function of $H$ is exponentially bounded, 
-
-\[|G(x,y;z)| \leq \frac{2}{d_z}e^{-\xi_\alpha|x-y|},\]
-
-where $\xi := \frac{\alpha d_z}{2 S_\alpha}$.
-\label{thm:combesthomas}
-\end{theorem}
-
-This theorem gives the crucial decay properties of the spectral projectors.
-
-\begin{lemma}
-Let $H$ be a self-adjoint operator satisying \ref{ass:shortrange} and with bounded spectrum. Let $S \subseteq \emph{Spec}(H)$, and let $P_S$ be the associated spectral projection. Then there exists some $\eps,\nu>0$ such that the matrix elements of $P_S$ satisfy
-
-\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty.\]
-\label{lemma:projectionmatrixelementsdecay}
-\end{lemma}
-\begin{proof}
-We use the fact that the spectral projection is given by the Riesz integral formula
-
-\[P_S = \frac{1}{2\pi i} \oint_\gamma R(z)dz,\]
-
-where $R(z)$ is the resolvent of $H$ and $\gamma$ is any smooth closed curve containing $S$. Since the resolvent is the Greens function of $H$, it satisfies the Combes-Thomas bound \ref{thm:combesthomas}. Since the spectrum of $H$ is bounded, it may be enclosed in a curve of finite length, from which we determine that
-
-\[|P_S(x,y)| \leq Ce^{-\xi_\alpha|x-y|},\]
-
-since $\inf_{z \in \gamma} d_z = \inf_{z\in\gamma} \text{dist}(z,\text{Spec}(H)) > 0$. Hence
-
-\[\sum_{x,y \in \Z^2} |P_S(x,y)| e^{-\eps |x|} e^{\nu |x-y|} < \infty\]
-
-holds for $\nu = \xi_\alpha$ and for any $\eps>0$, since $e^{-\eps|x|} = e^{-\eps|x_1|}e^{-\eps|x_2|}$ is summable on $\Z^2$ by Lemma \ref{lemma:exptraceclass}.
-
-\end{proof}
-
-This statement about decay of the matrix elements can be turned into a statement about the norm of the operator. Let $\text{Lip}^1$ be the set of all Lipschtiz functions whose Lipschitz constant is not greater than 1, that is the set of functions $\ell$ satisfying 
-
-\[|\ell(x)-\ell(y)| \leq |x-y|\]
-
-for all $x,y \in \Z^2$.
-
-\begin{lemma}
-Let $P_S$ be the spectral projection onto $S \subseteq \emph{Spec}(H)$. For all $\eps>0$,
-\[\sup_{\ell \in \emph{Lip}^1} \norm{e^{\nu \ell(x)} e^{-\eps|x|} P_S e^{-\nu\ell(x)}} < \infty,\]
-where $\nu$ is the same as in \ref{lemma:projectionmatrixelementsdecay}.
-\label{lemma:projectionoperatordecay}
-\end{lemma}
-\begin{proof}
-The matrix elements of the operator are $P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}$. By Holmgren's bound, the operator's norm is therefore bounded by 
-
-\[\max\{\sup_x \sum_y |P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}, \; \sup_y \sum_x|P_S(x,y)| e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}\}.\]
-
-Replacing the supremum with a sum yields the bound
-
-\[\norm{P_S(x,y) e^{\nu (\ell(x)-\ell(y))}e^{-\eps|x|}} \leq \sum_{x,y} |P_S(x,y)| e^{\nu |\ell(x)-\ell(y)|}e^{-\eps|x|},\]
-
-and taking a supremum over $\ell \in \text{Lip}^1$ completes the proof by Lemma \ref{lemma:projectionmatrixelementsdecay}.
-\end{proof}
 
 
 

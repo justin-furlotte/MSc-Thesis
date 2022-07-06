@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ubcsample.aux
+The style file: plain.bst
+Database file #1: iqhe.bib
+Warning--empty journal in Graf:Aspects
+Warning--empty publisher in Tong
+You've used 19 entries,
+            2118 wiz_defined-function locations,
+            624 strings with 6900 characters,
+and the built_in function-call counts, 5747 in all, are:
+= -- 549
+> -- 286
+< -- 1
++ -- 116
+- -- 94
+* -- 431
+:= -- 988
+add.period$ -- 55
+call.type$ -- 19
+change.case$ -- 103
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 194
+empty$ -- 450
+format.name$ -- 94
+if$ -- 1162
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 18
+newline$ -- 94
+num.names$ -- 38
+pop$ -- 108
+preamble$ -- 1
+purify$ -- 85
+quote$ -- 0
+skip$ -- 138
+stack$ -- 0
+substring$ -- 315
+swap$ -- 20
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 2
+while$ -- 54
+width$ -- 21
+write$ -- 200
+(There were 2 warnings)

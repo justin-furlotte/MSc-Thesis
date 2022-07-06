@@ -244,9 +244,12 @@
 \usepackage[title]{appendix}
 %\usepackage{hyperref}
 \usetikzlibrary{patterns}
+\usetikzlibrary{shapes}
 %\usepackage{stix}
 \usepackage{amssymb}
 \usepackage{enumitem}
+%\usepackage{biblatex} %Imports biblatex package
+%\addbibresource{iqhe.bib}
 
 
 \newtheorem{theorem}{Theorem}
@@ -352,84 +355,67 @@
 
 \maketitle                      %% Mandatory
 \begin{abstract}                %% Mandatory -  maximum 350 words
-  The \texttt{genthesis.cls} \LaTeX{} class file and accompanying
-  documents, such as this sample thesis, are distributed in the hope
-  that it will be useful but without any warranty (without even the
-  implied warranty of fitness for a particular purpose).  For a
-  description of this file's purpose, and instructions on its use, see
-  below.
+In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the Hall resistivity of a 2-dimensional electron gas is precisely quantized to integer multiples of $h/q^2$ when subjected to a strong magnetic field at very low temperatures.
 
-  These files are distributed under the GPL which should be included
-  here in the future.  Please let the author know of any changes or
-  improvements that should be made.
-
-  Michael Forbes.
-  mforbes@physics.ubc.ca
+In particular, we provide a rigorous theoretical description of a phenomenon known as \emph{bulk-edge correspondence}, wherein the value of the Hall conductivity is unaffected by whether or not one considers a system with an edge or an infinite plane. This is accomplished in two settings. First, we ignore interactions between electrons, and then proceed to the more challenging interacting setting. 
 \end{abstract}
 
 \chapter{Preface} % Manditory if any of the conditions are met
+Chapter~\ref{cha:noninteracting} is based on work conducted in~\cite{Graf:Noninteracting}. This thesis is the work of the author, Justin Furlotte, under the supervision of Sven Bachmann.
 
-You must include a preface if any part of your research was partly or
-wholly published in articles, was part of a collaboration, or required
-the approval of UBC Research Ethics Boards.
+%You must include a preface if any part of your research was partly or
+%wholly published in articles, was part of a collaboration, or required
+%the approval of UBC Research Ethics Boards.
 
-The Preface must include the following:
+%The Preface must include the following:
 
-\begin{itemize}
-\item A statement indicating the relative contributions of all
-  collaborators and co-authors of publications (if any), emphasizing
-  details of your contribution, and stating the proportion of research
-  and writing conducted by you.
-\item A list of any publications arising from work presented in the
-  dissertation, and the chapter(s) in which the work is located.
-\item The name of the particular UBC Research Ethics Board, and the
-  Certificate Number(s) of the Ethics Certificate(s) obtained, if
-  ethics approval was required for the research.
-\end{itemize}
+%\begin{itemize}
+%\item A statement indicating the relative contributions of all
+%  collaborators and co-authors of publications (if any), emphasizing
+%  details of your contribution, and stating the proportion of research
+%  and writing conducted by you.
+%\item A list of any publications arising from work presented in the
+%  dissertation, and the chapter(s) in which the work is located.
+%\item The name of the particular UBC Research Ethics Board, and the
+%  Certificate Number(s) of the Ethics Certificate(s) obtained, if
+%  ethics approval was required for the research.
+%\end{itemize}
 
 %%% Sections and subsections etc. in the Preface should in general
 %%% not be listed in the table of contents, so use the starred form
 %%% of \section etc.
-\section*{Examples}
-Chapter~\ref{cha:apple_ref} is based on work conducted in UBC's Maple
-Syrup Laboratory by Dr. A.  Apple, Professor B. Boat, and Michael
-McNeil Forbes. I was responsible for tapping the trees in forests X
-and Z, conducted and supervised all boiling operations, and performed
-frequent quality control tests on the product.
+%\section*{Examples}
 
-A version of chapter~\ref{cha:apple_ref} has been
-published~\cite{Apple:2010}. I conducted all the testing and wrote
-most of the manuscript. The section on ``Testing Implements'' was
-originally drafted by Boat, B.  Check the first pages of this
-chapter to see footnotes with similar information.
 
-Note that this preface must come before the table of contents.  Note
-also that this section ``Examples'' should not be listed in the table
-of contents, so we have used the starred form: \verb|\section*{Example}|.
+%Chapter~\ref{cha:apple_ref} is based on work conducted in UBC's Maple
+%Syrup Laboratory by Dr. A.  Apple, Professor B. Boat, and Michael
+%McNeil Forbes. I was responsible for tapping the trees in forests X
+%and Z, conducted and supervised all boiling operations, and performed
+%frequent quality control tests on the product.
+
+%A version of chapter~\ref{cha:apple_ref} has been
+%published~\cite{Apple:2010}. I conducted all the testing and wrote
+%most of the manuscript. The section on ``Testing Implements'' was
+%originally drafted by Boat, B.  Check the first pages of this
+%chapter to see footnotes with similar information.
+
+%Note that this preface must come before the table of contents.  Note
+%also that this section ``Examples'' should not be listed in the table
+%of contents, so we have used the starred form: \verb|\section*{Example}|.
 
 \tableofcontents                %% Mandatory
-\listoftables                   %% Mandatory if thesis has tables
+%\listoftables                   %% Mandatory if thesis has tables
 \listoffigures                  %% Mandatory if thesis has figures
-\listof{Program}{List of Programs} %% Optional
+%\listof{Program}{List of Programs} %% Optional
 %% Any other lists should come here, i.e.
 %% Abbreviation schemes, definitions, lists of formulae, list of
 %% schemes, glossary, list of symbols etc.
 
 \chapter{Acknowledgements}      %% Optional
-This is the place to thank professional colleagues and people who have
-given you the most help during the course of your graduate work.
+I would like to thank my supervisor, Sven Bachmann, for his patience, his kindness, and his inspiring mastery in the field of mathematical physics and quantum lattice systems.
 
 \chapter{Dedication} %% Optional
-The dedication is usually quite short, and is a personal rather than
-an academic recognition.  The \emph{Dedication} does not have to be
-titled, but it must appear in the table of contents.  If you want to
-skip the chapter title but still enter it into the Table of Contents,
-use this command \verb|\chapter[Dedication]{}|.
-
-Note that this section is the last of the preliminary pages (with
-lowercase Roman numeral page numbers).  It must be placed
-\emph{before} the \verb|\mainmatter| command.  After that, Arabic
-numbered pages will begin.
+To Abigail Sanderson, for her unwavering belief in me, and to my parents, for their endless support.
 
 % Any other unusual prefactory material should come here before the
 % main body.
@@ -441,20 +427,17 @@ numbered pages will begin.
 %\part{Thesis}
 
 % Chapters are the next main unit.
-\chapter{This is a Chapter}
 
+\chapter{Introduction}
+\label{cha:introduction}
 
-
-
-\section{Introduction}
-
-\subsection{History}
+\section{History}
 
 Since its unexpected discovery in 1980, the Quantum Hall Effect (QHE) has captured significant interest in the mathematical physics community.
 
-\subsection{Heuristic Arguments}
+\section{Heuristic Arguments}
 
-\subsubsection{The Classical Hall Effect}
+\subsection{The Classical Hall Effect}
 
 Using classical electromagnetism is not enough to predict the plateaux seen experimentally. Suppose we have a 2-dimensional electron gas, and let $\vec{B} = B\hat{x_3}$ be a magnetic field piercing the plane of the electrons. They are subjected to a Lorentz force
 
@@ -489,14 +472,14 @@ When making a measurement, physicists actually measure the resistivity $\rho = \
 The key prediction of the classical theory is that the Hall resistivity is increases linearly in response to the strength of the magnetic field.
 
 \newpage
-\subsubsection{The Quantum Hall Effect}
+\subsection{The Quantum Hall Effect}
 
 Von Klitzing's experimental observation in 1980 made it clear that classical electromagnetism is not sufficient to describe the Hall effect. At a temperature of about 8mK, the Hall resistivity looked like this as a function of the magnetic field strength.
 
 \begin{figure}[h!]
 \centering
 \includegraphics{vonklitzing}
-\caption{The Hall resistivity as a function of the magnetic field strength. Distinct plateaux are clearly visible.}
+\caption{Von Klitzing's discovery - the Hall resistivity as a function of the magnetic field strength jumps in distinct plateaux. (need to add reference).}
 \label{fig:vonklitzing}
 \end{figure}
 
@@ -504,13 +487,54 @@ Even more surprising, the plateaux occur at the values
 
 \[\rho_{xy} = \frac{2\pi \hbar}{nq},\]
 
-where $n$ is an integer. In fact, this integer can be measured to such extraordinary precision (to about $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity.
+where $n$ is an integer. This phenomenon is known as the \emph{integer quantum Hall effect} (IQHE). In fact, this integer can be measured to such extraordinary precision (to about $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity.
 
-The first explanation employing quantum mechanics is due to Laughlin in (need to add). 
+One of the first explanations employing quantum mechanics is due to Laughlin in his short but seminal 1981 paper (need to add reference), which explained the plateaux using a charge transport argument. 
+
+\subsubsection{The Laughlin Argument}
+
+Rather than a flat sheet, consider gluing the edges to form a cylinder, as depicted in Figure \ref{fig:cylinder}. The cylinder is pierced by a uniform magnetic field $\vec{B}$ normal to its surface. In addition to this background magnetic field, suppose that a magnetic flux $\phi$ is also threaded through the cylinder. 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\node (A) [cylinder, shape border rotate=90, draw, minimum height=8cm, minimum width=5cm, aspect=3]{};
+\draw [-stealth, black, line width=0.25mm, rounded corners] (0.8, -2) arc (-80:-100:5);
+\node[] at (-1.5,-2) {$\vec{E}$};
+\draw [<->] ([xshift=20pt] A.before bottom) -- ([xshift=20pt] A.after top) node [midway, right] {$L$};
+\draw [<->] ([yshift=-20pt] A.bottom) -- ([yshift=-20pt] A.bottom -| A.before bottom) node [midway, below] {$R$};
+%\draw [<->] (A.before top) -- (A.after top) node [midway, above,fill=white] {$A_0$};
+\draw [black, thin, ->] ([yshift=-15pt] A.top) -- ([yshift=20pt] A.top);
+\node[] at ([yshift=20pt,xshift=10pt]A.top) {$\hat{z}$};
+\draw [black, thick, ->] (-0,-1) -- (-0,2);
+\node[] at (-0.5,2) {$\vec{J}_H$};
+\draw [blue, dashed, thick] (-2.5, 1) arc (-108.25:-71.75:8);
+\draw [black, thick, ->] ([xshift=40pt,yshift=-15pt]A.top) -- ([xshift=40pt,yshift=5pt]A.top);
+\node[] at ([xshift=50pt,yshift=5pt]A.top) {$\phi$};
+\draw [black, thin, ->] ([yshift=-15pt]A.top) -- ([xshift=-40pt,yshift=-20pt]A.top);
+\node[] at ([xshift=-30pt,yshift=-10pt]A.top) {$\hat{\rho}$};
+\draw [-stealth, black, thin, rounded corners] (-0.8, 3) arc (-100:-80:5);
+\node[] at (1.25,3) {$\hat{\theta}$};
+\filldraw (0,-3) circle (1pt);
+\draw (0,-3) circle (4pt);
+\node[] at (0.5,-3) {$\vec{B}$};
+\end{tikzpicture}
+\caption{Laughlin's cylinder.}
+\label{fig:cylinder}
+\end{figure}
+
+
 
 An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Proving this fact, both in the interacting and noninteracting setting, is the main focus of this thesis.
 
-\section{Nonnteracting Setting}
+
+
+
+
+\chapter{Noninteracting Bulk-Edge Correspondence}
+\label{cha:noninteracting}
+
+\section{General Setting}
 
 Consider the lattice $\Z^2$, and the associated Hilbert space of square-summable sequences of vectors in $\C^n$,
 
@@ -780,7 +804,7 @@ in the limit as $V\to0$. As we shall see, it turns out that $\sigma_E$ is indepe
 
 %From there, a calculation shows that $\lim_{T\to\infty}\frac{1}{T}\int_0^T\Tr(\Sigma_B'+\Sigma_B'')dt = \sigma_B$, concluding the proof.
 
-\subsection{Equality of Bulk and Edge Conduvitivities}
+\section{Equality of Bulk and Edge Conductivities}
 
 
 %Need to add section on why $\sigma_E(a) := -i\Tr(\rho'(H_a)[H_a,\Lambda_1])$ is equal to
@@ -794,7 +818,7 @@ $\sigma_E=\sigma_B$.
 \label{thm:bulkedge}
 \end{theorem}
 
-\subsubsection*{Outline of the Proof}
+\subsection{Outline of the Proof}
 
 Before giving the proof in its entirety, we outline the basic steps. The edge condition guarantees that $\sigma_E(a) := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class (need to add). We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
 
@@ -815,7 +839,7 @@ Another key observation is that it turns out that the bulk conductivity can actu
 
 By employing the Helffer-Sjostrand representations above, one can add an operator of zero trace to the edge conductivity, and show that this operator converges in trace to $[\rho(H_B),\Lambda_1]\Lambda_2$ in the limit $a\to\infty$.
 
-\subsubsection*{The Proof}
+\subsection{The Proof}
 
 \begin{lemma}
 The edge conductivity is equal to $\lim_{a\to\infty}\sigma_E(a)$, where
@@ -1191,7 +1215,10 @@ where we bounded the exponential by $e^{-\alpha (|z_1|+|z_2|)}e^{-\alpha |x_1|}e
 
 \end{proof}
 
-\section{Interacting Setting}
+\chapter{Interacting Bulk-Edge Correspondence}
+\label{cha:interacting}
+
+\section{General Setting}
 
 Let $L\in\N$, and let $\Gamma_L = \Z_L \times [0,L]$ be the discrete cylinder, equipped with a metric $d$. To each site $x \in \Gamma_L$, we associate a Hilbert space $\mathcal{H}_x$ whose dimension is bounded uniformly in $L$. We denote $N = \sup_L{\mathcal{H}_L}$. For a subset $X \subseteq \Gamma_L$, we define the Hilbert space $\mathcal{H}_X = \otimes_{x \in X} \mathcal{H}_x$, and we set 
 
@@ -1345,9 +1372,9 @@ The three regions are depicted in figure \ref{fig:regions}.
 
 
 
-\subsection{Equality of Bulk and Edge Currents}
+\section{Equality of Bulk and Edge Currents}
 
-\subsubsection{Cylinder Geometry}
+\subsection{Cylinder Geometry}
 
 Let $P_\mu$ be the (possibly degenerate) ground state projection of $H_\mu$. Let $Q_u = \sum_{x \in \Gamma_u} a_x^* a_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$ (the yellow region in Figure \ref{fig:setup}), and define current operator 
 
@@ -1561,7 +1588,7 @@ for some operators $A_1$ and $A_2$ supported on $\Gamma_B^\mathsf{c}$ and $V^\ma
 
 The intuitive picture from the previous result is that, in the bulk region, the Hall conductivity is essentially only nonzero along  the bulk strip $\Gamma_B$. Since the ground state expectation of the current is zero (by lemma~\ref{lemma:J=0}), it must be that there is an equal current flowing along the edge strip $\Gamma_E$, but in the opposite direction.
 
-\subsubsection{Torus Geometry}
+\subsection{Torus Geometry}
 
 Our goal is to show the same result on the discrete torus $\mathbb{T}_L := \Z_L \times \Z_L$. We define the same regions $\Gamma_u$ and $\Gamma_h$, and the same current operator $J_u = i[H(\mu), Q_u]$. This time, however, Lemma~\ref{lemma:J=0} does not apply. Intuitively, it does not apply because electrons can now flow through both the bottom and the top of the region $\Gamma_u$, rather than just the bottom. Mathematically, the lemma fails because our definition of the current is slightly changed.
 
@@ -1689,378 +1716,20 @@ By Lemma~\ref{lemma:[Q,P]=0}, the first term is zero. By Lemma~\ref{J=0Bulk}, th
 
 
 
+\chapter{Summary of Results}
+Need to add. Here is a citation~\cite{Bachmann:Bloch}
 
-
-
-% Sections are a sub-unit
-\section{A Section}
-Here is a section with some text.  Equations look like this
-$y=x$.\footnote{Here is a footnote.}
-
-This is an example of a second paragraph in a section so you can
-see how much it is indented by.
-
-% Subsections follow
-\subsection{This is a Subsection}
-Here is an example of a citation: \cite{Forbes:2006ba}.  The actual
-form of the citation is governed by the bibliographystyle.  These
-citations are maintained in a BIBTeX file \texttt{sample.bib}.  You
-could type these directly into the file.  For an example of the format
-to use look at the file \texttt{ubcsample.bbl} after you compile this
-file.\footnote{Here is another footnote.}
-
-This is an example of a second paragraph in a subsection so you can
-see how much it is indented by.
-
-\subsubsection{This is a Subsubsection}
-Here are some more citations \cite{LL3:1977,Peccei:1989,Turner:1999}.
-If you use the \texttt{natbib} package with the \verb+sort&compress+
-option, then the following citation will look the same as the first
-citation in this section: \cite{Turner:1999,Peccei:1989,LL3:1977}.
-
-This is an example of a second paragraph in a subsubsection so you can
-see how much it is indented by.
-
-\paragraph{This is a Paragraph}
-Paragraphs and subparagraphs are the smallest units of text.  There is
-no subsubsubsection etc.
-
-\subparagraph{This is a Subparagraph}
-This is the last level of organisation.  If you need more than this,
-you should consider reorganizing your work\dots
-
-\begin{equation}
-  \mathrm{f}(x)=\int_{-\infty}^{\int_{-\infty}^x
-    e^{-\frac{y^2}{2}}\mathrm{d}{y}}e^{-z^2}\mathrm{d}z
-\end{equation}
-
-In order to show you what a separate page would look like (i.e. without
-a chapter heading) I must type some more text.  Thus I will babble a
-bit and keep babbling for at least one more page\ldots  What you
-should notice is that the chapter titles appear substantially lower
-than the continuing text. Babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble.
-
-Babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble babble babble babble babble babble babble
-babble babble babble babble.
-
-\begin{table}[t]                 % optional [t, b or h];
-  \begin{tabular}{|r||r@{.}l|}
-    \hline
-    Phoenix & \$960&35\\
-    \hline
-    Calgary & \$250&00\\
-    \hline
-  \end{tabular}
-  \caption[Here is the caption for this wonderful table\ldots]{
-    \label{tab:Table1}
-    Here is the caption for this wonderful table. It has not been
-    centered and the positioning has been specified to be at the top
-    of the page.  Thus it appears above the babble rather than below
-    where it is defined in the source file.}
-\end{table}
-
-% Force a new page: without this, the quote would appear on the
-% previous page.
-\newpage
-
-\section{Quote}
-Here is a quote:
-\begin{quote}
-  % It is centered
-  \begin{center}
-    This is a small poem,\\
-    a little poem, a Haiku,\\
-    to show you how to.\\
-    ---Michael M$^{\rm c}$Neil Forbes.
-  \end{center}
-\end{quote}
-
-This small poem shows several features:
-\begin{itemize}
-\item The use of the \verb|quote| and \verb|center| environments.
-\item The \verb|\newpage| command has been used to force a page
-  break.  (Sections do not usually start on a new page.)
-\item The pagestyle has been set to suppress the headers using the
-  command \verb|\thispagestyle{plain}|.  Note that using
-  \verb|\pagestyle{plain}| would have affected all of the subsequent
-  pages.
-\end{itemize}
-\section{Programs}
-Here we give an example of a new float as defined using the
-\texttt{float} package.  In the preamble we have used the commands
-\begin{verbatim}
-\floatstyle{ruled}
-\newfloat{Program}{htbp}{lop}[chapter]
-\end{verbatim}
-This creates a ``Program'' environment that may be used for program
-fragments.  A sample \texttt{python} program is shown in
-Program~\ref{prog:fib}.  (Note that Python places a fairly restrictive
-limit on recursion so trying to call this with a large $n$ before
-building up the cache is likely to fail unless you increase the
-recursion depth.)
-\begin{Program}
-  \caption{\label{prog:fib} Python program that computes the $n^{\rm
-      th}$ Fibonacci number using memoization.}
-\begin{verbatim}
-def fib(n,_cache={}):
-    if n < 2:
-        return 1
-    if n in _cache:
-        return _cache[n]
-    else:
-        result = fib(n-1)+fib(n-2)
-        _cache[n] = result
-        return result
-\end{verbatim}
-\end{Program}
-Instead of using a \texttt{verbatim} environment for your program
-chunks, you might like to \texttt{include} them within an
-\texttt{alltt} envrironment by including the \verb|\usepackage{alltt}|
-package (see page 187 of the \LaTeX{} book).  Another useful package
-is the \verb|\usepackage{listings}| which can pretty-print many
-different types of source code.
-
-% Force a new page
-\newpage
-
-%% Here we provide a short optional argument to \chapter[]{}.  This
-%% optional argument will appear in the table of contents.  For long
-%% titles, one should use this to give a single-line entry to the
-%% table of contents.
-\chapter[Another Chapter\ldots]{Another Chapter with a Very Long
-  Chapter-name that will Probably Cause Problems}
-\label{cha:apple_ref}
-
-This chapter name is very long and does not display properly in the
-running headers or in the table of contents.  To deal with this, we
-provide a shorter version of the title as the optional argument to the
-\verb|\chapter[]{}| command.
-
-For example, this chapter's title and associated table of contents heading and
-running header was created with\\
-\verb|\chapter[Another Chapter\ldots]{Another Chapter with a Very Long|\\
-\verb|Chapter-name that will Probably Cause Problems}|.
-
-Note that, according to the thesis regulations, the heading included
-in the table of contents must be a truncation of the actual heading.
-
-This Chapter was used as a demonstration in the Preface for how to
-attribute contribution from collaborators.  If there are any such
-contributions, details must be included in the Preface.  If you wish,
-you may additionally use a footnote such as this.\footnote{This
-  chapter is based on work conducted in UBC's Maple Syrup Laboratory
-  by Dr. A. Apple, Professor B. Boat, and C. Cat.}
-
-\section{Another Section}
-Another bunch of text to demonstrate what this file does.
-You might want a list for example:\footnote{Here is a footnote in a
-  different chapter.  Footnotes should come after punctuation.}
-\begin{itemize}
-\item An item in a list.
-\item Another item in a list.
-\end{itemize}
-
-\section*{An Unnumbered Section That is Not Included in the Table of
-  Contents}
-\begin{figure}[ht]
-  \begin{center}
-%% psfrag: comment the following line if not using the psfrag package
-    \psfrag{pie makes me happy!}{$\pi$ makes me happy!}
-%% includegraphics: comment the following if not using the graphicx package
-    \includegraphics[width=0.4\textwidth]{fig}
-    \caption[Happy Face: figure example.]{\label{fig:happy} This is a figure of
-      a happy face with a \texttt{psfrag} replacement.  The original figure
-      (drawn in xfig and exported to a .eps file) has the text ``pie makes me
-      happy!''.  The \texttt{psfrag} package replaces this with ``$\pi$ makes me
-      happy!''.  Note: the Makefile compiles the sample using pdf\LaTeX\ which
-      cannot use \texttt{psfrag} directly.  For some options that work with
-      pdf\LaTeX, please see this discussion:
-      \url{http://tex.stackexchange.com/questions/11839}.  For the caption, we
-      have used the optional argument for the caption command so that only a
-      short version of this caption occurs in the list of figures.}
-  \end{center}
-\end{figure}
-\afterpage{\clearpage}
-Here is an example of a figure environment.
-Perhaps I should say that the example of a figure can be seen in
-Figure~\ref{fig:happy}.  Figure placement can be tricky with \LaTeX\
-because figures and tables are treated as ``floats'': text can flow
-around them, but if there is not enough space, they will appear later.
-To prevent figures from going too far, the
-\verb|\afterpage{\clearpage}| command can be used.  This makes sure
-that the figure are typeset at the end of the page (possibly appear on
-their own on the following pages) and before any subsequent text.
-
-The \verb|\clearpage| forces a page break so that the figure can be
-placed, but without the the \verb|\afterpage{}| command, the page
-would be broken too early (at the \verb|\clearpage| statement).  The
-\verb|\afterpage{}| command tells \LaTeX{} to issue the command after
-the present page has been rendered.
-
-\section{Tables}
-We have already included one table:~\ref{tab:Table1}.  Another table
-is plopped right here.
-\begin{table}[ht]
-  \begin{center}
-    \begin{tabular}{|l||l|l||l|l|}
-      \hline
-      &\multicolumn{2}{l|}{Singular}&\multicolumn{2}{l|}{Plural}\\
-      \cline{2-5}
-       &English&\textbf{Gaeilge}&English&\textbf{Gaeilge}\\
-      \hline\hline
-      1st Person&at me&\textbf{agam}&at us&\textbf{againn}\\
-      2nd Person&at you&\textbf{agat}&at you&\textbf{agaibh}\\
-      3rd Person&at him&\textbf{aige}&at them&\textbf{acu}\\
-       &at her&\textbf{aici}& & \\
-      \hline
-    \end{tabular}
-    \caption{
-      \label{tab:Table2}
-      Another table.}
-  \end{center}
-\end{table}
-Well, actually, as with Figures, tables do not
-necessarily appear right ``here'' because tables are also ``floats''.
-\LaTeX{} puts them where it can.  Because of this, one should refer to
-floats by their labels rather than by their location.  This example is
-demonstrated by Table~\ref{tab:Table2}.  This one is pretty close,
-however.  (Note: you should generally not put tables or figures in the
-middle of a paragraph.  This example is for demonstration purposes
-only.)
-
-Another useful package is \verb|\usepackage{longtable}| which provides
-the \texttt{longtable} environment.  This is nice because it allows
-tables to span multiple pages.  Table~\ref{tab:longtable} has been
-formatted this way.
-\begin{center}
-  \begin{longtable}{|l|l|l|}
-    \caption{\label{tab:longtable}Feasible triples for
-      highly variable Grid}\\
-
-    \hline \multicolumn{1}{|c|}{\textbf{Time (s)}} &
-    \multicolumn{1}{c|}{\textbf{Triple chosen}} &
-    \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
-    \endfirsthead
-
-    \multicolumn{3}{c}%
-    {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-    \hline \multicolumn{1}{|c|}{\textbf{Time (s)}} &
-    \multicolumn{1}{c|}{\textbf{Triple chosen}} &
-    \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
-    \endhead
-
-    \hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
-    \endfoot
-
-    \hline \hline
-    \endlastfoot
-
-    0 & (1, 11, 13725) & (1, 12, 10980), (1, 13, 8235), (2, 2, 0), (3, 1, 0) \\
-    274 & (1, 12, 10980) & (1, 13, 8235), (2, 2, 0), (2, 3, 0), (3, 1, 0) \\
-    5490 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    8235 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    10980 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    13725 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    16470 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    19215 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    21960 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    24705 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    27450 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    30195 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    32940 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    35685 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    38430 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    41175 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    43920 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    46665 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    49410 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    52155 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    54900 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    57645 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    60390 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    63135 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    65880 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    68625 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    71370 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    74115 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    76860 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    79605 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    82350 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    85095 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    87840 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    90585 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    93330 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    96075 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    98820 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    101565 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    104310 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    107055 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    109800 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    112545 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    115290 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    118035 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    120780 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    123525 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    126270 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    129015 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    131760 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    134505 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    137250 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    139995 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    142740 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    145485 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    148230 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-    150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-    164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-\end{longtable}
-\end{center}
-
-\subsection*{An Unnumbered Subsection}
-Note that if you use subsections or further divisions under an
-unnumbered section, then you should make them unnumbered as well
-otherwise you will end up with zeros in the section numbering.
-
-\chapter{Landscape Mode}
-The landscape mode allows you to rotate a page through 90 degrees.  It
-is generally not a good idea to make the chapter heading landscape,
-but it can be useful for long tables etc.
-
-\begin{landscape}
-  This text should appear rotated, allowing for formatting of very
-  wide tables etc.  Note that this might only work after you convert
-  the \texttt{dvi} file to a postscript (\texttt{ps}) or \texttt{pdf}
-  file using \texttt{dvips} or \texttt{dvipdf} etc.  This feature is
-  provided by the \verb|lscape| and the \verb|pdflscape| packages.
-  The latter is preferred if it works as it also rotates the pages in
-  the pdf file for easier viewing.
-\end{landscape}
 
 %% This file is setup to use a bibtex file sample.bib and uses the
 %% plain style.  Other styles may be used depending on the conventions
 %% of your field of study.
 %%
 %%% Note: the bibliography must come before the appendices.
+
+\nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995}
+
 \bibliographystyle{plain}
-\bibliography{sample}
+\bibliography{iqhe}
 
 %% Use this to reset the appendix counter.  Note that the FoGS
 %% requires that the word ``Appendices'' appear in the table of
@@ -2468,61 +2137,47 @@ This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \l
 
 
 
-\appendix
-\chapter{First Appendix}
-Here you can have your appendices.  Note that if you only have a
-single appendix, you should issue
-%\verb|\renewcommand{\appendicesname}{Appendix}| before calling
-%\verb|\appendix| to display the singular ``Appendix'' rather than the
-%default plural ``Appendices''.
-
-\chapter{Second Appendix}
-Here is the second appendix.
-
 %% This changes the headings and chapter titles (no numbers for
 %% example).
 \backmatter
 
 %% Indices come here if you have them.
 
-\chapter*{Additional Information}
-This chapter shows you how to include additional information in your
-thesis, the removal of which will not affect the submission.  Such
-material should be removed before the thesis is actually submitted.
+%\chapter*{Additional Information}
+%This chapter shows you how to include additional information in your
+%thesis, the removal of which will not affect the submission.  Such
+%material should be removed before the thesis is actually submitted.
 
-First, the chapter is unnumbered and not included in the Table of
-Contents.  Second, it is the last section of the thesis, so its
-removal will not alter any of the page numbering etc. for the previous
-sections.  Do not include any floats, however, as these will appear in
-the initial lists.
+%First, the chapter is unnumbered and not included in the Table of
+%Contents.  Second, it is the last section of the thesis, so its
+%removal will not alter any of the page numbering etc. for the previous
+%sections.  Do not include any floats, however, as these will appear in
+%the initial lists.
 
-The \texttt{ubcthesis} \LaTeX{} class has been designed to aid you in
-producing a thesis that conforms to the requirements of The
-University of British Columbia Faculty of Graduate Studies (FoGS).
+%The \texttt{ubcthesis} \LaTeX{} class has been designed to aid you in
+%producing a thesis that conforms to the requirements of The
+%University of British Columbia Faculty of Graduate Studies (FoGS).
 
-Proper use of this class and sample is highly recommended---and should
-produce a well formatted document that meets the FoGS requirement.
-Notwithstanding, complex theses may require additional formatting that
-may conflict with some of the requirements.  We therefore \emph{highly
-  recommend} that you consult one of the FoGS staff for assistance and
-an assessment of potential problems \emph{before} starting final
-draft.
+%Proper use of this class and sample is highly recommended---and should
+%produce a well formatted document that meets the FoGS requirement.
+%Notwithstanding, complex theses may require additional formatting that
+%may conflict with some of the requirements.  We therefore \emph{highly
+%  recommend} that you consult one of the FoGS staff for assistance and
+%an assessment of potential problems \emph{before} starting final
+%draft.
 
-While we have attemped to address most of the thesis formatting
-requirements in these files, they do not constitute an official set of
-thesis requirements.  The official requirements are available at the
-following section of the FoGS web site:
-\begin{center}
-  \begin{tabular}{|l|}
-    \hline
-    \url{http://www.grad.ubc.ca/current-students/dissertation-thesis-preparation}\\
-    \hline
-  \end{tabular}
-\end{center}
-We recommend that you review these instructions carefully.
-
-
-
+%While we have attemped to address most of the thesis formatting
+%requirements in these files, they do not constitute an official set of
+%thesis requirements.  The official requirements are available at the
+%following section of the FoGS web site:
+%\begin{center}
+%  \begin{tabular}{|l|}
+%    \hline
+%    \url{http://www.grad.ubc.ca/current-students/dissertation-thesis-preparation}\\
+%    \hline
+%  \end{tabular}
+%\end{center}
+%We recommend that you review these instructions carefully.
 
 \end{document}
 \endinput

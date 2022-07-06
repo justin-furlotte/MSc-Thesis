@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+
+\bibitem{Graf:Noninteracting}
+J.H.~Schenker A.~Elgart, G.M.~Graf.
+\newblock Equality of the bulk and edge hall conductances in a mobility gap.
+\newblock {\em Commun. Math. Phys.}, 259:185--221, 2005.
+
+\bibitem{Bachmann_2017}
+S.~Bachmann, W.~De Roeck, and M.~Fraas.
+\newblock Adiabatic theorem for quantum spin systems.
+\newblock {\em Physical Review Letters}, 119(6), aug 2017.
+
+\bibitem{https://doi.org/10.48550/arxiv.1707.06491}
+Sven Bachmann, Alex Bols, Wojciech De~Roeck, and Martin Fraas.
+\newblock Quantization of conductance in gapped interacting systems, 2017.
+
+\bibitem{https://doi.org/10.48550/arxiv.1811.08699}
+Sven Bachmann, Alex Bols, Wojciech De~Roeck, and Martin Fraas.
+\newblock Note on linear response for interacting hall insulators, 2018.
+
+\bibitem{Bachmann_2019}
+Sven Bachmann, Alex Bols, Wojciech~De Roeck, and Martin Fraas.
+\newblock A many-body index for quantum charge transport.
+\newblock {\em Communications in Mathematical Physics}, 375(2):1249--1272, jul
+  2019.
+
+\bibitem{Bachmann_2021}
+Sven Bachmann, Alex Bols, Wojciech~De Roeck, and Martin Fraas.
+\newblock Rational indices for quantum ground state sectors.
+\newblock {\em Journal of Mathematical Physics}, 62(1):011901, jan 2021.
+
+\bibitem{https://doi.org/10.48550/arxiv.1808.09985}
+Sven Bachmann, Wojciech De~Roeck, and Martin Fraas.
+\newblock The adiabatic theorem in a quantum many-body setting, 2018.
+
+\bibitem{Bachmann:Bloch}
+Sven Bachmann and Martin Fraas.
+\newblock On the absence of stationary currents.
+\newblock {\em Reviews in Mathematical Physics}, 33(01):2060011, jul 2020.
+
+\bibitem{Bachmann_2011}
+Sven Bachmann, Spyridon Michalakis, Bruno Nachtergaele, and Robert Sims.
+\newblock Automorphic equivalence within gapped phases of quantum lattice
+  systems.
+\newblock {\em Communications in Mathematical Physics}, 309(3):835--871, nov
+  2011.
+
+\bibitem{Bravyi_2006}
+S.~Bravyi, M.~B. Hastings, and F.~Verstraete.
+\newblock Lieb-robinson bounds and the generation of correlations and
+  topological quantum order.
+\newblock {\em Physical Review Letters}, 97(5), jul 2006.
+
+\bibitem{davies_1995}
+E.~Brian Davies.
+\newblock {\em Spectral Theory and Differential Operators}.
+\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
+  Press, 1995.
+
+\bibitem{Graf:Aspects}
+Gian Graf.
+\newblock Aspects of the integer quantum hall effect.
+\newblock 01 2007.
+
+\bibitem{Naaijkens}
+Pieter Naaijkens.
+\newblock {\em Quantum Spin Systems on Infinite Lattices}, volume 933 of {\em
+  Lecture Notes in Physics}.
+\newblock Springer, Oxford; New York, first edition, 2017.
+
+\bibitem{Nachtergaele:LR}
+Bruno Nachtergaele, Yoshiko Ogata, and Robert Sims.
+\newblock Propagation of correlations in quantum lattice systems.
+\newblock {\em Journal of Statistical Physics}, 124(1):1--13, jul 2006.
+
+\bibitem{Nachtergaele:Clustering}
+Bruno Nachtergaele and Robert Sims.
+\newblock Lieb-robinson bounds and the exponential clustering theorem.
+\newblock {\em Communications in Mathematical Physics}, 265(1):119--130, mar
+  2006.
+
+\bibitem{Bachmann:Exactness}
+Martin~Fraas S.~Bachmann, Wojciech De~Roeck and Markus Lange.
+\newblock Exactness of linear response in the quantum hall effect.
+\newblock {\em Annales Henri Poincare}, 22:1113--1132, 2021.
+
+\bibitem{Schulz_Baldes_1999}
+Hermann Schulz-Baldes, Johannes Kellendonk, and Thomas Richter.
+\newblock Simultaneous quantization of edge and bulk hall conductivity.
+\newblock {\em Journal of Physics A: Mathematical and General}, 33(2):L27--L32,
+  dec 1999.
+
+\bibitem{Shapiro}
+Jacob Shapiro.
+\newblock Notes on topological aspects of condensed matter physics, 2016.
+
+\bibitem{Tong}
+David Tong.
+\newblock {\em The Quantum Hall effect}.
+\newblock TIFR Infosys Lectures. Cambridge, first edition, 2016.
+
+\end{thebibliography}

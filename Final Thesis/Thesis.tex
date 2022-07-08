@@ -539,9 +539,9 @@ combined with the formula for the Hall current, $\vec{J_H} = -\sigma_H \hat{\rho
 &= -\sigma_H\frac{d\phi}{dt}.
 \end{aligned}\]
 
-Thus $\Delta Q = -\sigma_H \Delta \phi$. We now argue that the Hall conductivity must be an integer multiple of $q^2/h$. Suppose that we now unroll the cylinder to work in Cartesian coordinates, but still associating $x=0$ and $x=L$ with periodic boundary conditions. We choose the \emph{Landau gauge} for the magnetic field,
+Thus $\Delta Q = -\sigma_H \Delta \phi$. We now argue that the Hall conductivity must be an integer multiple of $q^2/h$. Suppose that we now unroll the cylinder to work in Cartesian coordinates, but still identify the edges $x=0$ and $x=L$ with periodic boundary conditions. We take the positive $x$-direction to be the opposite direction as $J_H$ in figure \ref{fig:cylinder}, and the positive $y$-direction to be the same as $\vec{E}$ in the figure. We choose the \emph{Landau gauge} for the magnetic field,
 
-\[\vec{A}_B = \begin{pmatrix} 0 \\ Bx \\ 0 \end{pmatrix}\]
+\[\vec{A}_B = \begin{pmatrix} 0 \\ Bx \\ 0 \end{pmatrix},\]
 
 and 
 
@@ -554,50 +554,146 @@ H &= \frac{1}{2m}(\vec{p} - q\vec{A})^2\\
 &= \frac{1}{2m}\left(p_x^2 + \left(p_y - q\left(Bx + \frac{\phi}{2\pi R}\right)\right)^2\right).
 \end{aligned}\]
 
-The fact that the Hamiltonian commutes with the $y$-momentum is evident, and allows us to replace $p_y$ with its eigenvalue, $\hbar k$. The wavenumber is quantized by the periodic boundary condition
+The fact that the Hamiltonian commutes with the $y$-momentum is evident from the expression above, and allows this us to replace $p_y$ with its eigenvalue, $\hbar k$. The wavenumber is quantized by the periodic boundary condition
 
 \[e^{i0k} = e^{i 2\pi R k},\]
 
-which implies $p_y = \hbar k = \hbar n/R$, giving
+which implies $p_y = \hbar k = \hbar j/R$ with $j\in\N$, giving
 
 \[\begin{aligned}
-H &= \frac{1}{2m}\left(p_x^2 + \left( \frac{\hbar n}{R} - q\left( Bx + \frac{\phi}{2\pi R}\right)\right)^2\right)\\
-&= \frac{1}{2m}\left(p_x^2 + q^2B^2 \left(x -  \frac{1}{2\pi RB}\left(\frac{h}{q}n - \phi \right)\right)^2\right).
+H_j &= \frac{1}{2m}\left(p_x^2 + \left( \frac{\hbar j}{R} - q\left( Bx + \frac{\phi}{2\pi R}\right)\right)^2\right)\\
+&= \frac{1}{2m}\left(p_x^2 + q^2B^2 \left(x -  \frac{1}{2\pi RB}\left(\frac{h}{q}j - \phi \right)\right)^2\right).
 \end{aligned}\]
 
-Define the frequency $\omega = \frac{qB}{m}$, and the shift factor
+Define the frequency $\omega_B = \frac{qB}{m}$, and the \emph{shift factor}
 
-\[s_n := \frac{1}{2\pi RB}\left(\frac{h}{q}n - \phi \right).\]
+\[s_j(\phi) := \frac{1}{2\pi RB}\left(\frac{h}{q}j - \phi \right).\]
 
 In this notation, the Hamiltonian takes the form
 
-\[H = \frac{1}{2m}p_x^2 + \frac{1}{2}m\omega^2(x-s_n)^2.\]
+\[H_j = \frac{1}{2m}p_x^2 + \frac{1}{2}m\omega_B^2(x-s_j(\phi))^2.\]
 
-This is a shifted quantum harmonic oscillator in $x$, with frequency $\omega$. The eigenstates of $H$ are called \emph{Landau levels}, and they are exponentially localized at $x-s_n$, with their square modulus taking the form
+This is a shifted quantum harmonic oscillator in $x$, with frequency $\omega_B$. The spectrum is as usual,
 
-\[\norm{\psi_n(x,y)}^2 = c_n H_n(x-s_n)e^{-\frac{(x-s_n)^2}{2\ell_B^2}}\]
+\[E_n = \hbar \omega_B\left(n+\frac{1}{2}\right).\]
 
-Where $\ell_B^2 = \frac{\hbar}{qB}$, $c_n$ are normalization constants, and $H_n$ are the Hermite polynomials. The energies are given by (need to add)
+The eigenstates are called \emph{Landau levels}, and they are exponentially localized at $x=-s_j(\phi)$. They are of the form
 
-The crucial argument now comes from inspecting the shift $s_n$. Suppose we adiabatically increase $\phi$ by one \emph{flux quantum}, $\phi_0 \mapsto \phi_0+\frac{h}{q}$, as time evolves from $t=0$ to $t=T$. The adiabatic principle tells us that the eigenstates of the Hamiltonian at $t=0$ must also be an eigenstate of the Hamiltonian at $t=T$. But we can find exactly what the new eigenstate is; the only thing that changes is the shift, which by a simple calculation becomes
+\[\psi_{n,j}(x,y) = C_{n,j} e^{i\frac{yj}{R}}H_n(x-s_j)e^{-\frac{(x-s_j(\phi))^2}{2\ell_B^2}}\]
 
-\[s_n \mapsto s_{n-1}.\]
+where $\ell_B^2 = \frac{\hbar}{qB}$, $C_{n,j}$ are normalization constants, and $H_n$ are the Hermite polynomials. 
 
-The (exponentially localized) wavefunctions are each transported to the left in increments of $s_1=\frac{h}{2\pi qRB}$. Heuristically, the diagram in figure (need to add) explains why charge transport occurs. Inspect one filled Landau level. On the right, the single empty state just above the Fermi energy is brought below the Fermi energy. On the left, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely transported to the left, each one filling the other's place. Thus, exactly one charge $q$ is transported from the right edge to left edge. This occurs once per Landau level, and thus the total charge transported is 
+The crucial argument now comes from inspecting the shift $s_j(\phi)$. Suppose we adiabatically increase $\phi$ by one \emph{flux quantum}, $\phi_0 \mapsto \phi_0+\frac{h}{q}$, as time evolves from $t=0$ to $t=T$. The adiabatic principle tells us that the eigenstates of the Hamiltonian at $t=0$ must also be an eigenstate of the Hamiltonian at $t=T$. But we can find exactly what the new eigenstate is; the only thing that changes is the shift, which by a simple calculation becomes
+
+\[s_{j}\left(\phi_0+\frac{h}{q}\right) =  \frac{1}{2\pi RB}\left(\frac{h}{q}j-\phi_0-\frac{h}{q}\right) = s_{j-1}(\phi_0).\]
+
+The (exponentially localized) wavefunctions are each transported upward in the $-x$ direction by an increment of $s_1(0)=\frac{\hbar}{qB}\frac{1}{R}$ as $\phi$ increases by one flux quantum. We remark that the wavefunctions $\psi_{n,j}$ are Gaussian-like, with standard deviation $\ell_B^2 = \frac{\hbar}{qB}$. If $R \ll 1$, the shift increment $s_1(0)$ is large enough that we may treat the wavefunctions as being localized in a similar manner as depicted in the diagram of Figure \ref{fig:chargetransport}. 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\draw (4,0) parabola (5.25,4);
+\draw (-4,0) -- (4,0);
+\draw (-4,0) parabola (-5.25,4);
+\draw ((-5.75,0) -- (-5.25,0);
+\node[] at (-6,0) {$E_0$};
+
+\draw (4,1) parabola (5.25,5);
+\draw (-4,1) -- (4,1);
+\draw (-4,1) parabola (-5.25,5);
+\draw ((-5.75,1) -- (-5.25,1);
+\node[] at (-6,1) {$E_1$};
+
+
+\draw (4,2) parabola (5.25,6);
+\draw (-4,2) -- (4,2);
+\draw (-4,2) parabola (-5.25,6);
+\draw ((-5.75,2) -- (-5.25,2);
+\node[] at (-6,2) {$E_2$};
+
+\draw[dashed] (-5.75,1.5)--(6,1.5);
+\node[] at (-6,1.5) {$\mu$};
+
+\draw[->] (-5.5,-1) -- (-5.5,7);
+\node[] at (-6,6.75) {$E$};
+\draw[->] (-5.5,-1) -- (5.5,-1);
+\node[] at (6,-1.25) {$x$};
+
+\foreach \x in {-8,...,8}
+{
+	\foreach \y in {0,1}
+	{
+		
+		\filldraw (\x/2,\y) circle (2pt);
+	}
+	\draw (\x/2,2) circle (2pt);
+	
+}
+\foreach \x in {-10,...,10}
+{
+	\draw[] (\x/2,-1.1) -- (\x/2,-0.9);
+}
+\node[] at (-5,-1.5) {$0$};
+\node[] at (5,-1.5) {$L$};
+
+\filldraw (-4.5,0.65) circle (2pt);
+\draw (-4.5,1.65) circle (2pt);
+\draw (-4.5,2.65) circle (2pt);
+
+\draw (-5,2.55) circle (2pt);
+\draw (-5,3.55) circle (2pt);
+\draw (-5,4.55) circle (2pt);
+
+\filldraw (4.5,0.65) circle (2pt);
+\draw (4.5,1.65) circle (2pt);
+\draw (4.5,2.65) circle (2pt);
+
+\draw (5,2.55) circle (2pt);
+\draw (5,3.55) circle (2pt);
+\draw (5,4.55) circle (2pt);
+
+\foreach \x in {-7,...,8}
+{
+	\draw [blue, thick, ->] (\x/2, -0.15) arc (-60:-120:0.4);
+	\draw [blue, thick, ->] (\x/2, 0.85) arc (-60:-120:0.4);
+	\draw [blue, thick, ->] (\x/2, 1.85) arc (-60:-120:0.4);
+}
+
+\draw [blue, thick, ->] (4.4, 0.7) arc (110:170:0.7);
+\draw [blue, thick, ->] (4.4, 1.7) arc (110:170:0.7);
+\draw [blue, thick, ->] (4.4, 2.7) arc (110:170:0.7);
+
+\draw [blue, thick, ->] (-4, 0.15) arc (20:70:0.7);
+\draw [blue, thick, ->] (-4, 1.15) arc (20:70:0.7);
+\draw [blue, thick, ->] (-4, 2.15) arc (20:70:0.7);
+
+\draw [blue, thick, ->] (-4.45, 0.75) arc (10:24:7);
+\draw [blue, thick, ->] (-4.45, 0.75) arc (10:24:7);
+\draw [blue, thick, ->] (5.15, 2.35) arc (-5:-22:6);
+
+\end{tikzpicture}
+\caption{Quantum Hall conductance explained using charge transport. The states are exponentially localized and separated by a distance of $s_1(0)$.}
+\label{fig:chargetransport}
+\end{figure}
+
+
+Heuristically, this diagram explains why charge transport occurs. Away from the edges, the landau levels take their usual discrete spectrum, and bend up sharply at the edges. Inspect one filled Landau level. Each of the states is transported to the left.In particular, on the bottom edge of the cylinder (at $x=L$), the single empty state just above the Fermi energy $\mu$ is brought below the Fermi energy. On the top edge, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely transported up, each one filling the other's place. Thus, exactly one charge $q$ is transported from the bottom edge to the top edge. This occurs once per filled Landau level, and thus the total charge transported is 
 
 \[\Delta Q = -q N_{L}\]
 
-where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delta Q = -\sigma_H \Delta \phi$ now gives us exactly the formula which agrees with experiment,
+where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delta Q = -\sigma_H \Delta \phi$ now gives us exactly the Hall conductivity which agrees with experiment,
 
 \[\sigma_H = \frac{q^2}{h}N_{L} \quad\quad\quad\quad N_{L}\in\N.\]
 
-\subsubsection{Halperin's Argument}
+\subsubsection{Plateaux}
 
-Need to add.
+The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Disorder, i.e. the presence of impurities in the material, is required to explain why plateaux occur. We model disorder using a random potential. 
 
-\subsubsection{Bulk-Edge Correspondence - Laughlin and Halperin Pictures}
+Under the addition of a suitable random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; they broaden into bands, but do not overlap. Furthermore, while the center of the bands may be a continuous spectrum, the edges of the bands are pure-point (need to add reference to Combes Hislop); this phenomenon is called Anderson localization. These pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states}, whose domain is not simply connected.
 
-Need to add.
+As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. These extra states begin to populate localized states, which contribute nothing to the current.
+
+Indeed, as $B$ decreases, so too does the Fermi energy $\mu$ (need to add). No states are added to the system so long as the Fermi energy remains in a gap, but once $\mu$ reaches the edge of a conduction band, state are added to the system, but by Anderson localization they have pure point spectrum and leave the current unchanged; this is what gives rise to the plateaux. Finally, once the Fermi energy reaches the continuous part of the spectrum, the current changes, and the Hall conductivity jumps to another plateau.
 
 
 \chapter{Noninteracting Bulk-Edge Correspondence}
@@ -895,7 +991,7 @@ $\sigma_E=\sigma_B$.
 
 \subsection{Outline of the Proof}
 
-Before giving the proof in its entirety, we outline the basic steps. The edge condition guarantees that $\sigma_E(a) := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class (need to add). We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
+Before giving the proof in its entirety, we outline the basic steps. Lemma \ref{lemma:edgeconductivitylimit} shows that $\sigma_E := \rho'(H_a)[H_a,\Lambda_1]$ is trace-class. We posit that the edge conductivity can be rewritten as $\sigma_E = \lim_{a\to\infty}\sigma_E(a)$, where
 
 \[\sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2),\]
 
@@ -1141,11 +1237,19 @@ Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$,
 
 \[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)).\]
 
-Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since the spectrum of the bulk Hamiltonian is bounded and $R_B(z)$ is bounded in norm by $\text{dist}(z,\text{Spec}(H_B))^{-1}$, we may write the integral as a limit of disks,
+Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$, we may write the integral as a limit of disks,
 
-\[\lim_{r\to\infty}\int_{B_r(0)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2,\]
+\[\lim_{r\to\infty}\int_{B_r(0)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm) dz^2,\]
 
-where domination is provided by (need to add reference to appendix). Stokes' theorem then says that the above integral is equal to the integral over the boundary $\partial B_r(0)$ but without the $\frac{\partial}{\partial \bar{z}}$. The decay of $R_B(z)$ and boundedness of $|\tilde{\rho}(z)|\leq1$ (need to add reference to appendix to decay property of $\tilde{\rho}$, along with mentioning fact that $\rho\in[0,1]$ on $\R$) ensure that the limit of this integral as $r\to\infty$ is zero. Thus the integral term in $\Sigma_B$ vanishes, and
+where domination is provided by Lemma \ref{lemma:HSbound}. Stokes' theorem then says that the above integral is equal to the integral over the boundary but without the derivative,
+
+\[\lim_{r\to\infty}\int_{\partial B_r(0)}\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2.\]
+
+The decay of $\norm{R_B(z)}\leq \text{dist}(z,\text{Spec}(H_B))^{-1}$ and boundedness of the extension $\tilde{\rho}(z)$ (since $|\rho(x)|\leq 1$) ensure that the limit of this integral as $r\to\infty$ is zero. Indeed, the norm of the integral is bounded by
+
+\[2\pi r \sup_{\partial B_r(0)} \frac{|\tilde{\rho}(r)|\norm{[H_B,\Lambda_1]\Lambda_2}}{\text{dist}(r,\text{Spec}(H_B))^2}\]
+
+which vanishes as $r\to\infty$ since the spectrum of the bulk Hamiltonian is bounded, and Lemma \ref{lemma:keybound} bounds the norm of the operator in the numerator. Thus the integral term in $\Sigma_B$ is zero, and
 
 %vanishes by integration by parts (need to add). Thus
 
@@ -1257,7 +1361,7 @@ both of which are bounded, since for $\Lambda_i e^{3\delta x_i}$ only the negati
 
 \[\Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} = \Lambda_i P_V e^{3\delta x_i} \cdot e^{-3\delta x_i}(1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|}.\]
 
-Again the $ \Lambda_i P_V e^{3\delta x_i}$ is bounded because of the switch function, and the other part is seen to be bounded by taking the adjoint of the operator in (need to add reference to appendix). 
+Again the $ \Lambda_i P_V e^{3\delta x_i}$ is bounded because of the switch function, and the other part is seen to be bounded by taking the adjoint of the operator in Lemma \ref{lemma:projectionoperatordecay} (need to add). 
 
 An exactly analogous argument works for bounding $[\Lambda_i,P_V]e^{-3\delta x_i}e^{-\delta|x|}$, i.e. the same operator but with the $e^{-3\delta x_i}$ terms.
 
@@ -2185,13 +2289,20 @@ The extension turns out to be independent of the choice of $n$ and $\tau$. Furth
 
 Thus $\frac{\partial \tilde{f}}{\partial \bar{z}} = 0$ for all real $z$, which is why $\tilde{f}$ is called a ``quasi"-analytic extension (the Wirtinger derivative would be zero everywhere were $\tilde{f}$ analytic).
 
-A crucial property of the Helffer-Sj\"{o}strand functional calculus is the following bound. For any $n\in \N$, the quasi-analytic extension $\tilde{f}$ can be chosen so that 
+A crucial property of the Helffer-Sj\"{o}strand functional calculus is the following bound.
+
+\begin{lemma}
+
+For any $n\in \N$, the quasi-analytic extension $\tilde{f}$ can be chosen so that 
 
 \[\int_\C\frac{\partial \tilde{f}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz\wedge d\bar{z} \leq C_0 \sum_{k=0}^{n+2 }\norm{f^{(k)}}_{k-p-1},\]
 
 where the norms on the right hand side are defined by 
 
 \[\norm{f}_{m} = \int_{-\infty}^\infty |f(x)|(1+x^2)^{m/2}dx.\]
+
+\label{lemma:HSbound}
+\end{lemma}
 
 This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \leq |\text{Im}(z)|^{-1}$.
 

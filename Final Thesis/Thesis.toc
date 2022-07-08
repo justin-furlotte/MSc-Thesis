@@ -10,26 +10,25 @@
 \contentsline {subsection}{\numberline {1.2.1}{The Classical Hall Effect}}{1}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}{The Quantum Hall Effect}}{3}{subsection.1.2.2}%
 \contentsline {subsubsection}{{The Laughlin Argument}}{4}{section*.8}%
-\contentsline {subsubsection}{{Halperin's Argument}}{7}{section*.10}%
-\contentsline {subsubsection}{{Bulk-Edge Correspondence - Laughlin and Halperin Pictures}}{7}{section*.11}%
-\contentsline {chapter}{\numberline {2}{Noninteracting Bulk-Edge Correspondence}}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}{General Setting}}{8}{section.2.1}%
-\contentsline {section}{\numberline {2.2}{Equality of Bulk and Edge Conductivities}}{15}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}{Outline of the Proof}}{15}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}{The Proof}}{16}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}{Interacting Bulk-Edge Correspondence}}{26}{chapter.3}%
-\contentsline {section}{\numberline {3.1}{General Setting}}{26}{section.3.1}%
-\contentsline {section}{\numberline {3.2}{Equality of Bulk and Edge Currents}}{30}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}{Cylinder Geometry}}{30}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}{Torus Geometry}}{35}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}{Summary of Results}}{38}{chapter.4}%
-\contentsline {chapter}{{Bibliography}}{39}{chapter*.14}%
+\contentsline {subsubsection}{{Plateaux}}{8}{section*.11}%
+\contentsline {chapter}{\numberline {2}{Noninteracting Bulk-Edge Correspondence}}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}{General Setting}}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}{Equality of Bulk and Edge Conductivities}}{17}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}{Outline of the Proof}}{17}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}{The Proof}}{18}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}{Interacting Bulk-Edge Correspondence}}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}{General Setting}}{29}{section.3.1}%
+\contentsline {section}{\numberline {3.2}{Equality of Bulk and Edge Currents}}{33}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}{Cylinder Geometry}}{33}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}{Torus Geometry}}{38}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}{Summary of Results}}{41}{chapter.4}%
+\contentsline {chapter}{{Bibliography}}{42}{chapter*.14}%
 \contentsline {part}{{Appendices}}{}{}
-\contentsline {chapter}{\numberline {A}{General Functional Analysis}}{41}{appendix.A}%
-\contentsline {section}{\numberline {A.1}{Spectral Measures and Projection-Values Measures}}{41}{section.A.1}%
-\contentsline {section}{\numberline {A.2}{Greens' Functions and the Combes-Thomas Bound}}{43}{section.A.2}%
-\contentsline {chapter}{\numberline {B}{Properties of $\mathcal {I}_\mu $}}{46}{appendix.B}%
-\contentsline {chapter}{\numberline {C}{The Lieb-Robinson Bound}}{49}{appendix.C}%
-\contentsline {chapter}{\numberline {D}{Gr\"{o}nwall's Inequality and Uniqueness}}{50}{appendix.D}%
-\contentsline {chapter}{\numberline {E}{Note on Generators of Parallel Transport}}{52}{appendix.E}%
-\contentsline {chapter}{\numberline {F}{The Helffer-Sj\"{o}strand Representation}}{54}{appendix.F}%
+\contentsline {chapter}{\numberline {A}{General Functional Analysis}}{44}{appendix.A}%
+\contentsline {section}{\numberline {A.1}{Spectral Measures and Projection-Values Measures}}{44}{section.A.1}%
+\contentsline {section}{\numberline {A.2}{Greens' Functions and the Combes-Thomas Bound}}{46}{section.A.2}%
+\contentsline {chapter}{\numberline {B}{Properties of $\mathcal {I}_\mu $}}{49}{appendix.B}%
+\contentsline {chapter}{\numberline {C}{The Lieb-Robinson Bound}}{52}{appendix.C}%
+\contentsline {chapter}{\numberline {D}{Gr\"{o}nwall's Inequality and Uniqueness}}{53}{appendix.D}%
+\contentsline {chapter}{\numberline {E}{Note on Generators of Parallel Transport}}{55}{appendix.E}%
+\contentsline {chapter}{\numberline {F}{The Helffer-Sj\"{o}strand Representation}}{57}{appendix.F}%

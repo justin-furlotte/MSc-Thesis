@@ -235,7 +235,7 @@
 
 
 
-
+\usepackage{pgfplots}
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -431,9 +431,11 @@ To Abigail Sanderson, for her unwavering belief in me, and to my parents, for th
 \chapter{Introduction}
 \label{cha:introduction}
 
-\section{History}
+Since its unexpected discovery in 1980, the Integer Quantum Hall Effect (IQHE) has captured significant interest in the mathematical physics community. This effect occurs when a 2 dimensional electron gas at near 0 Kelvin is pierced by a strong magnetic field. As the strength of the field increases, the Hall resistivity - a macroscopic quantity - experiences quantization, as in Figure \ref{fig:vonklitzing}.
 
-Since its unexpected discovery in 1980, the Quantum Hall Effect (QHE) has captured significant interest in the mathematical physics community.
+In this thesis, we begin by proving a simple classical calculation for the Hall conductivity, and emphasize that the result does not agree with experiment. The IQHE, despite being a macro-scale phenomenon, is fundamentally reliant on quantum mechanics. We give another heuristic argument due to Laughlin~\cite{Laughlin} for why this quantization occurs, before going into the main body of the thesis in Chapters \ref{cha:noninteracting}, \ref{cha:interacting}. 
+
+There we provide a proof of \emph{bulk-edge correspondence}; this is the interesting mathematical fact that the Hall conductivity does not depend on whether or not the system is assumed to have an edge. In the system with an edge, the Hall conductivity is defined by assuming that current is transported along the edge, while in the bulk (i.e. edgeless) system, the Hall current is assumed to be carried throughout the entire bulk of the material. This bulk-edge correspondence between the Hall conductivities in the IQHE is a special case of more general bulk-edge correspondence of \emph{topological insulators}.
 
 \section{Heuristic Arguments}
 
@@ -489,7 +491,7 @@ Even more surprising, the plateaux occur at the values
 
 where $n$ is an integer. This phenomenon is known as the \emph{integer quantum Hall effect} (IQHE). In fact, this integer can be measured to such extraordinary precision (to about $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity.
 
-One of the first explanations employing quantum mechanics is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, which explained the plateaux using a charge transport argument. 
+The first quantum mechanical explanation of the integer-valued plateaux is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, which explained the plateaux using a charge transport argument. 
 
 \subsubsection{The Laughlin Argument}
 
@@ -635,6 +637,8 @@ The (exponentially localized) wavefunctions are each transported upward in the $
 }
 \node[] at (-5,-1.5) {$0$};
 \node[] at (5,-1.5) {$L$};
+\draw[<->] (-2,-1.3) -- (-1.5,-1.3);
+\node[] at (-1.75,-1.75) {$s_1(0)$};
 
 \filldraw (-4.5,0.65) circle (2pt);
 \draw (-4.5,1.65) circle (2pt);
@@ -685,15 +689,94 @@ where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delt
 
 \[\sigma_H = \frac{q^2}{h}N_{L} \quad\quad\quad\quad N_{L}\in\N.\]
 
-\subsubsection{Plateaux}
+\subsubsection{Degeneracy, Disorder, and Plateaux}
 
-The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Disorder, i.e. the presence of impurities in the material, is required to explain why plateaux occur. We model disorder using a random potential. 
+The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Furthermore, the argument relies on a fictitious magnetic flux $\phi$. As $\phi \mapsto \phi + h/q$, one charge per Landau level is transported from bottom edge to top. Isn't $\sigma_H$ supposed to increase as $B$ decreases, not as $\phi$ decreases?
 
-Under the addition of a suitable random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; they broaden into bands, but do not overlap. Furthermore, while the center of the bands may be a continuous spectrum, the edges of the bands are pure-point (need to add reference to Combes Hislop); this phenomenon is called Anderson localization. These pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states}, whose domain is not simply connected.
+The idea is that this magnetic flux is purely an explanatory tool used to derive the formula $\sigma_H = N_L \frac{q^2}{h}$. The role of the magnetic field strength comes from inspecting the degeneracy of the Landau levels. The number of states per Landau level must be finite, since $0\leq x \leq L$ implies (roughly) that $-L \leq s_j(\phi) \leq 0$. We ignore $\phi$ since adding $h/q$ only corresponds to $j=1$ extra state, which is insignificant to the calculation. Substituting our expression for the shift $s_j(0)$, the inequality becomes
 
-As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. These extra states begin to populate localized states, which contribute nothing to the current.
+\[-L\frac{qBR}{\hbar} \leq j \leq 0.\]
 
-Indeed, as $B$ decreases, so too does the Fermi energy $\mu$ (need to add). No states are added to the system so long as the Fermi energy remains in a gap, but once $\mu$ reaches the edge of a conduction band, state are added to the system, but by Anderson localization they have pure point spectrum and leave the current unchanged; this is what gives rise to the plateaux. Finally, once the Fermi energy reaches the continuous part of the spectrum, the current changes, and the Hall conductivity jumps to another plateau.
+The number of states $N_s$ per Landau level is therefore
+
+\[N_s = L\frac{qBR}{\hbar} = \frac{qBA}{h},\]
+
+where $A = 2\pi R L$ is the total area of the cylinder. From here we see that as $B$ decreases, so too does $N_s$; the electrons must therefore begin to populate higher Landau levels. Once the next highest Landau level is filled, the Hall conductivity jumps by exactly $q^2/h$.
+
+What about the plateaux? Disorder, i.e. the presence of impurities in the material, is required to explain why the Hall conductivity does not change even when Landau levels are only partially filled. We model disorder using a random potential. Under the addition of a suitably small random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; the spectrum broadens into bands as in Figure \ref{fig:DOS}. Furthermore, while the center of the bands is continuous spectrum (red), the edges of the bands are pure-point (blue) (need to add reference to Combes Hislop); this phenomenon is called Anderson localization. 
+
+The pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states} (red), whose domain is not simply connected. Only extended states contribute to charge transport.
+
+As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. As electrons fill states of higher energy in the band, the Fermi energy increases. However, the states at the edges of the bands (blue) are localized and contribute nothing to the current, and thus leave the Hall conductivity unchanged. This gives rise to the plateaux.
+
+
+
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, 
+  domain=0:10, 
+  samples=10,
+  axis lines*=left, 
+  xlabel=$E$, 
+  ylabel=$\text{DOS}$,
+  xlabel={Energy},
+  ylabel={Density of States},
+  xticklabels={,,},
+  yticklabels={,,},
+  height=5cm, 
+  width=12cm,
+  enlargelimits=false, 
+  clip=false, 
+  axis on top,
+  %grid = major
+  ]
+  %\addplot [fill=cyan!20, draw=none, domain=0:5.96] {gauss(6.5,1)} \closedcycle;
+  \addplot [very thick,cyan] {2*gauss(2,0.5)};
+    \addplot [fill=cyan!20, draw=none] {2*gauss(2,0.5)} \closedcycle;
+  \addplot [very thick,red] {gauss(2,0.25)};
+    \addplot [fill=red!20, draw=none] {gauss(2,0.25)} \closedcycle;
+  \addplot [very thick,cyan] {2*gauss(7,0.5)};
+    \addplot [fill=cyan!20, draw=none] {2*gauss(7,0.5)} \closedcycle;
+  \addplot [very thick,red] {gauss(7,0.25)};
+    \addplot [fill=red!20, draw=none] {gauss(7,0.25)} \closedcycle;
+
+  
+\draw[thick, dashed] (axis cs:2,-0.1) -- (axis cs:2,1.5);
+\node[] at (axis cs:2,-0.2) {$E_n$};
+\draw[thick, dashed] (axis cs:7,-0.1) -- (axis cs:7,1.5);
+\node[] at (axis cs:7,-0.2) {$E_{n+1}$};
+\draw[thick, dashed] (axis cs:3.25,-0.1) -- (axis cs:3.25,1.5);
+\node[] at (axis cs:3.25,-0.2) {$\mu$};
+
+\draw[very thick,red](axis cs:1,0) -- (axis cs:3,0);
+\draw[very thick,red](axis cs:6,0) -- (axis cs:8,0);
+\draw[very thick,cyan](axis cs:0,0) -- (axis cs:1,0);
+\draw[very thick,cyan](axis cs:3,0) -- (axis cs:4,0);
+\draw[very thick,cyan](axis cs:5,0) -- (axis cs:6,0);
+\draw[very thick,cyan](axis cs:8,0) -- (axis cs:9,0);
+\draw[very thick,black](axis cs:4,0) -- (axis cs:5,0);
+\draw[very thick,black](axis cs:9,0) -- (axis cs:10,0);
+
+\draw[<->,red](axis cs:1,-0.65) -- (axis cs:3,-0.65);
+\draw[<->,red](axis cs:6,-0.65) -- (axis cs:8,-0.65);
+\draw[<->,cyan](axis cs:0,-0.65) -- (axis cs:1,-0.65);
+\draw[<->,cyan](axis cs:3,-0.65) -- (axis cs:4,-0.65);
+\draw[<->,cyan](axis cs:5,-0.65) -- (axis cs:6,-0.65);
+\draw[<->,cyan](axis cs:8,-0.65) -- (axis cs:9,-0.65);
+\draw[<->,black](axis cs:4,-0.65) -- (axis cs:5,-0.65);
+\draw[<->,black](axis cs:9,-0.65) -- (axis cs:10,-0.65);
+\end{axis}
+\end{tikzpicture}
+\caption{Disorder, modelled by a small random potential, breaks the degeneracy of the discrete Landau levels $E_n$. The blue states are \emph{localized} and do not contribute to charge transport, while the red states are \emph{extended}. As $B$ decreases, the Fermi energy $\mu$ increases. When $\mu$ moves through the blue (localized) and black (spectral gap) regions, the current (and therefore the Hall conductivity) are not affected; this gives rise to the plateaux observed experimentally. Only once $\mu$ begins moving through the red (extended) region will the Hall conductivity begin to increase to its next plateau.}
+\label{fig:DOS}
+\end{figure}
 
 
 \chapter{Noninteracting Bulk-Edge Correspondence}
@@ -842,10 +925,10 @@ where we used the fact that the expectation of the ground state current is zero 
 \sigma_H &=\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right)\\
 &= -\lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
 &= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
-&= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+&= \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
 
-Where we used the fact that $P_\mu$ and $H_B$ commute. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
+Where we used the fact that $P_\mu$ and $H_B$ commute. We also dropped the limit $V_0\to 0$ in the final line because, even though the limits may not commute in general, there is no $V_0$ remaining in the expression and thus the final limit will be independent of $V_0$. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
 
 \[\begin{aligned}
 \sigma_H &= -i \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
@@ -1687,6 +1770,8 @@ Dividing by $d\mu$ and taking a limit, we see that the linear response coefficie
 
 The \emph{Hall conductivity} of the system on a subset $V \subseteq \Gamma_L$ is defined to be $\sigma_V := \Tr\left(\dot{P} J_V\right)$, where $J_V$ is the restriction of $J$ to $V$. 
 
+In particular, we define the \emph{edge conductivity} in the interacting setting as the conductivity on the edge strip, $\sigma_{\Gamma_E}$. The motivation is that, like in the noninteracting setting, extended states contributing to the current are located near the edge. (Need to add). QUESTION: Why does there need to be a bulk current in $\Gamma_B$ at all? Couldn't there just be a current running in a circle along the whole edge of the cylinder? Isn't that actually the case since extended states are located near the edge? Doesn't this destroy bulk-edge correspondence?
+
 \begin{proposition}
 The Hall conductivity is independent of the driving strength $\mu$.
 \label{prop:independent}
@@ -1765,7 +1850,9 @@ for some operators $A_1$ and $A_2$ supported on $\Gamma_B^\mathsf{c}$ and $V^\ma
 \end{proof}
 
 
-The intuitive picture from the previous result is that, in the bulk region, the Hall conductivity is essentially only nonzero along  the bulk strip $\Gamma_B$. Since the ground state expectation of the current is zero (by lemma~\ref{lemma:J=0}), it must be that there is an equal current flowing along the edge strip $\Gamma_E$, but in the opposite direction.
+The intuitive picture from the previous result is that, outside the edge region $\Gamma_E$, the Hall conductivity is essentially only nonzero along the bulk strip $\Gamma_B$. Since the ground state expectation of the current is zero (by lemma~\ref{lemma:J=0}), it must be that there is an equal current flowing along the edge strip $\Gamma_E$, but in the opposite direction.
+
+Furthermore, consider the regions $\Gamma_E$ and $\Gamma_B$ where the Hall conductivity may be nonzero. We conclude using assumption \ref{ass:bulk} that in the bulk strip $\Gamma_B$, the Hall conductivity of the system with an edge matches that of the bulk system, $\sigma^B_{\Gamma_B} = \sigma_{\Gamma_B} +\mathcal{O}(L^{-\infty})$. But from the previous theorem, this is also equal (up to tails) to the edge conductivity $\sigma_{\Gamma_E}$. We therefore have bulk-edge correspondence, $\sigma_{\Gamma_E} = \sigma^B_{\Gamma_B} + \mathcal{O}(L^{-\infty})$. (Need to add).
 
 \subsection{Torus Geometry}
 

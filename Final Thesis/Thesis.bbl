@@ -5,6 +5,11 @@ J.H.~Schenker A.~Elgart, G.M.~Graf.
 \newblock Equality of the bulk and edge hall conductances in a mobility gap.
 \newblock {\em Commun. Math. Phys.}, 259:185--221, 2005.
 
+\bibitem{Anderson}
+P.~W. Anderson.
+\newblock Absence of diffusion in certain random lattices.
+\newblock {\em Phys. Rev.}, 109:1492--1505, Mar 1958.
+
 \bibitem{Bachmann_2017}
 S.~Bachmann, W.~De Roeck, and M.~Fraas.
 \newblock Adiabatic theorem for quantum spin systems.
@@ -50,6 +55,12 @@ S.~Bravyi, M.~B. Hastings, and F.~Verstraete.
 \newblock Lieb-robinson bounds and the generation of correlations and
   topological quantum order.
 \newblock {\em Physical Review Letters}, 97(5), jul 2006.
+
+\bibitem{Combes}
+J.~M. Combes and P.~D. Hislop.
+\newblock Landau hamiltonians with random potentials: Localization and the
+  density of states.
+\newblock {\em Communications in Mathematical Physics}, 177(3):603--629, 1996.
 
 \bibitem{davies_1995}
 E.~Brian Davies.

@@ -7,13 +7,13 @@
 \contentsline {chapter}{\numberline {1}{Introduction}}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}{Heuristic Arguments}}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}{The Classical Hall Effect}}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}{The Quantum Hall Effect}}{3}{subsection.1.1.2}%
-\contentsline {subsubsection}{{The Laughlin Argument}}{4}{section*.8}%
-\contentsline {subsubsection}{{Degeneracy, Disorder, and Plateaux}}{8}{section*.11}%
-\contentsline {chapter}{\numberline {2}{Noninteracting Bulk-Edge Correspondence}}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}{General Setting}}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {1.1.2}{The Quantum Hall Effect}}{4}{subsection.1.1.2}%
+\contentsline {subsubsection}{{The Laughlin Argument}}{5}{section*.8}%
+\contentsline {subsubsection}{{Degeneracy, Disorder, and Plateaux}}{9}{section*.11}%
+\contentsline {chapter}{\numberline {2}{Noninteracting Bulk-Edge Correspondence}}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}{General Setting}}{12}{section.2.1}%
 \contentsline {section}{\numberline {2.2}{Equality of Bulk and Edge Conductivities}}{18}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}{Outline of the Proof}}{18}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}{Outline of the Proof}}{19}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}{The Proof}}{19}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}{Interacting Bulk-Edge Correspondence}}{30}{chapter.3}%
 \contentsline {section}{\numberline {3.1}{General Setting}}{30}{section.3.1}%

@@ -435,9 +435,11 @@ Since its unexpected discovery in 1980, the Integer Quantum Hall Effect (IQHE) h
 
 In this thesis, we begin by proving a simple classical calculation for the Hall conductivity, and emphasize that the result does not agree with experiment. The IQHE, despite being a macro-scale phenomenon, is fundamentally reliant on quantum mechanics. We give another heuristic argument due to Laughlin~\cite{Laughlin} for why this quantization occurs, before going into the main body of the thesis in Chapters \ref{cha:noninteracting}, \ref{cha:interacting}. 
 
-There we provide a proof of \emph{bulk-edge correspondence}; this is the interesting mathematical fact that the Hall conductivity does not depend on whether or not the system is assumed to have an edge. In the system with an edge, the Hall conductivity is defined by assuming that current is transported along the edge, while in the bulk (i.e. edgeless) system, the Hall current is assumed to be carried throughout the entire bulk of the material. This bulk-edge correspondence between the Hall conductivities in the IQHE is a special case of more general bulk-edge correspondence of \emph{topological insulators}.
+There we provide a proof of \emph{bulk-edge correspondence}; this is the interesting mathematical fact that the Hall conductivity does not depend on whether or not the system is assumed to have an edge. In the system with an edge, the Hall conductivity is defined by assuming that current is transported along the edge, while in the bulk (i.e. edgeless) system, the Hall current is assumed to be carried throughout the entire bulk of the material. This bulk-edge correspondence between the Hall conductivities in the IQHE is a special case of a more general bulk-edge correspondence between other invariants of \emph{topological insulators}.
 
 \section{Heuristic Arguments}
+
+We provide a brief introduction to the quantum Hall effect. We emphasize that the results of this section are not rigorous. 
 
 \subsection{The Classical Hall Effect}
 
@@ -467,11 +469,11 @@ Since the matrix on the left is invertible, we may write $\vec{J} = \sigma \vec{
 
 The off-diagonal components, $\pm\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\omega_B\tau$, are responsible for the Hall effect; the magnetic field induces a component of the current in the $x_2$-direction, in addition to the one in the $x_1$-direction from the electric field. 
 
-When making a measurement, physicists actually measure the resistivity $\rho = \sigma^{-1}$. In particular, the \emph{Hall resistivity} is given by 
+When making a measurement, physicists actually measure the resistivity. In particular, the \emph{Hall resistivity}, given by the off-diagonal components of the resistivity tensor $\rho = \sigma^{-1}$, is simply 
 
 \[\rho_{xy} = \frac{B}{nq}.\]
 
-The key prediction of the classical theory is that the Hall resistivity is increases linearly in response to the strength of the magnetic field.
+The key prediction of the classical theory is that the Hall resistivity increases linearly in response to the strength of the magnetic field.
 
 \newpage
 \subsection{The Quantum Hall Effect}
@@ -489,9 +491,11 @@ Even more surprising, the plateaux occur at the values
 
 \[\rho_{xy} = \frac{h}{q^2}\frac{1}{n},\]
 
-where $n$ is an integer. This phenomenon is known as the \emph{integer quantum Hall effect} (IQHE). In fact, this integer can be measured to such extraordinary precision (to about $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity.
+where $n$ is an integer. This phenomenon is known as the \emph{integer quantum Hall effect} (IQHE). In fact, this integer can be measured to such extraordinary precision (about one part in $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity. We remark that, although the resistivity is what is measured in a lab, throughout this thesis we work with the quantum Hall \emph{conductivity},
 
-The first quantum mechanical explanation of the integer-valued plateaux is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, which explained the plateaux using a charge transport argument. 
+\[\sigma_H = \frac{q^2}{h}n.\]
+
+The first quantum mechanical explanation of the integer-valued Hall conductivity is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, for which he also won the Nobel prize. Laughlin explained the plateaux using a charge transport argument. 
 
 \subsubsection{The Laughlin Argument}
 
@@ -681,7 +685,7 @@ The (exponentially localized) wavefunctions are each transported upward in the $
 \end{figure}
 
 
-Heuristically, this diagram explains why charge transport occurs. Away from the edges, the landau levels take their usual discrete spectrum, and bend up sharply at the edges. Inspect one filled Landau level. Each of the states is transported to the left.In particular, on the bottom edge of the cylinder (at $x=L$), the single empty state just above the Fermi energy $\mu$ is brought below the Fermi energy. On the top edge, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely transported up, each one filling the other's place. Thus, exactly one charge $q$ is transported from the bottom edge to the top edge. This occurs once per filled Landau level, and thus the total charge transported is 
+Heuristically, this diagram explains why charge transport occurs. The landau levels take their usual discrete spectrum, and bend up sharply at the edges. Inspect one filled Landau level. Each of the states is transported to the left.In particular, on the bottom edge of the cylinder (at $x=L$), the single empty state just above the Fermi energy $\mu$ is brought below the Fermi energy. On the top edge, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely transported up, each one filling the other's place. Thus, exactly one charge $q$ is transported from the bottom edge to the top edge. This occurs once per filled Landau level, and thus the total charge transported is 
 
 \[\Delta Q = -q N_{L}\]
 
@@ -693,7 +697,7 @@ where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delt
 
 The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Furthermore, the argument relies on a fictitious magnetic flux $\phi$. As $\phi \mapsto \phi + h/q$, one charge per Landau level is transported from bottom edge to top. Isn't $\sigma_H$ supposed to increase as $B$ decreases, not as $\phi$ decreases?
 
-The idea is that this magnetic flux is purely an explanatory tool used to derive the formula $\sigma_H = N_L \frac{q^2}{h}$. The role of the magnetic field strength comes from inspecting the degeneracy of the Landau levels. The number of states per Landau level must be finite, since $0\leq x \leq L$ implies (roughly) that $-L \leq s_j(\phi) \leq 0$. We ignore $\phi$ since adding $h/q$ only corresponds to $j=1$ extra state, which is insignificant to the calculation. Substituting our expression for the shift $s_j(0)$, the inequality becomes
+The idea is that this magnetic flux is purely an explanatory tool used to derive the formula $\sigma_H = N_L \frac{q^2}{h}$. The role of the magnetic field strength $B$ becomes apparent from inspecting the degeneracy of the Landau levels. The number of states $\psi_{n,j}$ per fixed Landau level $n$ must be finite, since $0\leq x \leq L$ implies (roughly) that $-L \leq s_j(\phi) \leq 0$. We ignore $\phi$ since adding $h/q$ only corresponds to $j=1$ extra state, which is insignificant to the calculation. Substituting our expression for the shift $s_j(0)$, the inequality becomes
 
 \[-L\frac{qBR}{\hbar} \leq j \leq 0.\]
 
@@ -701,13 +705,13 @@ The number of states $N_s$ per Landau level is therefore
 
 \[N_s = L\frac{qBR}{\hbar} = \frac{qBA}{h},\]
 
-where $A = 2\pi R L$ is the total area of the cylinder. From here we see that as $B$ decreases, so too does $N_s$; the electrons must therefore begin to populate higher Landau levels. Once the next highest Landau level is filled, the Hall conductivity jumps by exactly $q^2/h$.
+where $A = 2\pi R L$ is the total area of the cylinder. From here we see that as $B$ decreases, so too does $N_s$; the electrons must therefore begin to populate higher Landau levels. Once the next highest Landau level is filled, the Hall conductivity is increased by exactly $q^2/h$.
 
-What about the plateaux? Disorder, i.e. the presence of impurities in the material, is required to explain why the Hall conductivity does not change even when Landau levels are only partially filled. We model disorder using a random potential. Under the addition of a suitably small random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; the spectrum broadens into bands as in Figure \ref{fig:DOS}. Furthermore, while the center of the bands is continuous spectrum (red), the edges of the bands are pure-point (blue) (need to add reference to Combes Hislop); this phenomenon is called Anderson localization. 
+What about the plateaux? Disorder, i.e. the presence of impurities in a real world material, is required to explain why the Hall conductivity does not change even when Landau levels are only partially filled. We model disorder using a random potential. Under the addition of a suitably small random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; the spectrum broadens into bands as in Figure \ref{fig:DOS}. Furthermore, while the center of the bands is continuous spectrum (red), the edges of the bands are pure-point (blue) \cite{Combes,Anderson}. This phenomenon is called Anderson localization. 
 
-The pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states} (red), whose domain is not simply connected. Only extended states contribute to charge transport.
+The pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states} (red), whose domain is not simply connected. Thus only extended states contribute to charge transport.
 
-As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. As electrons fill states of higher energy in the band, the Fermi energy increases. However, the states at the edges of the bands (blue) are localized and contribute nothing to the current, and thus leave the Hall conductivity unchanged. This gives rise to the plateaux.
+As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. As electrons fill states of higher energy within the band, the Fermi energy increases. However, the states at the edges of the bands (blue) are localized and contribute nothing to the current, and thus leave the Hall conductivity unchanged. This gives rise to the plateaux.
 
 
 
@@ -722,7 +726,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
 \begin{axis}[
   no markers, 
   domain=0:10, 
-  samples=10,
+  samples=1000,
   axis lines*=left, 
   xlabel=$E$, 
   ylabel=$\text{DOS}$,
@@ -730,7 +734,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
   ylabel={Density of States},
   xticklabels={,,},
   yticklabels={,,},
-  height=5cm, 
+  height=6cm, 
   width=12cm,
   enlargelimits=false, 
   clip=false, 
@@ -754,6 +758,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
 \node[] at (axis cs:7,-0.2) {$E_{n+1}$};
 \draw[thick, dashed] (axis cs:3.25,-0.1) -- (axis cs:3.25,1.5);
 \node[] at (axis cs:3.25,-0.2) {$\mu$};
+\draw[->] (axis cs:3.4,-0.2) -- (axis cs:3.75,-0.2);
 
 \draw[very thick,red](axis cs:1,0) -- (axis cs:3,0);
 \draw[very thick,red](axis cs:6,0) -- (axis cs:8,0);
@@ -811,9 +816,7 @@ where $|x| = |x_1|+|x_2|$ is the taxicab metric.
 
 %are characteristic functions. 
 
-We also construct an \emph{edge Hamiltonian} on the lattice $\Z^2_a := \{x \in \Z^2 : x_2 > -a\}$, denoted by $H_a:\ell^2(\Z^2_a) \to \ell^2(\Z^2_a)$. The bulk and edge Hamiltonians are related by the \emph{edge operator}
-
-\[E_a : \ell^2(\Z^2_a) \to \ell(\Z^2),\]
+We also construct an \emph{edge Hamiltonian} on the lattice $\Z^2_a := \{x \in \Z^2 : x_2 > -a\}$, denoted by $H_a:\ell^2(\Z^2_a) \to \ell^2(\Z^2_a)$. The bulk and edge Hamiltonians are related by the \emph{edge operator} $E_a : \ell^2(\Z^2_a) \to \ell(\Z^2)$,
 
 \[E_a := J_aH_a - H_BJ_a,\]
 
@@ -877,18 +880,17 @@ This gives $\vec{E}=-\nabla V = -V_0\frac{\partial \Lambda_2}{\partial x_2}$, so
 
 We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. We also denote by $P_\mu := P((-\infty,\mu])$ the projection-valued measure associated with $H_B$ onto states with energy below the Fermi energy $\mu$ (see Appendix \ref{sec:pvm}).
 
-\begin{lemma}
-The ground state expectation $\emph{Tr}(P_\mu J_H)$ of the Hall current is zero.
-\label{lemma:groundstatecurrent}
-\end{lemma}
-\begin{proof}
-Notice that $J_H$ is trace-class, since its trace norm can be broken into $\norm{J}_1 \leq \norm{[H_B,\Lambda_1]e^{\delta|x_1|}}\norm{e^{-\delta|x_1|}}_1$. The first term is bounded by lemma (need to add), while the second is a summable function on $\Z^2$. This fact, together with $P_\mu$ being bounded, allows us to exploit linearity and cyclicity of the trace. Since the Hamiltonian commutes with its ground state projection, we have 
+%\begin{lemma}
+%The ground state expectation $\emph{Tr}(P_\mu J_H)$ of the Hall current is zero.
+%\label{lemma:groundstatecurrent}
+%\end{lemma}
+%\begin{proof}
+%Notice that $J_H$ is trace-class, since its trace norm can be broken into $\norm{J}_1 \leq \norm{[H_B,\Lambda_1]e^{\delta|x_1|}}\norm{e^{-\delta|x_1|}}_1$. The first term is bounded by lemma (need to add), while the second is a summable function on $\Z^2$. This fact, together with $P_\mu$ being bounded, allows us to exploit linearity and cyclicity of the trace. Since the Hamiltonian commutes with its ground state projection, we have 
 
-\[\Tr(P_\mu [H_B, \Lambda_1]) = \Tr([P_\mu, H_B] \Lambda_1) = 0.\]
+%\[\Tr(P_\mu [H_B, \Lambda_1]) = \Tr([P_\mu, H_B] \Lambda_1) = 0.\]
 
-\end{proof}
+%\end{proof}
 
-The following proposition relies on assuming the validity of Bloch's theorem, which states that the ground state current is zero.
 
 \begin{proposition}
 
@@ -917,25 +919,28 @@ which implies $[\Delta H_B(s), \rho_I(t)] = [\Delta H_B(s), P_\mu] + \mathcal{O}
 
 The Hall conductivity is (by definition) the linear response coefficient, which is 
 
-\[\sigma_H = \lim_{V_0\to 0}\lim_{\eps\to 0} \frac{\Tr(\rho_I(0)J_H) - \Tr(P_\mu J_H)}{V_0} = \lim_{V_0\to 0} \lim_{\eps\to 0}\frac{1}{V_0} \Tr(\rho_I(0)i[H_B,\Lambda_1]),\]
-
-where we used the fact that the expectation of the ground state current is zero (need to add), and also the fact that the error $\mathcal{O}(V_0^2)$ introduced by replacing $\rho_I$ with $P_\mu$ vanishes in the limit $V_0\to 0$. Substituting our solution for $\rho_I$ yields
-
 \[\begin{aligned}
-\sigma_H &=\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [-e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
-&= \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
+\sigma_H &= \lim_{V_0\to 0}\lim_{\eps\to 0} \frac{\Tr(\rho_I(0)J_H) - \Tr(P_\mu J_H)}{V_0} \\
+%&= \lim_{V_0\to 0} \lim_{\eps\to 0}\frac{1}{V_0} \Tr((\rho_I(0) - P_\mu)i[H_B,\Lambda_1])\\
+&=\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right),
 \end{aligned}\]
 
-Where we used the fact that $P_\mu$ and $H_B$ commute. We also dropped the limit $V_0\to 0$ in the final line because, even though the limits may not commute in general, there is no $V_0$ remaining in the expression and thus the final limit will be independent of $V_0$. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
+where we used the fact that the error $\mathcal{O}(V_0^2)$ introduced by replacing $\rho_I$ with $P_\mu$ vanishes in the limit $V_0\to 0$. Some simplifications can be made,
+
+\[\begin{aligned}
+\sigma_H &= -\lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= -\lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
+&= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right),\\
+\end{aligned}\]
+
+where we used the fact that $P_\mu$ and $H_B$ commute. We also dropped the limit $V_0\to 0$ in the final line because, even though the limits may not commute in general, the expression is independent of $V_0$. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
 
 \[\begin{aligned}
 \sigma_H &= -i \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 &= -i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \Lambda_1^s[\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
 \end{aligned}\]
 
-where $\Lambda_1^s := e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1$. Using the notation $\overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp A P_\mu$, it is readily verified that the commutator $[\Lambda_2, P_\mu]$ is an \textit{off-diagonal} operator, in the sense that  $[\Lambda_2, P_\mu] = \overline{[\Lambda_2,P_\mu]}$. Furthermore, a simple computation reveals that for any two operators $A$ and $B$, $\Tr(\overline{A}B) = \Tr(A\overline{B})$. It therefore follows that
+where $\Lambda_1^s := e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1$. Using the notation $\overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp A P_\mu$, it is readily verified that the commutator $[\Lambda_2, P_\mu]$ is an \textit{off-diagonal} operator, in the sense that  $[\Lambda_2, P_\mu] = \overline{[\Lambda_2,P_\mu]}$. Furthermore, a simple computation reveals that for any two trace-class operators $A$ and $B$, $\Tr(\overline{A}B) = \Tr(A\overline{B})$. It therefore follows that
 
 \[\begin{aligned}
 \sigma_H &= -i \lim_{\eps\to 0}\eps \Tr \left( \int_{-\infty}^0 \overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s})ds\right).
@@ -981,7 +986,11 @@ Shifting the commutator completes the proof:
 &= -i\Tr(P_\mu[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]]).
 \end{aligned}\]
 
-The justification for shifting the commutator is that $[\Lambda_i,P_\mu]$ is trace class, by the proof of Lemma \ref{lemma:seperatelytraceclass}. (Need to add)
+The justification for shifting the commutator is that $[\Lambda_1,P_\mu][\Lambda_2,P_\mu]$ is trace class by the proof of Lemma \ref{lemma:seperatelytraceclass}, noting that
+
+\[\norm{[\Lambda_1,P_\mu][\Lambda_2,P_\mu]}_1 \leq \norm{[\Lambda_1,P_\mu]e^{3\delta |x_1|}e^{-\delta|x|}} \cdot \norm{e^{-\delta|x|}}_1 \cdot \norm{e^{3\delta|x_2|}e^{-\delta|x|} [\Lambda_2,P_\mu]}\]
+
+where $|x| = |x_1|+|x_2|$ and the $e^{-\delta|x|}$ term is trace-class by lemma \ref{lemma:exptraceclass}.
 \end{proof}
 
 \textit{Remark:} This is reminiscent of the well-known adiabatic curvature formula,
@@ -1992,7 +2001,7 @@ Need to add. Here is a citation~\cite{Bachmann:Bloch}
 %%
 %%% Note: the bibliography must come before the appendices.
 
-\nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995, VonKlitzing, Laughlin}
+\nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995, VonKlitzing, Laughlin, Combes, Anderson}
 
 \bibliographystyle{plain}
 \bibliography{iqhe}

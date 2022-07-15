@@ -726,7 +726,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
 \begin{axis}[
   no markers, 
   domain=0:10, 
-  samples=1000,
+  samples=10,
   axis lines*=left, 
   xlabel=$E$, 
   ylabel=$\text{DOS}$,
@@ -1110,7 +1110,7 @@ The edge conductivity is equal to $\lim_{a\to\infty}\sigma_E(a)$, where
 \label{lemma:edgeconductivitylimit}
 \end{lemma}
 \begin{proof}
-Since $\sigma_B$ is translation invariant (need to add), we only need to prove the case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. 
+Since $\sigma_B$ is translation invariant \cite{Graf:Noninteracting}, we only need to prove the case $-i\Tr(\rho'(H_{a=0})[H_{a=0},\Lambda_1] = \sigma_B$. We drop the subscript, $H := H_{a=0}$. 
 
 A general fact of functional analysis is that if $A_n \xrightarrow{\enskip s \enskip} 0$ and $X$ is trace-class, then $\norm{A_nX}_1 \to 0$. Since the multiplication operator $\Lambda_{2,n} |\psi\rangle := \Lambda(x_2-n) |\psi\rangle$ converges strongly to the identity as $n\to\infty$, it follows that
 
@@ -1327,21 +1327,29 @@ First, we manipulate
 
 Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$, the projections onto states above and below the gap, respectively. Since $H_B$ is assumed to have a gap, it follows that $P_-+P_+=\One$, and thus 
 
-\[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)).\]
+\[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)) = \Tr(P_+\Sigma_BP_+) + \Tr(P_-\Sigma_BP_-).\]
 
-Since $P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$, we may write the integral as a limit of disks,
+We now argue that the integral term in $P_\pm \Sigma_B P_\pm$ vanishes. Consider $P_+R_B$; this is analytic on $\C \setminus (-\infty,\sup\Delta)$. However, the integrand is zero on $(-\infty,\sup\Delta)$, since $\tilde{\rho}=0$ there. Thus $\tilde{\rho} P_+ R_B$ is analytic on the entire complex plane. The integral can therefore be written
 
-\[\lim_{r\to\infty}\int_{B_r(0)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm) dz^2,\]
+\[\int_{\C \setminus (-\infty,\sup\Delta)}\frac{\partial \tilde{\rho}}{\partial \bar{z}}P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2.\]
 
-where domination is provided by Lemma \ref{lemma:HSbound}. Stokes' theorem then says that the above integral is equal to the integral over the boundary but without the derivative,
+Since the operator in the integrand is analytic, the derivative $\frac{\partial}{\partial\bar{z}}$ can be made to act on the entire integrand rather than only on $\tilde{\rho}$. Furthermore, since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$ and $| \partial_{\bar{z}} \tilde{\rho} |$ can be made to decay with any power law $\mathcal{O}(\text{Im}(z)^k)$ as $\text{Im}(z)\to 0$ (see Appendix \ref{cha:HS}), we may write the integral as a limit of disks,
 
-\[\lim_{r\to\infty}\int_{\partial B_r(0)}\tilde{\rho}(z)P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2.\]
+%$P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$, we may write the integral as a limit of disks,
+
+\[\lim_{r\to\infty}\int_{B_r(0)\setminus (-\infty,\sup\Delta)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_+ R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_+) dz^2,\]
+
+where domination is provided by Lemma \ref{lemma:HSbound}. Stokes' theorem then says that the above integral is bounded in norm by
+
+\[\lim_{r\to\infty}\int_{\partial B_r(0)}\tilde{\rho}(z)P_+ R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_+ dz.\]
 
 The decay of $\norm{R_B(z)}\leq \text{dist}(z,\text{Spec}(H_B))^{-1}$ and boundedness of the extension $\tilde{\rho}(z)$ (since $|\rho(x)|\leq 1$) ensure that the limit of this integral as $r\to\infty$ is zero. Indeed, the norm of the integral is bounded by
 
 \[2\pi r \sup_{\partial B_r(0)} \frac{|\tilde{\rho}(r)|\norm{[H_B,\Lambda_1]\Lambda_2}}{\text{dist}(r,\text{Spec}(H_B))^2}\]
 
-which vanishes as $r\to\infty$ since the spectrum of the bulk Hamiltonian is bounded, and Lemma \ref{lemma:keybound} bounds the norm of the operator in the numerator. Thus the integral term in $\Sigma_B$ is zero, and
+which vanishes as $r\to\infty$ since the spectrum of the bulk Hamiltonian is bounded, and Lemma \ref{lemma:keybound} bounds the norm of the operator in the numerator. 
+
+As for the integral appearing in $P_-\Sigma_BP_-$, we note that analogous to the argument above, $R_BP_-$ is analytic on $\C\setminus(\inf\Delta,\infty)$, and thus $R_BP_-(1-\tilde{\rho})$ is analytic on all of $\C$. Replacing $\partial_{\bar{z}}\tilde{\rho} = \partial_{\bar{z}}(1-\tilde{\rho})$ leaves the integral unchanged, and the rest of the argument follows as before. Thus the integral term in $\Sigma_B$ is zero, and
 
 %vanishes by integration by parts (need to add). Thus
 
@@ -1423,7 +1431,7 @@ Altogether, we obtain
 concluding the proof.
 
 \begin{lemma}
-Let $W,V = \varnothing$. Then
+Let $W\cap V = \varnothing$. Then
 \[P_W \Lambda_1 P_V \Lambda_2 P_W \in \mathcal{J}_1.\]
 In particular, the two terms appearing in $T_\lambda$ are separately trace-class.
 \label{lemma:seperatelytraceclass}
@@ -1449,11 +1457,13 @@ Note the lack of absolute values on the $e^{3\delta x_i}$ terms; we will later a
 
 \[\norm{(1-\Lambda_i) P_V e^{-\delta|x|}}\norm{\Lambda_i e^{3\delta x_i}}\]
 
-both of which are bounded, since for $\Lambda_i e^{3\delta x_i}$ only the negative $x_i$ values remain due to the switch function. For the first term, we insert more exponentials
+both of which are bounded, since for $\Lambda_i e^{3\delta x_i}$ only the negative $x_i$ values remain due to the switch function. Returning to the first term, we insert more exponentials
 
-\[\Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} = \Lambda_i P_V e^{3\delta x_i} \cdot e^{-3\delta x_i}(1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|}.\]
+%\[\Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} = \Lambda_i P_V e^{3\delta x_i} \cdot e^{-3\delta x_i}(1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|}.\]
 
-Again the $ \Lambda_i P_V e^{3\delta x_i}$ is bounded because of the switch function, and the other part is seen to be bounded by taking the adjoint of the operator in Lemma \ref{lemma:projectionoperatordecay} (need to add). 
+\[\Lambda_i P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|} = \Lambda_i e^{3\delta x_i} \cdot e^{-3 \delta x_i}P_V (1-\Lambda_i) e^{3\delta x_i} e^{-\delta|x|}.\]
+
+Again $ \Lambda_i e^{3\delta x_i}$ is bounded because of the switch function, and the other part is seen to be bounded by taking the adjoint of the operator in Lemma \ref{lemma:projectionoperatordecay}.
 
 An exactly analogous argument works for bounding $[\Lambda_i,P_V]e^{-3\delta x_i}e^{-\delta|x|}$, i.e. the same operator but with the $e^{-3\delta x_i}$ terms.
 
@@ -1695,7 +1705,14 @@ where
 
 \[\mathcal{I}_{\mu} (A) = \int_\R W(t) e^{itH_\mu} A e^{-itH_\mu}dt.\]
 
-Here, $W:\R\to\R$ is a function satisfying (need to add). More explicitly, in our setting we see that 
+Here, $W:\R\to\R$ is a bounded, $L^1(\R)$ function satisfying
+
+\begin{enumerate}
+\item $|W(t)| = \mathcal{O}(|t|^{-\infty})$,
+\item $\widehat{W}(\xi) = \frac{i}{\xi}$ for all $|\xi| \geq \text{Len}(\Delta)$,
+\end{enumerate}
+
+where $\widehat{W}$ is the Fourier transform, taken here to be $\hat{f}(\xi) = \int_\R f(t)e^{-i t \xi}dt$. Such a function can be constructed explicitly~\cite{Bachmann_2011}. In our setting, we see that 
 
 \[K_\mu = \mathcal{I}_\mu(Q_h).\]
 
@@ -1779,7 +1796,7 @@ Dividing by $d\mu$ and taking a limit, we see that the linear response coefficie
 
 The \emph{Hall conductivity} of the system on a subset $V \subseteq \Gamma_L$ is defined to be $\sigma_V := \Tr\left(\dot{P} J_V\right)$, where $J_V$ is the restriction of $J$ to $V$. 
 
-In particular, we define the \emph{edge conductivity} in the interacting setting as the conductivity on the edge strip, $\sigma_{\Gamma_E}$. The motivation is that, like in the noninteracting setting, extended states contributing to the current are located near the edge. (Need to add). QUESTION: Why does there need to be a bulk current in $\Gamma_B$ at all? Couldn't there just be a current running in a circle along the whole edge of the cylinder? Isn't that actually the case since extended states are located near the edge? Doesn't this destroy bulk-edge correspondence?
+In particular, we define the \emph{edge conductivity} in the interacting setting as the conductivity on the edge strip, $\sigma_{\Gamma_E}$. 
 
 \begin{proposition}
 The Hall conductivity is independent of the driving strength $\mu$.
@@ -2083,22 +2100,22 @@ We remark that it follows from the second part of this theorem that if $\One_{M}
 
 We also note that $\text{Spec}(H) = \text{supp}(P)$.
 
-\begin{lemma}
-Let $A$ be a trace-class operator. If $\tr_X(A)$ denotes the partial trace of $A$ over the set $X$, then
-\[\int_\mathcal{G} UAU^*d\mu(U) = \frac{1}{\emph{dim}(X)}\tr_X(A)\otimes \One,\]
-where $\mu$ is the Haar measure on the group $\mathcal{G}$ of unitary operators supported in $X$.
-\end{lemma}
-\begin{proof}
-Since the Haar measure is unique up to scalar multiple, we take without loss of generality $\mu(\mathcal{G})=1$. By left and right invariance of the Haar measure, 
-\[\int_\mathcal{G} UAU^* d\mu(U) = \int_\mathcal{G} Ad\mu(U) = A.\]
-The only operator invariant under all basis transformations is the identity, so
-\[\alpha \One=\int_\mathcal{G} UAU^*d\mu(U)\]
-for some scalar $\alpha$. Taking the partial trace over $X$, 
-\[\alpha \text{dim}(X)\One_{X^\mathsf{c}} = \int_\mathcal{G} \tr_X(UAU^*)d\mu(U) = \int_\mathcal{G} \tr_X(A)d\mu = \tr_X(A).\]
-Tensoring with $\One_X$ gives 
-\[\alpha \One = \frac{1}{\text{dim}(X)} \tr_X(A) \otimes \One.\]
-Need to add.
-\end{proof}
+%\begin{lemma}
+%Let $A$ be a trace-class operator. If $\tr_X(A)$ denotes the partial trace of $A$ over the set $X$, then
+%\[\int_\mathcal{G} UAU^*d\mu(U) = \frac{1}{\emph{dim}(X)}\tr_X(A)\otimes \One,\]
+%where $\mu$ is the Haar measure on the group $\mathcal{G}$ of unitary operators supported in $X$.
+%\end{lemma}
+%\begin{proof}
+%Since the Haar measure is unique up to scalar multiple, we take without loss of generality $\mu(\mathcal{G})=1$. By left and right invariance of the Haar measure, 
+%\[\int_\mathcal{G} UAU^* d\mu(U) = \int_\mathcal{G} Ad\mu(U) = A.\]
+%The only operator invariant under all basis transformations is the identity, so
+%\[\alpha \One=\int_\mathcal{G} UAU^*d\mu(U)\]
+%for some scalar $\alpha$. Taking the partial trace over $X$, 
+%\[\alpha \text{dim}(X)\One_{X^\mathsf{c}} = \int_\mathcal{G} \tr_X(UAU^*)d\mu(U) = \int_\mathcal{G} \tr_X(A)d\mu = \tr_X(A).\]
+%Tensoring with $\One_X$ gives 
+%\[\alpha \One = \frac{1}{\text{dim}(X)} \tr_X(A) \otimes \One.\]
+%Need to add.
+%\end{proof}
 
 
 
@@ -2178,7 +2195,7 @@ and taking a supremum over $\ell \in \text{Lip}^1$ completes the proof by Lemma 
 \chapter{Properties of $\mathcal{I}_\mu$}
 
 \begin{proof}
-(Of Lemma~\ref{lemma:inverseofH}). Let $\widehat{W}(\xi) = \frac{1}{\sqrt{2\pi}}\int_\R W(t) e^{-2\pi i t \xi} dt$ be the Fourier transform of $W$. One can show that for $|\xi|\geq \gamma$, $\widehat{W}(\xi) = \frac{1}{\sqrt{2\pi}i \xi}$ (need to add). Let $A$ be an observable. First, we show that $\mathcal{I}([H,PAP^\perp]) = iPAP^\perp$. 
+(Of Lemma~\ref{lemma:inverseofH}). Let $\widehat{W}(\xi) = \int_\R W(t) e^{- i t \xi} dt$ be the Fourier transform of $W$ and let $A$ be any observable. First, we show that $\mathcal{I}([H,PAP^\perp]) = iPAP^\perp$. 
 
 Decomposing 
 
@@ -2201,33 +2218,51 @@ we see that
 &= \int_\R W(t) \sum_{n : E_n=0} e^{itE_n}P_n [H,A] \sum_{m:E_m \geq \gamma} P_m e^{-itE_m} dt\\
 &= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} \int_\R W(t) e^{itE_n} P_n A (E_n-E_m) P_m e^{-itE_m}dt\\
 &= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \int_\R W(t) e^{-it(E_m - E_n)} dt\\
-&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \sqrt{2\pi} \widehat{W}(E_m-E_n) \\
+&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \widehat{W}(E_m-E_n) \\
 &= i\sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m\\
-&= iPAP^\perp.
+&= iPAP^\perp,
 \end{aligned}\]
 
-(need to check the $2\pi$ factor)
-
-By the same argument, $\mathcal{I}([H,P^\perp AP]) = iP^\perp AP$ as well, and so $\mathcal{I}([H,\overline{A}]) = i\overline{A}$.
+since $\widehat{W}(\xi) = i\xi^{-1}$ for all $|\xi|\geq \text{Len}(\Delta)$. If the spectrum of $H$ is continuous, the sums can be replaced by integrals with respect to the spectral measure $P_\lambda$, as in \ref{thm:spectraltheorem}. Either way, the use of domination to interchange the integral over $t$ and the other sums/integrals is provided by the fact that $W,\widehat{W}\in L^1$. By the same argument, $\mathcal{I}([H,P^\perp AP]) = iP^\perp AP$ as well, and so $\mathcal{I}([H,\overline{A}]) = i\overline{A}$.
 \end{proof}
 
 \begin{proof}
+(Of Lemma~\ref{lemma:local}). Let $A$ be an operator with support $X$, and let $A(t) = e^{itH}Ae^{-itH}$ be its time evolution. Let $S = (X^r)^\mathsf{c}$ be the set of sites of distance at least $r$ from $X$. We see that $\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))}$ is bounded by
 
-(Of Lemma~\ref{lemma:local}). Note that any operator can be written as the telescoping sum
+\[\begin{aligned}
+\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt + \int_{\R\setminus[-T,T]}|W(t)|\norm{A(t) - \tr_S(A(t))} dt.
+\end{aligned}\]
 
-\[\mathcal{I}(A) = \tr_X(\mathcal{I}(A)) + \sum_{j=1}^\infty \left(\tr_{X^{(j)}}(\mathcal{I}(A)) - \tr_{X^{(j-1)}}(\mathcal{I}(A))\right),\] 
+We treat each of the terms separately. For the first, by Proposition \ref{prop:Haar} we have
 
-where $\tr_Y$ denoted the partial trace over $Y$, and $Y^\alpha$ denotes the $\alpha$-fattening of $Y$. 
+\[\begin{aligned}
+\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq |X|\norm{A} \norm{W}_\infty \int_{-T}^T e^{-\frac{r-v|t|}{\xi}}dt \\
+&= \frac{2\xi}{v} |X|\norm{A} \norm{W}_\infty e^{-\frac{r}{\xi}}( e^{\frac{vT}{\xi}}-1).\\
+\end{aligned}\]
 
-Our goal is to prove that $\norm{\tr_{X^{(j)}}(\mathcal{I}(A)) - \mathcal{I}(A)} \leq \norm{A} |X| \mathcal{O}(j^{-\infty})$. To that end, we break the integral $\mathcal{I}(A)$ into two terms,
+For the second term, we again employ Proposition \ref{prop:Haar} along with the decay property $|W(t)| \leq \mathcal{O}(|t|^{-\infty})$ to obtain
 
-\[\mathcal{I}(A) = \int_{-T}^T W(t) e^{itH}Ae^{-itH}dt + \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt.\]
+\[\begin{aligned}
+\int_{\R\setminus[-T,T]} |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq |X|\norm{A} e^{-\frac{r}{\xi}}  \int_{\R\setminus[-T,T]} |W(t)| e^{\frac{v|t|}{\xi}} dt \\
+\end{aligned}\]
 
-We break the integral into two parts,
+(need to add)
 
-\[\norm{\mathcal{I}(A)} \leq \bigg\lVert\int_{-T}^T W(t) e^{itH}Ae^{-itH}dt \bigg\rVert + \bigg\lVert \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt\bigg\rVert.\]
+%Note that any operator can be written as the telescoping sum
 
-The first term can be estimated using the Lieb-Robinson bound found in Appendix~\ref{sec:L-R}.
+%\[\mathcal{I}(A) = \tr_X(\mathcal{I}(A)) + \sum_{j=1}^\infty \left(\tr_{X^{(j)}}(\mathcal{I}(A)) - \tr_{X^{(j-1)}}(\mathcal{I}(A))\right),\] 
+
+%where $\tr_Y$ denoted the partial trace over $Y$, and $Y^\alpha$ denotes the $\alpha$-fattening of $Y$. 
+
+%Our goal is to prove that $\norm{\tr_{X^{(j)}}(\mathcal{I}(A)) - \mathcal{I}(A)} \leq \norm{A} |X| \mathcal{O}(j^{-\infty})$. To that end, we break the integral $\mathcal{I}(A)$ into two terms,
+
+%\[\mathcal{I}(A) = \int_{-T}^T W(t) e^{itH}Ae^{-itH}dt + \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt.\]
+
+%We break the integral into two parts,
+
+%\[\norm{\mathcal{I}(A)} \leq \bigg\lVert\int_{-T}^T W(t) e^{itH}Ae^{-itH}dt \bigg\rVert + \bigg\lVert \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt\bigg\rVert.\]
+
+%The first term can be estimated using the Lieb-Robinson bound found in Appendix~\ref{sec:L-R}.
 
 \end{proof}
 
@@ -2238,16 +2273,41 @@ The first term can be estimated using the Lieb-Robinson bound found in Appendix~
 \chapter{The Lieb-Robinson Bound}
 \label{sec:L-R}
 
-Let $N$ be a uniform upper bound for the dimensions of the Hilbert spaces at each site, i.e. $\text{dim}(\mathcal{H}_x) \leq N$ for all sites $x$.
+Let the dimensions of the Hilbert spaces at each site, i.e. $\text{dim}(\mathcal{H}_x)$, be uniformly bounded. Let $A \in \mathcal{U}_X$ and $B \in \mathcal{U}_Y$ be any operators having disjoint supports $X\cap Y = \varnothing$, and denote by $r = \text{dist}(X,Y)$ the distance between them. Let $A(t)=e^{itH}Ae^{-itH}$ be the time evolution of $A$. Then
 
-The following is a version of the Lieb-Robinson. For any operators $A \in \mathcal{U}_X$ and $B \in \mathcal{U}_Y$ having disjoint supports $X\cap Y = \varnothing$, 
+The following is a version of the Lieb-Robinson bound~\cite{Bravyi_2006}. 
 
-\[\norm{ [e^{itH}Ae^{-itH}, B] } \leq  C \norm{A}\norm{B} |X| |Y| N^{2|X|} e^{2t\norm{\Phi}_\lambda - \lambda d(X, Y)}.\]
+\begin{proposition}
+\[\norm{ [A(t), B] } \leq  C \norm{A}\norm{B} \min{\{|X|,|Y|\}} e^{-\frac{r - v|t|}{\xi}},\]
+where $C$, $v$, and $\xi$ are positive constants.
+\label{prop:LR}
+\end{proposition}
 
+A consequence of the Lieb-Robinson bound is the following estimate on the growth of the support of $A$ in time.
 
+\begin{proposition}
+Let $A$ be any operator with support in $X$, and let $S = (X^r)^\mathsf{c}$ be the set of sites whose distance from $X$ is at least $r$. Then
 
+\[ \norm{A(t) - \tr_S(A(t))} \leq C|X|\norm{A} e^{-\frac{r-v|t|}{\xi}},\]
 
+where $C$, $v$, and $\xi$ are as in \ref{prop:LR}.
+\label{prop:Haar}
+\end{proposition}
+\begin{proof}
+The partial trace is given by
 
+\[\tr_S(A(t)) = \int_{\mathcal{G}_S} UA(t)U^* d\mu(U),\]
+
+where $\mathcal{G}_S$ is the group of unitaries supported on $S$ and $\mu$ denotes the Haar measure. From this we see that
+
+\[\begin{aligned}
+\norm{A(t) - \tr_S(A(t))} &\leq \int_{\mathcal{G}_S} \norm{A(t) - UA(t)U^*}d\mu(U)\\
+&= \int_{\mathcal{G}_S} \norm{[A(t),U]U^*} d\mu(U)\\
+&\leq \norm{[A(t),U]}
+\end{aligned}\]
+
+whence the Lieb-Robinson bound \ref{prop:LR} completes the proof.
+\end{proof}
 
 
 \chapter{Gr\"{o}nwall's Inequality and Uniqueness}
@@ -2349,6 +2409,7 @@ Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\sigma(\mu)}_G \leq \no
 
 
 \chapter{The Helffer-Sj\"{o}strand Representation}\label{sec:helffersjostrand}
+\label{cha:HS}
 
 The Helffer-Sj\"{o}strand representation is a functional calculus $f \mapsto f(H)$ for arbitrary (possibly unbounded) operators $H$ on the set of functions 
 

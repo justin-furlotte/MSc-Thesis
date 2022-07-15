@@ -15,16 +15,16 @@
 \contentsline {section}{\numberline {2.2}{Equality of Bulk and Edge Conductivities}}{18}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}{Outline of the Proof}}{19}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}{The Proof}}{19}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}{Interacting Bulk-Edge Correspondence}}{30}{chapter.3}%
-\contentsline {section}{\numberline {3.1}{General Setting}}{30}{section.3.1}%
-\contentsline {section}{\numberline {3.2}{Equality of Bulk and Edge Currents}}{34}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}{Cylinder Geometry}}{34}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}{Torus Geometry}}{40}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}{Summary of Results}}{43}{chapter.4}%
-\contentsline {chapter}{{Bibliography}}{44}{chapter*.15}%
+\contentsline {chapter}{\numberline {3}{Interacting Bulk-Edge Correspondence}}{31}{chapter.3}%
+\contentsline {section}{\numberline {3.1}{General Setting}}{31}{section.3.1}%
+\contentsline {section}{\numberline {3.2}{Equality of Bulk and Edge Currents}}{35}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}{Cylinder Geometry}}{35}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}{Torus Geometry}}{41}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}{Summary of Results}}{44}{chapter.4}%
+\contentsline {chapter}{{Bibliography}}{45}{chapter*.15}%
 \contentsline {part}{{Appendices}}{}{}
-\contentsline {chapter}{\numberline {A}{General Functional Analysis}}{46}{appendix.A}%
-\contentsline {section}{\numberline {A.1}{Spectral Measures and Projection-Values Measures}}{46}{section.A.1}%
+\contentsline {chapter}{\numberline {A}{General Functional Analysis}}{47}{appendix.A}%
+\contentsline {section}{\numberline {A.1}{Spectral Measures and Projection-Values Measures}}{47}{section.A.1}%
 \contentsline {section}{\numberline {A.2}{Greens' Functions and the Combes-Thomas Bound}}{48}{section.A.2}%
 \contentsline {chapter}{\numberline {B}{Properties of $\mathcal {I}_\mu $}}{51}{appendix.B}%
 \contentsline {chapter}{\numberline {C}{The Lieb-Robinson Bound}}{54}{appendix.C}%

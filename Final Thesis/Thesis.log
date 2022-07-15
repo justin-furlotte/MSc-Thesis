@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  13 JUL 2022 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.6)  14 JUL 2022 21:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1095,22 +1095,22 @@ Overfull \hbox (44.10419pt too wide) detected at line 1158
 [][]
  []
 
-[20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
 Chapter 3.
-[30
+[31
 
-] [31]
-Overfull \hbox (67.59114pt too wide) in paragraph at lines 1536--1537
+] [32]
+Overfull \hbox (67.59114pt too wide) in paragraph at lines 1546--1547
  [][] 
  []
 
-[32] [33]
-Overfull \hbox (81.67998pt too wide) in paragraph at lines 1638--1639
+[33] [34]
+Overfull \hbox (81.67998pt too wide) in paragraph at lines 1648--1649
  [][] 
  []
 
-[34] [35] [36] [37] [38]
-Overfull \hbox (25.44612pt too wide) detected at line 1857
+[35] [36] [37] [38] [39]
+Overfull \hbox (25.44612pt too wide) detected at line 1874
 \OML/cmm/m/it/10.95 ^^[[] \OT1/cmr/m/n/10.95 = [] [] = [] [] = \OML/cmm/m/it/10
 .95 ^^[[] \OT1/cmr/m/n/10.95 + \OMS/cmsy/m/n/10.95 O\OT1/cmr/m/n/10.95 (\OML/cm
 m/m/it/10.95 L[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 O\OT1/cmr/m/n/10.95 
@@ -1118,8 +1118,8 @@ m/m/it/10.95 L[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 O\OT1/cmr/m/n/10.95
 n/10.95 (\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
  []
 
-[39] [40]
-Overfull \hbox (5.80782pt too wide) detected at line 1958
+[40] [41]
+Overfull \hbox (5.80782pt too wide) detected at line 1975
 \OML/cmm/m/it/10.95 P[]J[]P[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 i\OT1/cm
 r/m/n/10.95 [\OML/cmm/m/it/10.95 H[]; P[]K[]P[]\OT1/cmr/m/n/10.95 ] + \OML/cmm/
 m/it/10.95 i\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML
@@ -1130,19 +1130,19 @@ r/m/n/10.95 (\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 P[]
 :
  []
 
-[41] [42]
+[42] [43]
 Chapter 4.
-(./Thesis.bbl [43
+(./Thesis.bbl [44
 
-] [44
+] [45
 
-]) [45]
+]) [46]
 Appendix A.
-[46
+[47
 
 
-] [47] [48]
-Overfull \hbox (0.65948pt too wide) detected at line 2164
+] [48] [49]
+Overfull \hbox (0.65948pt too wide) detected at line 2181
 []\OMS/cmsy/m/n/10.95 f[] [] j\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML/c
 mm/m/it/10.95 x; y\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 
 e[]e[];  [] [] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (
@@ -1150,35 +1150,27 @@ e[]e[];  [] [] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (
 10.95 e[]e[]\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 :
  []
 
-[49] [50]
+[50]
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2178.
+(hyperref)                removing `math shift' on input line 2195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2178.
+(hyperref)                removing `subscript' on input line 2195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 2178.
+(hyperref)                removing `\mu' on input line 2195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2178.
+(hyperref)                removing `math shift' on input line 2195.
 
 [51
 
-]
-Overfull \hbox (13.37128pt too wide) in paragraph at lines 2211--2212
-[]\OT1/cmr/m/n/10.95 By the same ar-gu-ment, $\OMS/cmsy/m/n/10.95 I\OT1/cmr/m/n
-/10.95 ([\OML/cmm/m/it/10.95 H; P[]AP\OT1/cmr/m/n/10.95 ]) = \OML/cmm/m/it/10.9
-5 iP[]AP$ \OT1/cmr/m/n/10.95 as well, and so $\OMS/cmsy/m/n/10.95 I\OT1/cmr/m/n
-/10.95 ([\OML/cmm/m/it/10.95 H; []\OT1/cmr/m/n/10.95 ]) =
- []
-
-[52] [53]
+] [52] [53]
 Appendix C.
 [54
 
@@ -1191,7 +1183,7 @@ Appendix E.
 [57
 
 ]
-Overfull \hbox (7.90007pt too wide) detected at line 2333
+Overfull \hbox (7.90007pt too wide) detected at line 2393
 []\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 J[]\OT1/cmr/m/n/10.95 ) = []([]\OML
 /cmm/m/it/10.95 J[]\OT1/cmr/m/n/10.95 ) + \OMS/cmsy/m/n/10.95 O\OT1/cmr/m/n/10.
 95 (\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 ) = []([]\OML/cmm/m/it/10.95 J[]\
@@ -1210,10 +1202,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 810699807A3DD965BE47BE549AE354C0;5153.
  ) 
 Here is how much of TeX's memory you used:
- 34840 strings out of 478994
- 811556 string characters out of 5858185
- 2254535 words of memory out of 5000000
- 51569 multiletter control sequences out of 15000+600000
+ 34846 strings out of 478994
+ 811614 string characters out of 5858185
+ 1239224 words of memory out of 5000000
+ 51572 multiletter control sequences out of 15000+600000
  419201 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,103p,1000b,1987s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1239,10 +1231,10 @@ local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/loc
 al/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
 /local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on Thesis.pdf (68 pages, 504378 bytes).
+Output written on Thesis.pdf (68 pages, 488983 bytes).
 PDF statistics:
- 742 PDF objects out of 1000 (max. 8388607)
- 639 compressed objects within 7 object streams
- 179 named destinations out of 1000 (max. 500000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
+ 182 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

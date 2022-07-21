@@ -431,27 +431,27 @@ To Abigail Sanderson, for her unwavering belief in me, and to my parents, for th
 \chapter{Introduction}
 \label{cha:introduction}
 
-Since its unexpected discovery in 1980, the Integer Quantum Hall Effect (IQHE) has captured significant interest in the mathematical physics community. This effect occurs when a 2 dimensional electron gas at near 0 Kelvin is pierced by a strong magnetic field. As the strength of the field increases, the Hall resistivity - a macroscopic quantity - experiences quantization, as in Figure \ref{fig:vonklitzing}.
+Since its discovery in 1980, the Integer Quantum Hall Effect (IQHE) has captured significant interest in the mathematical physics community. The IQHE occurs when a 2 dimensional electron gas at near 0 Kelvin is pierced by a strong magnetic field. As the strength of the field increases, the Hall resistivity - a macroscopic quantity - undergoes quantization in nearly perfect integer multiples of $h/q^2$, as in Figure \ref{fig:vonklitzing}.
 
-In this thesis, we begin by proving a simple classical calculation for the Hall conductivity, and emphasize that the result does not agree with experiment. The IQHE, despite being a macro-scale phenomenon, is fundamentally reliant on quantum mechanics. We give another heuristic argument due to Laughlin~\cite{Laughlin} for why this quantization occurs, before going into the main body of the thesis in Chapters \ref{cha:noninteracting}, \ref{cha:interacting}. 
+In this thesis, we begin by providing a simple classical calculation for the Hall conductivity, and emphasize that the result does not agree with experiment. The IQHE, as its name suggests, is fundamentally reliant on quantum mechanics. We give another heuristic argument due to Laughlin~\cite{Laughlin} for why the quantization of Hall resistivity occurs, before going into the main body of the thesis in Chapters \ref{cha:noninteracting} and \ref{cha:interacting}. 
 
-There we provide a proof of \emph{bulk-edge correspondence}; this is the interesting mathematical fact that the Hall conductivity does not depend on whether or not the system is assumed to have an edge. In the system with an edge, the Hall conductivity is defined by assuming that current is transported along the edge, while in the bulk (i.e. edgeless) system, the Hall current is assumed to be carried throughout the entire bulk of the material. This bulk-edge correspondence between the Hall conductivities in the IQHE is a special case of a more general bulk-edge correspondence between other invariants of \emph{topological insulators}.
+There, we provide a proof of \emph{bulk-edge correspondence}. This is the interesting mathematical fact that the Hall conductivity does not depend on whether or not the system is assumed to have an edge. In the system with an edge, the Hall conductivity is defined by assuming that current is transported along the edge, while in the bulk (i.e. edgeless) system, the Hall current is assumed to be carried throughout the entire bulk of the material. This correspondence between the bulk and edge Hall conductivities in the IQHE is a special case of a more general bulk-edge correspondence which can occur between other invariants of topological insulators.
 
 \section{Heuristic Arguments}
 
-We provide a brief introduction to the quantum Hall effect. We emphasize that the results of this section are not rigorous. 
+We provide a brief introduction to the quantum Hall effect. We emphasize that the results of this section are not rigorous.
 
 \subsection{The Classical Hall Effect}
 
-Using classical electromagnetism is not enough to predict the plateaux seen experimentally. Suppose we have a 2-dimensional electron gas, and let $\vec{B} = B\hat{x_3}$ be a magnetic field piercing the plane of the electrons. They are subjected to a Lorentz force
+Using classical electromagnetism is not enough to predict the plateaux seen experimentally. Suppose we have a 2-dimensional electron gas, and let $\vec{B} = B\hat{z}$ be a magnetic field piercing the plane of the electrons. They are subjected to a Lorentz force
 
 \[m\dot{\vec{v}} = -q\vec{v}\times\vec{B} .\]
 
 The solution to this differential equation is given by the \emph{cyclotron orbits},
 
-\[\begin{pmatrix} x_1(t)\\x_2(t)\\x_3(t) \end{pmatrix} = \begin{pmatrix} a + r\sin(\omega_Bt+\phi) \\ b + r\cos(\omega_Bt+\phi) \\ 0 \end{pmatrix}\]
+\[\begin{pmatrix} x(t)\\ y(t)\\ z(t) \end{pmatrix} = \begin{pmatrix} a + r\sin(\omega_Bt+\phi) \\ b + r\cos(\omega_Bt+\phi) \\ 0 \end{pmatrix}\]
 
-where $\omega_B = qB/m$ is the \emph{cylontron frequency}. An electric field $\vec{E}=E\hat{x_1}$ is introduced, and the electrons move in the $x_1$-direction. We now employ the \emph{Drude model},
+where $\omega_B = qB/m$ is the \emph{cyclotron frequency}. When an electric field $\vec{E}=E\hat{x}$ is introduced, the electrons move in the $x$-direction, and we employ the \emph{Drude model},
 
 \[m\dot{\vec{v}} = -q(\vec{E}+\vec{v}\times\vec{B}) + \frac{m}{\tau}\vec{v},\]
 
@@ -459,7 +459,7 @@ where the final term is a linear friction term, and $\tau$ is the scattering tim
 
 \[\vec{J} + \frac{q\tau}{m}\vec{J}\times\vec{B} = -\frac{q^2n\tau}{m}\vec{E},\]
 
-where $\vec{J} = -nq\vec{v}$ is the current density, related to the velocity by the density of electrons per unit area $n$. In matrix notation, this reads
+where $\vec{J} = -nq\vec{v}$ is the current density, related to the velocity by the density $n$ of electrons per unit area. In matrix notation, this reads
 
 \[\begin{pmatrix} 1 & \omega_B\tau \\ -\omega_B\tau & q \end{pmatrix}\vec{J} = -\frac{q^2n\tau}{m}\vec{E}.\]
 
@@ -467,7 +467,7 @@ Since the matrix on the left is invertible, we may write $\vec{J} = \sigma \vec{
 
 \[\sigma = \begin{pmatrix} \sigma_{xx} & \sigma_{xy} \\ -\sigma_{xy} & \sigma_{yy} \end{pmatrix} = -\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\begin{pmatrix} 1 & -\omega_B\tau \\  \omega_B\tau& 1 \end{pmatrix}.\]
 
-The off-diagonal components, $\pm\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\omega_B\tau$, are responsible for the Hall effect; the magnetic field induces a component of the current in the $x_2$-direction, in addition to the one in the $x_1$-direction from the electric field. 
+The off-diagonal components, $\pm\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\omega_B\tau$, are responsible for the Hall effect; the magnetic field induces a component of the current in the $y$-direction, in addition to the one in the $x$-direction from the electric field. 
 
 When making a measurement, physicists actually measure the resistivity. In particular, the \emph{Hall resistivity}, given by the off-diagonal components of the resistivity tensor $\rho = \sigma^{-1}$, is simply 
 
@@ -475,7 +475,6 @@ When making a measurement, physicists actually measure the resistivity. In parti
 
 The key prediction of the classical theory is that the Hall resistivity increases linearly in response to the strength of the magnetic field.
 
-\newpage
 \subsection{The Quantum Hall Effect}
 
 Von Klitzing's experimental observation in 1980 made it clear that classical electromagnetism is not sufficient to describe the Hall effect. At a temperature of about 8mK, the Hall resistivity looked like this as a function of the magnetic field strength.
@@ -483,7 +482,7 @@ Von Klitzing's experimental observation in 1980 made it clear that classical ele
 \begin{figure}[h!]
 \centering
 \includegraphics{vonklitzing}
-\caption{Von Klitzing's discovery - the Hall resistivity as a function of the magnetic field strength jumps in distinct plateaux.~\cite{VonKlitzing}}
+\caption{Hall resistivity as a function of the magnetic field strength jumps in distinct plateaux.~\cite{VonKlitzing}}
 \label{fig:vonklitzing}
 \end{figure}
 
@@ -491,15 +490,17 @@ Even more surprising, the plateaux occur at the values
 
 \[\rho_{xy} = \frac{h}{q^2}\frac{1}{n},\]
 
-where $n$ is an integer. This phenomenon is known as the \emph{integer quantum Hall effect} (IQHE). In fact, this integer can be measured to such extraordinary precision (about one part in $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity. We remark that, although the resistivity is what is measured in a lab, throughout this thesis we work with the quantum Hall \emph{conductivity},
+where $n$ is an integer, hence the name \emph{integer quantum Hall effect}. In fact, even in impure samples, this integer can be measured to such extraordinary precision (about one part in $3\times10^{-10})$ that as of 2020, the SI definition of the Ohm itself has been redefined in terms of the quantum Hall resistivity. Clearly deeper physics are at play. 
+
+The first quantum mechanical explanation of the integer-valued Hall conductivity is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, for which he also won the Nobel prize. In this paper, the plateaux are explained using a charge transport argument. 
+
+We remark that, although the resistivity is what is measured in a lab, throughout this thesis we work with the quantum Hall \emph{conductivity},
 
 \[\sigma_H = \frac{q^2}{h}n.\]
 
-The first quantum mechanical explanation of the integer-valued Hall conductivity is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, for which he also won the Nobel prize. Laughlin explained the plateaux using a charge transport argument. 
-
 \subsubsection{The Laughlin Argument}
 
-Rather than a flat sheet, consider gluing the edges to form a cylinder, as depicted in Figure \ref{fig:cylinder}. The cylinder is pierced by a uniform magnetic field $\vec{B}$ normal to its surface. In addition to this background magnetic field, suppose that a magnetic flux $\phi$ is also threaded through the cylinder. 
+Rather than a flat sheet, consider gluing together the $x_2=0$ and $x_2=L$ edges to form a cylinder, as depicted in Figure \ref{fig:cylinder}. The surface of the cylinder is pierced throughout by a uniform magnetic field $\vec{B}$ normal to its surface. In addition to this background magnetic field, suppose that a time-dependent magnetic flux $\phi(t)$ is also threaded through the cylinder. 
 
 \begin{figure}[h!]
 \centering
@@ -532,9 +533,9 @@ Rather than a flat sheet, consider gluing the edges to form a cylinder, as depic
 
 As $\phi(t)$ increases slowly from $\phi(0) = \phi_0$ to $\phi(T) = \phi_0 + \Delta \phi$, the charge increases by $\Delta Q = -\sigma_H \Delta \phi$. This can be seen by Faraday's law,
 
-\[-\frac{d\phi}{dt} = \oint_C\vec{E}\cdot\vec{dl}\]
+\[-\frac{d\phi}{dt} = \oint_C\vec{E}\cdot\vec{dl},\]
 
-combined with the formula for the Hall current, $\vec{J_H} = -\sigma_H \hat{\rho}\times\vec{E}$. The current pumped across the fiducial line $C$ is
+combined with the formula for the Hall current, $\vec{J_H} = -\sigma_H \hat{\rho}\times\vec{E}$. The current pumped across the fiducial line $C$ in Figure \ref{fig:cylinder} is
 
 \[\begin{aligned}
 \frac{dQ}{dt} &= \oint_C \vec{J_H}\cdot\hat{z}dl \\
@@ -545,7 +546,7 @@ combined with the formula for the Hall current, $\vec{J_H} = -\sigma_H \hat{\rho
 &= -\sigma_H\frac{d\phi}{dt}.
 \end{aligned}\]
 
-Thus $\Delta Q = -\sigma_H \Delta \phi$. We now argue that the Hall conductivity must be an integer multiple of $q^2/h$. Suppose that we now unroll the cylinder to work in Cartesian coordinates, but still identify the edges $x=0$ and $x=L$ with periodic boundary conditions. We take the positive $x$-direction to be the opposite direction as $J_H$ in figure \ref{fig:cylinder}, and the positive $y$-direction to be the same as $\vec{E}$ in the figure. We choose the \emph{Landau gauge} for the magnetic field,
+Thus $\Delta Q = -\sigma_H \Delta \phi$. We now use this fact to argue that the Hall conductivity must be an integer multiple of $q^2/h$. For convenience, we ``unroll" the cylinder to work in Cartesian coordinates, but still identify the edges $x=0$ and $x=L$. We take the positive $x$-direction to be the opposite direction as $J_H$ in figure \ref{fig:cylinder}, and the positive $y$-direction to be the same as $\hat{\theta}$ in the figure. We choose the \emph{Landau gauge} for the magnetic field $\vec{B} = B\hat{z}$,
 
 \[\vec{A}_B = \begin{pmatrix} 0 \\ Bx \\ 0 \end{pmatrix},\]
 
@@ -560,7 +561,7 @@ H &= \frac{1}{2m}(\vec{p} - q\vec{A})^2\\
 &= \frac{1}{2m}\left(p_x^2 + \left(p_y - q\left(Bx + \frac{\phi}{2\pi R}\right)\right)^2\right).
 \end{aligned}\]
 
-The fact that the Hamiltonian commutes with the $y$-momentum is evident from the expression above, and allows this us to replace $p_y$ with its eigenvalue, $\hbar k$. The wavenumber is quantized by the periodic boundary condition
+The fact that the Hamiltonian commutes with the $y$-momentum is evident from the expression above, since the only thing that wouldn't commute with $p_y$ is the position operator $y$, which does not appear. This allows us to replace $p_y$ with its eigenvalue, $\hbar k$. The wavenumber $k$ is quantized by the periodic boundary condition
 
 \[e^{i0k} = e^{i 2\pi R k},\]
 
@@ -571,11 +572,11 @@ H_j &= \frac{1}{2m}\left(p_x^2 + \left( \frac{\hbar j}{R} - q\left( Bx + \frac{\
 &= \frac{1}{2m}\left(p_x^2 + q^2B^2 \left(x -  \frac{1}{2\pi RB}\left(\frac{h}{q}j - \phi \right)\right)^2\right).
 \end{aligned}\]
 
-Define the frequency $\omega_B = \frac{qB}{m}$, and the \emph{shift factor}
+Using again the cyclotron frequency $\omega_B = \frac{qB}{m}$, and defining the \emph{shift factor}
 
-\[s_j(\phi) := \frac{1}{2\pi RB}\left(\frac{h}{q}j - \phi \right).\]
+\[s_j(\phi) := \frac{1}{2\pi RB}\left(\frac{h}{q}j - \phi \right),\]
 
-In this notation, the Hamiltonian takes the form
+the Hamiltonian in this notation takes the form
 
 \[H_j = \frac{1}{2m}p_x^2 + \frac{1}{2}m\omega_B^2(x-s_j(\phi))^2.\]
 
@@ -589,7 +590,7 @@ The eigenstates are called \emph{Landau levels}, and they are exponentially loca
 
 where $\ell_B^2 = \frac{\hbar}{qB}$, $C_{n,j}$ are normalization constants, and $H_n$ are the Hermite polynomials. 
 
-The crucial argument now comes from inspecting the shift $s_j(\phi)$. Suppose we adiabatically increase $\phi$ by one \emph{flux quantum}, $\phi_0 \mapsto \phi_0+\frac{h}{q}$, as time evolves from $t=0$ to $t=T$. The adiabatic principle tells us that the eigenstates of the Hamiltonian at $t=0$ must also be an eigenstate of the Hamiltonian at $t=T$. But we can find exactly what the new eigenstate is; the only thing that changes is the shift, which by a simple calculation becomes
+The crucial argument now comes from inspecting the shift $s_j(\phi)$. Suppose we adiabatically increase $\phi$ by one \emph{flux quantum}, $\phi_0 \mapsto \phi_0+\frac{h}{q}$, as time evolves from $t=0$ to $t=T$. The adiabatic principle tells us that the eigenstates of the Hamiltonian at $t=0$ must also be eigenstates of the Hamiltonian at $t=T$. But we can find exactly what the new eigenstates are after the flux quantum is added; the only thing that changes is the shift, which by a simple calculation becomes
 
 \[s_{j}\left(\phi_0+\frac{h}{q}\right) =  \frac{1}{2\pi RB}\left(\frac{h}{q}j-\phi_0-\frac{h}{q}\right) = s_{j-1}(\phi_0).\]
 
@@ -680,24 +681,24 @@ The (exponentially localized) wavefunctions are each transported upward in the $
 \draw [blue, thick, ->] (5.15, 2.35) arc (-5:-22:6);
 
 \end{tikzpicture}
-\caption{Quantum Hall conductance explained using charge transport. The states are exponentially localized and separated by a distance of $s_1(0)$.}
+\caption{Quantum Hall conductance explained using charge transport. The states are exponentially localized and separated by a distance of $s_1(0)$. As $\phi_0 \mapsto \phi_0 + h/q$, the states all shift to the left by $s_1(0)$.}
 \label{fig:chargetransport}
 \end{figure}
 
 
-Heuristically, this diagram explains why charge transport occurs. The landau levels take their usual discrete spectrum, and bend up sharply at the edges. Inspect one filled Landau level. Each of the states is transported to the left.In particular, on the bottom edge of the cylinder (at $x=L$), the single empty state just above the Fermi energy $\mu$ is brought below the Fermi energy. On the top edge, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely transported up, each one filling the other's place. Thus, exactly one charge $q$ is transported from the bottom edge to the top edge. This occurs once per filled Landau level, and thus the total charge transported is 
+Heuristically, this diagram explains why charge transport occurs. The landau levels take their usual discrete spectrum and bend up sharply at the edges where the material ends. Consider one filled Landau level. Each of the states in this level is transported to the left. In particular, on the bottom edge of the cylinder at $x=L$, the single empty state just above the Fermi energy $\mu$ is brought below the Fermi energy (see Figure \ref{fig:chargetransport}). On the top edge, the single filled state just below the Fermi energy is brought above the Fermi energy. Everywhere in between, states are merely shifted up the cylinder, each one filling the other's place. Thus, exactly one charge $q$ is transported from the bottom edge to the top edge. This occurs once per filled Landau level, so the total charge transported by the system is 
 
 \[\Delta Q = -q N_{L}\]
 
-where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delta Q = -\sigma_H \Delta \phi$ now gives us exactly the Hall conductivity which agrees with experiment,
+whenever the magnetic flux increases by $\Delta\phi = \frac{h}{q}$, where $N_{L}$ is the (integer) number of filled Landau levels. Our result $\Delta Q = -\sigma_H \Delta \phi$ now gives us exactly the Hall conductivity which agrees with experiment,
 
 \[\sigma_H = \frac{q^2}{h}N_{L} \quad\quad\quad\quad N_{L}\in\N.\]
 
 \subsubsection{Degeneracy, Disorder, and Plateaux}
 
-The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Furthermore, the argument relies on a fictitious magnetic flux $\phi$. As $\phi \mapsto \phi + h/q$, one charge per Landau level is transported from bottom edge to top. Isn't $\sigma_H$ supposed to increase as $B$ decreases, not as $\phi$ decreases?
+The reasoning above only guarantees the correct value of $\sigma_H$ if the Landau levels are exactly filled. Furthermore, the argument relies on a fictitious magnetic flux $\phi$. As $\phi_0 \mapsto \phi_0 + h/q$, one charge per Landau level is transported from bottom edge to top. But isn't $\sigma_H$ supposed to increase as $B$ decreases, not as $\phi$ decreases?
 
-The idea is that this magnetic flux is purely an explanatory tool used to derive the formula $\sigma_H = N_L \frac{q^2}{h}$. The role of the magnetic field strength $B$ becomes apparent from inspecting the degeneracy of the Landau levels. The number of states $\psi_{n,j}$ per fixed Landau level $n$ must be finite, since $0\leq x \leq L$ implies (roughly) that $-L \leq s_j(\phi) \leq 0$. We ignore $\phi$ since adding $h/q$ only corresponds to $j=1$ extra state, which is insignificant to the calculation. Substituting our expression for the shift $s_j(0)$, the inequality becomes
+The magnetic flux is purely an explanatory tool used to derive the formula $\sigma_H = \frac{q^2}{h}N_L $. The role of the magnetic field strength $B$ becomes apparent from inspecting the degeneracy of the Landau levels. The number of states $\psi_{n,j}$ per fixed Landau level $n$ must be finite, since $0\leq x \leq L$ implies (roughly) that $-L \leq s_j(\phi) \leq 0$. We simply take $\phi=0$, since adding $h/q$ only corresponds to $j=1$ extra state, which is insignificant to the degeneracy of the Landau levels. Substituting our expression for the shift $s_j(0)$, the inequality becomes
 
 \[-L\frac{qBR}{\hbar} \leq j \leq 0.\]
 
@@ -705,13 +706,13 @@ The number of states $N_s$ per Landau level is therefore
 
 \[N_s = L\frac{qBR}{\hbar} = \frac{qBA}{h},\]
 
-where $A = 2\pi R L$ is the total area of the cylinder. From here we see that as $B$ decreases, so too does $N_s$; the electrons must therefore begin to populate higher Landau levels. Once the next highest Landau level is filled, the Hall conductivity is increased by exactly $q^2/h$.
+where $A = 2\pi R L$ is the total area of the cylinder. From here we see that as $B$ decreases, so too does the degeneracy $N_s$; the electrons must therefore begin to populate higher Landau levels. We know that once the next highest Landau level is completely filled, the Hall conductivity will have increased by exactly $q^2/h$.
 
-What about the plateaux? Disorder, i.e. the presence of impurities in a real world material, is required to explain why the Hall conductivity does not change even when Landau levels are only partially filled. We model disorder using a random potential. Under the addition of a suitably small random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted; the spectrum broadens into bands as in Figure \ref{fig:DOS}. Furthermore, while the center of the bands is continuous spectrum (red), the edges of the bands are pure-point (blue) \cite{Combes,Anderson}. This phenomenon is called Anderson localization. 
+What about the plateaux? Ironically, disorder, i.e. the presence of impurities in a real world material, is required to explain why the Hall conductivity does not change even when a Landau level is only partially filled. Disorder is modelled using a random potential. Under the addition of a suitably small random potential to the Hamiltonian, the degeneracy of the Landau levels is lifted and the spectrum broadens into bands as in Figure \ref{fig:DOS}. Furthermore, while the center of the bands is continuous spectrum (red), the edges of the bands are pure-point (blue) \cite{Combes,Anderson}. This phenomenon is called Anderson localization. 
 
 The pure-point states, called \emph{localized states}, contribute nothing to the current, as they have compact support which does not wrap around the cylinder. The effect of $\phi$ on these states can therefore be gauge transformed away, since the domain of their support is simply connected, ensuring that $\vec{A}_\phi$ is a (locally) conservative vector field. This is not the case on the cylinder as a whole, and in particular it is not the case for \emph{extended states} (red), whose domain is not simply connected. Thus only extended states contribute to charge transport.
 
-As the magnetic field strength $B$ decreases, the degeneracy of each Landau level, $N_s = \frac{q}{h}BA$, also decreases. As electrons fill states of higher energy within the band, the Fermi energy increases. However, the states at the edges of the bands (blue) are localized and contribute nothing to the current, and thus leave the Hall conductivity unchanged. This gives rise to the plateaux.
+As $B$ decreases and electrons fill states of higher energy within the band, the Fermi energy $\mu$ increases. However, the states at the edges of the bands (blue) are localized and contribute nothing to the current, and thus leave the Hall conductivity unchanged. This gives rise to the plateaux.
 
 
 
@@ -779,7 +780,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
 \draw[<->,black](axis cs:9,-0.65) -- (axis cs:10,-0.65);
 \end{axis}
 \end{tikzpicture}
-\caption{Disorder, modelled by a small random potential, breaks the degeneracy of the discrete Landau levels $E_n$. The blue states are \emph{localized} and do not contribute to charge transport, while the red states are \emph{extended}. As $B$ decreases, the Fermi energy $\mu$ increases. When $\mu$ moves through the blue (localized) and black (spectral gap) regions, the current (and therefore the Hall conductivity) are not affected; this gives rise to the plateaux observed experimentally. Only once $\mu$ begins moving through the red (extended) region will the Hall conductivity begin to increase to its next plateau.}
+\caption{Disorder, modelled by a small random potential, breaks the degeneracy of the discrete Landau levels $E_n$ into bands. The blue states are \emph{localized} and do not contribute to charge transport, while the red states are \emph{extended}. As $B$ decreases and $\mu$ moves through the blue (localized) and black (spectral gap) regions, the current (and therefore the Hall conductivity) are not affected; this gives rise to the plateaux observed experimentally. Only once $\mu$ begins moving through the red (extended) region will the Hall conductivity begin to increase to its next plateau.}
 \label{fig:DOS}
 \end{figure}
 
@@ -787,7 +788,7 @@ As the magnetic field strength $B$ decreases, the degeneracy of each Landau leve
 \chapter{Noninteracting Bulk-Edge Correspondence}
 \label{cha:noninteracting}
 
-An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Proving this fact, both in the interacting and noninteracting setting, is the main focus of this thesis.
+An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Proving this fact, both in the interacting and noninteracting setting, is the main focus of this thesis. In particular, we are not concerned with proving the existence of plateaux, or even the integrality of the Hall conductivity, but rather the equivalence of the bulk and edge Hall conductivities.
 
 We begin by generalizing from Landau Hamiltonians to a much more general class of Hamiltonians, and derive appropriate formulae for the ``bulk" and ``edge" Hall conductivities in this scenario.
 
@@ -804,7 +805,7 @@ with inner product $\langle x, y\rangle = \sum_{i\in\Z^2} x_i\overline{y_i}$. We
 \begin{assumption}
 There exists some $\alpha>0$ such that
 \[\sup_{y\in\Z^2}\sum_{x\in\Z^2}|H_B(x,y)|(e^{\alpha|x-y|}-1) \leq C < \infty,\]
-where $|x| = |x_1|+|x_2|$ is the taxicab metric.
+where $|x| = |x_1|+|x_2|$ induces the taxicab metric.
 \label{ass:shortrange}
 \end{assumption}
 
@@ -818,9 +819,9 @@ where $|x| = |x_1|+|x_2|$ is the taxicab metric.
 
 We also construct an \emph{edge Hamiltonian} on the lattice $\Z^2_a := \{x \in \Z^2 : x_2 > -a\}$, denoted by $H_a:\ell^2(\Z^2_a) \to \ell^2(\Z^2_a)$. The bulk and edge Hamiltonians are related by the \emph{edge operator} $E_a : \ell^2(\Z^2_a) \to \ell(\Z^2)$,
 
-\[E_a := J_aH_a - H_BJ_a,\]
+\[E_a := \mathcal{J}_aH_a - H_B\mathcal{J}_a,\]
 
-where $J_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We require only that that the edge operator satisfies the edge assumption
+where $\mathcal{J}_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroes. We require only that that the edge operator satisfies the edge assumption
 
 \begin{assumption}
 The edge operator satisfies
@@ -849,36 +850,45 @@ for some $\alpha>0$, where $|x| = |x_1|+|x_2|$ is the taxicab metric.
 
 
 
-The interpretation is that $E_a = J_aH_a - H_BJ_a$ is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$, and then making everything below $-a$ into zeroes, versus first making all $x \in \Z^2$ such that $x_2 < -a$ zeroes, and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent). 
+The interpretation is that $E_a = \mathcal{J}_aH_a - H_B\mathcal{J}_a$ is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$ and then extending by zeroes, versus first making everything below $x_2 = -a$ into zeroes and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also that terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent). 
 
-A simple example of an edge Hamiltonian satisfying the edge condition is $H_a = J_a^*H_BJ_a$, which gives $E_a = (\mathcal{J}_a\mathcal{J}_a^*-1)H_B$. The idea is that for a state $\psi \in \ell^2(\Z^2_a)$, we have $\langle \psi, H_a \psi \rangle = \langle (J_a \psi), H_B (J_a\psi) \rangle$, which we interpret as the edge Hamiltonian having the same expectation as the bulk Hamiltonian if we just transformed all the states with support below the line $x_2=-a$ into zeroes below $x_2=-a$.  The edge operator is 
+A simple example of an edge Hamiltonian satisfying the edge condition is $H_a = \mathcal{J}_a^*H_B\mathcal{J}_a$, which gives $E_a = (\mathcal{J}_a\mathcal{J}_a^*-1)H_B\mathcal{J}_a$. The matrix elements are
 
-\[E_a = (J_aJ_a^*-\One)H_BJ_a = \begin{cases} -H_B(x,y) & \text{if } x_2 < -a \\ 0 & \text{if } x_2\geq -a\end{cases}\]
+\[E_a(x,y) = \begin{cases} -H_B(x,y) & \text{if } x_2 < -a \\ 0 & \text{if } x_2\geq -a\end{cases}\]
 
-Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The edge assumption \ref{ass:edge} then follows from the bound $|E_a(x,y)|\leq |H_B(x,y)|$ and the short range assumption \ref{ass:shortrange}.
+Intuitively, there is no difference between $H_B$ and $H_a$ on $\Z^2_a$. The idea is that for a state $\psi \in \ell^2(\Z^2_a)$, we have $\langle \psi, H_a \psi \rangle = \langle (\mathcal{J}_a \psi), H_B (\mathcal{J}_a\psi) \rangle$, which we interpret as the edge Hamiltonian having the same expectation as the bulk Hamiltonian for states supported above $x_2=-a$. The edge assumption \ref{ass:edge} is satisfied since $|E_a(x,y)|\leq |H_B(x,y)|$, and $H_B$ obeys the short range assumption \ref{ass:shortrange}.
 
 We also make the following assumption about the bulk Hamiltonian.
 
 \begin{assumption}
-The bulk Hamiltonian has a spectral gap. That is, there exists an interval $\Delta \subset \R$ such that for all $L$, 
+The bulk Hamiltonian has a spectral gap. That is, there exists an interval $\Delta \subset \R$ such that 
 \[\Delta \cap \emph{Spec}(H_B) = \varnothing.\]
+\label{ass:gap}
 \end{assumption}
 
 \textit{Remark}: The spectral gap assumption can be relaxed to a ``mobility gap" assumption,
 \[\sup_{f \in B_c(\Delta)}|f(H_B)(x,y)|(1+|x|)^{-\alpha_1}e^{\alpha_2|x-y|} < \infty\]
 for some $\alpha_1>0$, where $B_c(\Delta)$ is the set of Borel functions $f$ which are constant on $(-\infty,\inf \Delta)$ and on $(\sup \Delta, \infty)$ such that $|f(x)| \leq 1$ for all $x$~\cite{Graf:Noninteracting}.
 
-We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential difference $V$ in the $x_2$ direction. We write this as $V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators $\Lambda_i |\psi(x_1,x_2)\rangle = \Lambda(x_i)|\psi(x_1,x_2)\rangle$ which are \textit{switch functions},
+We define the \textit{bulk conductivity} at Fermi energy $\mu$ as follows. Suppose we subject the system to an external electric potential $V(x_2)$ in the $x_2$ direction. We write this as $V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators 
+
+\[\Lambda_i |\psi(x_1,x_2)\rangle = \Lambda(x_i)|\psi(x_1,x_2)\rangle\]
+
+where
 
 \[\Lambda : \R\to\R \quad\quad\quad\quad \Lambda(x_i) = \begin{cases} 1 & \text{if } x_i \leq 0 \\ 0 & \text{if } x_i \geq1\end{cases}\]
 
-and are smooth and monotonically decreasing on $(0,1)$. Note that the ensuing physics (in particular, our definition of the Hall conductivity) is independent of the particular choice of switch function $\Lambda_i$, since any two switch functions are exactly equal on the lattice. 
+is called a \textit{switch functions}, which is smooth and monotonically decreasing on $(0,1)$. Note that the ensuing physics (in particular, our definition of the Hall conductivity) is independent of the particular choice of switch function $\Lambda_i$, since any two switch functions are exactly equal on the lattice. 
 
-This gives $\vec{E}=-\nabla V = -V_0\frac{\partial \Lambda_2}{\partial x_2}$, so that $\vec{E}$ is has compact support $\text{supp}(\Lambda_2')$. We introduce a function which grows slowly in time as $t$ grows from $-\infty$ to 0, so as to invoke the adiabatic principle. Here, we choose $e^{\eps t}$, and we will let $\eps\to 0$ at the end. The Hamiltonian therefore experiences a perturbation, 
+%This gives $\vec{E}=-\nabla V = -V_0\frac{\partial \Lambda_2}{\partial x_2}$, so that $\vec{E}$ is has compact support $\text{supp}(\Lambda_2')$. 
+
+We introduce a function which grows slowly in time as $t$ grows from $-\infty$ to 0, so as to invoke the adiabatic principle later. We choose $e^{\eps t}$, and we will let $\eps\to 0$ at the end. The perturbation is $\Delta H_B(t) = V_0\Lambda_2 e^{\eps t}$, and the perturbed Hamiltonian is
 
 \[\widetilde{H}_B(t) = H_B + V_0\Lambda_2 e^{\eps t}.\]
 
-We define the Hall current operator $J_H = i[\widetilde{H}_B(t), \Lambda_1] = i[H_B,\Lambda_1]$, which is related to the Hall conductivity by $J_H = \sigma_H V$. We also denote by $P_\mu := P((-\infty,\mu])$ the projection-valued measure associated with $H_B$ onto states with energy below the Fermi energy $\mu$ (see Appendix \ref{sec:pvm}).
+We define the Hall current operator $J_H = -i[\widetilde{H}_B(t), \Lambda_1] = -i[H_B,\Lambda_1]$, which measures the current across the fiducial line $x_1=0$. %It is related to the Hall conductivity by $J_H = \sigma_H E$, where $E = -\nabla V = -V_0\frac{\partial \Lambda_2}{\partial x_2}$. 
+
+We also denote by $P_\mu := P((-\infty,\mu])$ the projection-valued measure associated with $H_B$ onto states with energy below the Fermi energy $\mu$, which is assumed to lie in the spectral gap $\Delta$ (see Appendix \ref{sec:pvm}).
 
 %\begin{lemma}
 %The ground state expectation $\emph{Tr}(P_\mu J_H)$ of the Hall current is zero.
@@ -899,19 +909,19 @@ The Hall conductivity $\sigma_H$ in the bulk system is equal to
 \[\sigma_B = -i\emph{Tr}\left(P_\mu \left[[P_\mu,\Lambda_1],[P_\mu,\Lambda_2]\right]\right).\]
 \end{proposition}
 \begin{proof}
-We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition $\lim_{t\to-\infty} \|\rho(t) - e^{-itH_B}P_\mu e^{itH_B}\| = 0$, which also implies $\lim_{t\to-\infty} \|e^{itH_B}\rho(t)e^{-itH_B} - P_\mu\| = 0$.
+We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition $\lim_{t\to-\infty} \|\rho(t) - e^{itH_B}P_\mu e^{-itH_B}\| = 0$, which is equivalent to $\lim_{t\to-\infty} \|e^{-itH_B}\rho(t)e^{itH_B} - P_\mu\| = 0$.
 
-We work in the interaction picture by defining $\rho_I(t) = e^{itH_B}\rho(t)e^{-itH_B}$ and $\Delta H_B(t) = e^{itH_B}V_0\Lambda_2 e^{\eps t}e^{-itH_B}$. Thus
+We work in the interaction picture by defining $\rho_I(t) = e^{-itH_B}\rho(t)e^{itH_B}$ and $\Delta H_B(t) = e^{-itH_B}V_0\Lambda_2 e^{\eps t}e^{itH_B}$. Thus
 
 \[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)].\]
 
 The exact solution to this differential equation is readily verified to be
 
-\[\rho_I(t) = i\int_{-\infty}^t [\Delta H_B(s), \rho_I(t)]ds + P_\mu. \]
+\[\rho_I(t) = i\int_{-\infty}^t [\Delta H_B(s), \rho_I(s)]ds + P_\mu. \]
 
-Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), P_\mu] = i[\Delta H_B(t), \rho_I(t)]$, and the initial condition is also satisfied. This also shows that
+Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), \rho_I(t)]$, and the initial condition $\norm{\rho_I(t) - P_\mu} \to 0$ is also satisfied. This also shows that
 
-\[\norm{\rho_I(t)-P_\mu} \leq 2\int_{-\infty}^t \norm{V_0\Lambda_2 e^{\eps s} P_\mu}ds = \mathcal{O}(V_0),\]
+\[\norm{\rho_I(t)-P_\mu} \leq 2\int_{-\infty}^t \norm{V_0\Lambda_2 e^{\eps s} \rho_I(t)}ds = \mathcal{O}(V_0),\]
 
 which implies $[\Delta H_B(s), \rho_I(t)] = [\Delta H_B(s), P_\mu] + \mathcal{O}(V_0^2)$. Therefore
 
@@ -922,18 +932,18 @@ The Hall conductivity is (by definition) the linear response coefficient, which 
 \[\begin{aligned}
 \sigma_H &= \lim_{V_0\to 0}\lim_{\eps\to 0} \frac{\Tr(\rho_I(0)J_H) - \Tr(P_\mu J_H)}{V_0} \\
 %&= \lim_{V_0\to 0} \lim_{\eps\to 0}\frac{1}{V_0} \Tr((\rho_I(0) - P_\mu)i[H_B,\Lambda_1])\\
-&=\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right),
+&=-\lim_{V_0\to 0}  \lim_{\eps\to 0} \frac{i}{V_0} \Tr \left( i\int_{-\infty}^0 [\Delta H_B(s), P_\mu] [H_B,\Lambda_1] ds\right),
 \end{aligned}\]
 
 where we used the fact that the error $\mathcal{O}(V_0^2)$ introduced by replacing $\rho_I$ with $P_\mu$ vanishes in the limit $V_0\to 0$. Some simplifications can be made,
 
 \[\begin{aligned}
-\sigma_H &= -\lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [e^{isH_B}V_0\Lambda_2 e^{\eps s}e^{-isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
-&= -\lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{isH_B}[\Lambda_2, P_\mu]e^{-isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
-&= -\lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right),\\
+\sigma_H &= \lim_{V_0\to 0} \lim_{\eps\to 0} \frac{1}{V_0} \Tr \left( \int_{-\infty}^0 [e^{-isH_B}V_0\Lambda_2 e^{\eps s}e^{isH_B}, P_\mu] [H_B,\Lambda_1] ds\right)\\
+&= \lim_{V_0\to 0} \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 e^{-isH_B}[\Lambda_2, P_\mu]e^{isH_B}[H_B,\Lambda_1] e^{\eps s}ds\right)\\
+&= \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}[H_B,\Lambda_1]e^{-isH_B})\cdot([\Lambda_2, P_\mu] e^{\eps s})ds\right),\\
 \end{aligned}\]
 
-where we used the fact that $P_\mu$ and $H_B$ commute. We also dropped the limit $V_0\to 0$ in the final line because, even though the limits may not commute in general, the expression is independent of $V_0$. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = -ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
+where we used cyclicity of the trace and the fact that $P_\mu$ and $H_B$ commute. We also dropped the limit $V_0\to 0$ in the final line because, even though the limits may not commute in general, the expression is independent of $V_0$. Using integration by parts on the two terms in brackets, and noting that $\frac{d}{ds}(e^{isH_B}\Lambda_1 e^{-isH_B} - \Lambda_1) = ie^{isH_B}[H_B,\Lambda_1] e^{-isH_B}$, we obtain
 
 \[\begin{aligned}
 \sigma_H &= -i \lim_{\eps\to 0}\Tr \left( \int_{-\infty}^0 (e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1)\frac{d}{ds}([\Lambda_2, P_\mu] e^{\eps s})ds\right)\\
@@ -948,27 +958,27 @@ where $\Lambda_1^s := e^{isH_B}\Lambda_1e^{-isH_B} - \Lambda_1$. Using the notat
 
 The integrand can be broken into two terms, 
 
-\[\overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s} = e^{-isH_B}\overline{\Lambda_1}e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} - \overline{\Lambda_1}[\Lambda_2, P_\mu]e^{\eps s}\]
+\[\overline{\Lambda_1^s}[\Lambda_2, P_\mu] e^{\eps s} = e^{isH_B}\overline{\Lambda_1}e^{-isH_B}[\Lambda_2, P_\mu]e^{\eps s} - \overline{\Lambda_1}[\Lambda_2, P_\mu]e^{\eps s}\]
 
 by commutativity of $P_\mu$ and $H_B$. We show that the integral of the first term vanishes. We begin by breaking the first term down further into
 
-\[e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} + e^{-isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s}.\]
+\[e^{isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{-isH_B}[\Lambda_2, P_\mu]e^{\eps s} + e^{isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{-isH_B}[\Lambda_2, P_\mu]e^{\eps s}.\]
 
-We treat the first of these two terms; the other is handled in an identical manner. We invoke the spectral theorem (Appendix \ref{sec:pvm}) to write $e^{-isH_B}P_\mu = \int_{-\infty}^\mu e^{-is\lambda}dP_\lambda$, and similarly $P_\mu^\perp e^{isH_B} = (\One- P_\mu) e^{isH_B} = \int_\mu^\infty e^{is\nu} dP_\nu$. 
+We treat the first of these two terms; the other is handled in an identical manner. We invoke the spectral theorem (Appendix \ref{sec:pvm}) to write $e^{isH_B}P_\mu = \int_{-\infty}^\mu e^{is\lambda}dP_\lambda$, and similarly $P_\mu^\perp e^{-isH_B} = (\One- P_\mu) e^{-isH_B} = \int_\mu^\infty e^{-is\nu} dP_\nu$. 
 
-We remark that, since the Fermi energy $\mu$ is assumed to lie in a spectral gap, there must exist a neighbourhood $(\mu-\delta, \mu+\delta)$ in which there are no states. We exploit this fact to rewrite the limits of integration, $\int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda$ and $\int_{\mu+\delta}^\infty e^{is\nu} dP_\nu$. We therefore obtain
+Since the Fermi energy $\mu$ is assumed to lie in a spectral gap, there must exist a neighbourhood $(\mu-\delta, \mu+\delta)$ in which there are no states. We exploit this fact to rewrite the limits of integration, $\int_{-\infty}^{\mu-\delta} e^{is\lambda}dP_\lambda$ and $\int_{\mu+\delta}^\infty e^{-is\nu} dP_\nu$. We therefore obtain
 
 \[\begin{aligned} 
-\lim_{\eps\to 0} &\eps \int_{-\infty}^0 e^{-isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s} ds \\
-&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} e^{-is\lambda}dP_\lambda \Lambda_1 \int_{\mu+\delta}^\infty e^{is\nu} dP_\nu [\Lambda_2, P_\mu] e^{\eps s} ds\right)\\
-&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} \int_{\mu+\delta}^\infty e^{s(\eps-i\lambda+i\nu)}dP_\lambda \Lambda_1 dP_\nu [\Lambda_2, P_\mu]ds\right)\\
+\lim_{\eps\to 0} &\eps \int_{-\infty}^0 e^{isH_B}P_\mu \Lambda_1 P_\mu^\perp e^{-isH_B}[\Lambda_2, P_\mu]e^{\eps s} ds \\
+&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} e^{is\lambda}dP_\lambda \Lambda_1 \int_{\mu+\delta}^\infty e^{-is\nu} dP_\nu [\Lambda_2, P_\mu] e^{\eps s} ds\right)\\
+&\quad\quad= \lim_{\eps\to 0} \eps \Tr\left( \int_{-\infty}^0 \int_{-\infty}^{\mu-\delta} \int_{\mu+\delta}^\infty e^{s(\eps-i\nu+i\lambda)}dP_\lambda \Lambda_1 dP_\nu [\Lambda_2, P_\mu]ds\right)\\
 \end{aligned}\]
 
 Performing the integral over $s$ yields
 
-\[\lim_{\eps\to 0}\eps \int_{-\infty}^0 e^{s(\eps-i\lambda+i\nu)}ds = -\lim_{\eps\to 0} \frac{\eps}{i\eps + \lambda-\nu}\]
+\[\lim_{\eps\to 0}\eps \int_{-\infty}^0 e^{s(\eps-i\nu+i\lambda)}ds = -\lim_{\eps\to 0} \frac{\eps}{i\eps + \nu - \lambda}\]
 
-This limit is zero, since $\lambda \neq \nu$. Indeed, due to the spectral gap, the integration variables live in $\lambda \in (-\infty, \mu-\delta)$ and $\nu \in (\mu+\delta,\infty)$. The case for the $e^{-isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{isH_B}[\Lambda_2, P_\mu]e^{\eps s}$ term (where the $P_\mu$ and $P_\mu^\perp$ swap places) is treated analogously. Hence the first term in the integrand for $\sigma_H$ vanishes, as claimed. 
+This limit is zero, since $\lambda \neq \nu$. Indeed, due to the spectral gap, the integration variables live in $\lambda \in (-\infty, \mu-\delta)$ and $\nu \in (\mu+\delta,\infty)$. The case for the $e^{isH_B}P_\mu^\perp \Lambda_1 P_\mu e^{-isH_B}[\Lambda_2, P_\mu]e^{\eps s}$ term (where the $P_\mu$ and $P_\mu^\perp$ swap places) is treated analogously. Hence the first term in the integrand for $\sigma_H$ vanishes, as claimed. 
 
 Finally, we return to our expression for the Hall conductivity, which now reads
 
@@ -990,14 +1000,14 @@ The justification for shifting the commutator is that $[\Lambda_1,P_\mu][\Lambda
 
 \[\norm{[\Lambda_1,P_\mu][\Lambda_2,P_\mu]}_1 \leq \norm{[\Lambda_1,P_\mu]e^{3\delta |x_1|}e^{-\delta|x|}} \cdot \norm{e^{-\delta|x|}}_1 \cdot \norm{e^{3\delta|x_2|}e^{-\delta|x|} [\Lambda_2,P_\mu]}\]
 
-where $|x| = |x_1|+|x_2|$ and the $e^{-\delta|x|}$ term is trace-class by lemma \ref{lemma:exptraceclass}.
+where $|x| = |x_1|+|x_2|$, and the $e^{-\delta|x|}$ term is trace-class by lemma \ref{lemma:exptraceclass}.
 \end{proof}
 
-\textit{Remark:} This is reminiscent of the well-known adiabatic curvature formula,
+%\textit{Remark:} This is reminiscent of the well-known adiabatic curvature formula,
 
-\[\kappa = \Tr(P[\partial_1P,\partial_2 P]) = \Tr(P\left[ [P,K_1], [P,K_2] \right]) = \Tr(P[K_1,K_2]),\]
+%\[\kappa = \Tr(P[\partial_1P,\partial_2 P]) = \Tr(P\left[ [P,K_1], [P,K_2] \right]) = \Tr(P[K_1,K_2]),\]
 
-where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. 
+%where $K_i$ are called \textit{generators of parallel transport}. We will see the adiabatic curvature formula again later in the interacting setting. 
 
 For the \textit{edge conductivity}, we again need the current operator across the line $x_1=0$, which is this time given by $-i[H_a,\Lambda_1]$. We define 
 
@@ -1007,7 +1017,7 @@ where $\rho \in C^\infty(\R)$ satisfies
 
 \[\rho(r) = \begin{cases} 1 & \text{if } r\leq\inf\Delta\\ 0 & \text{if } r\geq\sup\Delta\end{cases}\]
 
-and decreases smoothly and monotonically in $\Delta$. The definition of $\sigma_E$ is reminiscent of another formula we will see later in the interacting setting, $\Tr(\dot{P}J)$, where $J$ is the current operator. The interpretation of $\sigma_E$ is that if we apply a small potential difference $V$ across $x_2=-a$ to $x_2=\infty$, there will be a net current
+and decreases smoothly and monotonically in $\Delta$. The definition of $\sigma_E$ is reminiscent of another formula we will see later in the interacting setting, $\Tr(\dot{P}J)$, where $J$ is the current operator. The interpretation of $\sigma_E$ is that if we apply a small potential difference $V$ across $x_2=-a$ to $x_2=\infty$, there will be a net Hall current
 
 \[\begin{aligned}
 I &= -i\Tr(\rho(H_a+V)[H_a+V,\Lambda_1] - \rho(H_a)[H_a,\Lambda_1])\\
@@ -1087,14 +1097,14 @@ Before giving the proof in its entirety, we outline the basic steps. Lemma \ref{
 
 \[\sigma_E(a) = -i\Tr(\rho'(H_a)[H_a,\Lambda_1]\Lambda_2),\]
 
-since we have assumed that there is a spectral gap (as opposed to a mobility gap), so that there are extended states near the edge, and no bound states or resonances far from the edge. Thus, intuitively, the cutoff introduced by $\Lambda_2$ is irrelevant as we take $a\to\infty$. We provide a more concrete justification for this later in Lemma \ref{lemma:edgeconductivitylimit}.
+since we have assumed that there is a spectral gap (as opposed to a mobility gap), so that there are extended states near the edge, and no bound states or resonances far from the edge. Thus, intuitively, the cutoff introduced by $\Lambda_2$ is irrelevant as we take the edge $a\to\infty$. We provide a more concrete justification for this later in Lemma \ref{lemma:edgeconductivitylimit}.
 
-The key ingredient of the proof is the use of the functional calculus given by the Helffer-Sj\"{o}strand representation of self-adjoint operators on a Hilbert space (Appendix \ref{sec:helffersjostrand}). The two crucial operators written in their Helffer-Sj\"{o}strand representations are
+The key ingredient of the proof is the use of the functional calculus given by the Helffer-Sj\"{o}strand representation of self-adjoint operators on a Hilbert space (Appendix \ref{sec:helffersjostrand}). The two crucial operators for the proof written in their Helffer-Sj\"{o}strand representations are
 
 \[\rho(H) = -\frac{1}{2\pi} \int_\C \frac{\partial\tilde{\rho}}{\partial\bar{z}} R(z)dz\wedge d\bar{z}\]
 \[\rho'(H) = \frac{1}{2\pi} \int_\C \frac{\partial\tilde{\rho}}{\partial\bar{z}} R(z)^2dz\wedge d\bar{z}\]
 
-where $R(z) = (H-z)^{-1}$ is the resolvent of $H$. For ease of notation, we drop the $dz\wedge d\bar{z}$ from this point. 
+where $R(z) = (H-z)^{-1}$ is the resolvent of $H$. For ease of notation, we write $dz^2=dz\wedge d\bar{z}$ from this point. 
 
 Another key observation is that it turns out that the bulk conductivity can actually be written
 
@@ -1142,26 +1152,44 @@ Thus, our goal is to show that
 
 Define 
 
-\[ Z(a) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2 \]
+\[ Z(a) = [\rho(H_a),\Lambda_1]\Lambda_2 - \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2.\]
 
-This operator has zero trace. Indeed, the first term has vanishing trace in the position basis, while the second term's integrand involves the trace of $[R,R]=0$. The bounds necessary for shifting the commutator like this are on 
+\begin{lemma}
+The two terms in $Z(a)$ are separately trace-class, and the trace of each is zero. 
+\label{lemma:TrZ=0}
+\end{lemma}
+\begin{proof}
 
-\[\norm{[H_a,\Lambda_1]e^{\delta |x_1|}}, \quad \norm{e^{-\delta |x_1|}\Lambda_2}_1, \quad \norm{R},\]
+In the Helffer-Sj\"{o}strand representation, the first term is
 
-%the first two of which are given below in Lemmas \ref{lemma:keybound}, \ref{lemma:exptraceclass}, and the third is obvious since $\norm{R}$ is bounded and $\Lambda_2$ provides a cutoff which ensures $e^{\delta|x_2|}$ is finite (fix this; need to add). 
+\[[\rho(H_a),\Lambda_1]\Lambda_2 = \frac{1}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}}[R_a(z),\Lambda_1]dz^2.\]
 
-the first two of which are given below in Lemmas \ref{lemma:keybound}, \ref{lemma:exptraceclass}, and the third is the fact that the resolvent is bounded. So $\sigma_E(a) = \Tr(\Sigma(a))$, where
+The operator in the integrand can be broken into four factors, 
+
+\[[R_a(z),\Lambda_1] = -R_a(z)[H_a,\Lambda_1]e^{\delta|x_1|}\cdot e^{-\delta|x|}\cdot e^{\delta|x_2|}R_a(z) e^{-\delta|x_2|} \cdot e^{\delta|x_2|}\Lambda_2.\]
+
+Lemma \ref{lemma:keybound} bounds the first factor, Lemma \ref{lemma:exptraceclass} ensures the second is trace-class, the Combes-Thomas bound $\norm{e^{\eps f(x)}R(z)e^{-\eps f(x)}} \leq C |\text{Im}(z)|^{-1}$ takes care of the third, and the fourth is bounded by $1$. Finally, Lemma \ref{lemma:HSbound} guarantees integrability. Thus $[\rho(H_a),\Lambda_1]\Lambda_2$ is trace-class, and it clearly has vanishing trace since shifting the commutator gives $[\Lambda_1,\Lambda_2]=0$.
+
+The second term of $Z(a)$ is also trace-class because $[H_a,\Lambda_1]\Lambda_2$ is, which can be seen by breaking it into
+
+\[[H_a,\Lambda_1]\Lambda_2 = [H_a,\Lambda_1]e^{\delta|x_1|} \cdot e^{-\delta |x|} \cdot e^{\delta |x_2|} \Lambda_2.\]
+
+Again, $\norm{e^{\delta |x_2|} \Lambda_2} \leq 1$ and Lemmas \ref{lemma:keybound} and \ref{lemma:exptraceclass} are enough to conclude the operator is trace-class. The commutator in the integrand can therefore be shifted to give $[R_a(z),R_a(z)]=0$. 
+\end{proof}
+
+So $\sigma_E(a) = \Tr(\Sigma(a))$, where
 
 \[\begin{aligned}
 \Sigma(a) &=  -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + iZ(a)\\
-&= -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + i[\rho(H_a),\Lambda_1]\Lambda_2 - \frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2.
+&= -i\rho'(H_a)[H_a,\Lambda_1]\Lambda_2 + i[\rho(H_a),\Lambda_1]\Lambda_2 \\
+&\quad\quad\quad\quad - \frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[R_a(z),[H_a,\Lambda_1]\Lambda_2] dz^2.
 \end{aligned}\]
 
 Using the Hellfer-Sj\"{o}strand representations for the first two terms on the right hand side, we obtain
 
 \[\begin{aligned}
 \Sigma(a) &= \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)^2[H_a,\Lambda_1]\Lambda_2 dz^2 + \frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)[H_a,\Lambda_1]R_a(z)\Lambda_2dz^2 \\
-&\quad\quad\quad\quad - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} (R_a(z)^2[H_z,\Lambda_1]\Lambda_2 - R_a(z)[H_a,\Lambda_1]\Lambda_2 R_a(z)) dz^2\\
+&\quad\quad\quad\quad - \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial\bar{z}} (R_a(z)^2[H_a,\Lambda_1]\Lambda_2 - R_a(z)[H_a,\Lambda_1]\Lambda_2 R_a(z)) dz^2\\
 &= -\frac{i}{2\pi}\int_\C\frac{\partial \tilde{\rho}}{\partial\bar{z}} R_a(z)[H_a,\Lambda_1][R_a(z),\Lambda_2]dz^2\\
 &= \frac{i}{2\pi}\int_\C \frac{\partial \tilde{\rho}}{\partial \bar{z}} R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z) dz^2,
 \end{aligned}\]
@@ -1170,17 +1198,17 @@ where we used
 
 \[[R_a(z),\Lambda_i] = -R_a(z)[H_a,\Lambda_i]R_a(z)\]
 
-in the final equality. Next, we must prove that the operator above converges to the corresponding bulk operator in trace-norm,
+in the final equality. The goal is to prove that the operator $\Sigma(a)$ converges to the corresponding bulk operator in trace-norm,
 
-\[ \norm{\Sigma(a) - \Sigma_B}_1 \to 0,\]
+\[ \norm{\Sigma(a) - \Sigma_B}_1 \to 0\]
 
-as $a\to\infty$, which in turn proves that $\Tr(\Sigma(a))\to\Tr(\Sigma_B)$ because of the bound $|\Tr(A)|\leq \norm{A}_1$. Here, $\Sigma_B$ is the same operator as before, but using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = \Tr(\Sigma_B)$ to conclude the proof. 
+as $a\to\infty$, which in turn proves that $\Tr(\Sigma(a))\to\Tr(\Sigma_B)$ because of the bound $|\Tr(A)|\leq \norm{A}_1$. Here, $\Sigma_B$ is the same operator as before, but defined using the bulk operators $H_B$ and $R_B(z)$. Once this limit is established, we shall prove that $\sigma_B = \Tr(\Sigma_B)$ to conclude the proof. 
 
 To show that the limit is zero as claimed, we bound the trace norm of the integrand of $\Sigma(a)$ with the ultimate goal of applying dominated convergence. We accomplish this bound by breaking it into three parts,
 
-\[R[H_a,\Lambda_1]R[H_a,\Lambda_2]R = J_a[R,\Lambda_1]e^{\delta|x_1|}J_a^*\cdot e^{-\delta|x_1|}e^{-\delta|x_2|}\cdot J_ae^{\delta|x_2|}[H_a, \Lambda_2]RJ_a^*,\]
+\[R_a[H_a,\Lambda_1]R_a[H_a,\Lambda_2]R_a = -\mathcal{J}_a[R_a,\Lambda_1]e^{\delta|x_1|}\mathcal{J}_a^*\cdot e^{-\delta|x|}\cdot \mathcal{J}_ae^{\delta|x_2|}[H_a, \Lambda_2]R_a\mathcal{J}_a^*,\]
 
-and bounding the norm of each with the following two lemmas. We remark that the extension $J_a$ and its adjoint have norm $1$.
+and bounding the norm of each with the following two lemmas. We remark that the extension $\mathcal{J}_a$ and its adjoint have norm $1$.
 
 \begin{lemma}
 \[\norm{[H_a, \Lambda_i]e^{\delta|x_i|}} \leq C.\]
@@ -1235,10 +1263,10 @@ so that its trace norm is equal to its trace. In the position basis, we see that
 
 
 
-Now we return to the integrand which was broken into three parts. For the first term, $J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^*$, we bound its operator norm by breaking it down further into
+Now we return to the integrand which was broken into three parts. For the first term, $\mathcal{J}_a[R_a(z),\Lambda_1]e^{\delta|x_1|}\mathcal{J}_a^*$, we bound its operator norm by breaking it down further into
 
 \[\begin{aligned}
-\|J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^*\| &= \|[R_a(z),\Lambda_1]e^{\delta|x_1|}\| \\
+\|\mathcal{J}_a[R_a(z),\Lambda_1]e^{\delta|x_1|}\mathcal{J}_a^*\| &= \|[R_a(z),\Lambda_1]e^{\delta|x_1|}\| \\
 &=\norm{-R_a(z)[H_a,\Lambda_1]R_a(z)e^{\delta|x_1|}}\\
 &\leq \norm{R_a(z)}\cdot \norm{[H_a,\Lambda_1]e^{\delta|x_1|}}\cdot \norm{e^{-\delta|x_1|}R_a(z)e^{\delta|x_1|}}.
 \end{aligned}\]
@@ -1255,63 +1283,61 @@ where $f:\Z^2\to\R$ is any Lipschitz function, and $\eps$ can be chosen as $\eps
 
 \[\frac{C}{\text{Im}(z)^2}.\]
 
-The second term of the integrand is bounded by Lemma \ref{lemma:exptraceclass}. Finally, the bound for the third term of the integrand, $e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)$, follows from the bound on $R$ and Lemma \ref{lemma:keybound}, and is again of the form $\frac{C}{\text{Im}(z)^2}$.
+The second term of the integrand is trace-class by Lemma \ref{lemma:exptraceclass}. Finally, the bound for the third term of the integrand, $e^{\delta|x_2|} [H_a,\Lambda_2] R_a(z)$, follows from the bound on $R$ and Lemma \ref{lemma:keybound}, and is again of the form $\frac{C}{\text{Im}(z)^2}$.
 
-Altogether, it follows from $\norm{AB}_1 \leq \norm{A}\norm{B}_1$ that the trace norm of the integrand is bounded by $\frac{C}{\text{Im}(z)^4}$. 
+Altogether, the trace norm of the integrand is bounded by 
 
-We now appeal to a general fact of the Helffer-Sj\"{o}strand functional calculus to provide domination. For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sj\"{o}strand representation can be chosen so that 
+\[\norm{R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z)}_1 \leq \frac{C}{\text{Im}(z)^4},\]
 
-\[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^{n+2 }\norm{\rho^{(k)}}_{k-p-1},\]
+%We now appeal to a general fact of the Helffer-Sj\"{o}strand functional calculus to provide domination. For any $n\in \N$, the quasi-analytic extension $\tilde{\rho}$ of $\rho$ in the Helffer-Sj\"{o}strand representation can be chosen so that 
 
-where the norms on the right hand side are defined by 
+%\[\int_\C\frac{\partial \tilde{\rho}}{\partial \bar{z}} \frac{1}{|\text{Im}(z)|^{p+1}}dz^2 \leq C_0 \sum_{k=0}^{n+2 }\norm{\rho^{(k)}}_{k-p-1},\]
 
-\[\norm{f}_{m} = \int_{-\infty}^\infty |f(x)|(x^2+1)^{m/2}dx.\]
+%where the norms on the right hand side are defined by 
 
-Since $|\rho(x)|\leq 1$ and $\rho'$ is compactly supported, these norms are all clearly finite. This fact, combined with the bound 
+%\[\norm{f}_{m} = \int_{-\infty}^\infty |f(x)|(x^2+1)^{m/2}dx.\]
 
-\[\norm{R_a(z)[H_a,\Lambda_1]R_a(z)[H_a,\Lambda_2]R_a(z)}_1 \leq \frac{C}{\text{Im}(z)^4}\]
+%Since $|\rho(x)|\leq 1$ and $\rho'$ is compactly supported, these norms are all clearly finite. This fact, combined with the bound 
 
-for the trace norm of the integrand of $\Sigma(a)$ provides the necessary bound for Lebesgue dominated convergence. Thus, it suffices to show pointwise convergence in $z$ of the integrand to the associated bulk operator. 
+so Lemma \ref{lemma:HSbound} provides the necessary bound for dominated convergence of $\Sigma(a)$ in $a$. Thus, it suffices to show pointwise convergence in $z$ of the integrand of $\Sigma(a)$ to the integrand of $\Sigma_B$, i.e.
 
-In other words, we wish to show 
+\[ \mathcal{J}_a[R_a(z),\Lambda_1]e^{\delta|x_1|}\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1]e^{\delta|x_1|},\]
 
-\[ J_a[R_a(z),\Lambda_1]e^{\delta|x_1|}J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1]e^{\delta|x_1|},\]
-
-\[J_ae^{\delta|x_2|}[H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} e^{\delta|x_2|}[H_B, \Lambda_2],\]
+\[\mathcal{J}_ae^{\delta|x_2|}[H_a,\Lambda_2]\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} e^{\delta|x_2|}[H_B, \Lambda_2],\]
 
 and 
 
-\[J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)\]
+\[\mathcal{J}_aR_a(z)\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} R_B(z)\]
 
-for each fixed $z\in\C$. Inspecting the bounds we found for the left hand sides of these limits, it is clear that they are uniformly bounded in $a$. It therefore suffices to show convergence on a dense subspace of $\ell^2(\Z^2)$ (see Lemma \ref{lemma:densesubspace}); in particular, we may choose the dense subspace of compactly supported states, which allows us to ignore the $e^{\delta|x_i|}$ terms. Thus, we need to prove 
+for each fixed $z\in\C$. Inspecting the bounds we found for the left hand sides of these limits, it is clear that they are in fact uniformly bounded in $a$. By Lemma \ref{lemma:densesubspace}, it therefore suffices to show convergence on a dense subspace of $\ell^2(\Z^2)$; in particular, we may choose the dense subspace of compactly supported states, which allows us to ignore the $e^{\delta|x_i|}$ terms. Thus, we need to prove 
 
-\[ J_a[R_a(z),\Lambda_1]J_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1],\]
+\[ \mathcal{J}_a[R_a(z),\Lambda_1]\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} [R_B(z), \Lambda_1],\]
 
-\[J_a [H_a,\Lambda_2]J_a^* \xrightarrow{\enskip s \enskip} [H_B, \Lambda_2],\]
+\[\mathcal{J}_a [H_a,\Lambda_2]\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} [H_B, \Lambda_2],\]
 
 and 
 
-\[J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z).\]
+\[\mathcal{J}_aR_a(z)\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} R_B(z).\]
 
-In fact, the final statement implies the first two; we appeal to the general fact of functional analysis that strong convergence of the resolvent of a self-adjoint operator implies that $J_a f(H_a) J_a^* \xrightarrow{\enskip s \enskip} f(H_B)$ for any bounded and continuous function $f$. In particular, it follows from Lemma \ref{lemma:keybound} that the functions $[(\cdot - z)^{-1}, \Lambda_1]$ and $[\cdot, \Lambda_2]$ above are bounded and continuous, so we will have proven the desired limits if we can prove the strong convergence of the resolvent, $J_aR_a(z)J_a^* \xrightarrow{\enskip s \enskip} R_B(z)$.
+In fact, the final statement implies the first two; we appeal to the general fact of functional analysis that strong convergence of the resolvent of a self-adjoint operator implies that $\mathcal{J}_a f(H_a) \mathcal{J}_a^* \xrightarrow{\enskip s \enskip} f(H_B)$ for any bounded and continuous function $f$ (\cite{reedsimon} Theorem VIII.20). In particular, it follows from $[R,\Lambda_i] = -R[H,\Lambda_i]R$ and Lemma \ref{lemma:keybound} that the functions $[(\cdot - z)^{-1}, \Lambda_1]$ and $[\cdot, \Lambda_2]$ above are bounded and continuous, so we will have proven the desired limits if we can prove strong convergence of the resolvent, $\mathcal{J}_aR_a(z)\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} R_B(z)$.
 
-To prove this, we use the edge assumption. Recall the edge operator, $E_a = J_aH_a - H_BJ_a$. Adding and subtracting $zJ_a$ gives
+To prove this, we use the edge assumption. Recall the edge operator, $E_a = \mathcal{J}_aH_a - H_B\mathcal{J}_a$. Adding and subtracting $z\mathcal{J}_a$ gives
 
-\[E_a = J_a(H_a-z) - (H_B-z)J_a.\]
+\[E_a = \mathcal{J}_a(H_a-z) - (H_B-z)\mathcal{J}_a.\]
 
 Applying $R_B$ from the left and $R_a$ from the right on both sides, we obtain 
 
-\[R_B(z)E_aR_a(z) = R_B(z)J_a - J_aR_a(z).\]
+\[R_B(z)E_aR_a(z) = R_B(z)\mathcal{J}_a - \mathcal{J}_aR_a(z).\]
 
-Taking the adjoint, and then multiplying from the left by $J_a$, we see that 
+Taking the adjoint, and then multiplying from the left by $\mathcal{J}_a$, we see that 
 
-\[J_aR_a(z)E_a^*R_B(z) = J_aJ_a^*R_B(z) - J_aR_a(z)J_a^*.\]
+\[\mathcal{J}_aR_a(z)E_a^*R_B(z) = \mathcal{J}_a\mathcal{J}_a^*R_B(z) - \mathcal{J}_aR_a(z)\mathcal{J}_a^*.\]
 
 Thus
 
-\[R_B(z) - J_aR_a(z)J_a^* = (J_aR_a(z)E_a^* - J_aJ_a^* + 1)R_B(z)  \xrightarrow{\enskip s \enskip} 0,\]
+\[R_B(z) - \mathcal{J}_aR_a(z)\mathcal{J}_a^* = (\mathcal{J}_aR_a(z)E_a^* - \mathcal{J}_a\mathcal{J}_a^* + \One)R_B(z)  \xrightarrow{\enskip s \enskip} 0,\]
 
-since $E^*_a \xrightarrow{\enskip s \enskip} 0$ by Lemma \ref{lemma:edge}, and $- J_aJ_a^* + 1 \xrightarrow{\enskip s \enskip}  0$. This proves that the limits above converge to the desired associated bulk operators, and hence $\norm{\Sigma(a) -  \Sigma_B}_1 \to 0$.
+since $E^*_a \xrightarrow{\enskip s \enskip} 0$ by Lemma \ref{lemma:edge}, and $- \mathcal{J}_a\mathcal{J}_a^* + \One \xrightarrow{\enskip s \enskip}  0$. This proves that the limits above converge to the desired associated bulk operators, and hence $\norm{\Sigma(a) -  \Sigma_B}_1 \to 0$. This also shows that $\Tr(\Sigma(a)) \to \Tr(\Sigma_B)$, and thus $\Sigma_B$ is trace-class.
 
 Finally, it remains to show that  
 
@@ -1327,21 +1353,23 @@ First, we manipulate
 
 Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$, the projections onto states above and below the gap, respectively. Since $H_B$ is assumed to have a gap, it follows that $P_-+P_+=\One$, and thus 
 
-\[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)) = \Tr(P_+\Sigma_BP_+) + \Tr(P_-\Sigma_BP_-).\]
+\[\Tr(\Sigma_B) = \Tr((P_-+P_+)\Sigma_B (P_-+P_+)) = \Tr(P_+\Sigma_BP_+) + \Tr(P_-\Sigma_BP_-),\]
 
-We now argue that the integral term in $P_\pm \Sigma_B P_\pm$ vanishes. Consider $P_+R_B$; this is analytic on $\C \setminus (-\infty,\sup\Delta)$. However, the integrand is zero on $(-\infty,\sup\Delta)$, since $\tilde{\rho}=0$ there. Thus $\tilde{\rho} P_+ R_B$ is analytic on the entire complex plane. The integral can therefore be written
+where we've used the fact that $\Sigma_B$ is trace-class to cycle the projections and get rid of the $P_-P_+=0$ terms. We now argue that the integral term in $P_\pm \Sigma_B P_\pm$ vanishes. 
 
-\[\int_{\C \setminus (-\infty,\sup\Delta)}\frac{\partial \tilde{\rho}}{\partial \bar{z}}P_\pm R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_\pm dz^2.\]
+Consider $P_-R_B$ and $R_BP_-$. The only place $R_B$ is non-analytic is on the spectrum of $H_B$; in particular, $R_B$ is analytic on the gap $\Delta$. Furthermore, $P_-$ is equal to $0$ on $(\inf\Delta,\infty)$. From these two facts, it follows that $P_-R_B$ and $R_BP_-$ are analytic on $\C \setminus (\sup\Delta,\infty)$. However, the integrand is zero on $(\sup\Delta,\infty)$, since $\tilde{\rho}=0$ there. Thus $\tilde{\rho} P_- R_B$ and $\tilde{\rho}R_BP_-$ are analytic on the entire complex plane. The integral can therefore be written
 
-Since the operator in the integrand is analytic, the derivative $\frac{\partial}{\partial\bar{z}}$ can be made to act on the entire integrand rather than only on $\tilde{\rho}$. Furthermore, since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$ and $| \partial_{\bar{z}} \tilde{\rho} |$ can be made to decay with any power law $\mathcal{O}(\text{Im}(z)^k)$ as $\text{Im}(z)\to 0$ (see Appendix \ref{cha:HS}), we may write the integral as a limit of disks,
+\[\int_{\C}\frac{\partial}{\partial \bar{z}}\left(  \tilde{\rho}(z) P_- R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_- \right)dz^2,\]
+
+with the derivative $\frac{\partial}{\partial\bar{z}}$ acting on the entire integrand rather than only on $\tilde{\rho}(z)$. Furthermore, since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$ and $| \partial_{\bar{z}} \tilde{\rho} |$ can be made to decay with any power law $\mathcal{O}(\text{Im}(z)^k)$ as $\text{Im}(z)\to 0$ (see Appendix \ref{cha:HS}), we may write the integral as a limit of disks,
 
 %$P_\pm R_B(z)$ and $R_B(z) P_\pm$ are analytic on $\text{supp}(\rho(z))$ and $\text{supp}(1-\rho(z))$ (need to add), the $\frac{\partial}{\partial \bar{z}}$ in the integrand of $P_\pm \Sigma_B P_\pm$ can be made to act on the entire integrand as opposed to just $\tilde{\rho}$. Since $R_B(z)$ is bounded in norm by $|\text{Im}(z)|^{-1}$, we may write the integral as a limit of disks,
 
-\[\lim_{r\to\infty}\int_{B_r(0)\setminus (-\infty,\sup\Delta)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_+ R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_+) dz^2,\]
+\[\lim_{r\to\infty}\int_{B_r(0)}\frac{\partial}{\partial \bar{z}}(\tilde{\rho}(z)P_- R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_-) dz^2,\]
 
 where domination is provided by Lemma \ref{lemma:HSbound}. Stokes' theorem then says that the above integral is bounded in norm by
 
-\[\lim_{r\to\infty}\int_{\partial B_r(0)}\tilde{\rho}(z)P_+ R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_+ dz.\]
+\[\lim_{r\to\infty}\int_{\partial B_r(0)}\tilde{\rho}(z)\norm{P_- R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_-} dz.\]
 
 The decay of $\norm{R_B(z)}\leq \text{dist}(z,\text{Spec}(H_B))^{-1}$ and boundedness of the extension $\tilde{\rho}(z)$ (since $|\rho(x)|\leq 1$) ensure that the limit of this integral as $r\to\infty$ is zero. Indeed, the norm of the integral is bounded by
 
@@ -1349,32 +1377,28 @@ The decay of $\norm{R_B(z)}\leq \text{dist}(z,\text{Spec}(H_B))^{-1}$ and bounde
 
 which vanishes as $r\to\infty$ since the spectrum of the bulk Hamiltonian is bounded, and Lemma \ref{lemma:keybound} bounds the norm of the operator in the numerator. 
 
-As for the integral appearing in $P_-\Sigma_BP_-$, we note that analogous to the argument above, $R_BP_-$ is analytic on $\C\setminus(\inf\Delta,\infty)$, and thus $R_BP_-(1-\tilde{\rho})$ is analytic on all of $\C$. Replacing $\partial_{\bar{z}}\tilde{\rho} = \partial_{\bar{z}}(1-\tilde{\rho})$ leaves the integral unchanged, and the rest of the argument follows as before. Thus the integral term in $\Sigma_B$ is zero, and
+As for the integral appearing in $P_+\Sigma_BP_+$, we note that analogous to the argument above, $R_BP_+$ and $P_+R_B$ are analytic on $\C\setminus(-\infty,\inf\Delta)$, and thus $(1-\tilde{\rho})R_BP_+$ and $(1-\tilde{\rho})P_+R_B$ are analytic on all of $\C$, since $1-\tilde{\rho}$ is zero on $(-\infty,\inf\Delta)$. Replacing $\frac{\partial \tilde{\rho}}{\partial\bar{z}}$ with $\frac{\partial (1-\tilde{\rho})}{\partial\bar{z}}$ of course leaves the integral unchanged, and the rest of the argument follows as before. Thus the integral term in $\Sigma_B$ is zero, and
 
 %vanishes by integration by parts (need to add). Thus
 
-\[\Tr(\Sigma_B) = i\Tr(P_+[\rho(H_B),\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[\rho(H_B),\Lambda_1]\Lambda_2P_-),\]
+\[\Tr(\Sigma_B) = i\Tr(P_+[\rho(H_B),\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[\rho(H_B),\Lambda_1]\Lambda_2P_-).\]
 
 %(Need to add reasoning for why the operators are trace-class, because really we have $(P_-+P_+)A(P_-+P_+)=A$, and we need to cylce $P_\pm$ to rid the terms $P_-P_+$). 
 
-since $[\rho(H_B),\Lambda_1]\Lambda_2$ is trace-class (need to add) which allows us to employ cyclicity of the trace to cancel the terms with both $P_-$ and $P_+$. By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
+By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}, if the Fermi energy lies in the gap, $\lambda \in \Delta$, we have
 
-\[ \rho(H_B) = \int_{-\infty}^\infty \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda \rho(\lambda) dP_\nu = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
+\[ \rho(H_B) = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
 
-We may therefore replace $\rho(H_B)$ by $P_\lambda$, by which we obtain
+We may therefore replace $\rho(H_B)$ by $P_\lambda$, by which we obtain $\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-)$. We must relate this expression to the bulk conductivity. An algebraic calculation shows that that 
 
-\[\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-).\]
+\[P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]] = P_\lambda\Lambda_2P_\lambda^\perp\Lambda_1P_\lambda - P_\lambda\Lambda_1P_\lambda^\perp\Lambda_2P_\lambda.\]
 
-Now we must relate this expression to the bulk conductivity. It is an algebraic check that 
-
-\[P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]] = P_\lambda\Lambda_2P_\lambda^\perp\Lambda_1P_\lambda - P_\lambda\Lambda_1P_\lambda^\perp\Lambda_2P_\lambda\]
-
-are equal as operators. The two terms on the right hand side are separately trace-class by Lemma \ref{lemma:seperatelytraceclass}, so that the bulk conductivity is given by
+The two terms on the right hand side are separately trace-class by Lemma \ref{lemma:seperatelytraceclass}, so that by cyclicity of the trace, the bulk conductivity is given by
 
 \[\begin{aligned}
 \sigma_B &= i\Tr(P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1P_\lambda - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2 P_\lambda)\\
 %&= i\Tr(P_\lambda\Lambda_2 P_\lambda^\perp \Lambda_1P_\lambda -  P_\lambda^\perp \Lambda_2 P_\lambda\Lambda_1)\\
-&= i\Tr(P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda ). \\
+&= i\Tr(P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda ) \\
 &= \Tr(T_\lambda),
 \end{aligned} \]
 
@@ -1390,7 +1414,7 @@ are equal as operators. The two terms on the right hand side are separately trac
 %&= i\Tr(P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda -  P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp).
 %\end{aligned}\]
 
-Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda$. We must now show that
+Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_\lambda^\perp - P_\lambda\Lambda_1 P_\lambda^\perp \Lambda_2P_\lambda$. To finish the proof, we must show that
 
 %Since both terms of $T_\lambda$ are separately trace-class, we obtain
 
@@ -1400,7 +1424,7 @@ Where we've defined $T_\lambda := P_\lambda^\perp \Lambda_1 P_\lambda\Lambda_2P_
 
 \[P_\pm T_\lambda P_\pm = P_\pm [P_\lambda, \Lambda_1]\Lambda_2 P_\pm.\]
 
-First, notice that because of the gap, we have $P_\lambda^\perp P_- = 0$, and thus also $P_\lambda P_- = P_-$. Thus
+First, notice that because of the gap, we have $P_\lambda^\perp P_- = 0$ and $P_\lambda P_- = P_-$. Thus
 
 \[\begin{aligned}
 P_- T_\lambda P_- &=  P_-P_\lambda \Lambda_1 P_\lambda^\perp \Lambda_2 P_\lambda P_-\\
@@ -1408,7 +1432,7 @@ P_- T_\lambda P_- &=  P_-P_\lambda \Lambda_1 P_\lambda^\perp \Lambda_2 P_\lambda
 &= P_-[P_\lambda,\Lambda_1]\Lambda_2 P_-,
 \end{aligned}\]
 
-and similarly, for $P_+$, we have $P_\lambda^\perp P_+ = P_+$, and $P_\lambda P_- = 0$, which implies
+as desired. By a similar argument, for $P_+$ we have $P_\lambda^\perp P_+ = P_+$ and $P_\lambda P_- = 0$, which implies
 
 \[\begin{aligned}
 P_+ T_\lambda P_+ &=  -P_+P_\lambda^\perp \Lambda_1 P_\lambda \Lambda_2 P_\lambda^\perp P_+\\
@@ -1521,40 +1545,39 @@ A \textit{local interaction} is a map $\Phi : \mathcal{P}(\Gamma_L) \to \U_L$ su
 
 \end{enumerate}
 
-We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. In the left white region $[0,L/2] \times [0,L]$, $H_0$ is a trivial Hamiltonian which we take to be empty space (we take $H_0=0$), and in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a \textit{local Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_L} \Phi(X)$, is a sum of local interactions. We define the Hamiltonian of the full system to be 
+We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. In the left white region $[0,L/2] \times [0,L]$, $H_0$ is a trivial Hamiltonian which we take to be empty space (we take $H_0=0$), and in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a \textit{local Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_L} \Phi(X)$, is a sum of local interactions. This replaces assumption \ref{ass:shortrange}. We define the Hamiltonian of the full system to be 
 
 \[H_\mu = H_1 + \mu Q_h,\]
 
 where $Q_h = \sum_{x \in \Gamma_h} a_x^*a_x$ is the number operator for the region $\Gamma_h = [L/4,3L/4] \times [0,L]$ shown in red. This introduces a driving strength; the $\mu Q_h$ term can be viewed as a potential difference $V(x)$.
 
-\newpage
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
-\fill[color=blue!30] (7.5,0) rectangle (15,10);
-\draw[gray, thick] (7.5,0) -- (7.5,10);
-\fill[pattern=north east lines, pattern color=red!30] (3.75,0) rectangle (11.25,10);
-\fill[pattern=north west lines, pattern color=yellow!30] (0,5) rectangle (15,10);
-\draw[blue, thick] (0,0) rectangle (15,10);
-\draw[dashed, color=yellow] (0,5) -- (15,5);
-\draw[dashed, color=red] (3.75,0) -- (3.75,10);
-\draw[dashed, color=red] (11.25,0) -- (11.25,10);
+\fill[color=blue!30] (6,0) rectangle (12,12);
+\draw[gray, thick] (6,0) -- (6,12);
+\fill[pattern=north east lines, pattern color=red!30] (3,0) rectangle (9,12);
+\fill[pattern=north west lines, pattern color=yellow!30] (0,6) rectangle (12,12);
+\draw[blue, thick] (0,0) rectangle (12,12);
+\draw[dashed, color=yellow] (0,6) -- (12,6);
+\draw[dashed, color=red] (3,0) -- (3,12);
+\draw[dashed, color=red] (9,0) -- (9,12);
 \node[] at (1,1) {$H_0$};
-\node[] at (14,1) {$H_1$};
-\node[color=red] at (10.25,4) {$\Gamma_h$};
-\node[color=yellow] at (10.25,9) {$\Gamma_u$};
+\node[] at (11,1) {$H_1$};
+\node[color=red] at (7,5) {$\Gamma_h$};
+\node[color=yellow] at (7,10) {$\Gamma_u$};
 \end{tikzpicture}
-\caption{The cylinder $\Gamma_L$.}
+\caption{The left and right edges are identified to form the cylinder $\Gamma_L$. The charge operator $Q_h$ introdcues a driving strength. The Hall current is measured across the dashed yellow line $y=L/2$.}
 \label{fig:setup}
 \end{figure}
 
-We also consider the plane $\Z^2$. In this setting, there are no edge states, and so the associated ``bulk" Hamiltonian $H_B$ is assumed to have a \textit{gapped} spectrum, in the sense that
+We also consider a bulk system, which is modelled in the plane $\Z^2$. In this setting, there are no edge states, and so the associated ``bulk" Hamiltonian $H_B$ is assumed to have a \textit{gapped} spectrum, as in assumption \ref{ass:gap}.
 
-\begin{assumption}
-\[\emph{Spec}(H_B) = \mathcal{S}_{-} \cup \mathcal{S}_{+},\]
-where $\inf\mathcal{S}_{+} - \sup \mathcal{S}_{-} \geq \gamma$ uniformly in $L$ and $\mu$ for some $\gamma > 0$. 
-\label{ass:gap}
-\end{assumption}
+%\begin{assumption}
+%\[\emph{Spec}(H_B) = \mathcal{S}_{-} \cup \mathcal{S}_{+},\]
+%where $\inf\mathcal{S}_{+} - \sup \mathcal{S}_{-} \geq \gamma$ uniformly in $L$ and $\mu$ for some $\gamma > 0$. 
+%\label{ass:gap}
+%\end{assumption}
 
 In the case of the cylinder, this effect does not necessarily occur due to the presence of the edge. 
 We also assume that the Hamiltonian is \emph{locally charge-conserving}.
@@ -1564,7 +1587,7 @@ $[\Phi(X),Q] = 0$, where $Q$ is the total charge in $\Gamma_L$.
 \label{ass:charge}
 \end{assumption}
 
-Let $P_B$ be the ground state projection of $H_B$ (the system without an edge), and let $P$ be the ground state projection of $H$ (the system with an edge). We assume that states far from the edge are essentially bulk states, up to tails that vanish quickly in $L$.
+Let $P_B$ be the ground state projection of $H_B$ (the system without an edge), and let $P$ be the ground state projection of $H$ (the system with an edge). We assume that states far from the edge are essentially bulk states, up to tails that vanish quickly in $L$. In fact, they vanish faster than any power of $L$. We say that such a function $g(x)$ decays \emph{superpolynomially} or \emph{almost-exponentially} in $x$ if for all $n$, there exists a $C_n$ such that $g(x) \leq C_nx^{-n}$ for all $x>x_0$ for some $x_0$. We denote superpolynomial decay by $|g(x)| = \mathcal{O}(x^{-\infty})$. In our setting, we often write $A = \mathcal{O}(L^{-\infty})$, which is a shorthand to say that the norm of $A$ decays superpolynomially in $L$.
 
 \begin{assumption}
 Define the \emph{edge region }
@@ -1579,7 +1602,7 @@ The $A$ on the right hand side is understood to be the extension by zeroes of $A
 \label{ass:bulk}
 \end{assumption}
 
-The idea is that observables localized far away from the edge are not affected by the edge of the system. We similarly define the \emph{bulk region}
+This replaces the edge assumption \ref{ass:edge}. The idea is that observables localized far away from the edge are not affected by the edge of the system. We similarly define the \emph{bulk region}
 
 \[\Gamma_B = [3L/4-k, 3L/4+k] \times [0,L],\]
 
@@ -1589,61 +1612,51 @@ and the \emph{middle region}
 
 The three regions are depicted in figure \ref{fig:regions}.
 
+
+
+
 \newpage
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
-\fill[color=blue!30] (7.5,0) rectangle (15,10);
-\draw[gray, thick] (7.5,0) -- (7.5,10);
+\fill[color=blue!30] (6,0) rectangle (12,12);
+\draw[gray, thick] (6,0) -- (6,12);
 
 \draw[black,thick] (0,-0.5) -- (0,0);
-\node[] at (0.25,-0.5) {$0$};
-\draw[black,thick] (3.725,-0.5) -- (3.725,0);
-\node[] at (4,-0.5) {$\frac{L}{4}$};
-\draw[black,thick] (7.5,-0.5) -- (7.5,0);
-\node[] at (7.75,-0.5) {$\frac{L}{2}$};
-\draw[black,thick] (11.25,-0.5) -- (11.25,0);
-\node[] at (11.6,-0.5) {$\frac{3L}{4}$};
-\draw[black,thick] (15,-0.5) -- (15,0);
-\node[] at (15.25,-0.5) {$L$};
+\node[] at (0,-0.8) {$0$};
+\draw[black,thick] (3,-0.5) -- (3,0);
+\node[] at (3,-0.8) {$\frac{L}{4}$};
+\draw[black,thick] (6,-0.5) -- (6,0);
+\node[] at (6,-0.8) {$\frac{L}{2}$};
+\draw[black,thick] (9,-0.5) -- (9,0);
+\node[] at (9,-0.8) {$\frac{3L}{4}$};
+\draw[black,thick] (12,-0.5) -- (12,0);
+\node[] at (12,-0.8) {$L$};
 
-%\fill[pattern=north east lines, pattern color=red!30] (3.75,0) rectangle (11.25,10);
-%\fill[pattern=north west lines, pattern color=yellow!30] (0,5) rectangle (15,10);
-\draw[blue, thick] (0,0) rectangle (15,10);
-%\draw[dashed, color=yellow] (0,5) -- (15,5);
-%\draw[dashed, color=red] (3.75,0) -- (3.75,10);
-%\draw[dashed, color=red] (11.25,0) -- (11.25,10);
-%\node[] at (1,1) {$H_0$};
-%\node[] at (14,1) {$H_1$};
-%\node[color=red] at (10.25,4) {$\Gamma_h$};
-%\node[color=yellow] at (10.25,9) {$\Gamma_u$};
+\draw[blue, thick] (0,0) rectangle (12,12);
 
-\draw[dashed, color=black] (6.75,0) -- (6.75,10);
-\draw[dashed, color=black] (8.25,0) -- (8.25,10);
-\fill[pattern=north west lines, pattern color=green!80] (6.75,0) rectangle (8.25,10);
-\node[color=green] at (7.825,1) {$\Gamma_E$};
+\draw[dashed, color=black] (5.25,0) -- (5.25,12);
+\draw[dashed, color=black] (6.75,0) -- (6.75,12);
+\fill[pattern=north west lines, pattern color=green!80] (5.25,0) rectangle (6.75,12);
+\node[color=green] at (6.375,1) {$\Gamma_E$};
 
-%\draw[dashed, color=brown] (8.25,0) -- (8.25,10);
-%\draw[dashed, color=brown] (10.5,0) -- (10.5,10);
-\fill[pattern=north west lines, pattern color=brown!80] (8.25,0) rectangle (10.5,10);
-\node[color=brown] at (9.25,1) {$\Gamma_m$};
+\fill[pattern=north west lines, pattern color=brown!80] (6.75,0) rectangle (8.25,12);
+\node[color=brown] at (7.5,1) {$\Gamma_m$};
 
-\draw[dashed, color=black] (10.5,0) -- (10.5,10);
-\draw[dashed, color=black] (12,0) -- (12,10);
-\fill[pattern=north west lines, pattern color=white!80] (10.5,0) rectangle (12,10);
-\node[color=white] at (11.25,1) {$\Gamma_B$};
+\draw[dashed, color=black] (8.25,0) -- (8.25,12);
+\draw[dashed, color=black] (9.75,0) -- (9.75,12);
+\fill[pattern=north west lines, pattern color=white!80] (8.25,0) rectangle (9.75,12);
+\node[color=white] at (9,1) {$\Gamma_B$};
 
-%\draw[dashed, color=brown] (12,0) -- (12,10);
-%\draw[dashed, color=brown] (14.25,0) -- (14.25,10);
-\fill[pattern=north west lines, pattern color=brown!80] (12,0) rectangle (14.25,10);
-\node[color=brown] at (13.125,1) {$\Gamma_m$};
+\fill[pattern=north west lines, pattern color=brown!80] (9.75,0) rectangle (11.25,12);
+\node[color=brown] at (10.5,1) {$\Gamma_m$};
 
-\draw[dashed, color=black] (14.25,0) -- (14.25,10);
-\fill[pattern=north west lines, pattern color=green!80] (14.25,0) rectangle (15,10);
-\node[color=green] at (14.625,1) {$\Gamma_E$};
+\draw[dashed, color=black] (11.25,0) -- (11.25,12);
+\fill[pattern=north west lines, pattern color=green!80] (11.25,0) rectangle (12,12);
+\node[color=green] at (11.625,1) {$\Gamma_E$};
 
-\draw[dashed, color=black] (0.75,0) -- (0.75,10);
-\fill[pattern=north west lines, pattern color=green!80] (0,0) rectangle (0.75,10);
+\draw[dashed, color=black] (0.75,0) -- (0.75,12);
+\fill[pattern=north west lines, pattern color=green!80] (0,0) rectangle (0.75,12);
 \node[color=green] at (0.4,1) {$\Gamma_E$};
 \end{tikzpicture}
 \caption{The regions $\Gamma_E$, $\Gamma_B$, and $\Gamma_m$.}
@@ -1652,10 +1665,18 @@ The three regions are depicted in figure \ref{fig:regions}.
 
 
 
+To summarize, the interacting Hamiltonian of both the edge system and the bulk system is finite-range, and follows assumptions \ref{ass:gap}, \ref{ass:charge}, and \ref{ass:bulk}, but not \ref{ass:shortrange} and \ref{ass:edge}.
+
+
+
+
+
+
 
 \section{Equality of Bulk and Edge Currents}
 
 \subsection{Cylinder Geometry}
+\label{subsec:cylinder}
 
 Let $P_\mu$ be the (possibly degenerate) ground state projection of $H_\mu$. Let $Q_u = \sum_{x \in \Gamma_u} a_x^* a_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$ (the yellow region in Figure \ref{fig:setup}), and define current operator 
 
@@ -1705,20 +1726,20 @@ where
 
 \[\mathcal{I}_{\mu} (A) = \int_\R W(t) e^{itH_\mu} A e^{-itH_\mu}dt.\]
 
-Here, $W:\R\to\R$ is a bounded, $L^1(\R)$ function satisfying
+Here, $W:\R\to\R$ is an odd, bounded, $L^1(\R)$ function satisfying
 
 \begin{enumerate}
 \item $|W(t)| = \mathcal{O}(|t|^{-\infty})$,
 \item $\widehat{W}(\xi) = \frac{i}{\xi}$ for all $|\xi| \geq \text{Len}(\Delta)$,
 \end{enumerate}
 
-where $\widehat{W}$ is the Fourier transform, taken here to be $\hat{f}(\xi) = \int_\R f(t)e^{-i t \xi}dt$. Such a function can be constructed explicitly~\cite{Bachmann_2011}. In our setting, we see that 
+where $\widehat{W}$ is the Fourier transform, taken here to be $\hat{f}(\xi) = \int_\R f(t)e^{-i t \xi}dt$. Such a function can be constructed explicitly~\cite{Bachmann_2011}. We emphasize the necessity of the spectral gap $\Delta$ in the construction of $W$. In our setting, we see that 
 
 \[K_\mu = \mathcal{I}_\mu(Q_h).\]
 
  %As a shorthand, we use the notation $\dot{A}_{\mu_0}= (\frac{d}{d\mu}A_\mu)|_{\mu=\mu_0}$. 
 
-We present two important properties of the map $\mathcal{I}_\mu:\mathcal{U}_L\to\mathcal{U}_L$ in the following lemmas, and leave their proofs to the appendix (need to add). 
+We present two important properties of the map $\mathcal{I}_\mu:\mathcal{U}_L\to\mathcal{U}_L$ in the following lemmas.
 
 First, recall a definition from the non-interacting setting: an \emph{off-diagonal} operator is an operator $A$ such that $A = \overline{A} := P_\mu AP_\mu^\perp + P_\mu^\perp AP_\mu$, where $P_\mu^\perp = \mathbb{I} - P_\mu$ is the projection onto the excited states above the gap.
 
@@ -1734,6 +1755,42 @@ First, recall a definition from the non-interacting setting: an \emph{off-diagon
 \end{enumerate}
 \label{lemma:inverseofH}
 \end{lemma}
+\begin{proof}
+Let $\widehat{W}(\xi) = \int_\R W(t) e^{- i t \xi} dt$ be the Fourier transform of $W$ and let $A$ be any observable. First, we show that $\mathcal{I}([H,PAP^\perp]) = iPAP^\perp$. 
+
+Decomposing 
+
+\[\begin{aligned}
+e^{itH}P &= \sum_{j=0}^\infty \frac{(itH)^j}{j!} P \\
+&= \sum_{j =0}^\infty \frac{(it)^j}{j!} \left(\sum_n E_n^j P_n\right)P \\
+&= \sum_{j=0}^\infty \frac{(it)^j}{j!} \sum_{n : E_n=0} E_n^j P_n \\
+&= \sum_{n : E_n=0} e^{itE_n}P_n,
+\end{aligned}\]
+
+and similarly 
+
+\[P^\perp e^{-itH}= \sum_{m:E_m \geq \gamma}P_m e^{-itE_m},\]
+
+we see that
+
+\[\begin{aligned}
+\mathcal{I}([H,PAP^\perp]) &= \mathcal{I}(P[H,A]P^\perp) \\
+&= \int_\R W(t)e^{itH}P[H,A]P^\perp e^{-itH}dt \\
+&= \int_\R W(t) \sum_{n : E_n=0} e^{itE_n}P_n [H,A] \sum_{m:E_m \geq \gamma} P_m e^{-itE_m} dt\\
+&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} \int_\R W(t) e^{itE_n} P_n A (E_n-E_m) P_m e^{-itE_m}dt\\
+&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \int_\R W(t) e^{-it(E_m - E_n)} dt\\
+&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \widehat{W}(E_m-E_n) \\
+&= i\sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m\\
+&= iPAP^\perp,
+\end{aligned}\]
+
+since $\widehat{W}(\xi) = i\xi^{-1}$ for all $|\xi|\geq \text{Len}(\Delta)$. If the spectrum of $H$ is continuous, the sums can be replaced by integrals with respect to the spectral measure $P_\lambda$, as in \ref{thm:spectraltheorem}. Either way, the use of domination to interchange the integral over $t$ and the other sums/integrals is provided by the fact that $W,\widehat{W}\in L^1$. By the same argument, $\mathcal{I}([H,P^\perp AP]) = iP^\perp AP$ as well, and so $\mathcal{I}([H,\overline{A}]) = i\overline{A}$, which concludes the proof of part (1).
+
+Part (2) of the lemma follows from the observation that $[A,P]$ is off-diagonal, and since $P$ and $H$ commute, we have by part (1)
+
+\[[\mathcal{I}([H,A]),P] = \mathcal{I}([[H,A],P]) = \mathcal{I}([H,[A,P]]) = i[A,P].\]
+\end{proof}
+
 
 %It is easy to verify that any operator $A$ behaves as an off-diagonal operator when taking a commutator with $P$, in the sense that
 
@@ -1746,13 +1803,66 @@ First, recall a definition from the non-interacting setting: an \emph{off-diagon
 Another important property of the map $\mathcal{I}_\mu$ is that it preserves locality.
 
 \begin{lemma}
-$\mathcal{I}_\mu$ is local in the sense that for any $A \in \mathcal{U}_X$, 
+Let $A$ be a bounded, trace-class operator supported in $X$, and let $S = (X^r)^\mathsf{c}$ be the set of all sites whose distance from $X$ is at least $r$. $\mathcal{I}_\mu$ is quasi-locality preserving in the sense that
 
-\[\norm{\mathcal{I}(A)_{(X^r)^\mathsf{c}}} \leq \norm{A} |X| \mathcal{O}(r^{-\infty})\]
+\[\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))} = \mathcal{O}(r^{-\infty}).\]
 
-where $X^r = X \cup \{ x : d(x,X) \leq r\}$ is the $r$-fattening of $X$.
 \label{lemma:local}
 \end{lemma}
+\begin{proof}
+Let $A(t) = e^{itH}Ae^{-itH}$ be the time evolution of $A$. We see that $\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))}$ is bounded by
+
+\[\begin{aligned}
+\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt + \int_{\R\setminus[-T,T]}|W(t)|\norm{A(t) - \tr_S(A(t))} dt.
+\end{aligned}\]
+
+We treat each of the integrals separately. For the first, by the Lieb-Robinson bound (Proposition \ref{prop:Haar}) we have
+
+\[\begin{aligned}
+\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq |X|\norm{A} \norm{W}_\infty \int_{-T}^T e^{-\frac{r-v|t|}{\xi}}dt \\
+&= \frac{2\xi}{v} |X|\norm{A} \norm{W}_\infty e^{-\frac{r}{\xi}}( e^{\frac{vT}{\xi}}-1).\\
+\end{aligned}\]
+
+For the second term, notice that the bound
+
+\[\norm{A(t) - \tr_S(A(t))} \leq \norm{A} + |\Tr(A)| =: C\]
+
+holds uniformly in $t$, and $C$ is finite by assumption. We therefore obtain
+
+\[\begin{aligned}
+\int_{\R\setminus[-T,T]} |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq 2C \int_T^\infty |W(t)|dt.
+\end{aligned}\]
+
+Let $M(T):=\int_T^\infty |W(t)|dt$ and fix $n \in \N$. Since $|W|$ is bounded and obeys $|W(t)| = \mathcal{O}(|t|^{-\infty})$, it follows that $|W(t)| \leq C_n|t|^{-n}$ for some $C_n$, and thus 
+
+\[M(T) \leq \frac{C_n}{n+1}\frac{1}{T^{n+1}}.\]
+
+Since this holds for all $n$, we have $M(T) = \mathcal{O}(T^{-\infty})$.  Finally, putting the two integrals together, we have
+
+\[\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))} \leq \frac{2\xi}{v}|X|\norm{A}\norm{W}_\infty e^{-\frac{r}{\xi}}(e^{\frac{vT}{\xi}}-1) + \mathcal{O}(T^{-\infty}).\]
+
+We conclude by optimizing with the choice $T = \frac{r}{2v}$ so that the first term decays exponentially and the superpolynomial term dominates, leaving $\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))} = \mathcal{O}(r^{-\infty})$.
+
+%Note that any operator can be written as the telescoping sum
+
+%\[\mathcal{I}(A) = \tr_X(\mathcal{I}(A)) + \sum_{j=1}^\infty \left(\tr_{X^{(j)}}(\mathcal{I}(A)) - \tr_{X^{(j-1)}}(\mathcal{I}(A))\right),\] 
+
+%where $\tr_Y$ denoted the partial trace over $Y$, and $Y^\alpha$ denotes the $\alpha$-fattening of $Y$. 
+
+%Our goal is to prove that $\norm{\tr_{X^{(j)}}(\mathcal{I}(A)) - \mathcal{I}(A)} \leq \norm{A} |X| \mathcal{O}(j^{-\infty})$. To that end, we break the integral $\mathcal{I}(A)$ into two terms,
+
+%\[\mathcal{I}(A) = \int_{-T}^T W(t) e^{itH}Ae^{-itH}dt + \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt.\]
+
+%We break the integral into two parts,
+
+%\[\norm{\mathcal{I}(A)} \leq \bigg\lVert\int_{-T}^T W(t) e^{itH}Ae^{-itH}dt \bigg\rVert + \bigg\lVert \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt\bigg\rVert.\]
+
+%The first term can be estimated using the Lieb-Robinson bound found in Appendix~\ref{sec:L-R}.
+
+\end{proof}
+
+The idea of the previous lemma is that for an operator $A$ supported in $X$, $\mathcal{I}(A)$ can be well-approximated by an operator supported in $X^r$.
+
 
 \begin{proposition}
 The operator $K_\mu$ is the \emph{generator of parallel transport}, satisfying
@@ -1865,50 +1975,181 @@ since $W(t)$ is odd. By part (2) of Lemma \ref{lemma:inverseofH}, we have $i[Q_h
 &= \Tr\left( P_B[\mathcal{I}([H_B,Q_h]), \mathcal{I}(J_V^B)]\right).
 \end{aligned}\]
 
-Now, $[H_B, Q_h]$ is a local operator supported on $\Gamma_B$, while $J_V^B$ is a local operator supported on $V \cap \Gamma_B = \varnothing$. Since $\mathcal{I}$ preserves locality up to tails, in the sense that $\norm{\mathcal{I}(A)_{(S^r)^\mathsf{c}}} \leq \norm{A} |S| \mathcal{O}(r^{-\infty})$ for any operator $A$ supported in $S$ (Lemma~\ref{lemma:local}), it follows that the commutator can be written
+Now, $[H_B, Q_h]$ is a local operator supported on $\Gamma_B$, while $J_V^B$ is a local operator supported on $V$. Notice that By Lemma~\ref{lemma:local}, the commutator $[\mathcal{I}([H_B,Q_h]), \mathcal{I}(J_V^B)]$ can be written
 
-\[[\mathcal{I}([H_B,Q_h])|_{\Gamma_B} + \mathcal{O}(r^{-\infty}) A_1, \mathcal{I}(J_V^B)|_V + \mathcal{O}(r^{-\infty}) A_2] = C\mathcal{O}(r^{-\infty}),\]
+%Since $\mathcal{I}$ preserves locality up to tails, in the sense that $\norm{\mathcal{I}(A)_{(S^r)^\mathsf{c}}} \leq \norm{A} |S| \mathcal{O}(r^{-\infty})$ for any operator $A$ supported in $S$ (Lemma~\ref{lemma:local}), it follows that the commutator can be written
 
-for some operators $A_1$ and $A_2$ supported on $\Gamma_B^\mathsf{c}$ and $V^\mathsf{c}$, respectively. This fact applies to the bulk setting with $H_B$ and $P_B$. To extend this to the setting with an edge, it is enough to use Assumption~\ref{ass:bulk} to conclude the same result, except with equality up to $\mathcal{O}(L^{-\infty})$, i.e.
+\[[A_{(\Gamma_B)^{r/2}} + \mathcal{O}(r^{-\infty}), A_{V^{r/2}} + \mathcal{O}(r^{-\infty})] = \mathcal{O}(r^{-\infty})\]
+
+%\[[\mathcal{I}([H_B,Q_h])|_{\Gamma_B} + \mathcal{O}(r^{-\infty}) A_1, \mathcal{I}(J_V^B)|_V + \mathcal{O}(r^{-\infty}) A_2] = C\mathcal{O}(r^{-\infty}),\]
+
+for some operators $A_{(\Gamma_B)^{r/2}}$ and $A_{V^{r/2}}$ supported on the $\frac{r}{2}$-fattenings of $\Gamma_B$ and $V$, which are disjoint. 
+
+This fact applies to the bulk setting with $H_B$ and $P_B$. To extend this to the setting with an edge, it is enough to use Assumption~\ref{ass:bulk} to conclude the same result with equality up to $\mathcal{O}(L^{-\infty})$, i.e.
 
 \[\sigma_V = \Tr\left(\dot{P}J_V\right) = \Tr\left(\dot{P}(J_V^B + \mathcal{O}(L^{-\infty}))\right) = \sigma_V^B + \mathcal{O}(L^{-\infty}) = \mathcal{O}(r^{-\infty}) + \mathcal{O}(L^{-\infty}).\]
 
 \end{proof}
 
+The intuitive picture from the previous result is that, outside the edge region $\Gamma_E$, the Hall conductivity is essentially only nonzero along the bulk strip $\Gamma_B$. Since the ground state expectation of the current is zero by Lemma~\ref{lemma:J=0}, it must be that there is an equal current flowing along the edge strip $\Gamma_E$, but in the opposite direction; $\Tr(PJ_{\Gamma_E}) = -\Tr(PJ_{\Gamma_B}) + \mathcal{O}(L^{-\infty})$.
 
-The intuitive picture from the previous result is that, outside the edge region $\Gamma_E$, the Hall conductivity is essentially only nonzero along the bulk strip $\Gamma_B$. Since the ground state expectation of the current is zero (by lemma~\ref{lemma:J=0}), it must be that there is an equal current flowing along the edge strip $\Gamma_E$, but in the opposite direction.
+Taking a derivative, we see the Hall conductivity at the edge, $\sigma_{\Gamma_E} = \Tr(\dot{P} J_{\Gamma_E})$, must be equal to the Hall conductivity in the bulk strip, $-\Tr(\dot{P} J_{\Gamma_B})$.
 
-Furthermore, consider the regions $\Gamma_E$ and $\Gamma_B$ where the Hall conductivity may be nonzero. We conclude using assumption \ref{ass:bulk} that in the bulk strip $\Gamma_B$, the Hall conductivity of the system with an edge matches that of the bulk system, $\sigma^B_{\Gamma_B} = \sigma_{\Gamma_B} +\mathcal{O}(L^{-\infty})$. But from the previous theorem, this is also equal (up to tails) to the edge conductivity $\sigma_{\Gamma_E}$. We therefore have bulk-edge correspondence, $\sigma_{\Gamma_E} = \sigma^B_{\Gamma_B} + \mathcal{O}(L^{-\infty})$. (Need to add).
+We conclude using assumption \ref{ass:bulk} that the Hall conductivity $-\Tr(\dot{P} J_{\Gamma_B})$ in the region $\Gamma_B$ is equal (up to $\mathcal{O}(L^{-\infty})$) to that of the actual bulk system, $\sigma^B_{\Gamma_B} := -\Tr(\dot{P}_BJ^B_{\Gamma_B})$, where $P_B$ is the projection of $H_B$ and $J^B = i[H_B,Q_u]$ is the current in the bulk system. 
 
-\subsection{Torus Geometry}
+We therefore have bulk-edge correspondence, in the sense that 
 
-Our goal is to show the same result on the discrete torus $\mathbb{T}_L := \Z_L \times \Z_L$. We define the same regions $\Gamma_u$ and $\Gamma_h$, and the same current operator $J_u = i[H(\mu), Q_u]$. This time, however, Lemma~\ref{lemma:J=0} does not apply. Intuitively, it does not apply because electrons can now flow through both the bottom and the top of the region $\Gamma_u$, rather than just the bottom. Mathematically, the lemma fails because our definition of the current is slightly changed.
+\[\sigma_{\Gamma_E} = \sigma^B_{\Gamma_B} + \mathcal{O}(L^{-\infty}).\] 
 
-We use charge conservation and the fact that $H$ is finite range to split the current $J_u$ into two components, $J_u = i[H_-, Q_u] + i[H_+, Q_u] = J_- - J_+$, supported on strips of width $2R$ at $y=L/2$ and $y=L$, respectively. We then define the current operator to be $J=J_-$, which is the current on the lower strip. This is the mathematical reason that the proof in Lemma~\ref{lemma:J=0} fails on the torus; we have replaced $H$ by $H_-$, which may no longer commute with $P$. We instead proceed by a different approach. We will need a few auxiliary results first.
+%\subsection{Torus Geometry}
 
-\begin{lemma}
-$K_\pm$ is supported on $\partial_\pm$ up to tails.
-\label{SupportOfK}
-\end{lemma}
-\begin{proof}
+%Our goal is to show the same result on the discrete torus $\mathbb{T}_L := \Z_L \times \Z_L$. We define the same regions $\Gamma_u$ and $\Gamma_h$, and the same current operator $J_u = i[H(\mu), Q_u]$. This time, however, Lemma~\ref{lemma:J=0} does not apply. Intuitively, it does not apply because electrons can now flow through both the bottom and the top of the region $\Gamma_u$, rather than just the bottom. Mathematically, the lemma fails because our definition of the current is slightly changed.
 
-\end{proof}
+%We use charge conservation and the fact that $H$ is finite range to split the current $J_u$ into two components, $J_u = i[H_-, Q_u] + i[H_+, Q_u] = J_- - J_+$, supported on strips of width $2R$ at $y=L/2$ and $y=L$, respectively. We then define the current operator to be $J=J_-$, which is the current on the lower strip. This is the mathematical reason that the proof in Lemma~\ref{lemma:J=0} fails on the torus; we have replaced $H$ by $H_-$, which may no longer commute with $P$. We instead proceed by a different approach. We will need a few auxiliary results first.
 
-\begin{proposition}
-The operator $Q_h-K$ leaves the ground state space invariant, i.e. $[Q_h-K, P] = 0$.
-\end{proposition}
-\begin{proof}
+%\begin{lemma}
+%$K_\pm$ is supported on $\partial_\pm$ up to tails.
+%\label{SupportOfK}
+%\end{lemma}
+%\begin{proof}
 
-\end{proof}
+%\end{proof}
+
+%\begin{proposition}
+%The operator $Q_h-K$ leaves the ground state space invariant, i.e. $[Q_h-K, P] = 0$.
+%\end{proposition}
+%\begin{proof}
+
+%\end{proof}
 
 
-\begin{lemma}
-Show that $\emph{Tr}(A,[Q_h,P])=0$ for all $A \in \mathcal{U}_{\text{edge}}$. This shows that $Q_h$ commutes with $P$ ``along the edge".
-\label{lemma:[Q,P]=0}
-\end{lemma}
-\begin{proof}
+%\begin{lemma}
+%Show that $\emph{Tr}(A,[Q_h,P])=0$ for all $A \in \mathcal{U}_{\text{edge}}$. This shows that $Q_h$ commutes with $P$ ``along the edge".
+%\label{lemma:[Q,P]=0}
+%\end{lemma}
+%\begin{proof}
 
-Let $A \in \mathcal{U}_{\text{edge}}$. Since $H$ is charge conserving, we may choose a simultaneous eigenbasis of $H$ and the total charge $Q$, in which case $P$ and $Q$ commute. It follows that
+%Let $A \in \mathcal{U}_{\text{edge}}$. Since $H$ is charge conserving, we may choose a simultaneous eigenbasis of $H$ and the total charge $Q$, in which case $P$ and $Q$ commute. It follows that
+
+%\[\begin{aligned}
+%\Tr(A[Q_h, P]) = \Tr([A, Q_h] P) = \Tr([A, Q]P) = \Tr(A[Q,P]) = 0.
+%\end{aligned}\]
+
+
+
+%\[\begin{aligned}
+%\Tr(A [Q_h, P]) &= \Tr([A, Q_h]P)\\
+%&= \Tr([P,A]Q_h)\\
+%&= \sum_{x \in \Gamma_h} \Tr([P, A] c_x^*c_x)\\
+%&= \sum_{x \in \Gamma_h} \Tr\left(\bigotimes_{y \in \text{supp}([P, A])} \left[P, A\right]_y c_x^*c_x\right)\\
+%&= \sum_{x \in \Gamma_h} \Tr\left(\bigotimes_{y \in \text{supp}([P, A])} \left[P_y, A_y\right] c_x^*c_x\right)\\
+%&= \sum_{x \in \Gamma_h} \prod_{y \in \text{supp}([P, A])} \Tr([P_y, A_y] c_x^*c_x)
+%\end{aligned}\]
+
+%The support of $[P, A]$ is the edge, so
+
+%\[\begin{aligned}
+%\Tr(A [Q_h, P]) &= \sum_{x \in \Gamma_h} \prod_{y \in \text{edge}} \Tr([P_y, A_y] c_x^*c_x)\\
+%&= \sum_{x \in \Gamma_h} \prod_{y \in \text{edge}} \Tr((\mathbb{I}\otimes\ldots\otimes\mathbb{I}\otimes [P_y, A_y] \otimes\mathbb{I}\ldots\otimes\mathbb{I}) (\mathbb{I}\otimes \ldots \otimes\mathbb{I} \otimes c^*_xc_x \otimes \mathbb{I} \ldots\otimes\mathbb{I}))\\
+%&= \sum_{x \in \Gamma_h} \prod_{y \in \text{edge}} \Tr(\mathbb{I}\otimes\ldots\otimes\mathbb{I}\otimes c_x^*c_x \otimes \mathbb{I} \otimes \ldots \otimes\mathbb{I} \otimes [P_y, A_y] \otimes\mathbb{I}\ldots)\\
+%&= \sum_{x \in \Gamma_h} \prod_{y \in \text{edge}, \; y\neq x} \Tr(c_x^*c_x)\Tr([P_y, A_y]) + \sum_{x \in \Gamma_h \cap \text{edge}} \Tr(c_x^*c_x [P_x, A_x]).\\
+%\end{aligned}\]
+
+%Since the trace of any commutator is zero, the terms in the first sum vanish. Since $\Gamma_h \cap \text{edge} =\text{edge}$, we are left with
+
+%\[\Tr(A[Q_h, P]) = \sum_{x \in \text{edge}} \Tr(c_x^*c_x[P_x, A_x]) = \sum_{x \in \text{edge}} \Tr(P_x[A_x, c_x^*c_x]).\]
+
+%For any particular $x\in \text{edge}$, write $P_x = \sum_n |\psi_n \rangle \langle \psi_n |$, where the sum is over ground states, and 
+
+%\[\langle \psi | [P_y, A_y]|\psi\rangle = \sum_n \langle \psi | \psi_n \rangle \langle\psi_n | A |\psi\rangle - \sum_n \langle \psi | A |\psi_n\rangle\langle\psi_n | \psi\rangle \]
+
+%Want to show:
+
+%\[\Tr([P_y, A_y]) = \ldots = 0\]
+
+%\end{proof}
+
+%Finally, we will prove that in the bulk system with Hamiltonian $H_B(\mu)$, the ground state expectation of the current vanishes faster than any power as $L \to \infty$.
+
+%\begin{lemma}
+%The ground state expectation of the current $J_B := i[(H_B)_-, Q_h]$ (of the system without an edge) is $\emph{Tr}(P_BJ_B)=\mathcal{O}(L^{-\infty})$.
+%\label{J=0Bulk}
+%\end{lemma}
+%\begin{proof}
+%First, $K = \mathcal{I}(i[H_B, Q])$ splits into $K = K_- - K_+$, with the support of $K_\pm$ contained in $\partial_\pm$ up to tails:
+
+%\[[K_\pm, A_X] = \mathcal{O}(p^{-\infty}),\]
+
+%for every $A_X \in \mathcal{U}_X$ such that $\norm{A_X}=1$, and where $p = \text{dist}(X, \partial_\pm)$ (need to add). Using the fact that $K_\pm$ is supported in $\partial_\pm$ up to tails (Lemma~\ref{SupportOfK}), we see that 
+
+%\[i[H_B, K_-] = i[(H_B)_-, K_-] + \mathcal{O}(L^{-\infty}),\]
+
+%and similarly $i[(H_B)_-, K_+] = \mathcal{O}(L^{-\infty})$. Putting these facts together, it follows that the current can be rewritten as 
+
+%\[\begin{aligned} 
+%J _B&= i[H_B, Q_h + K_- - K_- + K_+] + \mathcal{O}(L^{-\infty})\\
+%&= i[H_B, K_-] + i[(H_B)_-, Q_h - K_- + K_+)] + \mathcal{O}(L^{-\infty}).
+%\end{aligned}\]
+
+%From here, we use the fact that $H_B$ and $Q_h-K_-+K_+$ both commute with $P_B$ to write
+
+%\[P_BJ_BP_B = i[H_B, P_BK_-P_B] + i[P_B(H_B)_-P_B, Q_h - K_- + K_+)] + P_B\mathcal{O}(L^{-\infty})P_B.\]
+
+%Since the trace of any commutator is zero, 
+
+%\[\Tr(P_BJ_B) = \Tr(P_BJ_BP_B) = \mathcal{O}(L^{-\infty}).\]
+
+%\end{proof}
+
+%Using this, we can show a simple proof of the analogue of Lemma~\ref{lemma:J=0} on the torus, in the case of non-interacting systems.
+
+%\begin{proposition}
+%Let $H = \sum_{x \in \mathbb{T}} h_x$ be a non-interacting Hamiltonian, i.e. a sum of single site Hamiltonians $h_x$. The ground state expectation of the current $J=i[H_-, Q_h]$ (of the system with an edge) is $\emph{Tr}(PJ)=\mathcal{O}(L^{-\infty})$.
+%\label{prop:J=0Torus}
+%\end{proposition}
+
+%\begin{proof}
+
+%Since $H$ is a sum of single site Hamiltonians, we can split $H_-$ into the restrictions $H_- = (H_-)_\text{edge} + (H_-)_\text{bulk}$, with no fear of any terms which are in both the edge region and the bulk region. By Assumption~\ref{ass:bulk},
+
+%\[\begin{aligned}
+%\Tr(PJ) &= \Tr(Pi[H_-, Q_h])\\
+%&= i\Tr([H_-, Q_h]P)\\
+%&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_-)_\text{bulk} [Q_h, P])\\
+%&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_-)_\text{bulk} [Q_h, (P)_\text{bulk}])\\
+%&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_B)_-[Q_h, P_B]) + \mathcal{O}(L^{-\infty})\\
+%&= i\Tr((H_-)_\text{edge} [Q_h, P]) + \Tr(i[(H_B)_-, Q_h]P_B) + \mathcal{O}(L^{-\infty}).
+%\end{aligned}\]
+
+%By Lemma~\ref{lemma:[Q,P]=0}, the first term is zero. By Lemma~\ref{J=0Bulk}, the second term is $\mathcal{O}(L^{-\infty})$. 
+%\end{proof}
+
+
+
+
+
+
+\chapter{Summary of Results}
+
+In this thesis, we proved bulk-edge correspondence in both noninteracting and interacting quantum lattice systems. In the noninteracting setting, the key development was the use of the Helffer-Sj\"{o}strand representation to formally write the difference between $\sigma_E$ and $\sigma_B$ as a zero trace operator. In the interacting setting, the key tool is the Hastings operator, which allows us to define an inverse of $[H,\cdot]$, as well as define the ground state projection as the unique solution to the differential equation $\dot{P} = i[K,P]$.
+
+\section{Direction for Future Work}
+
+One interesting result would be a proof of bulk-edge correspondence in the interacting setting on the discrete torus $\mathbb{T}_L := \Z_L \times \Z_L$. One might define the same regions $\Gamma_u$ and $\Gamma_h$ as in the cylinder case. However, on $\mathbb{T}_L$, the vanishing total ground state current (Lemma \ref{lemma:J=0}) does not apply. Intuitively, it does not apply because electrons can now flow through both the bottom and the top of the region $\Gamma_u$, rather than just the bottom. Mathematically, the lemma fails because our definition of the current is slightly changed.
+
+Charge conservation and the fact that $H$ is finite range can be used to split the current $J_u$ into two components, $J_u = i[H_-, Q_u] + i[H_+, Q_u] = J_- - J_+$, supported on strips of width $2R$ at $y=L/2$ and $y=L$, respectively. The current operator is then defined to be $J=J_-$, which is the current on the lower strip. This is the mathematical reason that the proof in Lemma~\ref{lemma:J=0} fails on the torus; we have replaced $H$ by $H_-$, which may no longer commute with $P$. 
+
+One might proceed in a manner similar to~\cite{Bachmann:Bloch}. We define a slightly modified Hastings operator 
+
+\[K := -\int_\R W(t) e^{itH_B} i[H_B,Q_h] e^{-itH_B}dt\]
+
+so that by Lemma \ref{lemma:inverseofH}, $K$ leaves the bulk system's ground state space invariant,
+
+\[ [Q_h - K, P_B] = [Q_h,P_B] - \frac{1}{i}[\mathcal{I}([H_B,Q_h]),P_B)] = 0.\]
+
+By Lemma \ref{lemma:local}, the Hastings operator $K$ is supported (up to tails) on strips of width $2R$ at the edges of $\Gamma_u$. We denote these lower and upper strips located at $y=L/2$ and $y=L$ as $\partial_-$ and $\partial_+$, respectively. 
+
+Furthermore, in the edge system, $\Tr(A,[Q_h,P])=0$ for all trace-class operators $A$ supported in $\Gamma_E$. The idea is that $Q_h$ ``commutes with $P$ along the edge". Indeed, since $H$ is charge conserving by Assumption \ref{ass:charge}, we may choose a simultaneous eigenbasis of $H$ and the total charge $Q$, in which case $P$ and $Q$ commute. It follows that
 
 \[\begin{aligned}
 \Tr(A[Q_h, P]) = \Tr([A, Q_h] P) = \Tr([A, Q]P) = \Tr(A[Q,P]) = 0.
@@ -1946,70 +2187,61 @@ Let $A \in \mathcal{U}_{\text{edge}}$. Since $H$ is charge conserving, we may ch
 
 %\[\Tr([P_y, A_y]) = \ldots = 0\]
 
-\end{proof}
-
-Finally, we will prove that in the bulk system with Hamiltonian $H_B(\mu)$, the ground state expectation of the current vanishes faster than any power as $L \to \infty$.
+Finally, we prove that in the bulk system with Hamiltonian $H_B(\mu)$, the ground state expectation of the current vanishes faster than any power as $L \to \infty$.
 
 \begin{lemma}
-The ground state expectation of the current $J_B := i[(H_B)_-, Q_h]$ (of the system without an edge) is $\emph{Tr}(P_BJ_B)=\mathcal{O}(L^{-\infty})$.
+The ground state expectation of the current $J_B := i[(H_B)_-, Q_u]$ (of the system without an edge) is $\emph{Tr}(P_BJ_B)=\mathcal{O}(L^{-\infty})$.
 \label{J=0Bulk}
 \end{lemma}
 \begin{proof}
-First, $K = \mathcal{I}(i[H_B, Q])$ splits into $K = K_- - K_+$, with the support of $K_\pm$ contained in $\partial_\pm$ up to tails:
+$K = \mathcal{I}(i[H_B, Q_u])$ splits into $K = K_- - K_+$, with the support of $K_\pm$ contained in $\partial_\pm$ up to tails by Lemma \ref{lemma:local}, in the sense that
 
-\[[K_\pm, A_X] = \mathcal{O}(p^{-\infty}),\]
+\[[K_\pm, A_X] = \mathcal{O}(r^{-\infty})\]
 
-for every $A_X \in \mathcal{U}_X$ such that $\norm{A_X}=1$, and where $p = \text{dist}(X, \partial_\pm)$ (need to add). Using the fact that $K_\pm$ is supported in $\partial_\pm$ up to tails (Lemma~\ref{SupportOfK}), we see that 
+for every $A_X \in \mathcal{U}_X$ such that $\norm{A_X}=1$, and where $r = \text{dist}(X, \partial_\pm)$. In particular,
 
 \[i[H_B, K_-] = i[(H_B)_-, K_-] + \mathcal{O}(L^{-\infty}),\]
 
 and similarly $i[(H_B)_-, K_+] = \mathcal{O}(L^{-\infty})$. Putting these facts together, it follows that the current can be rewritten as 
 
 \[\begin{aligned} 
-J _B&= i[H_B, Q_h + K_- - K_- + K_+] + \mathcal{O}(L^{-\infty})\\
-&= i[H_B, K_-] + i[(H_B)_-, Q_h - K_- + K_+)] + \mathcal{O}(L^{-\infty}).
+J _B&= i[H_B, Q_u + K_- - K_- + K_+] + \mathcal{O}(L^{-\infty})\\
+&= i[H_B, K_-] + i[(H_B)_-, Q_u - K_- + K_+)] + \mathcal{O}(L^{-\infty}).
 \end{aligned}\]
 
-From here, we use the fact that $H_B$ and $Q_h-K_-+K_+$ both commute with $P_B$ to write
+From here, we use the fact that $H_B$ and $Q_u-K_-+K_+$ both commute with $P_B$ (up to tails) to write
 
-\[P_BJ_BP_B = i[H_B, P_BK_-P_B] + i[P_B(H_B)_-P_B, Q_h - K_- + K_+)] + P_B\mathcal{O}(L^{-\infty})P_B.\]
+\[P_BJ_BP_B = i[H_B, P_BK_-P_B] + i[P_B(H_B)_-P_B, Q_u - K_- + K_+)] + P_B\mathcal{O}(L^{-\infty})P_B.\]
 
-Since the trace of any commutator is zero, 
+By boundedness of $H_B$, $Q$, and $K$, along with the fact that $P_B$ is finite rank, it follows that all of these operators are trace-class. Cyclicity allows us to conclude
 
 \[\Tr(P_BJ_B) = \Tr(P_BJ_BP_B) = \mathcal{O}(L^{-\infty}).\]
 
 \end{proof}
 
-Using this, we can show a simple proof of the analogue of Lemma~\ref{lemma:J=0} on the torus, in the case of non-interacting systems.
+Of course, the ultimate goal would be to show that the ground state current is zero in the system with an edge, which is what allowed us to conclude bulk-edge correspondence in \ref{subsec:cylinder}. However, using our previous results, we can at least show a simple proof of this in the non-interacting case for the edge system.
 
 \begin{proposition}
-Let $H = \sum_{x \in \mathbb{T}} h_x$ be a non-interacting Hamiltonian, i.e. a sum of single site Hamiltonians $h_x$. The ground state expectation of the current $J=i[H_-, Q_h]$ (of the system with an edge) is $\emph{Tr}(PJ)=\mathcal{O}(L^{-\infty})$.
+Let $H = \sum_{x \in \mathbb{T}} h_x$ be a non-interacting edge Hamiltonian, i.e. a sum of single site Hamiltonians $h_x$. The ground state expectation of the Hall current $J=i[H_-, Q_u]$ is $\emph{Tr}(PJ)=\mathcal{O}(L^{-\infty})$.
 \label{prop:J=0Torus}
 \end{proposition}
 
 \begin{proof}
 
-Since $H$ is a sum of single site Hamiltonians, we can split $H_-$ into the restrictions $H_- = (H_-)_\text{edge} + (H_-)_\text{bulk}$, with no fear of any terms which are in both the edge region and the bulk region. By Assumption~\ref{ass:bulk},
+Since $H$ is a sum of single site Hamiltonians, we can split $H_-$ into the restrictions $H_- = (H_-)_{\Gamma_E} + (H_-)_{\Gamma_E^\mathsf{c}}$, with no fear of any terms which are supported both in the edge and outside the edge. By Assumption~\ref{ass:bulk},
 
 \[\begin{aligned}
 \Tr(PJ) &= \Tr(Pi[H_-, Q_h])\\
 &= i\Tr([H_-, Q_h]P)\\
-&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_-)_\text{bulk} [Q_h, P])\\
-&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_-)_\text{bulk} [Q_h, (P)_\text{bulk}])\\
-&= i\Tr((H_-)_\text{edge} [Q_h, P]) + i \Tr((H_B)_-[Q_h, P_B]) + \mathcal{O}(L^{-\infty})\\
-&= i\Tr((H_-)_\text{edge} [Q_h, P]) + \Tr(i[(H_B)_-, Q_h]P_B) + \mathcal{O}(L^{-\infty}).
+&= i\Tr((H_-)_{\Gamma_E} [Q_h, P]) + i \Tr((H_-)_{\Gamma_B} [Q_h, P])\\
+&= i\Tr((H_-)_{\Gamma_E} [Q_h, P]) + i \Tr((H_-)_{\Gamma_B} [Q_h, (P)_\text{bulk}])\\
+&= i\Tr((H_-)_{\Gamma_E} [Q_h, P]) + i \Tr((H_B)_-[Q_h, P_B]) + \mathcal{O}(L^{-\infty})\\
+&= i\Tr((H_-)_{\Gamma_E} [Q_h, P]) + \Tr(i[(H_B)_-, Q_h]P_B) + \mathcal{O}(L^{-\infty}).
 \end{aligned}\]
 
-By Lemma~\ref{lemma:[Q,P]=0}, the first term is zero. By Lemma~\ref{J=0Bulk}, the second term is $\mathcal{O}(L^{-\infty})$. 
+Since $Q_h$ commutes with $P$ along the edge, the first term is zero. By Lemma~\ref{J=0Bulk}, the second term is $\mathcal{O}(L^{-\infty})$. 
 \end{proof}
 
-
-
-
-
-
-\chapter{Summary of Results}
-Need to add. Here is a citation~\cite{Bachmann:Bloch}
 
 
 %% This file is setup to use a bibtex file sample.bib and uses the
@@ -2018,7 +2250,34 @@ Need to add. Here is a citation~\cite{Bachmann:Bloch}
 %%
 %%% Note: the bibliography must come before the appendices.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995, VonKlitzing, Laughlin, Combes, Anderson}
+
+
+
 
 \bibliographystyle{plain}
 \bibliography{iqhe}
@@ -2032,6 +2291,13 @@ Need to add. Here is a citation~\cite{Bachmann:Bloch}
 
 %%% If you only have one appendix, please uncomment the following line.
 % \renewcommand{\appendicesname}{Appendix}
+
+
+
+
+
+
+
 
 
 
@@ -2118,6 +2384,89 @@ We also note that $\text{Spec}(H) = \text{supp}(P)$.
 %\end{proof}
 
 
+\section{Gr\"{o}nwall's Inequality and Uniqueness}
+
+\begin{theorem}
+(Gr\"{o}nwall's Inequality). Let $\alpha : I \to (0,\infty)$ be positive and continuous on $I^o$ for some interval of the form $[a,b)$, $[a,b]$, or $[a,\infty)$. Suppose $u : \mathbb{R} \to \mathcal{U}$ is a Banach-valued, differentiable function. If $\norm{u'(t)} \leq \alpha(t)\norm{u(t)}$ for all $t\in I$, then 
+\[\norm{u(t)} \leq \norm{u(a)} e^{\int_a^t \alpha(s)ds} \quad \forall t\in I\]
+\end{theorem}
+\label{thm:gronwallinequality}
+\begin{proof}
+Let $f(t) = e^{\int_a^t \alpha(s)ds}$, which is nonzero, has initial value $f(a)=1$, and has derivative $f'(t) = \alpha(t) f(t)$. Then by the quotient rule,
+\[\left(\frac{\norm{u(t)}}{f(t)}\right)' = \frac{\norm{u'(t)}f(t) - \norm{u(t)}\alpha(t)f(t)}{f(t)^2} \leq 0,\]
+where the inequality follows from the assumption $\norm{u'(t)} \leq \norm{\alpha(t)u(t)}$. Thus $\frac{\norm{u(t)}}{f(t)}$ is decreasing, so that 
+\[\frac{\norm{u(t)}}{f(t)} \leq \frac{\norm{u(a)}}{f(a)} = \norm{u(a)},\]
+which is the desired inequality.
+\end{proof}
+
+\begin{theorem}
+(ODE Uniqueness). Let $F:\mathcal{U}\to\mathcal{U}$ be Lipschitz and consider the differential equation 
+\[u'(t)=F(u(t))\]
+with initial condition $u(a) = u_a$ for some function $u:I\to\mathcal{U}$, where $I = [a,b]$, or $[a,b)$, or $[a,\infty)$. Solutions to this equation are unique.
+\end{theorem}
+\label{thm:gronwalluniqueness}
+\begin{proof}
+Suppose there are two solutions $u(t)$ and $v(t)$, and let $g(t) = \norm{u(t)-v(t)}^2$. By assumption, there exists a constant $L_F$ such that $\norm{F(u(t))-F(v(t))} \leq L_F \norm{u(t)-v(t)}$, so that
+\[\begin{aligned}
+g'(t) &= 2\norm{u(t)-v(t)}\norm{u'(t)-v'(t)}\\
+&=2\norm{u(t)-v(t)}\norm{F(u(t))-F(v(t))}\\
+&\leq 2L_F\norm{u(t)-v(t)}^2\\
+&= 2L_F g(t).
+\end{aligned}\]
+Notice that $\alpha := 2L_F$ is a positive continuous function, so we may apply Gr\"{o}nwall's inequality to $g(t)$ to conclude
+\[g(t) \leq g(a)e^{2L_f(t-a)} = 0,\]
+since $g(a)=0$.
+\end{proof}
+
+
+
+\section{Note on Generators of Parallel Transport}
+Consider the differential equation $\dot{\rho}(\mu) = i[K_B,\rho(\mu)]$ with initial condition $\rho(0)=P_B(0)$. Here $K_B = \int_\mathbb{R}W_\gamma(t)e^{-itH_B}\dot{H_B}e^{itH_B}dt$, and recall that in our setting, $\dot{H_B} = Q_h$. We know that the solution is $\rho(\mu) = P_B(\mu)$ (proposition \ref{prop:generatorparalleltransport}). Notice that the map $F:\mathcal{U}\to\mathcal{U}$ defined by $F(A) = i[K_B,A]$ is Lipschitz, since
+\[\norm{F(A)-F(B)} = \norm{[K_B,A-B]} \leq 2\norm{K_B}\norm{A-B}.\]
+The Lipschitz constant is $2\norm{K_B}$, which is finite since $K_B$ is a bounded operator:
+
+\[\begin{aligned}
+\norm{K_B} &\leq \int_\mathbb{R}|W_\gamma(t)| \norm{e^{-itH_B}Q_he^{itH_B}}dt\leq \int_\mathbb{R}|W_\gamma(t)|dt\norm{Q_h}.
+\end{aligned}\]
+
+Indeed, since $Q_h$ is the number operator on a finite volume, by charge conservation and the fact that the dimension of the Hilbert space is bounded uniformly by $d$, there can only be a finite number of charges in the region $\Gamma_h$.
+
+Thus, by Gr\"{o}nwall's uniqueness theorem (appendix \ref{thm:gronwalluniqueness}), we see that the solution to the equation $\dot{\rho}(\mu) = F(\rho(\mu)) = i[K_B,\rho(\mu)]$ is unique. 
+
+Now define 
+
+\[K_E := \int_\mathbb{R} W_\gamma(t) e^{-itH_E}Q_he^{itH_E}dt,\]
+
+which is using the gap $\gamma$ of $H_B$ to define $W_\gamma$, but also using the edge Hamiltonian in the time evolution operators. Consider $\sigma:[0,\infty)\to\mathcal{U}$ defined by
+
+\[\dot{\sigma}(\mu) = i[K_E, \sigma(\mu)] \quad\quad\quad\quad \sigma(0) = P_E(0).\]
+
+We now show that, similar to how $\rho$ is an approximation of $P_B$, $\sigma$ is also a good approximation of $P_E$ (up to $\mathcal{O}(L^{-\infty})$) ``in the bulk". Let $A\in \mathcal{U}_{\Gamma_B}$ be an operator localized in the bulk of the edge system. Then 
+
+\[\begin{aligned}
+\Tr(\dot{\sigma} A) &= \Tr (i[K_E, \sigma]A)\\
+&= \Tr(i[A,K_E]\sigma)\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_E}Q_he^{itH_E}, A] \sigma)dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_E}Ae^{-itH_E}]e^{itH_E} \sigma)dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_E}\sigma + \mathcal{O}(L^{-\infty}))dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_B}\sigma + \mathcal{O}(L^{-\infty}))dt\\
+&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_B}Q_he^{itH_B}, A] \sigma)dt + \mathcal{O}(L^{-\infty})\\
+&= \Tr(i[A,K_B]\sigma] + \mathcal{O}(L^{-\infty})\\
+&= \Tr(i[K_B,\sigma]A) + \mathcal{O}(L^{-\infty}),
+\end{aligned}\]
+
+since $\sigma$ is trace-class (?) and $W_\gamma \in L^1$. By linearity of the trace, we see that $\Tr((\dot{\sigma} - i[K_B,\sigma])A) = \mathcal{O}(L^{-\infty})$ for any operator $A \in \Gamma_B$ (does this mean $\dot{\sigma}-i[K_E,\sigma] = 0$?). But the solution of $\dot{\sigma} - i[K_B,\sigma] = 0$ (with initial condition $\sigma(0)=P_B(0)$) is unique; it is $\rho(\mu)$, or $P_B(\mu)$. Hence
+
+\[\Tr(P_E A) = \Tr(P_B A) + \mathcal{O}(L^{-\infty}) = \Tr(\rho A) + \mathcal{O}(L^{-\infty}) = Tr(\sigma A) + \mathcal{O}(L^{-\infty}) \]
+
+for any operator $A\in\Gamma_B$. In particular, this gives another local formula for the Hall conductivity in the bulk of an edge system, by taking $A = J_V$, where $J$ is the current operator and $V \subset \Gamma_B$ is a set localized in the bulk. The Hall conductivity is given by $\Tr(\dot{P_E}J_V)$, and this can be approximated by
+
+\[\Tr(\dot{P_E} J_V) = \Tr(\dot{P_B} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\rho} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\sigma} J_V) + \mathcal{O}(L^{-\infty}).\]
+
+Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\sigma(\mu)}_G \leq \norm{P_B(0)-P_E(0)}_Ge^{2L_F\mu}$. Need $\norm{P_B(0)-P_E(0)}_G$ to be small enough to kill the exponential which depends on $L_F = 2\norm{K_B}_G \leq \norm{W_\gamma}_{L^1}\norm{Q_h}_G$. If we use the operator norm for $\norm{\cdot}_G$, we would get $\norm{Q_h}_G = d|\Gamma_h|$ in the exponent. Need $\norm{\cdot}_G$ to be an actual norm so that $\norm{\rho-\sigma}_G = 0 \implies \rho = \sigma$. (Need to add)
+
+
+
 
 
 
@@ -2192,79 +2541,15 @@ and taking a supremum over $\ell \in \text{Lip}^1$ completes the proof by Lemma 
 
 
 
-\chapter{Properties of $\mathcal{I}_\mu$}
 
-\begin{proof}
-(Of Lemma~\ref{lemma:inverseofH}). Let $\widehat{W}(\xi) = \int_\R W(t) e^{- i t \xi} dt$ be the Fourier transform of $W$ and let $A$ be any observable. First, we show that $\mathcal{I}([H,PAP^\perp]) = iPAP^\perp$. 
 
-Decomposing 
 
-\[\begin{aligned}
-e^{itH}P &= \sum_{j=0}^\infty \frac{(itH)^j}{j!} P \\
-&= \sum_{j =0}^\infty \frac{(it)^j}{j!} \left(\sum_n E_n^j P_n\right)P \\
-&= \sum_{j=0}^\infty \frac{(it)^j}{j!} \sum_{n : E_n=0} E_n^j P_n \\
-&= \sum_{n : E_n=0} e^{itE_n}P_n,
-\end{aligned}\]
 
-and similarly 
 
-\[P^\perp e^{-itH}= \sum_{m:E_m \geq \gamma}P_m e^{-itE_m},\]
 
-we see that
 
-\[\begin{aligned}
-\mathcal{I}([H,PAP^\perp]) &= \mathcal{I}(P[H,A]P^\perp) \\
-&= \int_\R W(t)e^{itH}P[H,A]P^\perp e^{-itH}dt \\
-&= \int_\R W(t) \sum_{n : E_n=0} e^{itE_n}P_n [H,A] \sum_{m:E_m \geq \gamma} P_m e^{-itE_m} dt\\
-&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} \int_\R W(t) e^{itE_n} P_n A (E_n-E_m) P_m e^{-itE_m}dt\\
-&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \int_\R W(t) e^{-it(E_m - E_n)} dt\\
-&= \sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m (E_n-E_m) \widehat{W}(E_m-E_n) \\
-&= i\sum_{n : E_n=0} \sum_{m:E_m \geq \gamma} P_n A P_m\\
-&= iPAP^\perp,
-\end{aligned}\]
 
-since $\widehat{W}(\xi) = i\xi^{-1}$ for all $|\xi|\geq \text{Len}(\Delta)$. If the spectrum of $H$ is continuous, the sums can be replaced by integrals with respect to the spectral measure $P_\lambda$, as in \ref{thm:spectraltheorem}. Either way, the use of domination to interchange the integral over $t$ and the other sums/integrals is provided by the fact that $W,\widehat{W}\in L^1$. By the same argument, $\mathcal{I}([H,P^\perp AP]) = iP^\perp AP$ as well, and so $\mathcal{I}([H,\overline{A}]) = i\overline{A}$.
-\end{proof}
 
-\begin{proof}
-(Of Lemma~\ref{lemma:local}). Let $A$ be an operator with support $X$, and let $A(t) = e^{itH}Ae^{-itH}$ be its time evolution. Let $S = (X^r)^\mathsf{c}$ be the set of sites of distance at least $r$ from $X$. We see that $\norm{\mathcal{I}(A) - \tr_S(\mathcal{I}(A))}$ is bounded by
-
-\[\begin{aligned}
-\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt + \int_{\R\setminus[-T,T]}|W(t)|\norm{A(t) - \tr_S(A(t))} dt.
-\end{aligned}\]
-
-We treat each of the terms separately. For the first, by Proposition \ref{prop:Haar} we have
-
-\[\begin{aligned}
-\int_{-T}^T |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq |X|\norm{A} \norm{W}_\infty \int_{-T}^T e^{-\frac{r-v|t|}{\xi}}dt \\
-&= \frac{2\xi}{v} |X|\norm{A} \norm{W}_\infty e^{-\frac{r}{\xi}}( e^{\frac{vT}{\xi}}-1).\\
-\end{aligned}\]
-
-For the second term, we again employ Proposition \ref{prop:Haar} along with the decay property $|W(t)| \leq \mathcal{O}(|t|^{-\infty})$ to obtain
-
-\[\begin{aligned}
-\int_{\R\setminus[-T,T]} |W(t)|\norm{A(t) - \tr_S(A(t))} dt &\leq |X|\norm{A} e^{-\frac{r}{\xi}}  \int_{\R\setminus[-T,T]} |W(t)| e^{\frac{v|t|}{\xi}} dt \\
-\end{aligned}\]
-
-(need to add)
-
-%Note that any operator can be written as the telescoping sum
-
-%\[\mathcal{I}(A) = \tr_X(\mathcal{I}(A)) + \sum_{j=1}^\infty \left(\tr_{X^{(j)}}(\mathcal{I}(A)) - \tr_{X^{(j-1)}}(\mathcal{I}(A))\right),\] 
-
-%where $\tr_Y$ denoted the partial trace over $Y$, and $Y^\alpha$ denotes the $\alpha$-fattening of $Y$. 
-
-%Our goal is to prove that $\norm{\tr_{X^{(j)}}(\mathcal{I}(A)) - \mathcal{I}(A)} \leq \norm{A} |X| \mathcal{O}(j^{-\infty})$. To that end, we break the integral $\mathcal{I}(A)$ into two terms,
-
-%\[\mathcal{I}(A) = \int_{-T}^T W(t) e^{itH}Ae^{-itH}dt + \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt.\]
-
-%We break the integral into two parts,
-
-%\[\norm{\mathcal{I}(A)} \leq \bigg\lVert\int_{-T}^T W(t) e^{itH}Ae^{-itH}dt \bigg\rVert + \bigg\lVert \int_{\R\setminus [-T,T]} W(t) e^{itH}Ae^{-itH}dt\bigg\rVert.\]
-
-%The first term can be estimated using the Lieb-Robinson bound found in Appendix~\ref{sec:L-R}.
-
-\end{proof}
 
 
 
@@ -2310,89 +2595,15 @@ whence the Lieb-Robinson bound \ref{prop:LR} completes the proof.
 \end{proof}
 
 
-\chapter{Gr\"{o}nwall's Inequality and Uniqueness}
-
-\begin{theorem}
-(Gr\"{o}nwall's Inequality). Let $\alpha : I \to (0,\infty)$ be positive and continuous on $I^o$ for some interval of the form $[a,b)$, $[a,b]$, or $[a,\infty)$. Suppose $u : \mathbb{R} \to \mathcal{U}$ is a Banach-valued, differentiable function. If $\norm{u'(t)} \leq \alpha(t)\norm{u(t)}$ for all $t\in I$, then 
-\[\norm{u(t)} \leq \norm{u(a)} e^{\int_a^t \alpha(s)ds} \quad \forall t\in I\]
-\end{theorem}
-\label{thm:gronwallinequality}
-\begin{proof}
-Let $f(t) = e^{\int_a^t \alpha(s)ds}$, which is nonzero, has initial value $f(a)=1$, and has derivative $f'(t) = \alpha(t) f(t)$. Then by the quotient rule,
-\[\left(\frac{\norm{u(t)}}{f(t)}\right)' = \frac{\norm{u'(t)}f(t) - \norm{u(t)}\alpha(t)f(t)}{f(t)^2} \leq 0,\]
-where the inequality follows from the assumption $\norm{u'(t)} \leq \norm{\alpha(t)u(t)}$. Thus $\frac{\norm{u(t)}}{f(t)}$ is decreasing, so that 
-\[\frac{\norm{u(t)}}{f(t)} \leq \frac{\norm{u(a)}}{f(a)} = \norm{u(a)},\]
-which is the desired inequality.
-\end{proof}
-
-\begin{theorem}
-(ODE Uniqueness). Let $F:\mathcal{U}\to\mathcal{U}$ be Lipschitz and consider the differential equation 
-\[u'(t)=F(u(t))\]
-with initial condition $u(a) = u_a$ for some function $u:I\to\mathcal{U}$, where $I = [a,b]$, or $[a,b)$, or $[a,\infty)$. Solutions to this equation are unique.
-\end{theorem}
-\label{thm:gronwalluniqueness}
-\begin{proof}
-Suppose there are two solutions $u(t)$ and $v(t)$, and let $g(t) = \norm{u(t)-v(t)}^2$. By assumption, there exists a constant $L_F$ such that $\norm{F(u(t))-F(v(t))} \leq L_F \norm{u(t)-v(t)}$, so that
-\[\begin{aligned}
-g'(t) &= 2\norm{u(t)-v(t)}\norm{u'(t)-v'(t)}\\
-&=2\norm{u(t)-v(t)}\norm{F(u(t))-F(v(t))}\\
-&\leq 2L_F\norm{u(t)-v(t)}^2\\
-&= 2L_F g(t).
-\end{aligned}\]
-Notice that $\alpha := 2L_F$ is a positive continuous function, so we may apply Gr\"{o}nwall's inequality to $g(t)$ to conclude
-\[g(t) \leq g(a)e^{2L_f(t-a)} = 0,\]
-since $g(a)=0$.
-\end{proof}
 
 
 
 
 
 
-\chapter{Note on Generators of Parallel Transport}
-Consider the differential equation $\dot{\rho}(\mu) = i[K_B,\rho(\mu)]$ with initial condition $\rho(0)=P_B(0)$. Here $K_B = \int_\mathbb{R}W_\gamma(t)e^{-itH_B}\dot{H_B}e^{itH_B}dt$, and recall that in our setting, $\dot{H_B} = Q_h$. We know that the solution is $\rho(\mu) = P_B(\mu)$ (proposition \ref{prop:generatorparalleltransport}). Notice that the map $F:\mathcal{U}\to\mathcal{U}$ defined by $F(A) = i[K_B,A]$ is Lipschitz, since
-\[\norm{F(A)-F(B)} = \norm{[K_B,A-B]} \leq 2\norm{K_B}\norm{A-B}.\]
-The Lipschitz constant is $2\norm{K_B}$, which is finite since $K_B$ is a bounded operator:
 
-\[\begin{aligned}
-\norm{K_B} &\leq \int_\mathbb{R}|W_\gamma(t)| \norm{e^{-itH_B}Q_he^{itH_B}}dt\leq \int_\mathbb{R}|W_\gamma(t)|dt\norm{Q_h}.
-\end{aligned}\]
 
-Indeed, since $Q_h$ is the number operator on a finite volume, by charge conservation and the fact that the dimension of the Hilbert space is bounded uniformly by $d$, there can only be a finite number of charges in the region $\Gamma_h$.
 
-Thus, by Gr\"{o}nwall's uniqueness theorem (appendix \ref{thm:gronwalluniqueness}), we see that the solution to the equation $\dot{\rho}(\mu) = F(\rho(\mu)) = i[K_B,\rho(\mu)]$ is unique. 
-
-Now define 
-
-\[K_E := \int_\mathbb{R} W_\gamma(t) e^{-itH_E}Q_he^{itH_E}dt,\]
-
-which is using the gap $\gamma$ of $H_B$ to define $W_\gamma$, but also using the edge Hamiltonian in the time evolution operators. Consider $\sigma:[0,\infty)\to\mathcal{U}$ defined by
-
-\[\dot{\sigma}(\mu) = i[K_E, \sigma(\mu)] \quad\quad\quad\quad \sigma(0) = P_E(0).\]
-
-We now show that, similar to how $\rho$ is an approximation of $P_B$, $\sigma$ is also a good approximation of $P_E$ (up to $\mathcal{O}(L^{-\infty})$) ``in the bulk". Let $A\in \mathcal{U}_{\Gamma_B}$ be an operator localized in the bulk of the edge system. Then 
-
-\[\begin{aligned}
-\Tr(\dot{\sigma} A) &= \Tr (i[K_E, \sigma]A)\\
-&= \Tr(i[A,K_E]\sigma)\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_E}Q_he^{itH_E}, A] \sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_E}Ae^{-itH_E}]e^{itH_E} \sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_E}\sigma + \mathcal{O}(L^{-\infty}))dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_B}\sigma + \mathcal{O}(L^{-\infty}))dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_B}Q_he^{itH_B}, A] \sigma)dt + \mathcal{O}(L^{-\infty})\\
-&= \Tr(i[A,K_B]\sigma] + \mathcal{O}(L^{-\infty})\\
-&= \Tr(i[K_B,\sigma]A) + \mathcal{O}(L^{-\infty}),
-\end{aligned}\]
-
-since $\sigma$ is trace-class (?) and $W_\gamma \in L^1$. By linearity of the trace, we see that $\Tr((\dot{\sigma} - i[K_B,\sigma])A) = \mathcal{O}(L^{-\infty})$ for any operator $A \in \Gamma_B$ (does this mean $\dot{\sigma}-i[K_E,\sigma] = 0$?). But the solution of $\dot{\sigma} - i[K_B,\sigma] = 0$ (with initial condition $\sigma(0)=P_B(0)$) is unique; it is $\rho(\mu)$, or $P_B(\mu)$. Hence
-
-\[\Tr(P_E A) = \Tr(P_B A) + \mathcal{O}(L^{-\infty}) = \Tr(\rho A) + \mathcal{O}(L^{-\infty}) = Tr(\sigma A) + \mathcal{O}(L^{-\infty}) \]
-
-for any operator $A\in\Gamma_B$. In particular, this gives another local formula for the Hall conductivity in the bulk of an edge system, by taking $A = J_V$, where $J$ is the current operator and $V \subset \Gamma_B$ is a set localized in the bulk. The Hall conductivity is given by $\Tr(\dot{P_E}J_V)$, and this can be approximated by
-
-\[\Tr(\dot{P_E} J_V) = \Tr(\dot{P_B} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\rho} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\sigma} J_V) + \mathcal{O}(L^{-\infty}).\]
-
-Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\sigma(\mu)}_G \leq \norm{P_B(0)-P_E(0)}_Ge^{2L_F\mu}$. Need $\norm{P_B(0)-P_E(0)}_G$ to be small enough to kill the exponential which depends on $L_F = 2\norm{K_B}_G \leq \norm{W_\gamma}_{L^1}\norm{Q_h}_G$. If we use the operator norm for $\norm{\cdot}_G$, we would get $\norm{Q_h}_G = d|\Gamma_h|$ in the exponent. Need $\norm{\cdot}_G$ to be an actual norm so that $\norm{\rho-\sigma}_G = 0 \implies \rho = \sigma$.
 
 
 
@@ -2461,7 +2672,7 @@ where the norms on the right hand side are defined by
 \label{lemma:HSbound}
 \end{lemma}
 
-This is often useful because the resolvent obeys the bound $\norm{(H-z)^{-1}} \leq |\text{Im}(z)|^{-1}$.
+In particular, if $f=\rho$ (as defined in chapter \ref{cha:noninteracting}) then clearly the norms on the right hand side are all finite since $\rho$ is bounded and the derivatives of $\rho$ have compact support. This lemma is often useful for bounding operators because the resolvent, which frequently shows up in the integrand of Helffer-Sj\"{o}strand representations, obeys the bound $\norm{(H-z)^{-1}} \leq |\text{Im}(z)|^{-1}$. 
 
 
 

@@ -355,9 +355,9 @@
 
 \maketitle                      %% Mandatory
 \begin{abstract}                %% Mandatory -  maximum 350 words
-In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the Hall resistivity of a 2-dimensional electron gas is precisely quantized to integer multiples of $h/q^2$ when subjected to a strong magnetic field at very low temperatures.
+In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the resistivity of a 2-dimensional electron gas is precisely quantized to integer multiples of $h/q^2$ when subjected to a strong magnetic field at very low temperatures.
 
-In particular, we provide a rigorous theoretical description of a phenomenon known as \emph{bulk-edge correspondence}, wherein the value of the Hall conductivity is unaffected by whether or not one considers a system with an edge or an infinite plane. This is accomplished in two settings. First, we ignore interactions between electrons, and then proceed to the more challenging interacting setting. 
+In particular, we provide a rigorous theoretical description of a phenomenon known as \emph{bulk-edge correspondence}, wherein the value of the Hall conductivity is unaffected by whether or not one considers a system with an edge or a bulk (i.e. edgeless) system. This is accomplished in two settings. First, we ignore interactions between electrons, and then proceed to the more challenging interacting setting. 
 \end{abstract}
 
 \chapter{Preface} % Manditory if any of the conditions are met
@@ -415,7 +415,7 @@ Chapter~\ref{cha:noninteracting} is based on work conducted in~\cite{Graf:Nonint
 I would like to thank my supervisor, Sven Bachmann, for his patience, his kindness, and his inspiring mastery in the field of mathematical physics and quantum lattice systems.
 
 \chapter{Dedication} %% Optional
-To Abigail Sanderson, for her unwavering belief in me, and to my parents, for their endless support.
+To Abigail Sanderson for her unwavering belief in me, and to my parents for their endless support.
 
 % Any other unusual prefactory material should come here before the
 % main body.
@@ -727,7 +727,7 @@ As $B$ decreases and electrons fill states of higher energy within the band, the
 \begin{axis}[
   no markers, 
   domain=0:10, 
-  samples=1000,
+  samples=10,
   axis lines*=left, 
   xlabel=$E$, 
   ylabel=$\text{DOS}$,
@@ -758,7 +758,7 @@ As $B$ decreases and electrons fill states of higher energy within the band, the
 \draw[thick, dashed] (axis cs:7,-0.1) -- (axis cs:7,1.5);
 \node[] at (axis cs:7,-0.2) {$E_{n+1}$};
 \draw[thick, dashed] (axis cs:3.25,-0.1) -- (axis cs:3.25,1.5);
-\node[] at (axis cs:3.25,-0.2) {$\mu$};
+\node[] at (axis cs:3.25,-0.2) {$\lambda$};
 \draw[->] (axis cs:3.4,-0.2) -- (axis cs:3.75,-0.2);
 
 \draw[very thick,red](axis cs:1,0) -- (axis cs:3,0);
@@ -918,9 +918,11 @@ The Hall conductivity $\sigma_H$ in the bulk system is equal to
 \[\sigma_B = -i\emph{Tr}\left(P_\lambda \left[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]\right]\right).\]
 \end{proposition}
 \begin{proof}
-We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition $\lim_{t\to-\infty} \|\rho(t) - e^{itH_B}P_\lambda e^{-itH_B}\| = 0$, which is equivalent to $\lim_{t\to-\infty} \|e^{-itH_B}\rho(t)e^{itH_B} - P_\lambda\| = 0$.
+We begin with the Heisenberg equation of motion for the density matrix, $\dot{\rho}(t) = - i[\widetilde{H}_B(t),\rho(t)]$, with initial condition 
 
-We work in the interaction picture by defining $\rho_I(t) = e^{-itH_B}\rho(t)e^{itH_B}$ and $\Delta H_B(t) = e^{-itH_B}V_0\Lambda_2 e^{\eps t}e^{itH_B}$. Thus
+\[\lim_{t\to-\infty} \|\rho(t) - e^{itH_B}P_\lambda e^{-itH_B}\| = 0,\]
+
+which is equivalent to $\lim_{t\to-\infty} \|e^{-itH_B}\rho(t)e^{itH_B} - P_\lambda\| = 0$. We work in the interaction picture by defining $\rho_I(t) = e^{-itH_B}\rho(t)e^{itH_B}$ and $\Delta H_B(t) = e^{-itH_B}V_0\Lambda_2 e^{\eps t}e^{itH_B}$. Thus
 
 \[\dot{\rho}_I(t) = -i[\Delta H_B(t), \rho_I(t)].\]
 
@@ -2371,37 +2373,44 @@ Of course, the ultimate goal would be to show that the ground state current is z
 
 
 \subsection{Generators of Parallel Transport in Edge Systems}
-Now define 
 
-\[K_E := \int_\mathbb{R} W_\gamma(t) e^{-itH_E}Q_he^{itH_E}dt,\]
+We return to the interacting cylinder picture. One possible extension of this thesis would be to devise a suitable operator $K_E$ which plays the same role as the generator of parallel transport in the edge system as $K$ did in the bulk setting. One might begin with the attempt
 
-which is using the gap $\gamma$ of $H_B$ to define $W_\gamma$, but also using the edge Hamiltonian in the time evolution operators. Consider $\sigma:[0,\infty)\to\mathcal{U}$ defined by
+\[K_E := \int_\mathbb{R} W(t) e^{-itH_E}Q_he^{itH_E}dt,\]
 
-\[\dot{\sigma}(\mu) = i[K_E, \sigma(\mu)] \quad\quad\quad\quad \sigma(0) = P_E(0).\]
+which is using the gap $\Delta$ of $H_B$ to define $W$, but also using the edge Hamiltonian in the time evolution operators. Consider the differential equation
 
-We now show that, similar to how $\rho$ is an approximation of $P_B$, $\sigma$ is also a good approximation of $P_E$ (up to $\mathcal{O}(L^{-\infty})$) ``in the bulk". Let $A\in \mathcal{U}_{\Gamma_B}$ be an operator localized in the bulk of the edge system. Then 
+\[\dot{\zeta}(\mu) = i[K_E, \zeta(\mu)] \quad\quad\quad\quad \zeta(0) = P_E(0).\]
+
+The idea would be to show that while $P_E$ is not an exact solution, $\zeta$ is still a good approximation of $P_E$ when taking expectations of operators supported outside $\Gamma_E$, i.e. $\Tr(P_E A_X)$ with $X \cap \Gamma_E=\varnothing$. For such an operator $A_X$,
 
 \[\begin{aligned}
-\Tr(\dot{\sigma} A) &= \Tr (i[K_E, \sigma]A)\\
-&= \Tr(i[A,K_E]\sigma)\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_E}Q_he^{itH_E}, A] \sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_E}Ae^{-itH_E}]e^{itH_E} \sigma)dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_E}\sigma + \mathcal{O}(L^{-\infty}))dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}Ae^{-itH_B}]e^{itH_B}\sigma + \mathcal{O}(L^{-\infty}))dt\\
-&= \int_\mathbb{R}W_\gamma(t) \Tr([e^{-itH_B}Q_he^{itH_B}, A] \sigma)dt + \mathcal{O}(L^{-\infty})\\
-&= \Tr(i[A,K_B]\sigma] + \mathcal{O}(L^{-\infty})\\
-&= \Tr(i[K_B,\sigma]A) + \mathcal{O}(L^{-\infty}),
+\Tr(\dot{\zeta} A_X) &= \Tr (i[K_E, \zeta]A_X)\\
+&= \Tr(i[A_X,K_E]\zeta)\\
+&= \int_\mathbb{R}W(t) \Tr([e^{-itH_E}Q_he^{itH_E}, A_X] \zeta)dt\\
+&= \int_\mathbb{R}W(t) \Tr(e^{-itH_E}[Q_h, e^{itH_E}A_Xe^{-itH_E}]e^{itH_E} \zeta)dt\\
+&= \int_\mathbb{R}W(t) \Tr(e^{-itH_E}[Q_h, e^{itH_B}A_Xe^{-itH_B}]e^{itH_E}\zeta + \mathcal{O}(L^{-\infty}))dt\\
+&= \int_\mathbb{R}W(t) \Tr(e^{-itH_B}[Q_h, e^{itH_B}A_Xe^{-itH_B}]e^{itH_B}\zeta + \mathcal{O}(L^{-\infty}))dt\\
+&= \int_\mathbb{R}W(t) \Tr([e^{-itH_B}Q_he^{itH_B}, A_X] \zeta)dt + \mathcal{O}(L^{-\infty})\\
+&= \Tr(i[A_X,K_B]\zeta] + \mathcal{O}(L^{-\infty})\\
+&= \Tr(i[K_B,\zeta]A_X) + \mathcal{O}(L^{-\infty}).
 \end{aligned}\]
 
-since $\sigma$ is trace-class (?) and $W_\gamma \in L^1$. By linearity of the trace, we see that $\Tr((\dot{\sigma} - i[K_B,\sigma])A) = \mathcal{O}(L^{-\infty})$ for any operator $A \in \Gamma_B$ (does this mean $\dot{\sigma}-i[K_E,\sigma] = 0$?). But the solution of $\dot{\sigma} - i[K_B,\sigma] = 0$ (with initial condition $\sigma(0)=P_B(0)$) is unique; it is $\rho(\mu)$, or $P_B(\mu)$. Hence
+We see that 
 
-\[\Tr(P_E A) = \Tr(P_B A) + \mathcal{O}(L^{-\infty}) = \Tr(\rho A) + \mathcal{O}(L^{-\infty}) = Tr(\sigma A) + \mathcal{O}(L^{-\infty}) \]
+\[\Tr((\dot{\zeta} - i[K_B,\zeta])A_X) = \mathcal{O}(L^{-\infty})\]
 
-for any operator $A\in\Gamma_B$. In particular, this gives another local formula for the Hall conductivity in the bulk of an edge system, by taking $A = J_V$, where $J$ is the current operator and $V \subset \Gamma_B$ is a set localized in the bulk. The Hall conductivity is given by $\Tr(\dot{P_E}J_V)$, and this can be approximated by
+for any operator $A_X \in \mathcal{U}_X$. By Gr\"{o}nwall \ref{thm:gronwalluniqueness}, the solution of $\dot{\rho} - i[K_B,\rho] = 0$ with initial condition $\zeta(0)=P_B(0)$ is unique; it is $P_B(\mu)$. From here, one might try to use the properties of $K_B$ and assumption \ref{ass:bulk} to argue that the solution $\zeta(\mu)$ approximates $P_E(\mu)$. For instance, we know that
 
-\[\Tr(\dot{P_E} J_V) = \Tr(\dot{P_B} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\rho} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\sigma} J_V) + \mathcal{O}(L^{-\infty}).\]
+\[\Tr((\dot{\zeta} - i[K_B,\zeta])A_X) = \Tr((\dot{\zeta} - i[K_E,\zeta])A_X) + \mathcal{O}(L^{-\infty})\]
 
-Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\sigma(\mu)}_G \leq \norm{P_B(0)-P_E(0)}_Ge^{2L_F\mu}$. Need $\norm{P_B(0)-P_E(0)}_G$ to be small enough to kill the exponential which depends on $L_F = 2\norm{K_B}_G \leq \norm{W_\gamma}_{L^1}\norm{Q_h}_G$. If we use the operator norm for $\norm{\cdot}_G$, we would get $\norm{Q_h}_G = d|\Gamma_h|$ in the exponent. Need $\norm{\cdot}_G$ to be an actual norm so that $\norm{\rho-\sigma}_G = 0 \implies \rho = \sigma$. (Need to add)
+for any operator $A_X\in\mathcal{U}_X$. One could also attempt to generalize Gr\"{o}nwall's uniqueness theorem \ref{thm:gronwalluniqueness} for the setting $u'(t) = F(u(t)) + \mathcal{O}(L^{-\infty})$.
+
+%In particular, this gives another local formula for the Hall conductivity in the bulk of an edge system, by taking $A = J_V$, where $J$ is the current operator and $V \subset \Gamma_B$ is a set localized in the bulk. The Hall conductivity is given by $\Tr(\dot{P_E}J_V)$, and this can be approximated by
+
+%\[\Tr(\dot{P_E} J_V) = \Tr(\dot{P_B} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\rho} J_V) + \mathcal{O}(L^{-\infty}) = \Tr(\dot{\sigma} J_V) + \mathcal{O}(L^{-\infty}).\]
+
+%Want to pick a norm s.t. Gronwall gives $\norm{\rho(\mu)-\zeta(\mu)}_G \leq \norm{P_B(0)-P_E(0)}_Ge^{2L_F\mu}$. Need $\norm{P_B(0)-P_E(0)}_G$ to be small enough to kill the exponential which depends on $L_F = 2\norm{K_B}_G \leq \norm{W_\gamma}_{L^1}\norm{Q_h}_G$. If we use the operator norm for $\norm{\cdot}_G$, we would get $\norm{Q_h}_G = d|\Gamma_h|$ in the exponent. Need $\norm{\cdot}_G$ to be an actual norm so that $\norm{\rho-\sigma}_G = 0 \implies \rho = \zeta$. (Need to add)
 
 
 

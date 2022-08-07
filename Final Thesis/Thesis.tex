@@ -355,7 +355,7 @@
 
 \maketitle                      %% Mandatory
 \begin{abstract}                %% Mandatory -  maximum 350 words
-In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the resistivity of a 2-dimensional electron gas is precisely quantized to integer multiples of $h/q^2$ when subjected to a strong magnetic field at very low temperatures.
+In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the conductivity of a 2-dimensional electron gas is quantized in exact integer multiples of $q^2/h$ when subjected to a strong magnetic field at very low temperatures.
 
 In particular, we provide a rigorous theoretical description of a phenomenon known as \emph{bulk-edge correspondence}, wherein the value of the Hall conductivity is unaffected by whether or not one considers a system with an edge or a bulk (i.e. edgeless) system. This is accomplished in two settings. First, we ignore interactions between electrons, and then proceed to the more challenging interacting setting. 
 \end{abstract}
@@ -431,7 +431,7 @@ To Abigail Sanderson for her unwavering belief in me, and to my parents for thei
 \chapter{Introduction}
 \label{cha:introduction}
 
-Since its discovery in 1980, the Integer Quantum Hall Effect (IQHE) has captured significant interest in the mathematical physics community. The IQHE occurs when a 2 dimensional electron gas at near 0 Kelvin is pierced by a strong magnetic field. As the strength of the field increases, the Hall resistivity - a macroscopic quantity - undergoes quantization in nearly perfect integer multiples of $h/q^2$, as in Figure \ref{fig:vonklitzing}.
+Since its discovery in 1980, the Integer Quantum Hall Effect (IQHE) has captured significant interest in the mathematical physics community. The IQHE occurs when a 2 dimensional electron gas at near 0 Kelvin is pierced by a strong magnetic field. As the strength of the field increases, the Hall conductivity - a macroscopic quantity - undergoes quantization in nearly perfect integer multiples of $q^2/h$. %, as in Figure \ref{fig:vonklitzing}.
 
 In this thesis, we begin by providing a simple classical calculation for the Hall conductivity, and emphasize that the result does not agree with experiment. The IQHE, as its name suggests, is fundamentally reliant on quantum mechanics. We give another heuristic argument due to Laughlin~\cite{Laughlin} for why the quantization of Hall resistivity occurs, before going into the main body of the thesis in Chapters \ref{cha:noninteracting} and \ref{cha:interacting}. 
 
@@ -453,19 +453,19 @@ The solution to this differential equation is given by the \emph{cyclotron orbit
 
 where $\omega_B = qB/m$ is the \emph{cyclotron frequency}. When an electric field $\vec{E}=E\hat{x}$ is introduced, the electrons move in the $x$-direction, and we employ the \emph{Drude model},
 
-\[m\dot{\vec{v}} = -q(\vec{E}+\vec{v}\times\vec{B}) + \frac{m}{\tau}\vec{v},\]
+\[m\dot{\vec{v}} = -q(\vec{E}+\vec{v}\times\vec{B}) - \frac{m}{\tau}\vec{v},\]
 
 where the final term is a linear friction term, and $\tau$ is the scattering time. At equilibrium, the equation reads
 
-\[\vec{J} + \frac{q\tau}{m}\vec{J}\times\vec{B} = -\frac{q^2n\tau}{m}\vec{E},\]
+\[\vec{J} + \frac{q\tau}{m}\vec{J}\times\vec{B} = \frac{q^2n\tau}{m}\vec{E},\]
 
 where $\vec{J} = -nq\vec{v}$ is the current density, related to the velocity by the density $n$ of electrons per unit area. In matrix notation, this reads
 
-\[\begin{pmatrix} 1 & \omega_B\tau \\ -\omega_B\tau & q \end{pmatrix}\vec{J} = -\frac{q^2n\tau}{m}\vec{E}.\]
+\[\begin{pmatrix} 1 & \omega_B\tau \\ -\omega_B\tau & 1 \end{pmatrix}\vec{J} = \frac{q^2n\tau}{m}\vec{E}.\]
 
 Since the matrix on the left is invertible, we may write $\vec{J} = \sigma \vec{E}$, which is Ohm's Law. The \emph{conductivity tensor} is given by
 
-\[\sigma = \begin{pmatrix} \sigma_{xx} & \sigma_{xy} \\ -\sigma_{xy} & \sigma_{yy} \end{pmatrix} = -\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\begin{pmatrix} 1 & -\omega_B\tau \\  \omega_B\tau& 1 \end{pmatrix}.\]
+\[\sigma = \begin{pmatrix} \sigma_{xx} & \sigma_{xy} \\ -\sigma_{xy} & \sigma_{yy} \end{pmatrix} = \frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\begin{pmatrix} 1 & \omega_B\tau \\  -\omega_B\tau& 1 \end{pmatrix}.\]
 
 The off-diagonal components, $\pm\frac{q^2n\tau}{m(1+\omega_B^2\tau^2)}\omega_B\tau$, are responsible for the Hall effect; the magnetic field induces a component of the current in the $y$-direction, in addition to the one in the $x$-direction from the electric field. 
 
@@ -494,7 +494,7 @@ where $n$ is an integer, hence the name \emph{integer quantum Hall effect}. In f
 
 The first quantum mechanical explanation of the integer-valued Hall conductivity is due to Laughlin in his short but seminal 1981 paper~\cite{Laughlin}, for which he also won the Nobel prize. In this paper, the plateaux are explained using a charge transport argument. 
 
-We remark that, although the resistivity is what is measured in a lab, throughout this thesis we work with the quantum Hall \emph{conductivity},
+We remark that, although the resistivity is what is measured in a lab, throughout this thesis we work with the integer-valued Hall \emph{conductivity},
 
 \[\sigma_H = \frac{q^2}{h}n.\]
 
@@ -584,7 +584,7 @@ This is a shifted quantum harmonic oscillator in $x$, with frequency $\omega_B$.
 
 \[E_n = \hbar \omega_B\left(n+\frac{1}{2}\right).\]
 
-The eigenstates are called \emph{Landau levels}, and they are exponentially localized at $x=-s_j(\phi)$. They are of the form
+The eigenstates are called \emph{Landau levels}, and they are exponentially localized at $x=s_j(\phi)$. They are of the form
 
 \[\psi_{n,j}(x,y) = C_{n,j} e^{i\frac{yj}{R}}H_n(x-s_j)e^{-\frac{(x-s_j(\phi))^2}{2\ell_B^2}}\]
 
@@ -780,32 +780,41 @@ As $B$ decreases and electrons fill states of higher energy within the band, the
 \draw[<->,black](axis cs:9,-0.65) -- (axis cs:10,-0.65);
 \end{axis}
 \end{tikzpicture}
-\caption{Disorder, modelled by a small random potential, breaks the degeneracy of the discrete Landau levels $E_n$ into bands. The blue states are \emph{localized} and do not contribute to charge transport, while the red states are \emph{extended}. As $B$ decreases and $\mu$ moves through the blue (localized) and black (spectral gap) regions, the current (and therefore the Hall conductivity) are not affected; this gives rise to the plateaux observed experimentally. Only once $\mu$ begins moving through the red (extended) region will the Hall conductivity begin to increase to its next plateau.}
+\caption{Disorder, modelled by a small random potential, breaks the degeneracy of the discrete Landau levels $E_n$ into bands. The blue states are \emph{localized} and do not contribute to charge transport, while the red states are \emph{extended}. As $B$ decreases and $\lambda$ moves through the blue (localized) and black (spectral gap) regions, the current (and therefore the Hall conductivity) are not affected; this gives rise to the plateaux observed experimentally. Only once $\lambda$ begins moving through the red (extended) region will the Hall conductivity begin to increase to its next plateau.}
 \label{fig:DOS}
 \end{figure}
 
 
 \chapter{Noninteracting Bulk-Edge Correspondence}
+
+The contents of this chapter are based on \cite{Graf:Noninteracting}, but in the case of a spectral gap as opposed to a mobility gap.
+
 \label{cha:noninteracting}
 
-An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Proving this fact, both in the interacting and noninteracting setting, is the main focus of this thesis. In particular, we are not concerned with proving the existence of plateaux, or even the integrality of the Hall conductivity, but rather the equivalence of the bulk and edge Hall conductivities.
+An intriguing mathematical fact of the quantum Hall effect is the equality of bulk and edge conductivity, in the sense that whether the system is assumed to have an edge or not is immaterial. Not only this, but the definitions of the bulk and edge Hall conductivities, $\sigma_B$ and $\sigma_E$, are derived by two completely different mechanisms. The edge Hall conductivity looks at the current due to states localized near the edge at the Fermi energy, while the bulk conductivity is derived from the Kubo formula which accounts for the whole Fermi sea.
+
+Proving equality of bulk and edge conductivity, both in the interacting and noninteracting setting, is the main focus of this thesis. In particular, we are not concerned with proving the existence of plateaux, or even the integrality of the Hall conductivity, but rather the equivalence of the bulk and edge Hall conductivities.
 
 We begin by generalizing from Landau Hamiltonians to a much more general class of Hamiltonians, and derive appropriate formulae for the ``bulk" and ``edge" Hall conductivities in this scenario.
 
 \section{General Setting}
 
-Consider the lattice $\Z^2$, and the associated Hilbert space of square-summable sequences of vectors in $\C^n$,
+Consider the lattice $\Z^2$, and the associated Hilbert space of square-summable sequences in $\C$,
 
-\[\ell^2(\mathbb{Z}^2, \mathbb{C}^n) = \left\{ (x_i)_{i\in\Z^2} \subset \mathbb{C}^n \; : \; \sum_{i \in \Z^2} \norm{x_i}^2 < \infty \right\},\]
+\[\ell^2(\mathbb{Z}^2, \mathbb{C}) = \left\{ (\psi_{x})_{x\in\Z^2} \subset \mathbb{C} \; : \; \sum_{x \in \Z^2} \norm{\psi_x}^2 < \infty \right\},\] % = \left\{ (x^{(i)})_{i\in\Z^2} \subset \mathbb{C}^n \; : \; \sum_{i \in \Z^2} \norm{x^{(i)}}^2 < \infty \right\},\]
 
-with inner product $\langle x, y\rangle = \sum_{i\in\Z^2} x_i\overline{y_i}$. We denote this as $\ell^2(\Z^2)$ for short. On this Hilbert space we define a \emph{bulk Hamiltonian} $H_B:\ell^2(\Z^2)\to\ell^2(\Z^2)$, whose matrix elements follow a short-range assumption:
+where $\psi_{x} \in \C$ denotes the $x=(x_1,x_2) \in \Z^2$ element of the sequence $\psi$, and with inner product 
+
+\[\langle \psi, \phi \rangle = \sum_{x\in\Z^2} \psi_x\overline{\phi_x}.\]
+
+We denote this Hilbert space as $\ell^2(\Z^2)$ for short. We choose the Kronecker delta functions $\{\delta_x$: $x\in\Z^2$\} as an orthonormal basis, and we often use the shorthand $A(x,y) = \langle x, Ay\rangle := \langle \delta_x, A \delta_y\rangle$ to denote ``matrix elements" of an operator $A$. On this Hilbert space we define a \emph{bulk Hamiltonian} $H_B:\ell^2(\Z^2)\to\ell^2(\Z^2)$, whose matrix elements follow a short-range assumption:
 
 
 
 \begin{assumption}
 There exists some $\alpha>0$ such that
 \[\sup_{y\in\Z^2}\sum_{x\in\Z^2}|H_B(x,y)|(e^{\alpha|x-y|}-1) \leq C < \infty,\]
-where $|x| = |x_1|+|x_2|$ induces the taxicab metric.
+where $|x| = |x_1|+|x_2|$.
 \label{ass:shortrange}
 \end{assumption}
 
@@ -825,8 +834,8 @@ where $\mathcal{J}_a : \ell^2(\Z_a^2) \to \ell(\Z^2)$ denotes extension by zeroe
 
 \begin{assumption}
 The edge operator satisfies
-\[\sup_{z\in\Z^2}\sum_{y\in\Z^2_a} |E_a(x,y)| e^{\alpha(|x_2 + a| + |x_1-y_1|)} \leq C < \infty\]
-for some $\alpha>0$, where $|x| = |x_1|+|x_2|$ is the taxicab metric.
+\[\sup_{x\in\Z^2}\sum_{y\in\Z^2_a} |E_a(x,y)| e^{\alpha(|x_2 + a| + |x_1-y_1|)} \leq C < \infty\]
+for some $\alpha>0$, where $|x| = |x_1|+|x_2|$.
 \label{ass:edge}
 \end{assumption}
 
@@ -834,7 +843,7 @@ We observe some properties of the extension operator. Both $\mathcal{J}_a$ and i
 
 \[\mathcal{J}_a^*\mathcal{J}_a = \One_{\ell^2(\Z_a^2)},\]
 
-\[\mathcal{J}_a\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} \One_{\ell^2(\Z^2)}.\]
+\[\mathcal{J}_a\mathcal{J}_a^* \xrightarrow{\enskip s \enskip} \One_{\ell^2(\Z^2)}\]
 
 
 
@@ -856,7 +865,7 @@ We observe some properties of the extension operator. Both $\mathcal{J}_a$ and i
 
 
 
-The interpretation of the edge operator $E_a = \mathcal{J}_aH_a - H_B\mathcal{J}_a$ is that it is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$ and then extending by zeroes, versus first making everything below $x_2 = -a$ into zeroes and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also that terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent). 
+as $a\to\infty$, where $\xrightarrow{\enskip s \enskip}$ denotes strong convergence. The interpretation of the edge operator $E_a = \mathcal{J}_aH_a - H_B\mathcal{J}_a$ is that it is the difference between first applying $H_a$ on $\ell^2(\Z^2_a)$ and then extending by zeroes, versus first making everything below $x_2 = -a$ into zeroes and the applying $H_B$. The assumption ensures that the effects from introducing the edge at $-a$ die exponentially as we move upward away from the edge (due to the $|x_2 - (-a)|$ term in the exponent), and also that terms do not interact too much as their $x_1$ distance increases (due to the $|x_1-y_1|$ term in the exponent). 
 
 A simple example of an edge Hamiltonian satisfying the edge condition is $H_a = \mathcal{J}_a^*H_B\mathcal{J}_a$, which gives $E_a = (\mathcal{J}_a\mathcal{J}_a^*-\One)H_B\mathcal{J}_a$. The matrix elements are
 
@@ -868,6 +877,7 @@ We also make the following assumption about the spectrum of the bulk and edge Ha
 
 \begin{assumption}
 \begin{enumerate}
+$\\$
 \item Both $H_a$ and $H_B$ have bounded spectrum.
 \item The bulk Hamiltonian $H_B$ has a spectral gap. That is, there exists an interval $\Delta \subset \R$ such that 
 \[\Delta \cap \emph{Spec}(H_B) = \varnothing.\]
@@ -876,8 +886,8 @@ We also make the following assumption about the spectrum of the bulk and edge Ha
 \end{assumption}
 
 \textit{Remark}: The spectral gap assumption can be relaxed to a ``mobility gap" assumption,
-\[\sup_{f \in B_c(\Delta)}|f(H_B)(x,y)|(1+|x|)^{-\alpha_1}e^{\alpha_2|x-y|} < \infty\]
-for some $\alpha_1>0$, where $B_c(\Delta)$ is the set of Borel functions $f$ which are constant on $(-\infty,\inf \Delta)$ and on $(\sup \Delta, \infty)$ such that $|f(x)| \leq 1$ for all $x$~\cite{Graf:Noninteracting}.
+\[\sup_{f \in B_c(\Delta)}\sum_{x,y\in\Z^2}|f(H_B)(x,y)|(1+|x|)^{-\beta}e^{\alpha|x-y|} < \infty\]
+for some $\beta>0$, where $B_c(\Delta)$ is the set of Borel functions $f$ which are constant on $(-\infty,\inf \Delta)$ and on $(\sup \Delta, \infty)$ such that $|f(x)| \leq 1$ for all $x$~\cite{Graf:Noninteracting}.
 
 We define the \textit{bulk conductivity} at Fermi energy $\lambda$ as follows. Suppose we subject the system to an external electric potential $V(x_2)$ in the $x_2$ direction. We write this as $V_0 \Lambda_2$, where $\Lambda_i$ are multiplication operators 
 
@@ -932,9 +942,9 @@ Integrating both sides,
 
 Indeed, taking the derivative of the right hand side gives $i[\Delta H_B(t), \rho_I(t)]$, and the constant $P_\lambda$ is added so that the initial condition $\norm{\rho_I(t) - P_\lambda} \to 0$ is also satisfied. This also shows that
 
-\[\norm{\rho_I(t)-P_\lambda} \leq 2\int_{-\infty}^t \norm{V_0\Lambda_2 e^{\eps s} \rho_I(t)}ds = e^{\eps t}\mathcal{O}(V_0),\]
+\[\norm{\rho_I(t)-P_\lambda} \leq 2\int_{-\infty}^t \norm{V_0\Lambda_2 e^{\eps s} \rho_I(s)}ds = e^{\eps t}\mathcal{O}(V_0),\]
 
-which implies $[\Delta H_B(s), \rho_I(t)] = [\Delta H_B(s), P_\lambda] + e^{2\eps t}\mathcal{O}(V_0^2)$. Therefore
+which implies $[\Delta H_B(s), \rho_I(s)] = [\Delta H_B(s), P_\lambda] + e^{2\eps s}\mathcal{O}(V_0^2)$. Therefore
 
 \[\rho_I(t) = i\int_{-\infty}^t [\Delta H_B(s), P_\lambda]ds + P_\lambda + e^{2\eps t}\mathcal{O}(V_0^2).\]
 
@@ -1295,7 +1305,7 @@ and bounding the norm of each. We remark that the extension $\mathcal{J}_a$ and 
 &\leq \norm{R_a(z)}\cdot \norm{[H_a,\Lambda_1]e^{\delta|x_1|}}\cdot \norm{e^{-\delta|x_1|}R_a(z)e^{\delta|x_1|}}.
 \end{aligned}\]
 
-The norm of the resolvent is bounded by $\norm{R_a(z)} \leq C|\text{Im}(z)|^{-1}$. The middle operator is bounded by Lemma \ref{lemma:keybound}. For the operator on the right, we apply the Combes-Thomas bound \ref{thm:combesthomasresolvent}. Altogether, the bound of the first term of the integrand takes the form 
+The norm of the resolvent is bounded by $\norm{R_a(z)} \leq C|\text{Im}(z)|^{-1}$. The middle operator is bounded by Lemma \ref{lemma:keybound}. For the operator on the right, we apply the Combes-Thomas bound (Proposition \ref{thm:combesthomasresolvent}). Altogether, the bound of the first term of the integrand takes the form 
 
 \[\frac{C}{\text{Im}(z)^2}.\]
 
@@ -1369,7 +1379,7 @@ Define $P_+ := P((\sup \Delta, \infty))$ and $P_- := P((-\infty, \inf \Delta))$,
 
 where we've used the fact that $\Sigma_B$ is trace-class to cycle the projections and get rid of the $P_-P_+=0$ terms. We now argue that the integral term in $P_\pm \Sigma_B P_\pm$ vanishes. 
 
-The integrand is analytic on all of $\C$. Indeed, $[H_B,\Lambda_1]\Lambda_2$ is analytic everywhere. Consider $P_+R_B$ and $R_BP_+$. The resolvent is analytic away from the real line, and $P_+$ is equal to $0$ on $(-\infty,\sup\Delta)$, so $P_-R_B$ and $R_BP_-$ are analytic on $\C \setminus (\sup\Delta,\infty)$. However, the integrand is zero on $(\sup\Delta,\infty)$, since $\tilde{\rho}=0$ there. The integrand as a whole is therefore analytic on the entire complex plane, and so the integral can be written
+The integrand is analytic on all of $\C$. Indeed, $[H_B,\Lambda_1]\Lambda_2$ does not depend on $z$, so consider $P_+R_B$ and $R_BP_+$. The resolvent is analytic away from the real line, and $P_+$ is equal to $0$ on $(-\infty,\sup\Delta)$, so $P_-R_B$ and $R_BP_-$ are analytic on $\C \setminus (\sup\Delta,\infty)$. However, the integrand is zero on $(\sup\Delta,\infty)$, since $\tilde{\rho}=0$ there. The integrand as a whole is therefore analytic on the entire complex plane, and so the integral can be written
 
 \[\int_{\C}\frac{\partial}{\partial \bar{z}}\left(  \tilde{\rho}(z) P_+ R_B(z)[H_B,\Lambda_1]\Lambda_2R_B(z) P_+ \right)dz^2,\]
 
@@ -1401,7 +1411,7 @@ By the spectral theorem for projection-valued measures \ref{thm:spectraltheorem}
 
 \[ \rho(H_B) = \int_{-\infty}^\lambda dP_\nu = P_\lambda.\]
 
-We may therefore replace $\rho(H_B)$ with $P_\lambda$, by which we obtain $\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-)$. We must relate this expression to the bulk conductivity. An algebraic calculation shows that that 
+It is clear from this expression that both the bulk and edge conductivities are independent of the choice of $\rho$ and the Fermi energy (so long as it lies in the gap), since $P_\lambda = P_{\tilde{\lambda}}$ for any $\tilde{\lambda}\in\Delta$. We may therefore replace $\rho(H_B)$ with $P_\lambda$, by which we obtain $\Tr(\Sigma_B) = i\Tr(P_+[P_\lambda,\Lambda_1]\Lambda_2P_+) + i\Tr(P_-[P_\lambda,\Lambda_1]\Lambda_2P_-)$. We must relate this expression to the bulk conductivity. An algebraic calculation shows that that 
 
 \[P_\lambda[[P_\lambda,\Lambda_1],[P_\lambda,\Lambda_2]] = P_\lambda\Lambda_2P_\lambda^\perp\Lambda_1P_\lambda - P_\lambda\Lambda_1P_\lambda^\perp\Lambda_2P_\lambda.\]
 
@@ -1585,28 +1595,39 @@ Let $L\in\N$, and let $\Gamma_L = \Z/L\Z \times [0,L]$ be the discrete cylinder 
 
 %For simplicity, throughout we take $L = 2^n$ for some large $n$.
 
-We denote $N = \sup_L{\mathcal{H}_L}$. The $C^*$-algebra $\U_X$ of observables on $\mathcal{H}_X$ consists of bounded self-adjoint operators supported in $X$. For an operator $A_X \in \U_X$, we identify its extension to an operator on $\mathcal{H}_L$ by taking its tensor product with copies of the identity, $(\otimes_{x \notin X} \mathbb{I}_x) \otimes A_X$. Conversely, we say that an operator $A \in \mathcal{U}_L$ has support $X$ if $A_X := (\otimes_{x \notin X} \mathbb{I}_x)\otimes (A|_{X})$ is equal to $A$, and write $A_X \in \U_X$. For ease of notation, we omit the subscript $L$ wherever there is no risk of confusion.
+We denote $N = \sup_L{\text{dim}(\mathcal{H}_L)}$. The $C^*$-algebra $\U_X$ of observables on $\mathcal{H}_X$ consists of bounded self-adjoint operators supported in $X$. For an operator $A_X \in \U_X$, we identify its extension to an operator on $\mathcal{H}_L$ by taking its tensor product with copies of the identity, $(\otimes_{x \notin X} \mathbb{I}_x) \otimes A_X$. Conversely, we say that an operator $A \in \mathcal{U}_L$ has support $X$ if $A_X := (\otimes_{x \notin X} \mathbb{I}_x)\otimes (A|_{X})$ is equal to $A$, and write $A_X \in \U_X$. For ease of notation, we omit the subscript $L$ wherever there is no risk of confusion.
 
 A \textit{local interaction} of range $R$ is a map $\Phi : \mathcal{P}(\Gamma_L) \to \U_L$ associating observables to subsets of the cylinder such that 
 
 \begin{enumerate}
 
-\item $\Phi(X) = 0$ whenever $\text{diam}(X) > R$ for some $R>0$.
+\item $\Phi(X) = 0$ for all $X$ such that $\text{diam}(X) > R$, for all $L$.
 
 \item $\Phi(X)$ is supported in $X$.
 
-\item $\norm{\Phi(X)} \leq C$ for all $X \subset \Gamma_L$, for all $L$.
+\item There exists some $C$ such that $\norm{\Phi(X)} \leq C$ for all $X \subset \Gamma_L$, for all $L$.
 
 \end{enumerate}
 
-We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. 
+We emphasize that $R$ and $C$ are independent of $L$. We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. 
 
 \subsection{The Edge System}
 In Figure \ref{fig:setup}, $H_0=0$ is a trivial Hamiltonian which we take to be empty space, supported in the left white region $[0,L/2] \times [0,L]$, while in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a so-called \textit{local} or \textit{finite-range Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_{\text{right}}} \Phi(X)$, is a sum of local interactions supported on the right half of the cylinder (the blue region). This replaces assumption \ref{ass:shortrange}. We define the Hamiltonian of the full edge system to be 
 
 \[H_E(\mu) = H_1 + \mu Q_h,\]
 
-where $Q_h = \sum_{x \in \Gamma_h} a_x^*a_x$ is the \emph{number} or \emph{charge} operator for the region $\Gamma_h = [L/4,3L/4] \times [0,L]$ shown in red. This introduces a driving strength; the $\mu Q_h$ term can be viewed as a potential difference $V(x)$. We emphasize that $H_1$ is supported on $[L/2,L]\times[0,L]$.
+where $Q_h = \sum_{x \in \Gamma_h} q_x$ is the \emph{number} or \emph{charge} operator for the region $\Gamma_h = [L/4,3L/4] \times [0,L]$ shown in red. The number operator at the site $x$,
+
+\[q_x = \sum_{k=1}^{\text{dim}(\mathcal{H}_x)}a_{x,k}^*a_{x,k},\]
+
+is defined via the \emph{creation} and \emph{annihilation} operators, denoted $a_{x,k}^*$ and $a_{x,k}$, respectively. They satisfy the \emph{canonical anticommutation relations},
+
+\[\{a_{x,k},a_{x',k'}^*\} = \delta_{xx'}\delta_{kk'}; \quad\quad\quad\quad \{a_{x,k}^\#,a_{x',k'}^\#\} = 0,\]
+
+where $\delta_{ij}$ is the Kronecker delta and $a_{x,k}^\#$ is either $a_{x,k}$ or $a_{x,k}^*$. The algebra of observables $\mathcal{U}_L$ is generated by the creation and annihilation operators, in the sense that each observable can be written as a linear combination of polynomials in $a_{x,k}$ and $a_{x,k}^*$. 
+
+Physically, the creation operator $a_{x,k}^*$ is interpreted as adding a state $\psi_{x,k}$ to the system at site $x$, and similarly the annihilation operator $a_{x,k}$ is associated with the removal of the state $\psi_{x,k}$. For our purposes, it suffices to assume that $q_x$ has an integer-valued spectrum for each $x$ and for all $L$, and we interpret $q_x$ as the number of charges at the site $x$. We emphasize that $H_1$ is supported on $[L/2,L]\times[0,L]$. The $\mu Q_h$ term in $H_E(\mu)$ introduces a driving strength; it can be viewed as a potential difference $V(x)$. 
+
 
 \begin{figure}[h!]
 \centering
@@ -1639,12 +1660,12 @@ For any $X \in \Gamma_\text{right}$, the local interactions $\Phi(X)$ in the bul
 %\label{ass:gap}
 %\end{assumption}
 
-\vspace{250px}
+\vspace{25px}
 
-$H_E$ is assumed to have a bounded spectrum, while $H_B$ has a spectrum which is both bounded and gapped, as in assumption \ref{ass:gap}. We also assume that the bulk and edge Hamiltonians are both \emph{locally charge-conserving}.
+We assume that the bulk and edge Hamiltonians are both \emph{locally charge-conserving}.
 
 \begin{assumption}
-$[\Phi(X),Q] = 0$, where $Q$ is the total charge in $\Gamma_L$.
+The Hamiltonians $H_E$ and $H_B$ are both sums of local interactions $\sum_X\Phi(X)+\mu Q_h$, and the each interaction $\Phi(X)$ conserves the total charge, $[\Phi(X),Q] = 0$, where $Q=\sum_{x\in\Gamma_L}a^*_xa_x$ is the total charge in $\Gamma_L$.
 \label{ass:charge}
 \end{assumption}
 
@@ -1735,13 +1756,19 @@ The three regions $\Gamma_E$, $\Gamma_B$, and $\Gamma_m$ are depicted in figure 
 \label{fig:regions}
 \end{figure}
 
+Finally, we make some assumptions about the spectrum of the Hamiltonians.
+
+\begin{assumption}
+\begin{enumerate}
+$\\$
+\item Both $H_E$ and $H_B$ have bounded spectrum.
+\item $H_B$ has a spectral gap $\Delta$ which is uniform in $L$.
+\end{enumerate}
+\label{ass:interactinggap}
+\end{assumption}
 
 
-To summarize, the bulk and edge Hamiltonians are both finite-range, and both follow assumptions \ref{ass:charge} and \ref{ass:bulk}, rather than \ref{ass:shortrange} and \ref{ass:edge}. Additionally, $H_B$ satisfies \ref{ass:gap}.
-
-
-
-
+To summarize, the bulk and edge Hamiltonians are both finite-range, and follow assumptions \ref{ass:charge}, \ref{ass:bulk}, and \ref{ass:interactinggap}, which replace the weaker assumptions \ref{ass:shortrange}, \ref{ass:edge} and \ref{ass:gap}, respectively, from the noninteracting setting.
 
 
 
@@ -1772,7 +1799,7 @@ From this point, we drop the subscript $\mu$ wherever it is not needed for conte
 %\[ \int_{t:\Phi = 0}^{t:\Phi=2\pi} i[H, Q_u] dt' = \langle \Omega, (U^* Q_h U - Q_h) \Omega \rangle\]
 
 \begin{lemma}
-The ground state expectation of the both the bulk and edge system current $J^B$ and $J^E$ is zero.
+The ground state expectation of both the bulk and edge system currents $J^B$ and $J^E$ is zero.
 \label{lemma:J=0}
 \end{lemma}
 
@@ -1995,7 +2022,7 @@ Indeed, since $Q_h$ is the number operator on a finite volume, by charge conserv
 
 \subsection{The Main Result}
 
-We return to the analogy of $\mu Q_h$ as an electric potential. Let $P = P_E,P_B$ and $J=J^E,J^B$ denote either the edge or bulk system projection and current. Increasing the potential by a small amount $d\mu Q_h$ and expanding to linear order, the change in ground state current is given by
+We return to the analogy of $\mu Q_h$ as an electric potential and begin with heuristic motivation for our definition of the Hall conductivity. Let $P = P_E,P_B$ and $J=J^E,J^B$ denote either the edge or bulk system projection and current. Increasing the potential by a small amount $d\mu Q_h$ and expanding to linear order, the change in ground state current is given by
 
 \[\Tr(P(\mu+d\mu)J) - \Tr(P(\mu) J) = \kappa d\mu + \mathcal{O}(d\mu^2).\]
 
@@ -2108,14 +2135,15 @@ The ground state expectation of the total edge current $\Tr(P_EJ^E)$ is zero by 
 
 \[\Tr(P_EJ^E_{\Gamma_E}) = -\Tr(P_EJ^E_{\Gamma_B}) + \mathcal{O}(L^{-\infty}).\]
 
-Taking a derivative, and recalling that $J^E_{\Gamma_B} = J^B_{\Gamma_B}$, we see the edge Hall conductivity $\Tr(\dot{P}_EJ^E_{\Gamma_E})$ is equal to
+Taking a derivative, and recalling that $J^E_{\Gamma_B} = J^B_{\Gamma_B}$, we see the edge Hall conductivity $\sigma^E_{\Gamma_E}=\Tr(\dot{P}_EJ^E_{\Gamma_E})$ is equal to
 
 \[\sigma^E_{\Gamma_E} =-\Tr(\dot{P}_E J^B_{\Gamma_B}) + \mathcal{O}(L^{-\infty}).\]
 
-We conclude bulk-edge correspondence using assumption \ref{ass:bulk}, in the sense that the edge Hall conductivity is equal (up to tails) to the bulk conductivity,
+We conclude bulk-edge correspondence by using assumption \ref{ass:bulk} to replace $P_E$ with $P_B$ in order to obtain
 
+\begin{corollary}
 \[\sigma^E_{\Gamma_E} = \sigma^B_{\Gamma_B} + \mathcal{O}(L^{-\infty}).\]
-
+\end{corollary}
 
 %\subsection{Torus Geometry}
 
@@ -2434,7 +2462,7 @@ for any operator $A_X\in\mathcal{U}_X$. One could also attempt to generalize Gr\
 
 
 
-\nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995, VonKlitzing, Laughlin, Combes, Anderson}
+\nocite{Bachmann:Bloch, Bachmann:Exactness, Graf:Noninteracting, Bachmann_2021, Bachmann_2019, https://doi.org/10.48550/arxiv.1811.08699, https://doi.org/10.48550/arxiv.1808.09985, Bachmann_2017, Naaijkens, Tong, Shapiro, Graf:Aspects, https://doi.org/10.48550/arxiv.1707.06491, Schulz_Baldes_1999, Bachmann_2011, Bravyi_2006, Nachtergaele:LR, Nachtergaele:Clustering, davies_1995, VonKlitzing, Laughlin, Combes, Anderson, CombesThomas}
 
 
 
@@ -2591,7 +2619,7 @@ since $g(a)=0$.
 
 \section{Greens' Functions and the Combes-Thomas Bound}
 
-The short-range assumption \ref{ass:shortrange} is vital for the following non-trivial estimate, the proof of which is omitted.
+The short-range assumption \ref{ass:shortrange} is vital for the following non-trivial estimates from \cite{CombesThomas}, the proofs of which are omitted.
 
 \begin{theorem}[Combes-Thomas Bound (Version 1)]
 Let $H$ be a self-adjoint operator on $\ell^2(\Z^2)$ satisfying
@@ -2631,7 +2659,7 @@ We use the fact that the spectral projection is given by the Riesz integral form
 
 \[P_S = \frac{1}{2\pi i} \oint_\gamma R(z)dz,\]
 
-where $R(z)$ is the resolvent of $H$ and $\gamma$ is any smooth closed curve containing $S$. Since the resolvent is the Greens function of $H$, it satisfies the Combes-Thomas bound \ref{thm:combesthomas}. Since the spectrum of $H$ is bounded, it may be enclosed in a curve of finite length, from which we determine that
+where $R(z)$ is the resolvent of $H$ and $\gamma$ is any smooth closed curve containing $S$. Since the resolvent is the Greens function of $H$, it satisfies the Combes-Thomas bound of Theorem \ref{thm:combesthomas}. Since the spectrum of $H$ is bounded, it may be enclosed in a curve of finite length, from which we determine that
 
 \[|P_S(x,y)| \leq Ce^{-\xi_\alpha|x-y|},\]
 

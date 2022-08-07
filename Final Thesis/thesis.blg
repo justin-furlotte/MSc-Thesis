@@ -1,49 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: thesis.aux
+The top-level auxiliary file: Thesis.aux
 The style file: plain.bst
 Database file #1: iqhe.bib
 Warning--empty journal in Graf:Aspects
 Warning--empty publisher in Tong
-You've used 24 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            663 strings with 7474 characters,
-and the built_in function-call counts, 7215 in all, are:
-= -- 703
-> -- 327
+            670 strings with 7624 characters,
+and the built_in function-call counts, 7566 in all, are:
+= -- 740
+> -- 340
 < -- 1
-+ -- 134
-- -- 106
-* -- 532
-:= -- 1232
-add.period$ -- 70
-call.type$ -- 24
-change.case$ -- 123
++ -- 139
+- -- 110
+* -- 560
+:= -- 1289
+add.period$ -- 73
+call.type$ -- 25
+change.case$ -- 128
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 250
-empty$ -- 581
-format.name$ -- 106
-if$ -- 1464
+cite$ -- 27
+duplicate$ -- 261
+empty$ -- 610
+format.name$ -- 110
+if$ -- 1536
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 119
-num.names$ -- 48
-pop$ -- 125
+int.to.str$ -- 25
+missing$ -- 25
+newline$ -- 124
+num.names$ -- 50
+pop$ -- 128
 preamble$ -- 1
-purify$ -- 101
+purify$ -- 105
 quote$ -- 0
-skip$ -- 173
+skip$ -- 181
 stack$ -- 0
-substring$ -- 453
-swap$ -- 25
+substring$ -- 489
+swap$ -- 26
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 92
 warning$ -- 2
-while$ -- 72
-width$ -- 26
-write$ -- 254
+while$ -- 76
+width$ -- 27
+write$ -- 265
 (There were 2 warnings)

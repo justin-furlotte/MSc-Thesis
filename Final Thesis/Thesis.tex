@@ -287,11 +287,11 @@
 % instead.
 %\faculty{The College of Graduate Studies}
 %\institutionaddress{Okanagan}
-\faculty{The Faculty of Graduate Studies}
+\faculty{The Faculty of Graduate and Postdoctoral Studies}
 \institutionaddress{Vancouver}
 
 % You can issue as many of these as you have...
-\previousdegree{B.Sc. Hons, The University of New Brunswick, 2019}
+\previousdegree{B.Sc., The University of New Brunswick, 2019}
 
 % You can override the option setting here.
 % \degreetitle{Jack of All Trades}
@@ -354,14 +354,54 @@
 %%% Dedication (Optional)                                       \\
 
 \maketitle                      %% Mandatory
+
+\newpage
+\thispagestyle{plain}
+\noindent The following individuals certify that they have read, and recommend to the Faculty of Graduate and Postdoctoral Studies for acceptance, the thesis entitled:
+
+\vspace{2em}
+\noindent \underline{The Quantum Hall Effect and Bulk-Edge Correspondence on Lattice Systems}
+
+\vspace{3em}
+\noindent submitted by \underline{Justin Furlotte} in partial fulfilment of the requirements for
+
+\vspace{2em}
+\noindent the degree of \underline{Master of Science}
+
+\vspace{2em}
+\noindent in \underline{Mathematics}
+
+\vspace{3em}
+\noindent \textbf{Examining Committee:}
+
+\vspace{2em}
+\noindent \underline{Sven Bachmann, Professor, Mathematics, UBC}
+
+\noindent Supervisor 
+
+\vspace{2em}
+\noindent \underline{Stephen Gustafson, Professor, Mathematics, UBC}
+
+\noindent Supervisory Committee Member 
+
+
+
+
 \begin{abstract}                %% Mandatory -  maximum 350 words
 In this thesis, we investigate the \emph{integer quantum Hall effect} (IQHE). Discovered in 1980 by Nobel Laureate Klaus Von Klitzing, the IQHE is a phenomenon in which the conductivity of a 2-dimensional electron gas is quantized in exact integer multiples of $q^2/h$ when subjected to a strong magnetic field at very low temperatures.
 
 In particular, we provide a rigorous theoretical description of a phenomenon known as \emph{bulk-edge correspondence}, wherein the value of the Hall conductivity is unaffected by whether or not one considers a system with an edge or a bulk (i.e. edgeless) system. This is accomplished in two settings. First, we ignore interactions between electrons, and then proceed to the more challenging interacting setting. 
 \end{abstract}
 
+\newpage
+\chapter*{Lay Summary}
+\addcontentsline{toc}{chapter}{Lay Summary}
+Imagine a thin sheet of electrically conductive material. An electric potential difference is applied across the metal, and a current begins flowing. When this sheet is pierced by a strong magnetic field, the current gets deflected in a direction perpendicular to the original current. This deflected current is called the \emph{Hall current}. The electric conductivity associated with the Hall current is known as the \emph{Hall conductivity}. 
+
+Surprisingly, it was discovered experimentally that the Hall conductivity increases in discrete jumps as the strength of the magnetic field is increased. Not only this, but the jumps are precisely integer-valued, i.e. the conductivity jumps from exactly the value $1$, to exactly $2$, to $3$, and so on (times some fundamental constants of nature) - regardless of the type of material that is used. This phenomenon turns out to be fundamentally quantum mechanical, and is known as the \emph{quantum Hall effect}.
+
 \chapter{Preface} % Manditory if any of the conditions are met
-Chapter~\ref{cha:noninteracting} is based on work conducted in~\cite{Graf:Noninteracting}. This thesis is the work of the author, Justin Furlotte, under the supervision of Sven Bachmann.
+Chapter~\ref{cha:noninteracting} is based on work conducted in~\cite{Graf:Noninteracting}. This thesis is an original intellectual product of the author, Justin Furlotte, under the supervision of Sven Bachmann.
 
 %You must include a preface if any part of your research was partly or
 %wholly published in articles, was part of a collaboration, or required
@@ -477,7 +517,7 @@ The key prediction of the classical theory is that the Hall resistivity increase
 
 \subsection{The Quantum Hall Effect}
 
-Von Klitzing's experimental observation in 1980 made it clear that classical electromagnetism is not sufficient to describe the Hall effect. At a temperature of about 8mK, the Hall resistivity looked like this as a function of the magnetic field strength.
+Von Klitzing's Nobel prize-winning experimental observation in 1980 made it clear that classical electromagnetism is not sufficient to describe the Hall effect. At a temperature of about 8mK, the Hall resistivity looked like this as a function of the magnetic field strength.
 
 \begin{figure}[h!]
 \centering
@@ -1612,7 +1652,7 @@ A \textit{local interaction} of range $R$ is a map $\Phi : \mathcal{P}(\Gamma_L)
 We emphasize that $R$ and $C$ are independent of $L$. We consider a region as depicted in Figure~\ref{fig:setup}, with the left and right edges joined together to form a cylinder. 
 
 \subsection{The Edge System}
-In Figure \ref{fig:setup}, $H_0=0$ is a trivial Hamiltonian which we take to be empty space, supported in the left white region $[0,L/2] \times [0,L]$, while in the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a so-called \textit{local} or \textit{finite-range Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_{\text{right}}} \Phi(X)$, is a sum of local interactions supported on the right half of the cylinder (the blue region). This replaces assumption \ref{ass:shortrange}. We define the Hamiltonian of the full edge system to be 
+In Figure \ref{fig:setup}, $H_0=0$ is a trivial Hamiltonian which we take to be empty space, supported in the left white region $[0,L/2] \times [0,L]$. In the right blue region $[L/2,L]\times [0,L]$, $H_1$ is a so-called \textit{local} or \textit{finite-range Hamiltonian}, in the sense that $H_1 = \sum_{X \subseteq \Gamma_{\text{right}}} \Phi(X)$ is a sum of local interactions supported on the right half of the cylinder. This replaces assumption \ref{ass:shortrange}. We define the Hamiltonian of the full edge system to be 
 
 \[H_E(\mu) = H_1 + \mu Q_h,\]
 
@@ -1626,7 +1666,9 @@ is defined via the \emph{creation} and \emph{annihilation} operators, denoted $a
 
 where $\delta_{ij}$ is the Kronecker delta and $a_{x,k}^\#$ is either $a_{x,k}$ or $a_{x,k}^*$. The algebra of observables $\mathcal{U}_L$ is generated by the creation and annihilation operators, in the sense that each observable can be written as a linear combination of polynomials in $a_{x,k}$ and $a_{x,k}^*$. 
 
-Physically, the creation operator $a_{x,k}^*$ is interpreted as adding a state $\psi_{x,k}$ to the system at site $x$, and similarly the annihilation operator $a_{x,k}$ is associated with the removal of the state $\psi_{x,k}$. For our purposes, it suffices to assume that $q_x$ has an integer-valued spectrum for each $x$ and for all $L$, and we interpret $q_x$ as the number of charges at the site $x$. We emphasize that $H_1$ is supported on $[L/2,L]\times[0,L]$. The $\mu Q_h$ term in $H_E(\mu)$ introduces a driving strength; it can be viewed as a potential difference $V(x)$. 
+Physically, the creation operator $a_{x,k}^*$ is interpreted as adding a state $\psi_{x,k}$ to the system at site $x$, and similarly the annihilation operator $a_{x,k}$ is associated with the removal of the state $\psi_{x,k}$. For our purposes, it suffices to assume that $q_x$ has an integer-valued spectrum for each $x$ and for all $L$, and we interpret $q_x$ as the number of charges at the site $x$. 
+
+We emphasize that $H_1$ is supported on $[L/2,L]\times[0,L]$. We also note that the $\mu Q_h$ term in $H_E(\mu)$ introduces a driving strength; it can be viewed as a potential difference $V(x)$. 
 
 
 \begin{figure}[h!]
@@ -1665,7 +1707,7 @@ For any $X \in \Gamma_\text{right}$, the local interactions $\Phi(X)$ in the bul
 We assume that the bulk and edge Hamiltonians are both \emph{locally charge-conserving}.
 
 \begin{assumption}
-The Hamiltonians $H_E$ and $H_B$ are both sums of local interactions $\sum_X\Phi(X)+\mu Q_h$, and the each interaction $\Phi(X)$ conserves the total charge, $[\Phi(X),Q] = 0$, where $Q=\sum_{x\in\Gamma_L}a^*_xa_x$ is the total charge in $\Gamma_L$.
+The Hamiltonians $H_E$ and $H_B$ are both sums of local interactions $\sum_X\Phi(X)+\mu Q_h$, and the each interaction $\Phi(X)$ conserves the total charge, $[\Phi(X),Q] = 0$, where $Q=\sum_{x\in\Gamma_L}q_x$ is the total charge in $\Gamma_L$.
 \label{ass:charge}
 \end{assumption}
 
@@ -1779,7 +1821,7 @@ To summarize, the bulk and edge Hamiltonians are both finite-range, and follow a
 
 \subsection{The Current Operator}
 
-Let $Q_u = \sum_{x \in \Gamma_u} a_x^* a_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$ (the yellow region in Figure \ref{fig:setup}), and define current operator of the edge system,
+Let $Q_u = \sum_{x \in \Gamma_u} q_x$ be the charge in the upper half of the cylinder $\Gamma_u = [0,L] \times [L/2,L]$ (the yellow region in Figure \ref{fig:setup}), and define current operator of the edge system,
 
 \[J^E(\mu) = i[H_E(\mu),Q_u],\]
 
@@ -2530,7 +2572,7 @@ If $A$ is any operator on $\ell^2(\Z^2)$, then
 \end{lemma}
 
 
-\section{Projection-Values Measures}\label{sec:pvm}
+\section{Projection-Valued Measures}\label{sec:pvm}
 
 \emph{Projection-valued measures} are maps $P:\mathcal{M}\to\mathcal{B}(\mathcal{H})$ from measurable subsets of $\R$ to the space of bounded linear operators on $\mathcal{H}$ satisfying the usual properties of both projections and measures.
 
